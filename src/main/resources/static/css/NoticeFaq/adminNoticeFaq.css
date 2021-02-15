@@ -1,26 +1,26 @@
-/*--------------------- 공지사항 설명 부분 ---------------------*/
+/*--------------------- 관리자 공지사항 설명 부분 ---------------------*/
 #admin_notice .dl-horizontal{
-    margin-top: 43px;
+    margin-top: 62px;
 }
 #admin_notice dl dt{      
     font-size: 30px;
     text-align: left;
     width: 200px;    
-    color: rgb(107, 102, 102)
+    color: #567dac;
 }
 
 #admin_notice hr.style-five {
     margin-top: 25px;
     border: 0;
     height: 0;
-    box-shadow: 0 0 6px 1px rgb(75, 99, 121);
+    box-shadow: 0 0 6px 1px rgb(90, 117, 190);
     margin-bottom: 60px;
 }
 #admin_notice hr.style-five:after {  
     content: "\00a0"; 
 }
 
-/*--------------------- 공지사항 부분 ---------------------*/
+/*--------------------- 관리자 공지사항 부분 ---------------------*/
 #admin_notice #detail_Top{
     margin: 0 100px;    
 }
@@ -47,7 +47,7 @@
     width: 120px;
 }
 
-/*--------------------- 비밀글 부분 ---------------------*/
+/*--------------------- 관리자 비밀글 부분 ---------------------*/
 #admin_notice .secret_check {   
     position: relative;
     left: 80%;
@@ -75,9 +75,9 @@
     left:39.7%;
     margin-bottom: 20px;
 }
-#admin_notice #adminback #btnBack {    
+#admin_notice #adminback input {    
     height: 45px; 
-    background-color: rgb(231, 230, 230);    
+    background-color: rgb(245, 245, 245);    
     font-size: 20px;
     color: black;    
     margin: 0 15px;
@@ -93,7 +93,7 @@
 }
 #admin_notice #faqinsert_adminback #btnBack {    
     height: 45px; 
-    background-color: rgb(231, 230, 230);    
+    background-color: rgb(245, 245, 245);    
     font-size: 20px;
     color: black;    
     margin: 0 15px;

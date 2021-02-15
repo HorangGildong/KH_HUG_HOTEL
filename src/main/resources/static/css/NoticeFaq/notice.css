@@ -1,23 +1,23 @@
 /*--------------------- 공지사항 설명 부분 ---------------------*/
+#notice{
+	margin: 0 auto;
+}
 #notice .dl-horizontal{
     margin-top: 60px;
 }
 #notice dl dt{  
-    /* border:1px solid black; */
     font-size: 30px;
     text-align: left;
-    color: rgb(151, 83, 76)
+    color: #567dac;
 }
 #notice dl dd{
     display: inline-block;
-    /* border:1px solid black; */
     margin-left: -150px;
     margin-top: 10px;
 }
 
 /*--------------------- form태그 부분 ---------------------*/
 #notice #frm_notice{
-    /* position: relative; */
     margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     margin-top: 10px;    
 }
 #notice #frm_notice #total{
-    color: rgb(211, 101, 62);
+    color:rgb(78, 71, 141);
     font-weight: bold;       
 }
 #notice .form-control{
@@ -52,23 +52,45 @@
     border-bottom: 1px solid black;
 }
 #notice .table thead{
-    background-color: rgb(245, 234, 212);
+    background-color: rgb(213, 223, 250);
+}
+#notice .table .view{
+	cursor: pointer;
+}
+#notice .table .view #secret{
+	background-color: rgb(245, 242, 241);
+	color: rgb(224, 62, 34);
+	font-weight: bold;
 }
 
 /*--------------------- 글쓰기 부분 ---------------------*/
 #notice #writer{
     margin-top: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
 }
 #notice #writer input{
     text-align: center;
 }
 /*--------------------- 페이징 부분 ---------------------*/
-#notice .pagination {
+#notice #pagination {
     position:relative;
     left: 44%;
     margin-top: 0px;
     margin-bottom: 100px;
+    cursor: pointer;	    
 }
+#notice #user_pagination {
+    position:relative;
+    left: 44%;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    margin-top: 55px;
+    cursor: pointer;	    
+}
+#notice .pagination .btnHide{
+	pointer-events: none; 
+	cursor: default;
+}
+

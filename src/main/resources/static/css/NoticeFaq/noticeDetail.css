@@ -9,30 +9,28 @@
     border-collapse: collapse; 
      
 }
-#notice_detail table *{   
-   /*border: 1px solid black;*/
-}
+
 /*--------------------- 공지사항 설명 부분 ---------------------*/
 #notice_detail .dl-horizontal{
-    margin-top: 21px;
+    margin-top: 60px;
 }
 #notice_detail dl dt{      
     font-size: 30px;
     text-align: left;
-    color: rgb(151, 83, 76)
+    color: #567dac;
 }
 #notice_detail dl dd{
     display: inline-block;    
     margin-left: -150px;
     margin-top: 10px;
-    margin-bottom: 88px;   
+    margin-bottom: 85px;   
 }
 
 
 /*--------------------- 공지사항 부분 ---------------------*/
 #detail_Top #detail_1 th{    
     text-align: center;
-    background-color: rgb(245, 234, 212);
+    background-color: rgb(213, 223, 250);
     border-top: 1px solid black;     
 }
 #detail_Top #detail_1 th:nth-of-type(1){
@@ -61,7 +59,7 @@
     margin: 30px 30px;                        
     width: 1075px;
     height: auto;
-    background-color: rgb(244, 240, 240);
+    background-color: rgb(232, 237, 246);
 }
 #notice_detail #div_3{          
     display: inline-block;     
@@ -134,7 +132,7 @@
     width:120px;
     height: 30px; 
     border:0; 
-    background-color: rgb(244, 240, 240); 
+    background-color: rgb(232, 237, 246);
     font-weight: bold;
 }
 #notice_detail #detail_Middle2 #input9{ 
@@ -143,7 +141,7 @@
     height: 30px; 
     font-size: 14px; 
     border:0; 
-    background-color: rgb(244, 240, 240); 
+    background-color: rgb(232, 237, 246);
     color:rgb(133, 130, 130);
 }
 #notice_detail #detail_Middle2 #btnupdel{
@@ -186,7 +184,7 @@
 #notice_detail #back #btnBack{
     width: 80px;
     height: 45px;    
-    background-color: rgb(231, 230, 230);    
+    background-color: rgb(245, 245, 245);
     font-size: 20px;
     color: black;    
     margin-top: 50px;
@@ -194,15 +192,15 @@
 }
 
 /*---------- 관리자 뷰 ----------*/
-#notice_detail #adminback {
+#notice_detail #adminBack {
     display: flex;
     width: 240px;    
     position: relative;
     left:37.5%;
 }
-#notice_detail #adminback #btnBack {    
+#notice_detail #adminBack input {    
     height: 45px; 
-    background-color: rgb(231, 230, 230);    
+    background-color: rgb(245, 245, 245);    
     font-size: 20px;
     color: black;    
     margin: 0 15px;
@@ -212,18 +210,23 @@
 /*--------------------- 이전글 다음글 부분 ---------------------*/
 #detail_Footer{
     margin-top: 50px;
-    margin-bottom: 80px;
+    margin-bottom: 80px;    
 }
 #detail_Footer *{
-    text-align: center;
+   text-align: center;
 }
+
 #detail_Footer .footer_td{
-    text-align: left;
+	text-align: left;    
     padding-left: 20px;    
 }
 #detail_Footer th{
-    background-color: rgb(244, 238, 238);
+    background-color: rgb(213, 223, 250);
 }
 #detail_Footer .sContent{        
-    background-color: white;    
+    background-color: white;   
+    cursor: pointer;   
+}
+#detail_Footer .cursor{
+	cursor: pointer;
 }
