@@ -46,11 +46,13 @@ public class MainController {
 		mv.setViewName("Dining/diningView");		
 		return mv;		
 	}
+	
 	//Hotels 부대시설
 	@RequestMapping(value="/facilityView", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView facility() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Facility/facilityView");		
 		return mv;		
-	}	
+	}
+	
 }
