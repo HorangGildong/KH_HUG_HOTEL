@@ -23,14 +23,14 @@
                             <li><a href="/introduce#team-member">직원소개</a></li>
                             <li><a href="/introduce#intro-membership">회원권 소개</a></li>
                             <li><a href="/event">이벤트</a></li>
-                            <li><a href="/direction">오시는길</a></li>
+                            <li><a href="/directions">오시는길</a></li>
                         </ul>
                     </li>
                     <li><a href='#'>HOTELS</a>
                         <ul>
                             <li><a href="/guestRoomListView">객실</a></li>
-                            <li><a href="#">다이닝</a></li>
-                            <li><a href="#">부대시설</a></li>
+                            <li><a href="/diningView">다이닝</a></li>
+                            <li><a href="/facilityView">부대시설</a></li>
                         </ul>
                     </li>
                     <li><a href='#'>여행정보</a>
