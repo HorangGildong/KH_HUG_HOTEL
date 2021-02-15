@@ -1,0 +1,148 @@
+/*--------------------- 공지사항 설명 부분 ---------------------*/
+#faqmain .dl-horizontal{
+    margin-top: 60px;
+}
+#faqmain dl dt{  
+    /* border:1px solid black; */
+    font-size: 30px;
+    text-align: left;
+    color: rgb(151, 83, 76)
+}
+#faqmain dl dd{
+    display: inline-block;
+    /* border:1px solid black; */
+    margin-left: -150px;
+    margin-top: 10px;
+}
+
+/*--------------------- form태그 부분 ---------------------*/
+#faqmain #frm_faqmain{
+    /* position: relative; */
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#faqmain #frm_faqmain #span{
+    display: inline-block;
+    margin-left: 6px;
+    margin-top: 10px;    
+}
+#faqmain #frm_faqmain #total{
+    color: rgb(211, 101, 62);
+    font-weight: bold;       
+}
+#faqmain .form-control{
+    display: inline-block;
+    width: 90px;    
+    
+}
+#faqmain #frm_faqmain #text{
+    width: 150px;    
+}
+#faqmain #frm_faqmain #button{
+    display: inline-block;
+    width: 70px;
+    height: 34px;    
+    margin-bottom: 5px;
+}
+
+/*--------------------- 메뉴 부분 ---------------------*/
+#faqmain #menu{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    
+}
+#faqmain #menu li a{   
+    color: white; 
+    background-color: #9ec9df;   
+    display: inline-block;    
+    line-height: 42px;
+    text-align: center;   
+    font-weight: bold; 
+    width: 160px;
+    height: 42px;
+    font-size: 14px;
+    border:1px solid black; 
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#faqmain hr.style-five {
+    margin-top: 25px;
+    border: 0;
+    height: 0;
+    box-shadow: 0 0 6px 1px rgb(75, 99, 121);
+    margin-bottom: 60px;
+}
+#faqmain hr.style-five:after {  
+    content: "\00a0"; 
+}
+
+/*--------------------- 질문 부분 ---------------------*/
+#faqmain #cover{
+    border: 1px solid rgb(248, 246, 246);
+    background-color: white; 
+}
+#faqmain #cover img{
+    width: 20px;
+    
+}
+#faqmain #span1{
+    margin-left: 20px;
+    margin-right: 30px;
+}
+#faqmain #cover #span3{
+    position: relative;
+    left: 650px;
+}
+#faqmain #cover #span4{
+    position: relative;
+    left: 650px;    
+}
+#faqmain #cover #span4>img{
+    display: none;
+}
+
+/*--------------------- 답안 부분 ---------------------*/
+#faqmain #faqAnswer{
+    background-color: rgb(248, 247, 247);
+    color: rgb(140, 134, 134);
+    padding-left: 50px;   
+    padding-right:30px; 
+}
+#faqmain #btnupdel{
+    padding-top: 5px;
+    padding-left: 5px;
+}
+#faqmain #btnupdel input{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    width:45px;
+    height:28px;
+    position:relative;
+    left: 970px;
+    top: 0px;       
+}
+
+/*--------------------- 글쓰기 부분 ---------------------*/
+#faqmain #writer{
+    margin-top: 30px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#faqmain #writer input{
+    text-align: center;
+}
+
+/*--------------------- 페이징 부분 ---------------------*/
+#faqmain .pagination {
+    position:relative;
+    left: 40%;
+    margin-top: 0px;
+    margin-bottom: 90px; 
+}
