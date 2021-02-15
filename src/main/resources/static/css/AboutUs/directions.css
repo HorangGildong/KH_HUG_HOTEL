@@ -1,0 +1,134 @@
+.directions-section {
+    margin: 4% 9%;
+}
+
+
+/* directions-title start */
+
+.directions-title {
+    width: 100%;
+}
+
+.directions-title .name {
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+}
+
+.directions-title p {
+    font-size: 20px;
+    text-align: left;
+    margin: 15px 0 0 20px;
+}
+
+
+/* 지도 */
+
+#map {
+    margin: 0 5%;
+}
+
+.map-info {
+    width: 92%;
+    height: 50px;
+    margin: 0 4% 5% 4%;
+    background-color: rgb(190, 218, 232);
+}
+
+.map-info h4 {
+    float: left;
+    padding: 5px 0 5px 15px;
+    text-align: left;
+}
+
+.map-info h5 {
+    float: right;
+    font-size: 15px;
+    padding: 6px 15px 6px 0;
+    position: relative;
+    text-align: right;
+}
+
+
+/* 오시는길 방법 */
+
+.panel-group .panel .panel-heading {
+    background-color: rgb(190, 218, 232);
+}
+
+.panel-group .panel .panel-heading .panel-title a {
+    font-weight: bolder;
+}
+
+
+/* 층별안내 */
+
+.floor-info {
+    width: 100%;
+    height: 100%;
+}
+
+.floor-info h1 {
+    margin: 50px 0;
+    font-size: 33px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+
+/* 엘레베이터 */
+
+.tower {
+    display: inline-block;
+    background-color: grey;
+    left: 400px;
+    position: relative;
+    margin-left: 50px;
+}
+
+.floor {
+    width: 300px;
+    height: 100px;
+    color: white;
+    background-color: #193f6e;
+    margin: 10px 10px 10px 10px;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.elevator {
+    width: 300px;
+    height: 100px;
+    margin: -10px 10px 10px 10px;
+    background-color: #72a5d3;
+    position: absolute;
+    padding-left: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: default;
+}
+
+.brown {
+    color: black;
+    background-color: yellow;
+}
+
+.clickbrown {
+    color: black;
+    background-color: yellow;
+}
+
+.yellowgreen {
+    background-color: #bedae8;
+}
+
+.people {
+    position: absolute;
+    margin: -10px 10px 10px 10px;
+    width: 70px;
+    height: 100px;
+}
