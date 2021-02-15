@@ -21,7 +21,7 @@ public class GuestRoomController {
 	@RequestMapping("/insert")
 	public GuestRoomVO insert()throws Exception {
 		GuestRoomVO guestRoomVO = new GuestRoomVO();
-		guestRoomVO.setGuestRoomName("스탠다드");
+		guestRoomVO.setGuestRoomName("스탠다드yo");
 		guestRoomVO = guestRoomService.insert(guestRoomVO);
 		return guestRoomVO;
 	}
