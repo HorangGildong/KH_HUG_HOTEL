@@ -8,19 +8,34 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class MainController {
 
-	@RequestMapping(value="/", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView main() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("index");		
 		return mv;		
 	}
 	
-	@RequestMapping(value="/notice", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView aboutus() {
+	//About Us 호텔소개, 직원 소개, 멤버십 소개	
+	@RequestMapping(value="/introduce", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView introduce() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("notice/notice");		
+		mv.setViewName("AboutUs/introduce");		
 		return mv;		
 	}
 	
+	//About Us 이벤트	
+	@RequestMapping(value="/event", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView event() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("AboutUs/event");		
+		return mv;		
+	}
 	
+	//About Us 오시는길	
+	@RequestMapping(value="/directions", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView directions() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("AboutUs/directions");		
+		return mv;		
+	}
 }

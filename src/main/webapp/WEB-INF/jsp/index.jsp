@@ -4,13 +4,13 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+   	<!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <!-- <link href="../CSS/bootstrapCSS/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
+    <link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
 
     <!--글씨체 링크 한글-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,135 +21,215 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- <script src="https://kit.font.awesome.com/096073a2a8.js" crossorigin="anonymous"></script> -->
+
+	<!-- 객실, 다이닝 swiper -->	
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <link rel="shortcut icon" href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
     <title> H.U.G HOTEL 제주</title>
-
-
 </head>
 
 <body>
     <div class="wrap">
         <!--header-->
-        <header>
-            <div class="header text-center">
-                <h2><a href="../pages/index.html"><strong>H.U.G HOTEL</strong></a></h2>
-                <h5><strong>JEJU</strong></h5>
-            </div>
-            <nav id='cssmenu'>
-                <div id="head-mobile"></div>
-                <div class="button"></div>
-                <ul>
-                    <li><a href='#'>ABOUT US</a>
-                        <ul>
-                            <li><a href="#">호텔소개</a></li>
-                            <li><a href="#">직원소개</a></li>
-                            <li><a href="#">회원권 소개</a></li>
-                            <li><a href="#">이벤트</a></li>
-                            <li><a href="#">오시는길</a></li>
-                        </ul>
-                    </li>
-                    <li><a href='#'>HOTELS</a>
-                        <ul>
-                            <li><a href="#">객실</a></li>
-                            <li><a href="#">다이닝</a></li>
-                            <li><a href="#">부대시설</a></li>
-                        </ul>
-                    </li>
-                    <li><a href='#'>여행정보</a>
-                        <ul>
-                            <li><a href="#">관광</a></li>
-                            <li><a href="#">맛집</a></li>
-                        </ul>
-                    </li>
-                    <li><a href='/notice'>고객지원</a>
-                        <ul>
-                            <li><a href="/notice">공지사항</a></li>                                                     
-                            <li><a href="/faq">FAQ</a></li>                            
-                            <li><a href="#">Q&A</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">마이페이지</a>
-                        <ul>
-                            <li><a href="#">OVERVIEW</a></li>
-                            <li><a href="#">멤버십</a></li>
-                            <li><a href="#">예약내역</a></li>
-                            <li><a href="#">이용문의</a></li>
-                            <li><a href="#">회원정보수정</a></li>
-                        </ul>
-                    </li>
-                    <!-- <li><a href="#">관리자페이지</a>
-                        <ul>
-                            <li><a href="#">객실관리</a></li>
-                            <li><a href="#">고객지원관리</a>
-                                <ul>
-                                    <li><a href="#">공지사항 관리</a></li>
-                                    <li><a href="#">FAQ 관리</a></li>
-                                    <li><a href="#">Q&A 관리</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">회원관리</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li><a href='#'>로그인</a></li> -->
-                    <li><a href="#">로그아웃</a></li>
-                    <li><a href='#' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
-                </ul>
-            </nav>
-        </header>
+        <jsp:include page="common/header.jsp"/>
         <!--header end-->
         <!--section start-->
         <section>
+            <!-- 캐러셀 부분 시작 -->
+            <div id="carousel-generic" class="carousel slide">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-generic" data-slide-to="4"></li>
+                    <li data-target="#carousel-generic" data-slide-to="5"></li>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="img/hah_img/H.U.G 호텔5.png" alt="First slide">
+                        <div class="weather-container">
+                            <div class="weather-data">
+                                <h1 class="location">
+                                    🍊
+                                    <class class="fas fa-city"></class>
+                                </h1>
+                                <div class="current-time"></div>
+                            </div>
+                            <div class="weather-temp">
+                                <div class="current-temp"></div>
+                                <div class="icon"></div>
+                                <div class="feels-like">체감온도</div>
+                                <div class="max-temp"></div>
+                                <div class="min-temp"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Second slide">
 
+                    </div>
+                    <div class="item">
+                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Third slide">
+                    </div>
+                    <div class="item">
+                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Third slide">
+                    </div>
+                    <div class="item">
+                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Third slide">
+                    </div>
+                    <div class="item">
+                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Third slide">
+                    </div>
+
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+                    <img src="img/hah_img/left.png" class="control">
+                </a>
+                <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+                    <img src="img/hah_img/right.png" class="control">
+                </a>
+
+            </div>
+            <!--// 캐러셀 부분 끝  -->
+            <div class="contents">
+                <div class="main-room">
+                    <!-- Swiper -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <img class="swiper-slide" src="img/hah_img/room01.jpg">
+                            <img class="swiper-slide" src="img/hah_img/room01.jpg">
+                            <img class="swiper-slide" src="img/hah_img/room01.jpg">
+                            <img class="swiper-slide" src="img/hah_img/room01.jpg">
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="main-room-title">
+                        <h1>ROOM</h1>
+                        <h4>애메랄드 빛 바다와 천혜의 <br> 자연이 만들어내는 특별한 여행을 위한 공간</h4>
+                        <h5>스탠다드 / 슈페리어 / 디럭스 / 로얄</h5>
+                        <button type="button" class="room-button" onclick="location.href='';">▶</button>
+                    </div>
+                </div>
+                <div class="main-dining">
+                    <!-- Swiper -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
+                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
+                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
+                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="main-dining-title">
+                        <h1>DINING</h1>
+                        <h4>다채로운 미식의 세계로의 초대</h4>
+                        <h5>게스토랑 / 라운지 & 바</h5>
+                        <button type="button" class="dining-button" onclick="location.href='';">▶</button>
+                        <!-- <button class="dining-button"><a href="">▶</a></button> -->
+                    </div>
+                </div>
+                <div class="main-facility">
+                    <div class="main-facility-title">
+                        <h1>FACILITIES</h1>
+                        <h5>POOL / SAUNA / PITNESS / SPA / PARK / KIDS</h5>
+                        <button type="button" class="facility-button" onclick="location.href='';">▶</button>
+                    </div>
+                    <div class="halfGallery">
+                        <ul class="halfCont">
+                            <li class="on" style="width: 700px; transition: width 0.7s ease 0s;">
+                                <img src="img/hah_img/facility01.jpg" alt="">
+                            </li>
+                            <li style="transition: width 0.7s ease 0s;">
+                                <img src="img/hah_img/facility02.jpg" alt="">
+                            </li>
+                            <li style="transition: width 0.7s ease 0s;">
+                                <img src="img/hah_img/facility03.jpg" alt="">
+                            </li>
+                            <li style="transition: width 0.7s ease 0s;">
+                                <img src="img/hah_img/facility01.jpg" alt="">
+                            </li>
+                            <li style="transition: width 0.7s ease 0s;">
+                                <img src="img/hah_img/facility02.jpg" alt="">
+                            </li>
+                            <li style="transition: width 0.7s ease 0s;">
+                                <img src="img/hah_img/facility03.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main-membership">
+                    <h1>MEMBERSHIP</h1>
+                    <div class="contents">
+                        <div class="card">
+                            <div class="front"><img src="img/hah_img/Hmembership_F.png" alt=""></div>
+                            <div class="back"><img src="img/hah_img/Hmembership_B.png" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="explain">
+                        <h3>H.U.G H</h3>
+                        <h5>H.U.G 호텔의 멤버십은 객실 할인 혜택이 있는 H.U.G H 멤버십을 운영하고 있습니다. <br><br> 특이하게도 등급이 나뉘지 않고, 00% 할인을 해드립니다. <br><br> 자세한 문의는 신청 문의를 통해 전화해주시거나<br><br> 신청서 작성을 통하여 신청서 작성을 해주시길 바랍니다.<br><br> 신청문의. 064-123-4567 </h5>
+                        <button type="button">신청서 작성</button>
+                    </div>
+                </div>
+                <div class="main-event">
+                    <h1>EVENTS</h1>
+                    <h4>H.U.G 호텔에서 진행되는 다양한 이벤트를 소개합니다.</h4>
+                    <ul>
+                        <li class="first">
+                            <img src="img/hah_img/이벤트_1.png" alt="" style="height: 248px;">
+                            <h4><a href="">Floating Cinema</a></h4>
+                            <h5>2021.01.17 ~ 2021.03.17</h5>
+                        </li>
+                        <li class="second">
+                            <img src="img/hah_img/이벤트_2.jpg" alt="">
+                            <h4><a href="">소(牛) 해피 뉴이어 2021 프로모션</a></h4>
+                            <h5>2021.01.01 ~ 2021.03.05</h5>
+                        </li>
+                        <li class="last">
+                            <img src="img/hah_img/이벤트_3.png" alt="">
+                            <h4><a href="">Lounge Giving Day</a></h4>
+                            <h5>2020.12.26 ~ 2021.02.10</h5>
+                        </li>
+                    </ul>
+
+                    <a href="" class="allview">전체보기</a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
         </section>
         <!--section end-->
         <!--footer start-->
-        <footer>
-            <div class="footer-content text-center">
-                <div class="logo">
-                    <h2>H.U.G <br> HOTEL </h2>
-                    <h5>JEJU</h5>
-                </div>
-                <div class="footer-info">
-                    <ul>
-                        <li><a href="#" target="_blank">오시는길</a></li>
-                        <li><a href="#" target="_blank">사이트맵</a></li>
-                        <li>개인정보처리방침</li>
-                        <li>영상정보처리기기운영</li>
-                        <li>이용약관</li>
-                        <li><a href="#" target="_blank">고객센터</a></li>
-                    </ul>
-                    <address>
-                        (주)H.U.G 호텔 | 제주특별자치도 서귀포시 중문관광로 21길 21
-                        <br>
-                        대표이사 한만월 | TEL. 064-123-4567
-                        <br>
-                        E-MAIL. contact@hughotel.com
-                        <br>
-                        Copyright © 2021 H.U.G HOTELS Co. All rights reserved.
-                    </address>
-                    <div class="family-member">
-                        <select class="hughotel-member">
-                        <option>H.U.G HOTEL MEMBER</option>
-                        <option value="">곽재훈</option>
-                        <option value="">김법규</option>
-                        <option value="">김유찬</option>
-                        <option value="">최주영</option>
-                        <option value="">한아현</option>
-                        <option value="">함승우</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <jsp:include page="common/footer.jsp"/>
         <!--footer end-->
     </div>
-</body>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="js/bootstrapjs/bootstrap.min.js"></script>
+<script src="js/header.js"></script>
 <script src="js/index.js"></script>
+
+</body>
 
 </html>

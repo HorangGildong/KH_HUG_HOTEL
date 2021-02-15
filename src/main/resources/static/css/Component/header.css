@@ -10,10 +10,10 @@ body {
 }
 
 
-/* 메인 영역의 윗 부분이 헤더 영역의 뒤로 들어가서 일부 컨텐츠가 보이지 않는다. 
-이 것은 <header> 엘리먼트가 부모인 <body> 엘리먼트로 부터 완전히 독립되면서, 
-<body> 엘리먼트에서 점유하고 있던 <header> 엘리먼트 공간이 사라져버렸기 때문이다.
-그래서  <body> 엘리먼트의 상단에 메뉴바 높이 만큼 패딩(padding)을 줌 */
+/* 硫붿씤 �쁺�뿭�쓽 �쐵 遺�遺꾩씠 �뿤�뜑 �쁺�뿭�쓽 �뮘濡� �뱾�뼱媛��꽌 �씪遺� 而⑦뀗痢좉� 蹂댁씠吏� �븡�뒗�떎. 
+�씠 寃껋� <header> �뿕由щ㉫�듃媛� 遺�紐⑥씤 <body> �뿕由щ㉫�듃濡� 遺��꽣 �셿�쟾�엳 �룆由쎈릺硫댁꽌, 
+<body> �뿕由щ㉫�듃�뿉�꽌 �젏�쑀�븯怨� �엳�뜕 <header> �뿕由щ㉫�듃 怨듦컙�씠 �궗�씪�졇踰꾨졇湲� �븣臾몄씠�떎.
+洹몃옒�꽌  <body> �뿕由щ㉫�듃�쓽 �긽�떒�뿉 硫붾돱諛� �넂�씠 留뚰겮 �뙣�뵫(padding)�쓣 以� */
 
 .wrap {
     min-height: 100%;
@@ -28,6 +28,7 @@ header {
     right: 0;
     width: 100%;
     background: #72a5d3;
+    z-index: 1000;
 }
 
 .header {
@@ -41,6 +42,15 @@ header {
 .header a {
     color: #193f6e;
     display: block;
+}
+
+.header h2 {
+    margin-top: 0;
+    font-size: 32px;
+}
+
+.header h4 {
+    font-size: 20px;
 }
 
 nav {
@@ -324,7 +334,7 @@ nav {
         top: 22px;
         right: 20px;
         display: block;
-        height: 4px;
+        height: 8px;
         width: 20px;
         border-top: 2px solid #dddddd;
         border-bottom: 2px solid #dddddd;
@@ -338,7 +348,7 @@ nav {
         top: 16px;
         right: 20px;
         display: block;
-        height: 2px;
+        height: 1.5px;
         width: 20px;
         background: #ddd;
         content: ''
@@ -430,3 +440,4 @@ nav {
 
 
 /* header finish */
+
