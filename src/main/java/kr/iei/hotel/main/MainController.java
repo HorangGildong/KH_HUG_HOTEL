@@ -55,13 +55,21 @@ public class MainController {
 		return mv;		
 	}
 	
-	// 로그인
-	@RequestMapping(value="/member/login", method= {RequestMethod.GET, RequestMethod.POST})
+	// login
+	@RequestMapping(value="/login", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/login");		
 		return mv;		
-	}	
+	}
+	
+	// logout
+//	@RequestMapping(value="/logout", method= {RequestMethod.GET, RequestMethod.POST})
+//	public ModelAndView logout() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("member/???");		
+//		return mv;		
+//	}
 	
 	// myPage
 	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})

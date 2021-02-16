@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="/css/bootstrapcss/nomalize.css">
     
     <!-- <link rel="stylesheet" href="/css/bootstrapcss/bootstrap.min.css"> -->
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/css/styles.css">
@@ -38,7 +37,7 @@
         <!--header end-->
         
         <!--section start-->
-        <section style="position: relative; box-sizing: border-box; background-color: #3b6ba5; height: 600px;">
+        <section style="position: relative; box-sizing: border-box; height: 600px;">
 			<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center;">
 			  <h1 style="font-weight: 900;">로그인</h1>
 			  <br>
