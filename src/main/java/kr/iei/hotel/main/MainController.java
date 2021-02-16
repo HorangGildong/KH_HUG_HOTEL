@@ -55,36 +55,20 @@ public class MainController {
 		return mv;		
 	}
 	
-	// login
-	@RequestMapping(value="/login", method= {RequestMethod.GET, RequestMethod.POST})
+	// 로그인
+	@RequestMapping(value="/member/login", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/login");		
 		return mv;		
-	}
+	}	
 	
-	// logout
-//	@RequestMapping(value="/logout", method= {RequestMethod.GET, RequestMethod.POST})
-//	public ModelAndView logout() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("member/???");		
-//		return mv;		
-//	}
-	
-	// myPage 회원정보수정
+	// myPage
 	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView myPage() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("myPage/updateMember");
 		return mv;
-	}
-	// myPage 이용내역
-		@RequestMapping(value="/userInfo", method= {RequestMethod.GET, RequestMethod.POST})
-		public ModelAndView userInfo() {
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("myPage/userInfo");
-			return mv;
-		
 	}
 	
 }

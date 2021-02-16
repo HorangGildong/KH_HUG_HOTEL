@@ -28,7 +28,7 @@
                     </li>
                     <li><a href='#'>HOTELS</a>
                         <ul>
-                            <li><a href="/guestRoomListView">객실</a></li>
+                            <li><a href="/guestRoomView">객실</a></li>
                             <li><a href="/diningView">다이닝</a></li>
                             <li><a href="/facilityView">부대시설</a></li>
                         </ul>
