@@ -52,7 +52,7 @@
                             <li><a href="#">멤버십</a></li>
                             <li><a href="#">예약내역</a></li>
                             <li><a href="#">이용문의</a></li>
-                            <li><a href="#">회원정보수정</a></li>
+                            <li><a href='/myPage'>회원정보수정</a></li>
                         </ul>
                     </li>
                     <!-- <li><a href="#">관리자페이지</a>
@@ -68,8 +68,8 @@
                             <li><a href="#">회원관리</a></li>
                         </ul>
                     </li> -->
-                    <!-- <li><a href='#'>로그인</a></li> -->
-                    <li><a href="#">로그아웃</a></li>
+                    <li><a href='/member/login'>로그인</a></li>
+                    <!-- <li><a href="#">로그아웃</a></li> -->
                     <li><a href='#' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
                 </ul>
             </nav>

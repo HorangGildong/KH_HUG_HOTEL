@@ -55,4 +55,20 @@ public class MainController {
 		return mv;		
 	}
 	
+	//Hotels 로그인
+	@RequestMapping(value="/member/login", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView login() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/login");		
+		return mv;		
+	}	
+	
+	// myPage
+	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView myPage() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("myPage/updateMember");
+		return mv;
+	}
+	
 }
