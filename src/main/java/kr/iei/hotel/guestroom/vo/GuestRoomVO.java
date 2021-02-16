@@ -1,29 +1,55 @@
 package kr.iei.hotel.guestroom.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class GuestRoomVO {
-	private String guestRoomName; 
-	private int guestRoomCount; 
-	private String guestRoomContents1; 
+	private String guestRoomName;
+	private String guestRoomContents1;
 	private String guestRoomContents2;
+	private String guestRoomService1;
+	private String guestRoomService2;
+	private String guestRoomAmenity;
+	private String guestRoomInformation;
 	private String guestRoomImage1;
-	private String guestRoomImage2; 
-	private String guestRoomImage3; 
-	private String guestRoomImage4; 
-	private int guestRoomPrice; 
-	private int guestRoomArea; 
-	private String guestRoomBedType; 
-	private int standardPersonnel;
+	private String guestRoomImage2;
+	private String guestRoomImage3;
+	private String guestRoomImage4;
+	private MultipartFile image1;
+	private MultipartFile image2;
+	private MultipartFile image3;
+	private MultipartFile image4;
+	
+	
+	
+	public MultipartFile getImage1() {
+		return image1;
+	}
+	public void setImage1(MultipartFile image1) {
+		this.image1 = image1;
+	}
+	public MultipartFile getImage2() {
+		return image2;
+	}
+	public void setImage2(MultipartFile image2) {
+		this.image2 = image2;
+	}
+	public MultipartFile getImage3() {
+		return image3;
+	}
+	public void setImage3(MultipartFile image3) {
+		this.image3 = image3;
+	}
+	public MultipartFile getImage4() {
+		return image4;
+	}
+	public void setImage4(MultipartFile image4) {
+		this.image4 = image4;
+	}
 	public String getGuestRoomName() {
 		return guestRoomName;
 	}
 	public void setGuestRoomName(String guestRoomName) {
 		this.guestRoomName = guestRoomName;
-	}
-	public int getGuestRoomCount() {
-		return guestRoomCount;
-	}
-	public void setGuestRoomCount(int guestRoomCount) {
-		this.guestRoomCount = guestRoomCount;
 	}
 	public String getGuestRoomContents1() {
 		return guestRoomContents1;
@@ -36,6 +62,30 @@ public class GuestRoomVO {
 	}
 	public void setGuestRoomContents2(String guestRoomContents2) {
 		this.guestRoomContents2 = guestRoomContents2;
+	}
+	public String getGuestRoomService1() {
+		return guestRoomService1;
+	}
+	public void setGuestRoomService1(String guestRoomService1) {
+		this.guestRoomService1 = guestRoomService1;
+	}
+	public String getGuestRoomService2() {
+		return guestRoomService2;
+	}
+	public void setGuestRoomService2(String guestRoomService2) {
+		this.guestRoomService2 = guestRoomService2;
+	}
+	public String getGuestRoomAmenity() {
+		return guestRoomAmenity;
+	}
+	public void setGuestRoomAmenity(String guestRoomAmenity) {
+		this.guestRoomAmenity = guestRoomAmenity;
+	}
+	public String getGuestRoomInformation() {
+		return guestRoomInformation;
+	}
+	public void setGuestRoomInformation(String guestRoomInformation) {
+		this.guestRoomInformation = guestRoomInformation;
 	}
 	public String getGuestRoomImage1() {
 		return guestRoomImage1;
@@ -61,30 +111,5 @@ public class GuestRoomVO {
 	public void setGuestRoomImage4(String guestRoomImage4) {
 		this.guestRoomImage4 = guestRoomImage4;
 	}
-	public int getGuestRoomPrice() {
-		return guestRoomPrice;
-	}
-	public void setGuestRoomPrice(int guestRoomPrice) {
-		this.guestRoomPrice = guestRoomPrice;
-	}
-	public int getGuestRoomArea() {
-		return guestRoomArea;
-	}
-	public void setGuestRoomArea(int guestRoomArea) {
-		this.guestRoomArea = guestRoomArea;
-	}
-	public String getGuestRoomBedType() {
-		return guestRoomBedType;
-	}
-	public void setGuestRoomBedType(String guestRoomBedType) {
-		this.guestRoomBedType = guestRoomBedType;
-	}
-	public int getStandardPersonnel() {
-		return standardPersonnel;
-	}
-	public void setStandardPersonnel(int standardPersonnel) {
-		this.standardPersonnel = standardPersonnel;
-	} 
-
 	
 }
