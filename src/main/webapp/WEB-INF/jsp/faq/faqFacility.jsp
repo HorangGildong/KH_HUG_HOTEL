@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>faqFacility Page</title>
 </head>
 <body>
-<div>	
+<div id='faqmain'>
 	<%-- ─────────────────────────────────── form태그 부분 ─────────────────────────────────── --%>              
 	<form id='frm_faqmain' method='post' >
 		<div></div>
@@ -20,7 +21,6 @@
 	
 	      	<input type="text" id='text'class="form-control">            
 	      	<input type="button" id='button' class="form-control" value='Search'>
-			<input type='text' name='cate' id='cate' value='${param.cate }'>                          
 	  	</div>    
 	</form>
 	

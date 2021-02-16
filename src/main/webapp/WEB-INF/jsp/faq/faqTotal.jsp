@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,9 +26,10 @@
 <title>faqTotal Page</title>
 </head>
 <body>
-<div>	
+<div class="container">
+<div id='faqmain'>	
 	<%-- ─────────────────────────────────── form태그 부분 ─────────────────────────────────── --%>              
-	<form id='frm_faqmain' method='post' >
+	<form name='frm_faqmain' id='frm_faqmain' method='get' >
 		<div></div>
 	  	<div>
 	    	<select class="form-control">
@@ -37,15 +39,14 @@
 	      	</select>
 	
 	      	<input type="text" id='text'class="form-control">            
-	      	<input type="button" id='button' class="form-control" value='Search'>
-			<input type='text' name='cate' id='cate' value='${param.cate }'>                          
+	      	<input type="button" id='button' class="form-control" value='Search'>			                       
 	  	</div>    
 	</form>
 	
 	<%-- ──────────────────── 전체  ──────────────────── --%>				   				   		
 	<div class="panel-group" id="accordion1" >                                                
 		<div class="panel panel-default">
-		 	<c:forEach var='vo' items='${list }'>	               				                    			
+		 	<c:forEach var="vo" items="${list }">	               				                    			
 		   		<div class="panel-heading" id='cover'>
 		       		<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" id='faqQuestion'>
@@ -84,7 +85,7 @@
 
 </div>
 
-
+</div>
 
 
 

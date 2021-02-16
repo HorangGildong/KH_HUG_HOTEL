@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.iei.hotel.faq.vo.FaqVo;
+import kr.iei.hotel.notice.vo.NoticeVo;
 import kr.iei.hotel.notice.vo.Page;
 
 @RestController
@@ -34,8 +35,8 @@ public class FaqController {
 		mv.setViewName("faq/faqMain");		
 		return mv;		
 	}
-	
-	@RequestMapping(value="/faqTotal", method= {RequestMethod.GET, RequestMethod.POST})
+
+	@RequestMapping(value="faqTotal", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqTotal(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -44,6 +45,7 @@ public class FaqController {
 		page = (Page) map.get("page");
 				
 		System.out.println("faqTotal메인 check");
+		System.out.println(page.getTotListSize());
 		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
