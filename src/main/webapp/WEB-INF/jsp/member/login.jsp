@@ -26,7 +26,7 @@
         
         <!--section start-->
         <section>
-			<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center">
+			<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -80%); text-align: center">
 			  <h1 style="font-weight: 900;">로그인</h1>
 			  <br>
 			  <div class="container" style="width: 400px;">
