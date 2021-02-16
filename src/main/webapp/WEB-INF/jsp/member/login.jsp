@@ -9,11 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
-    <link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrapcss/nomalize.css">
+    <link rel="stylesheet" href="/css/bootstrapcss/bootstrap.min.css">
 
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- <link rel="stylesheet" href="css/각자페이지.css"> -->
+    <link rel="stylesheet" href="/css/styles.css">
 
     <link rel="shortcut icon" href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
     <title> H.U.G HOTEL 제주</title>
