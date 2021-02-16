@@ -64,7 +64,7 @@
                                     <span>위치</span> 1층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Dining/restaurant1.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/restaurant1"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                     <span>위치</span> 6층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Dining/restaurant2.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/restaurant2"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                                     <span>위치</span> 6층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Dining/rounge.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/rounge"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>

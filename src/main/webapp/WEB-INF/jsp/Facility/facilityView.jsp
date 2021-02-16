@@ -64,7 +64,7 @@
                                     <span>위치</span> 1층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Facility/pool.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/pool"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                     <span>위치</span> 1층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Facility/sauna.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/sauna"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                                     <span>위치</span> 지하 1층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Facility/pitness.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/pitness"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                                     <span>위치</span> 지하 1층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Facility/spa.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/spa"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                                     <span>위치</span> 지하 2층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Facility/park.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/park"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                                     <span>위치</span> 지하 2층
                                 </p>
 
-                                <a class="buttonTypeSmall" href="../Facility/kids.jsp"><span>상세 보기</span></a>
+                                <a class="buttonTypeSmall" href="/kids"><span>상세 보기</span></a>
                             </div>
                         </div>
                     </div>
