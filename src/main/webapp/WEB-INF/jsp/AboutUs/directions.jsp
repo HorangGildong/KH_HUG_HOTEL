@@ -12,6 +12,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
 <link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrapcss/kfonts2.css">
 
 
 <!--글씨체 링크 한글-->
@@ -50,7 +51,8 @@
 					<span class="name">DIRECTIONS</span>
 					<p>H.U.G 호텔에 오시는 방법 및 호텔 내부까지 안내해 드립니다.</p>
 				</div>
-				<div id="map" style="width: 90%; height: 500px;"></div>
+				<div id="map"></div>
+				
 				<div class="map-info">
 					<h4>제주특별자치도 서귀포시 중문관광로 21길 21 H.U.G 호텔</h4>
 					<h5>TEL. 064-123-4567</h5>
@@ -65,22 +67,18 @@
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="panel-body">Lorem ipsum dolor sit amet,
-									consectetur adipiscing elit. Nunc suscipit velit sit amet
-									tristique tincidunt. Fusce dapibus tortor ut est ornare
-									porttitor. Aliquam auctor bibendum posuere. Fusce laoreet
-									tincidunt lacinia. Aliquam posuere pharetra auctor.
-									Pellentesque et eleifend nibh, a bibendum lacus. Pellentesque
-									sit amet dignissim mauris. Suspendisse a erat congue nunc
-									auctor malesuada. Mauris ultricies magna quis neque egestas, eu
-									vehicula sapien luctus. Aenean id condimentum mauris. Integer
-									urna enim, vehicula non nunc non, feugiat imperdiet eros. Morbi
-									vitae est at erat tristique facilisis. Mauris pulvinar vel arcu
-									vel ultrices. Mauris a nisi sit amet urna elementum semper.
-									Etiam dignissim pharetra mauris. Donec rhoncus nisl sem, ut
-									ultrices odio porttitor sed. Donec consequat facilisis velit.
-									Cras feugiat tincidunt fermentum. Duis interdum nec quam id
-									eleifend.</div>
+								<div class="panel-body">
+								<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
+								운행시간 : 06:10 ~ 22:50 <br>
+								운행간격 : 14분 ~ 16분 <br>
+								탑승장소 : 도착장 5번 Gate <br>
+								소요시간 : 약 60분 <br>
+								<hr>
+								<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
+								운행시간 : 06:40 ~ 22:00 <br>
+								운행간격 : 14분 ~ 16분 <br>
+								탑승장소 : 제주 H.U.G 호텔 정문 앞 <br>
+								소요시간 : 약 60분 <br></div>
 							</div>
 						</div>
 						<div class="panel panel-default">
@@ -91,22 +89,19 @@
 								</h4>
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse ">
-								<div class="panel-body">Lorem ipsum dolor sit amet,
-									consectetur adipiscing elit. Nunc suscipit velit sit amet
-									tristique tincidunt. Fusce dapibus tortor ut est ornare
-									porttitor. Aliquam auctor bibendum posuere. Fusce laoreet
-									tincidunt lacinia. Aliquam posuere pharetra auctor.
-									Pellentesque et eleifend nibh, a bibendum lacus. Pellentesque
-									sit amet dignissim mauris. Suspendisse a erat congue nunc
-									auctor malesuada. Mauris ultricies magna quis neque egestas, eu
-									vehicula sapien luctus. Aenean id condimentum mauris. Integer
-									urna enim, vehicula non nunc non, feugiat imperdiet eros. Morbi
-									vitae est at erat tristique facilisis. Mauris pulvinar vel arcu
-									vel ultrices. Mauris a nisi sit amet urna elementum semper.
-									Etiam dignissim pharetra mauris. Donec rhoncus nisl sem, ut
-									ultrices odio porttitor sed. Donec consequat facilisis velit.
-									Cras feugiat tincidunt fermentum. Duis interdum nec quam id
-									eleifend.</div>
+								<div class="panel-body">
+								<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
+								운행시간 : 06:10 ~ 22:50 <br>
+								운행간격 : 14분 ~ 16분 <br>
+								탑승장소 : 도착장 5번 Gate <br>
+								소요시간 : 약 60분 <br>
+								<hr>
+								<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
+								운행시간 : 06:40 ~ 22:00 <br>
+								운행간격 : 14분 ~ 16분 <br>
+								탑승장소 : 제주 H.U.G 호텔 정문 앞 <br>
+								소요시간 : 약 60분 <br>
+								</div>
 							</div>
 						</div>
 						<div class="panel panel-default">
@@ -117,22 +112,18 @@
 								</h4>
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse">
-								<div class="panel-body">Lorem ipsum dolor sit amet,
-									consectetur adipiscing elit. Nunc suscipit velit sit amet
-									tristique tincidunt. Fusce dapibus tortor ut est ornare
-									porttitor. Aliquam auctor bibendum posuere. Fusce laoreet
-									tincidunt lacinia. Aliquam posuere pharetra auctor.
-									Pellentesque et eleifend nibh, a bibendum lacus. Pellentesque
-									sit amet dignissim mauris. Suspendisse a erat congue nunc
-									auctor malesuada. Mauris ultricies magna quis neque egestas, eu
-									vehicula sapien luctus. Aenean id condimentum mauris. Integer
-									urna enim, vehicula non nunc non, feugiat imperdiet eros. Morbi
-									vitae est at erat tristique facilisis. Mauris pulvinar vel arcu
-									vel ultrices. Mauris a nisi sit amet urna elementum semper.
-									Etiam dignissim pharetra mauris. Donec rhoncus nisl sem, ut
-									ultrices odio porttitor sed. Donec consequat facilisis velit.
-									Cras feugiat tincidunt fermentum. Duis interdum nec quam id
-									eleifend.</div>
+								<div class="panel-body">
+								<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
+								운행시간 : 06:10 ~ 22:50 <br>
+								운행간격 : 14분 ~ 16분 <br>
+								탑승장소 : 도착장 5번 Gate <br>
+								소요시간 : 약 60분 <br>
+								<hr>
+								<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
+								운행시간 : 06:40 ~ 22:00 <br>
+								운행간격 : 14분 ~ 16분 <br>
+								탑승장소 : 제주 H.U.G 호텔 정문 앞 <br>
+								소요시간 : 약 60분 <br></div>
 							</div>
 						</div>
 					</div>
@@ -169,7 +160,11 @@
 		crossorigin="anonymous"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  
+	<script src="js/bootstrapjs/bootstrap.min.js"></script>
 	<script src="js/header.js"></script>
 
 	<!-- 카카오맵 api -->

@@ -8,11 +8,11 @@
 
 .intro-title {
     width: 100%;
-    height: 250px;
+    height: 100%;
 }
 
 .intro-title .name {
-    font-size: 50px;
+    font-size: 3.3vw;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
 }
@@ -21,11 +21,12 @@
 .intro-title .second,
 .intro-title .third {
     width: 1245px;
+    height: 50px;
 }
 
 .intro-title h3 {
     float: left;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: bolder;
     margin: 0.8% 0;
     color: #193f6e;
@@ -67,26 +68,23 @@
 
 /* intro-content start */
 
-.intro-content {
-    width: 100%;
-    height: 900px;
-}
 
 .intro-content p {
-    font-size: 18px;
-    margin-bottom: 80px;
-    line-height: 35px;
+    font-size: 1.2vw;
+    margin-top: 3%;
+    margin-bottom: 6%;
+    line-height: 190%;
 }
 
 .intro-content .swiper-container {
     width: 100%;
-    height: 700px;
+    max-height: 100%;
     float: left;
 }
 
 .intro-content .swiper-container .swiper-wrapper img {
     width: 100%;
-    height: 700px;
+    max-height: 70%;
 }
 
 .intro-content .swiper-container .swiper-button-next,
@@ -108,23 +106,24 @@
 .intro-explain {
     width: 100%;
     height: 100%;
+    margin-top: 60%;
     margin-bottom: 50px;
 }
 
 .intro-explain h2 {
     position: absolute;
     width: 45%;
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: bolder;
     margin-top: 0;
-    line-height: 50px;
+    line-height: 164%;
 }
 
 .intro-explain p {
-    font-size: 18px;
+    font-size: 1.2vw;
     padding-left: 53%;
     margin-top: 2.5%;
-    line-height: 35px;
+    line-height: 190%;
 }
 
 
@@ -138,11 +137,13 @@
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
+    font-size: 2.4vw;
 }
 
 .theme-color h4 {
     margin-top: 25px;
     text-align: center;
+    font-size: 1.3vw;
 }
 
 .theme-color .txt_required {
@@ -154,13 +155,13 @@
     width: 1245px;
     height: 200px;
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
 }
 
 .theme-color ul li {
     float: left;
     position: relative;
-    width: 100px;
+    width: 8%;
     margin: 2.5% 5.2%;
 }
 
@@ -185,24 +186,26 @@
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
+    font-size: 2.4vw;
 }
 
 .team-member h4 {
     margin-top: 25px;
     text-align: center;
+    font-size: 1.3vw;
 }
 
 .team-member ul {
     width: 100%;
     height: 200px;
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
 }
 
 .team-member ul li {
     float: left;
     position: relative;
-    width: 100px;
+    width: 8%;
     margin: 30px 44px;
 }
 
@@ -221,26 +224,31 @@
 
 
 /* 멤버십 start */
+.intro-membership {
+    margin-bottom: 1%;
+}
 
 .intro-membership h1 {
-    margin-top: 50px;
+    margin-top: 43px;
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
+    font-size: 2.4vw;
 }
 
 .intro-membership .ms-contents {
     float: left;
     margin-top: 50px;
-    width: 600px;
+    width: 43.9%; 
+    /* 43.9 */
     height: 300px;
     background-color: #193f6e;
     background-color: rgba(47, 138, 241, 0.1);
 }
 
 .intro-membership .card {
-    width: 341px;
-    margin: 50px 0 0 130px;
+    width: 57%;
+    margin: 10% 0 0 21.8%;
     /* padding: 60px 0; */
     position: relative;
     transform-style: preserve-3d;
@@ -258,15 +266,18 @@
     z-index: 1;
     transform: rotateY(180deg);
 }
-
+.intro-membership .card img {
+	width: 100%;
+	height: 100%;
+}
 .intro-membership .card:hover {
     transform: rotateY(180deg);
 }
 
 .intro-membership .explain {
     position: relative;
-    margin: 60px 0 0 650px;
-    width: 565px;
+    margin: 60px 0 0 51.2%;
+    width: 600px;
     height: 300px;
     /* background-color: beige; */
 }
@@ -276,20 +287,21 @@
     font-weight: bolder;
     padding-top: 35px;
     color: #193f6e;
+    font-size: 1.6vw;
 }
 
 .explain h5 {
     padding-top: 10px;
+    font-size: 1vw;
 }
 
 .explain button {
-    width: 100px;
-    height: 30px;
-    margin: 10px 20px 0 400px;
+    width: 17%;
+    height: 10%;
+    margin: 10px 20px 0 73%;
     background-color: #193f6e;
     color: white;
     border-radius: 8%;
+    font-size: 1vw;
 }
-
-
 /* 멤버십 finish */
