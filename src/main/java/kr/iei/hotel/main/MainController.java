@@ -63,4 +63,12 @@ public class MainController {
 		return mv;		
 	}	
 	
+	// myPage
+	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView myPage() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("myPage/updateMember");
+		return mv;
+	}
+	
 }

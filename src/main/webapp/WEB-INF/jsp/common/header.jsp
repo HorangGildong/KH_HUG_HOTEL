@@ -52,7 +52,7 @@
                             <li><a href="#">멤버십</a></li>
                             <li><a href="#">예약내역</a></li>
                             <li><a href="#">이용문의</a></li>
-                            <li><a href="#">회원정보수정</a></li>
+                            <li><a href='/myPage'>회원정보수정</a></li>
                         </ul>
                     </li>
                     <!-- <li><a href="#">관리자페이지</a>
