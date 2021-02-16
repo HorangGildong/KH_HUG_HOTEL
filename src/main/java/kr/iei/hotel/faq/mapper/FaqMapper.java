@@ -14,5 +14,11 @@ public interface FaqMapper {
 
 	public int tot_list_size(Page page);
 	public List<FaqVo> select(Page page);
+	public List<FaqVo> faqGuide(Page page);
+	public List<FaqVo> faqRoom(Page page);
+	public List<FaqVo> faqDining(Page page);
+	public List<FaqVo> faqFacility(Page page);
+	public List<FaqVo> faqPayment(Page page);
+	public List<FaqVo> faqEtc(Page page);
 
 }

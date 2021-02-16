@@ -22,8 +22,15 @@
     <!-- Bootstrap -->
     <link href="css/bootstrapcss/bootstrap.min.css" rel="stylesheet">    
     <link href="css/bootstrapcss/custom2.css" rel="stylesheet">
-    <link href="css/bootstrapcss/kfonts2.css" rel="stylesheet">
-   
+	
+	<!--글씨체 링크 한글-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!--글씨체 링크 영어-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+		   
     <script>
     	click1 = function(id){
     		alert(id);

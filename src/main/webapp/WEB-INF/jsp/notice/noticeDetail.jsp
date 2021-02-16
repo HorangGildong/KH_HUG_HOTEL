@@ -22,8 +22,25 @@
     <!-- Bootstrap -->
     <link href="css/bootstrapcss/bootstrap.min.css" rel="stylesheet">    
     <link href="css/bootstrapcss/custom2.css" rel="stylesheet">
-    <link href="css/bootstrapcss/kfonts2.css" rel="stylesheet">	
+	
+	<!--글씨체 링크 한글-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
+    <!--글씨체 링크 영어-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+	
+	<style>
+		@font-face{
+		  font-family:'NanumBarunGothic';
+		  src:url("../fonts/NanumBarunGothic.eot");
+		  src:local("☺"),url("../fonts/NanumBarunGothic.woff") format("woff");
+		}
+		
+		section {font-family: "맑은 고딕","Malgun Gothic",  sans-serif; }				
+	</style>
+		
     <title>공지사항 상세페이지</title>
     
     <script>
@@ -174,8 +191,8 @@
 	                <span id='back'>
 	                    <input type="button" id='btnBack' value='목록' class="form-control">
 	                    <input type='hidden' name='menu' value="${param.menu }">
-	                    <input type='hidden' name='nowPage' value="${param.nowPage }">
-	                    <input type='hidden' name='nNo' value="${param.nNo}">
+						<input type='hidden' name='nowPage' value="${param.nowPage }">
+						<input type='hidden' name='nNo' value="${param.nNo}">
 	                    <input type="hidden" name='findStr' value="${param.findStr }"> 
 	                    <input type='hidden' name='totalPage' value='${param.totalPage }'>                   
 	                </span>
@@ -183,7 +200,7 @@
                 
 	<%-- ─────────────────────────────────── 이전글 다음글  부분 ─────────────────────────────────── --%> 
                 <table class='table table-bordered' id='detail_Footer'>
-                    <tr class='footer_tr' height='40' onclick="notice.preArticle(${vo1.preNo})">
+					<tr class='footer_tr' height='40' onclick="notice.preArticle(${vo1.preNo})">
                         <th class='cursor' width='100px'>이전글</th>                        
                         <td class='footer_td' width='1000px'><input class='sContent' type="button" value='${vo1.preNo }&emsp;&emsp;${vo1.preTitle }'></td>
                         <td class='cursor' width='150px'><fmt:formatDate pattern="yyyy-MM-dd" value="${vo1.preDate }"/></td>

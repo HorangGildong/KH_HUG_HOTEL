@@ -45,6 +45,150 @@ public class FaqDao implements FaqService {
 		
 		return map;
 	}
+
+	@Override
+	public Map<String, Object> faqGuide(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<FaqVo> list = null;
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_list_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.faqGuide(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> faqRoom(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<FaqVo> list = null;
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_list_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.faqRoom(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> faqDining(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<FaqVo> list = null;
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_list_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.faqDining(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> faqFacility(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<FaqVo> list = null;
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_list_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.faqFacility(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> faqPayment(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<FaqVo> list = null;
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_list_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.faqPayment(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> faqEtc(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<FaqVo> list = null;
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_list_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.faqEtc(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
 	
 	
 }

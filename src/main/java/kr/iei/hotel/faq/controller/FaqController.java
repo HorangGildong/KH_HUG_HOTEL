@@ -36,7 +36,7 @@ public class FaqController {
 		return mv;		
 	}
 
-	@RequestMapping(value="faqTotal", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/faqTotal", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqTotal(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -57,7 +57,7 @@ public class FaqController {
 	public ModelAndView faqGuide(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.select(page);
+		Map<String, Object> map = service.faqGuide(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");
 				
@@ -73,7 +73,7 @@ public class FaqController {
 	public ModelAndView faqRoom(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.select(page);
+		Map<String, Object> map = service.faqRoom(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");
 				
@@ -89,7 +89,7 @@ public class FaqController {
 	public ModelAndView faqDining(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.select(page);
+		Map<String, Object> map = service.faqDining(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");
 				
@@ -105,7 +105,7 @@ public class FaqController {
 	public ModelAndView faqFacility(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.select(page);
+		Map<String, Object> map = service.faqFacility(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");
 				
@@ -121,7 +121,7 @@ public class FaqController {
 	public ModelAndView faqPayment(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.select(page);
+		Map<String, Object> map = service.faqPayment(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");
 				
@@ -137,7 +137,7 @@ public class FaqController {
 	public ModelAndView faqEtc(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.select(page);
+		Map<String, Object> map = service.faqEtc(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");
 				

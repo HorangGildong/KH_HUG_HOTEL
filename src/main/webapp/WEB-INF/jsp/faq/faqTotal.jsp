@@ -4,32 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
-    <link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
-	
-	<!-- css, js 링크 연결 -->
-    <link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/NoticeFaq/faqmain.css">
-	
-	<link rel="shortcut icon" href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
-	
-    <!-- Bootstrap -->
-    <link href="css/bootstrapcss/bootstrap.min.css" rel="stylesheet">    
-    <link href="css/bootstrapcss/custom2.css" rel="stylesheet">
-    <link href="css/bootstrapcss/kfonts2.css" rel="stylesheet">
-
 <title>faqTotal Page</title>
 </head>
 <body>
-<div class="container">
+
 <div id='faqmain'>	
 	<%-- ─────────────────────────────────── form태그 부분 ─────────────────────────────────── --%>              
-	<form name='frm_faqmain' id='frm_faqmain' method='get' >
+	<form id='frm_faqmain' method='get' >
 		<div></div>
 	  	<div>
 	    	<select class="form-control">
@@ -44,12 +25,13 @@
 	</form>
 	
 	<%-- ──────────────────── 전체  ──────────────────── --%>				   				   		
-	<div class="panel-group" id="accordion1" >                                                
+	<div class="panel-group" id="accordion" >                                                
 		<div class="panel panel-default">
+			<c:set var='count' value='1'/>
 		 	<c:forEach var="vo" items="${list }">	               				                    			
 		   		<div class="panel-heading" id='cover'>
 		       		<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" id='faqQuestion'>
+              			<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${count }" id='faqQuestion'>
 				        	<div onclick='faqClick()'>
 				            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${vo.category }</span>
 								<span id='span2'>${vo.question }</span>
@@ -59,15 +41,16 @@
 						</a>
 					</h4>
 				</div>			                     	 
-				<div id='collapseTwo' class="panel-collapse collapse ">
-					<div class="panel-body" id='faqAnswer'>
+				<div id="collapseOne${count }" class="panel-collapse collapse">
+            		<div class="panel-body" id='faqAnswer'>
 		           		${vo.answer }
 						<div id='btnupdel'>
 		                	<span id='span5'><input type="button" value="수정"></span>
 		                    <span id='span6'><input type="button" value="삭제"></span>
 						</div>
 					</div>
-				</div>							
+				</div>	
+				<c:set var='count' value='${count +1 }'/>					
 			</c:forEach>					                       
 		</div>
 	</div>
@@ -85,7 +68,7 @@
 
 </div>
 
-</div>
+
 
 
 

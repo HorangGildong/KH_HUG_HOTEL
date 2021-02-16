@@ -21,9 +21,26 @@
     <!-- Bootstrap -->
     <link href="css/bootstrapcss/bootstrap.min.css" rel="stylesheet">    
     <link href="css/bootstrapcss/custom2.css" rel="stylesheet">
-    <link href="css/bootstrapcss/kfonts2.css" rel="stylesheet">	
-    <script src="js/bootstrapjs/bootstrap.min.js"></script>    
+    <script src="js/bootstrapjs/bootstrap.min.js"></script>     
 
+	<!--글씨체 링크 한글-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!--글씨체 링크 영어-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+	
+	<style>
+		@font-face{
+		  font-family:'NanumBarunGothic';
+		  src:url("../fonts/NanumBarunGothic.eot");
+		  src:local("☺"),url("../fonts/NanumBarunGothic.woff") format("woff");
+		}
+		
+		section {font-family: "맑은 고딕","Malgun Gothic",  sans-serif; }				
+	</style>
+		
     <!-- 썸머노트 에디터 -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

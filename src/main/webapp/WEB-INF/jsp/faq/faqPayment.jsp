@@ -24,13 +24,14 @@
 	  	</div>    
 	</form>
 	
-	<%-- ──────────────────── 전체  ──────────────────── --%>				   				   		
-	<div class="panel-group" id="accordion1" >                                                
+	<%-- ──────────────────── 결제  ──────────────────── --%>				   				   		
+	<div class="panel-group" id="accordion" >                                                
 		<div class="panel panel-default">
+			<c:set var='count' value='1'/>
 		 	<c:forEach var='vo' items='${list }'>	               				                    			
 		   		<div class="panel-heading" id='cover'>
 		       		<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" id='faqQuestion'>
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${count }" id='faqQuestion'>
 				        	<div onclick='faqClick()'>
 				            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${vo.category }</span>
 								<span id='span2'>${vo.question }</span>
@@ -40,7 +41,7 @@
 						</a>
 					</h4>
 				</div>			                     	 
-				<div id='collapseTwo' class="panel-collapse collapse ">
+				<div id='collapseOne${count }' class="panel-collapse collapse ">
 					<div class="panel-body" id='faqAnswer'>
 		           		${vo.answer }
 						<div id='btnupdel'>
@@ -48,7 +49,8 @@
 		                    <span id='span6'><input type="button" value="삭제"></span>
 						</div>
 					</div>
-				</div>							
+				</div>		
+				<c:set var='count' value='${count +1 }'/>					
 			</c:forEach>					                       
 		</div>
 	</div>
@@ -69,25 +71,5 @@
 
 
 
-
-<script>
-var faqClick = function(){
-    var beforeimg = $('#span3 img');
-    var afterimg = $('#span4 img');
-
-    if(beforeimg.attr("src") == "img/kjh_img/allowBottom.PNG" ) {
-        // $(beforeimg).css('display','none');
-        // $(afterimg).css('display');        
-        $(beforeimg).attr('style','display:none');
-        $(beforeimg).attr('src','aa.PNG');
-        $(afterimg).attr('style','display: inline-block');
-        
-    } else {
-        $(afterimg).attr('style','display:none');
-        $(beforeimg).attr('style','display: inline-block');
-        $(beforeimg).attr('src','img/kjh_img/allowBottom.PNG');
-    }
-}
-</script>
 </body>
 </html>

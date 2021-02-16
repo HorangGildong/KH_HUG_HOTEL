@@ -12,14 +12,6 @@
     <link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
     <link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
 
-    <!--글씨체 링크 한글-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
-    <!--글씨체 링크 영어-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/index.css">
     <!-- <script src="https://kit.font.awesome.com/096073a2a8.js" crossorigin="anonymous"></script> -->

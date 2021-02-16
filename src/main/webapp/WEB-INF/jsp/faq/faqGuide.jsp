@@ -4,11 +4,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<script src="js/NoticeFaq/faq.js"></script>
+<script>
+
+function getID(id){
+	return document.getElementById(id);
+}
+var faq = function(){
+	
+	var questclick = getID('questclick');
+	
+	if(questclick != null){
+		questclick.onclick = function(){
+			alert('클릭했어?');
+		}
+	}
+	
+}
+</script>
 <title>faqGuide Page</title>
 </head>
 <body>
 <div id='faqmain'>
+            <div class="container"> 
+
 	<%-- ─────────────────────────────────── form태그 부분 ─────────────────────────────────── --%>              
 	<form id='frm_faqmain' method='post' >
 		<div></div>
@@ -24,23 +43,24 @@
 	  	</div>    
 	</form>
 	
-	<%-- ──────────────────── 전체  ──────────────────── --%>				   				   		
-	<div class="panel-group" id="accordion1" >                                                
+	<%-- ──────────────────── 이용안내  ──────────────────── --%>				   				   		
+	<div class="panel-group" id="accordion" >                                                
 		<div class="panel panel-default">
+			<c:set var='count' value='1'/>
 		 	<c:forEach var='vo' items='${list }'>	               				                    			
 		   		<div class="panel-heading" id='cover'>
 		       		<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" id='faqQuestion'>
-				        	<div onclick='faqClick()'>
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${count }" id='faqQuestion'>
+			       			<span id='questclick'>				       
 				            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${vo.category }</span>
 								<span id='span2'>${vo.question }</span>
 								<span id='span3'><img name='before' src="img/kjh_img/allowBottom.PNG"></span>
-								<span id='span4'><img name='after' src="img/kjh_img/allowTop.PNG"></span>
-							</div>                                
+								<span id='span4'><img name='after' src="img/kjh_img/allowTop.PNG"></span>                
+							</span>
 						</a>
 					</h4>
 				</div>			                     	 
-				<div id='collapseTwo' class="panel-collapse collapse ">
+				<div id='collapseOne${count }' class="panel-collapse collapse ">
 					<div class="panel-body" id='faqAnswer'>
 		           		${vo.answer }
 						<div id='btnupdel'>
@@ -48,8 +68,10 @@
 		                    <span id='span6'><input type="button" value="삭제"></span>
 						</div>
 					</div>
-				</div>							
+				</div>		
+				<c:set var='count' value='${count +1 }'/>					
 			</c:forEach>					                       
+		</div>
 		</div>
 	</div>
 
@@ -67,27 +89,7 @@
 </div>
 
 
+<script>faq()</script>
 
-
-
-<script>
-var faqClick = function(){
-    var beforeimg = $('#span3 img');
-    var afterimg = $('#span4 img');
-
-    if(beforeimg.attr("src") == "img/kjh_img/allowBottom.PNG" ) {
-        // $(beforeimg).css('display','none');
-        // $(afterimg).css('display');        
-        $(beforeimg).attr('style','display:none');
-        $(beforeimg).attr('src','aa.PNG');
-        $(afterimg).attr('style','display: inline-block');
-        
-    } else {
-        $(afterimg).attr('style','display:none');
-        $(beforeimg).attr('style','display: inline-block');
-        $(beforeimg).attr('src','img/kjh_img/allowBottom.PNG');
-    }
-}
-</script>
 </body>
 </html>

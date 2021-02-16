@@ -21,5 +21,77 @@
 		) where no between #{startNo} and #{endNo} 
 		order by id asc
 	</select>
+	
+	<select id="faqGuide" resultType='kr.iei.hotel.faq.vo.FaqVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, f.* from (
+				select * from faq 
+            	where question like '%${findStr}%' 
+            	or	  answer   like '%${findStr}%'			 
+				order by id asc) f
+				where category = '[이용안내]'
+		) where no between #{startNo} and #{endNo} 
+		order by id asc
+	</select>
+	
+	<select id="faqRoom" resultType='kr.iei.hotel.faq.vo.FaqVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, f.* from (
+				select * from faq 
+            	where question like '%${findStr}%' 
+            	or	  answer   like '%${findStr}%'			 
+				order by id asc) f
+				where category = '[객실]'
+		) where no between #{startNo} and #{endNo} 
+		order by id asc
+	</select>
+	
+	<select id="faqDining" resultType='kr.iei.hotel.faq.vo.FaqVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, f.* from (
+				select * from faq 
+            	where question like '%${findStr}%' 
+            	or	  answer   like '%${findStr}%'			 
+				order by id asc) f
+				where category = '[다이닝]'
+		) where no between #{startNo} and #{endNo} 
+		order by id asc
+	</select>
+	
+	<select id="faqFacility" resultType='kr.iei.hotel.faq.vo.FaqVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, f.* from (
+				select * from faq 
+            	where question like '%${findStr}%' 
+            	or	  answer   like '%${findStr}%'			 
+				order by id asc) f
+				where category = '[부대시설]'
+		) where no between #{startNo} and #{endNo} 
+		order by id asc
+	</select>
+	
+	<select id="faqPayment" resultType='kr.iei.hotel.faq.vo.FaqVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, f.* from (
+				select * from faq 
+            	where question like '%${findStr}%' 
+            	or	  answer   like '%${findStr}%'			 
+				order by id asc) f
+				where category = '[결제]'
+		) where no between #{startNo} and #{endNo} 
+		order by id asc
+	</select>
+	
+	<select id="faqEtc" resultType='kr.iei.hotel.faq.vo.FaqVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, f.* from (
+				select * from faq 
+            	where question like '%${findStr}%' 
+            	or	  answer   like '%${findStr}%'			 
+				order by id asc) f
+				where category = '[기타]'
+		) where no between #{startNo} and #{endNo} 
+		order by id asc
+	</select>
 
 </mapper>
