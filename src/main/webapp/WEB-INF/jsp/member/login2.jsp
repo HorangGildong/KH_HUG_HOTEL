@@ -18,16 +18,6 @@
     <link rel="stylesheet" href="/css/styles.css">
 
     <link rel="shortcut icon" href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
-    
-    <!--글씨체 링크 한글-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
-    <!--글씨체 링크 영어-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    
-    
     <title> H.U.G HOTEL 제주</title>
 </head>
 
@@ -38,8 +28,8 @@
         <!--header end-->
         
         <!--section start-->
-        <section style="position: relative; box-sizing: border-box; background-color: #3b6ba5; height: 600px;">
-			<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center;">
+        <section>
+			<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -80%); text-align: center">
 			  <h1 style="font-weight: 900;">로그인</h1>
 			  <br>
 			  <div class="container" style="width: 400px;">
