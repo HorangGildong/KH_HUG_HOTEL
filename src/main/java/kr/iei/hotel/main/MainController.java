@@ -71,12 +71,20 @@ public class MainController {
 //		return mv;		
 //	}
 	
-	// myPage
+	// myPage 회원정보수정
 	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView myPage() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("myPage/updateMember");
 		return mv;
+	}
+	// myPage 이용내역
+		@RequestMapping(value="/userInfo", method= {RequestMethod.GET, RequestMethod.POST})
+		public ModelAndView userInfo() {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("myPage/userInfo");
+			return mv;
+		
 	}
 	
 }

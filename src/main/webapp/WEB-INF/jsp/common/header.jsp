@@ -51,7 +51,7 @@
                             <li><a href="#">OVERVIEW</a></li>
                             <li><a href="#">멤버십</a></li>
                             <li><a href="#">예약내역</a></li>
-                            <li><a href="#">이용문의</a></li>
+                            <li><a href='/userInfo'>이용문의</a></li>
                             <li><a href='/myPage'>회원정보수정</a></li>
                         </ul>
                     </li>
