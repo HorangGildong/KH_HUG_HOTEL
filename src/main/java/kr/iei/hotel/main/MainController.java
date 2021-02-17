@@ -56,12 +56,20 @@ public class MainController {
 	}
 	
 	// 로그인
-	@RequestMapping(value="/member/login", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/login", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/login");		
 		return mv;		
-	}	
+	}
+	
+	// 로그인
+	@RequestMapping(value="/signUp", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView signUp() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/signUp");		
+		return mv;		
+	}
 	
 	// myPage
 	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
