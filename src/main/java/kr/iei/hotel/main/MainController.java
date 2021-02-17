@@ -55,7 +55,7 @@ public class MainController {
 		return mv;		
 	}
 	
-	// 로그인
+	// login
 	@RequestMapping(value="/login", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
@@ -63,7 +63,7 @@ public class MainController {
 		return mv;		
 	}
 	
-	// 로그인
+	// signUp
 	@RequestMapping(value="/signUp", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView signUp() {
 		ModelAndView mv = new ModelAndView();
