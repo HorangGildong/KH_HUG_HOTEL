@@ -9,7 +9,7 @@ CREATE TABLE MEMBER (
 	memberReg   	DATE		    DEFAULT SYSDATE     NOT NULL,
 	memberUnreg	    DATE,
 	memberPwChange 	DATE	        DEFAULT SYSDATE     NOT NULL,
-	memberAgree	    NUMBER(1)		DEFAULT 0           NOT NULL,
+	memberRole	    NUMBER(1)		DEFAULT 0           NOT NULL,
 	memberRight	    NUMBER(1)       DEFAULT 0           NOT NULL,
 	memberEmail	    VARCHAR2(100),
 	memberName	    VARCHAR2(100),
@@ -49,7 +49,7 @@ COMMIT;
 
 INSERT INTO GRADE (gradeName, gradeDiscount) VALUES('GENERAL',0);
 INSERT INTO GRADE (gradeName, gradeDiscount) VALUES('MEMBERSHIP',30);
-)
+
 
 INSERT INTO MEMBER (memberEmail, memberName, memberNick, memberPhone, memberGender, memberPassword, memberBirth)
 VALUES(
@@ -62,4 +62,24 @@ VALUES(
     TO_DATE('1986-01-01','YYYY-MM-DD')
 );
 
+INSERT INTO MEMBER (memberEmail, memberName, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
+VALUES(
+    'tiger@hughotel.com',
+    '한만월',
+    '관리자',
+    '010-7777-7777',
+    1,
+    0,
+    '777',
+    TO_DATE('1998-01-01','YYYY-MM-DD')
+);
+
 COMMIT;
+
+SELECT * FROM GRADE;
+SELECT * FROM MEMBER;
+
+--EXAMPLE : JOIN
+SELECT M.memberId ID, M.memberEmail EMAIL, M.memberName NAME, memberRole ROLE, M.gradeName GRADE, G.gradeDiscount DC
+FROM MEMBER M
+LEFT JOIN GRADE G ON M.gradeName = G.gradeName;
