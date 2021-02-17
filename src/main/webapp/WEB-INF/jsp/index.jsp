@@ -189,7 +189,8 @@
                     <div class="explain">
                         <h3>H.U.G H</h3>
                         <h5>H.U.G 호텔의 멤버십은 객실 할인 혜택이 있는 H.U.G H 멤버십을 운영하고 있습니다. <br><br> 특이하게도 등급이 나뉘지 않고, 00% 할인을 해드립니다. <br><br> 자세한 문의는 신청 문의를 통해 전화해주시거나<br><br> 신청서 작성을 통하여 신청서 작성을 해주시길 바랍니다.<br><br> 신청문의. 064-123-4567 </h5>
-                        <button type="button">신청서 작성</button>
+                        <a href=""><button type="button">신청서 작성</button></a>
+                        
                     </div>
                 </div>
                 <div class="main-event">
@@ -213,7 +214,7 @@
                         </li>
                     </ul>
 
-                    <a href="" class="allview">전체보기</a>
+                    <a href="/event" class="allview">전체보기</a>
                     <br>
                     <br>
                     <br>

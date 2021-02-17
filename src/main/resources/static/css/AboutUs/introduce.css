@@ -1,6 +1,9 @@
 @charset "UTF-8";
 .intro-section {
-    margin: 4% 9%;
+	width: 1245px;
+	margin: 0 auto;
+	padding: 4% 0;
+    /* margin: 4% 9%; */
 }
 
 
@@ -12,7 +15,7 @@
 }
 
 .intro-title .name {
-    font-size: 3.3vw;
+    font-size: 50px;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
 }
@@ -70,7 +73,7 @@
 
 
 .intro-content p {
-    font-size: 1.2vw;
+    font-size: 18px;
     margin-top: 3%;
     margin-bottom: 6%;
     line-height: 190%;
@@ -113,14 +116,14 @@
 .intro-explain h2 {
     position: absolute;
     width: 45%;
-    font-size: 2vw;
+    font-size: 30px;
     font-weight: bolder;
     margin-top: 0;
     line-height: 164%;
 }
 
 .intro-explain p {
-    font-size: 1.2vw;
+    font-size: 18px;
     padding-left: 53%;
     margin-top: 2.5%;
     line-height: 190%;
@@ -137,13 +140,13 @@
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
-    font-size: 2.4vw;
+    font-size: 36px;
 }
 
 .theme-color h4 {
     margin-top: 25px;
     text-align: center;
-    font-size: 1.3vw;
+    font-size: 19px;
 }
 
 .theme-color .txt_required {
@@ -186,13 +189,13 @@
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
-    font-size: 2.4vw;
+    font-size: 36px;
 }
 
 .team-member h4 {
     margin-top: 25px;
     text-align: center;
-    font-size: 1.3vw;
+    font-size: 19px;
 }
 
 .team-member ul {
@@ -233,7 +236,7 @@
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
-    font-size: 2.4vw;
+    font-size: 36px;
 }
 
 .intro-membership .ms-contents {
@@ -287,12 +290,12 @@
     font-weight: bolder;
     padding-top: 35px;
     color: #193f6e;
-    font-size: 1.6vw;
+    font-size: 24px;
 }
 
 .explain h5 {
     padding-top: 10px;
-    font-size: 1vw;
+    font-size: 15px;
 }
 
 .explain button {
@@ -302,6 +305,6 @@
     background-color: #193f6e;
     color: white;
     border-radius: 8%;
-    font-size: 1vw;
+    font-size: 0.9vw;
 }
 /* 멤버십 finish */

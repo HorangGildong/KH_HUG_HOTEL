@@ -68,17 +68,19 @@
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
 								<div class="panel-body">
+								<hr>
 								<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
-								운행시간 : 06:10 ~ 22:50 <br>
-								운행간격 : 14분 ~ 16분 <br>
-								탑승장소 : 도착장 5번 Gate <br>
-								소요시간 : 약 60분 <br>
+								경로 1 (약 1시간 8분 | 총 40.34km) <br>
+							 	노형로(2.7km) -> 평화로(16.1km) -> 중산간서로(3.5km) <br>
+								경로 2 (약 1시간 12분 | 총 40.24km) <br>
+								평화로(16.1km) -> 한창로(4.6km) -> 일주서로(3.4km) <br>
 								<hr>
 								<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
-								운행시간 : 06:40 ~ 22:00 <br>
-								운행간격 : 14분 ~ 16분 <br>
-								탑승장소 : 제주 H.U.G 호텔 정문 앞 <br>
-								소요시간 : 약 60분 <br></div>
+								경로 1 (약 51분 | 총 38.70km) <br>
+							 	중산간서로(3.3km) -> 평화로(21.0km) -> 노형로(4.3km) <br>
+								경로 2 (약 57분 | 총 38.79km) <br>
+								상예로(4.3km) -> 산록남로(6.2km) -> 평화로(16.9km) -> 노형로(4.3km) <br>
+								<hr>
 							</div>
 						</div>
 						<div class="panel panel-default">
@@ -90,6 +92,7 @@
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse ">
 								<div class="panel-body">
+								<hr>
 								<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
 								운행시간 : 06:10 ~ 22:50 <br>
 								운행간격 : 14분 ~ 16분 <br>
@@ -101,6 +104,7 @@
 								운행간격 : 14분 ~ 16분 <br>
 								탑승장소 : 제주 H.U.G 호텔 정문 앞 <br>
 								소요시간 : 약 60분 <br>
+								<hr>
 								</div>
 							</div>
 						</div>
@@ -113,17 +117,50 @@
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse">
 								<div class="panel-body">
-								<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
-								운행시간 : 06:10 ~ 22:50 <br>
-								운행간격 : 14분 ~ 16분 <br>
-								탑승장소 : 도착장 5번 Gate <br>
-								소요시간 : 약 60분 <br>
-								<hr>
-								<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
-								운행시간 : 06:40 ~ 22:00 <br>
-								운행간격 : 14분 ~ 16분 <br>
-								탑승장소 : 제주 H.U.G 호텔 정문 앞 <br>
-								소요시간 : 약 60분 <br></div>
+									<h2 class="busInfo">운행일정</h2>
+									<div class="detailInfo">
+						                <ul>
+						                    <li>
+						                        <dl>
+						                            <dt>운행요일</dt>
+						                            <dd>매일</dd>
+						                        </dl>
+						                    </li>
+						                    <li>
+						                        <dl>
+						                            <dt>배차간격</dt>
+						                            <dd>30분</dd>
+						                        </dl>
+						                    </li>
+						                    <li>
+						                        <dl>
+						                            <dt>제주국제공항 승차 위치</dt>
+						                            <dd>H.U.G 호텔 1층 출입구 앞 버스 스테이션</dd>
+						                        </dl>
+						                    </li>
+						                </ul>
+						            </div>
+					         
+						            <h2 class="busInfo">첫차/막차 시간</h2>
+						            <table class="bustimeInfo-detail">
+						                <tbody>
+						                    <tr>
+						                        <th>출발장소</th>
+						                        <th>첫차</th>
+						                        <th>막차</th>
+						                    </tr>
+						                    <tr>
+						                    	<td>H.U.G 호텔</td>
+						                        <td>05:00</td>
+						                        <td>23:00</td>
+						                    </tr>
+						                    <tr>
+						                    	<td>제주공항 1층 8C</td>
+						                        <td>05:10</td>
+						                        <td>23:10</td>
+						                    </tr>
+						                </tbody>
+						            </table>
 							</div>
 						</div>
 					</div>

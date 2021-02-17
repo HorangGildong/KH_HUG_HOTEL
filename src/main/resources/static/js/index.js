@@ -2,8 +2,15 @@
 
 // carousel 
 $('.carousel').carousel({ interval: 3000 });
-
-$('main-room .carousel').carousel({ interval: false });
+//$(document).ready(function(){
+//	$(".carousel").carousel({
+//		items:1,
+//		loop:true,
+//		autoplay:true,
+//		autoplayTimeout:4000,
+//		autoplayHoverPause:true
+//	});
+//});
 
 //weather api
 const getJSON = function(url, callback) {

@@ -312,7 +312,8 @@ section .control {
 
 
 .main-membership {
-    margin-bottom: 1%;
+    margin-bottom: 6%;
+    height: 40%;
 }
 
 .main-membership h1 {
@@ -325,12 +326,12 @@ section .control {
 
 .main-membership .contents {
     float: left;
-    margin-top: 50px;
+    margin-top: 4%;
     width: 43.9%; 
     /* 43.9 */
     height: 300px;
-    background-color: #193f6e;
-    background-color: rgba(47, 138, 241, 0.1);
+    background-color: #e9eff8;
+    /* background-color: rgba(47, 138, 241, 0.1); */
 }
 
 .main-membership .card {
@@ -382,6 +383,7 @@ section .control {
     font-size: 1vw;
 }
 
+
 .explain button {
     width: 17%;
     height: 10%;
@@ -404,7 +406,7 @@ section .control {
 } */
 
 .main-event h1 {
-    margin-top: 43px;
+    /* margin-top: 43px; */
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
@@ -436,7 +438,7 @@ section .control {
 }
 
 .main-event ul li a {
-    margin-right: 33%;
+    /* margin-right: 33%; */
     text-align: left;
     /* float: left; */
 }
