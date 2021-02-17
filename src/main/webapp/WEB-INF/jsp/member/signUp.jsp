@@ -50,12 +50,12 @@
 				
 				<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
 
-					<form class="form-horizontal">
+					<form class="form-horizontal" action="/memberSignUp" method="post">
 
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">아이디</label>
 							<div class="col-xs-8">
-								<input type="email" class="form-control" id="inputEmail"
+								<input type="email" class="form-control" name="email" id="inputEmail"
 									placeholder="E-mail">
 							</div>
 						</div>
@@ -63,7 +63,7 @@
 						<div class="form-group">
 							<label for="inputPassword" class="col-xs-4 control-label">비밀번호</label>
 							<div class="col-xs-8">
-								<input type="password" class="form-control" id="inputPassword"
+								<input type="password" class="form-control" name="password" id="inputPassword"
 									placeholder="Password">
 							</div>
 						</div>
@@ -80,7 +80,7 @@
 						<div class="form-group">
 							<label for="inputNick" class="col-xs-4 control-label">닉네임</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" id="inputNickname"
+								<input type="text" class="form-control" name="nick" id="inputNickname"
 									placeholder="Nick">
 							</div>
 						</div>
@@ -88,7 +88,7 @@
 						<div class="form-group">
 							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" id="inputPhone"
+								<input type="text" class="form-control" name="phone" id="inputPhone"
 									placeholder="PhoneNumber">
 							</div>
 						</div>
@@ -96,17 +96,17 @@
 						<div class="form-group">
 							<label for="inputBirth" class="col-xs-4 control-label">생년월일</label>
 							<div class="col-xs-8">
-								<input type="date" class="form-control" id="inputBirth">
+								<input type="date" class="form-control" name="birth" id="inputBirth">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-xs-4 control-label">성별</label> <label
 								class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="inputGender" id="inputGender" value="male"
+								type="radio" name="gender" id="inputGender" value="male"
 								checked> 남
 							</label> <label class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="inputGender" id="inputGender" value="female">
+								type="radio" name="gender" id="inputGender" value="female">
 								여
 							</label>
 						</div>
@@ -115,8 +115,8 @@
 
 						<div class="form-group" style="margin-bottom: 10px;">
 							<div class="checkbox">
-								<label class="checkbox-inline col-xs-4"> <input
-									type="checkbox" id="chk-terms1" value="chk"> 동의합니다.
+								<label class="checkbox-inline col-xs-5"> <input
+									type="checkbox" name="terms1" id="chk-terms1" value="chk"> (필수) 동의합니다.
 								</label>
 							</div>
 						</div>
@@ -150,8 +150,8 @@
 
 						<div class="form-group" style="margin-bottom: 10px;">
 							<div class="checkbox">
-								<label class="checkbox-inline col-xs-4"> <input
-									type="checkbox" id="chk-terms2" value="chk"> 동의합니다.
+								<label class="checkbox-inline col-xs-5"> <input
+									type="checkbox" name="terms2" id="chk-terms2" value="chk"> (선택) 동의합니다.
 								</label>
 							</div>
 						</div>

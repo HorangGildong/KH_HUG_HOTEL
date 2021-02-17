@@ -55,22 +55,6 @@ public class MainController {
 		return mv;		
 	}
 	
-	// login
-	@RequestMapping(value="/login", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/login");		
-		return mv;		
-	}
-	
-	// signUp
-	@RequestMapping(value="/signUp", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView signUp() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/signUp");		
-		return mv;		
-	}
-	
 	// myPage
 	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView myPage() {
