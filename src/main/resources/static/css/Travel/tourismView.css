@@ -1,1 +1,27 @@
 @charset "UTF-8";
+.tourismView-section {
+    width: 1245px;
+	margin: 0 auto;
+	padding: 4% 0;
+    /* margin: 4% 9%; */
+}
+
+
+/* tourismView-title start */
+
+.tourismView-title {
+    width: 100%;
+}
+
+.tourismView-title .name {
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+}
+
+.tourismView-title p {
+    font-size: 20px;
+    text-align: left;
+    margin: 15px 0 0 20px;
+}
+

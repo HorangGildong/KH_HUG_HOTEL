@@ -35,8 +35,8 @@
                     </li>
                     <li><a href='#'>여행정보</a>
                         <ul>
-                            <li><a href="#">관광</a></li>
-                            <li><a href="#">맛집</a></li>
+                            <li><a href="/tourismView">관광</a></li>
+                            <li><a href="/foodView">맛집</a></li>
                         </ul>
                     </li>
                     <li><a href='/noticeMain'>고객지원</a>
