@@ -11,7 +11,7 @@ CREATE TABLE MEMBER (
 	memberPwChange 	DATE	        DEFAULT SYSDATE     NOT NULL,
 	memberAgree	    NUMBER(1)		DEFAULT 0           NOT NULL,
 	memberRight	    NUMBER(1)       DEFAULT 0           NOT NULL,
-	memberEmail	    VARCHAR2(100)                       NOT NULL,
+	memberEmail	    VARCHAR2(100),
 	memberName	    VARCHAR2(100),
 	memberNick  	VARCHAR2(100),
 	memberPhone     VARCHAR2(100),
@@ -43,5 +43,23 @@ BEGIN
 END;
 
 /
+
+COMMIT;
+
+
+INSERT INTO GRADE (gradeName, gradeDiscount) VALUES('GENERAL',0);
+INSERT INTO GRADE (gradeName, gradeDiscount) VALUES('MEMBERSHIP',30);
+)
+
+INSERT INTO MEMBER (memberEmail, memberName, memberNick, memberPhone, memberGender, memberPassword, memberBirth)
+VALUES(
+    'gildong@hwalbin.com',
+    'È«±æµ¿',
+    'È«±æµ¿¼­³²ºÏºÏ¼­·ÎÁø·Î¸¦µ¹·Á¶ó',
+    '010-1234-5678',
+    0,
+    '123',
+    TO_DATE('1986-01-01','YYYY-MM-DD')
+);
 
 COMMIT;
