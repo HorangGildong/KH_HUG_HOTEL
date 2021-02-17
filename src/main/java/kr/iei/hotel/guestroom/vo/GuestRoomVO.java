@@ -14,13 +14,72 @@ public class GuestRoomVO {
 	private String guestRoomImage2;
 	private String guestRoomImage3;
 	private String guestRoomImage4;
+	
+	
 	private MultipartFile image1;
 	private MultipartFile image2;
 	private MultipartFile image3;
 	private MultipartFile image4;
 	
 	
+	private int guestRoomNo;
+	private int guestRoomPrice;
+	private String guestRoomView;
+	private int guestRoomArea;
+	private String guestRoomBedType;
+	private int standardPersonnel;
+	private int adultPrice;
+	private int childPrice;
 	
+	
+	public int getGuestRoomNo() {
+		return guestRoomNo;
+	}
+	public void setGuestRoomNo(int guestRoomNo) {
+		this.guestRoomNo = guestRoomNo;
+	}
+	public int getGuestRoomPrice() {
+		return guestRoomPrice;
+	}
+	public void setGuestRoomPrice(int guestRoomPrice) {
+		this.guestRoomPrice = guestRoomPrice;
+	}
+	public String getGuestRoomView() {
+		return guestRoomView;
+	}
+	public void setGuestRoomView(String guestRoomView) {
+		this.guestRoomView = guestRoomView;
+	}
+	public int getGuestRoomArea() {
+		return guestRoomArea;
+	}
+	public void setGuestRoomArea(int guestRoomArea) {
+		this.guestRoomArea = guestRoomArea;
+	}
+	public String getGuestRoomBedType() {
+		return guestRoomBedType;
+	}
+	public void setGuestRoomBedType(String guestRoomBedType) {
+		this.guestRoomBedType = guestRoomBedType;
+	}
+	public int getStandardPersonnel() {
+		return standardPersonnel;
+	}
+	public void setStandardPersonnel(int standardPersonnel) {
+		this.standardPersonnel = standardPersonnel;
+	}
+	public int getAdultPrice() {
+		return adultPrice;
+	}
+	public void setAdultPrice(int adultPrice) {
+		this.adultPrice = adultPrice;
+	}
+	public int getChildPrice() {
+		return childPrice;
+	}
+	public void setChildPrice(int childPrice) {
+		this.childPrice = childPrice;
+	}
 	public MultipartFile getImage1() {
 		return image1;
 	}

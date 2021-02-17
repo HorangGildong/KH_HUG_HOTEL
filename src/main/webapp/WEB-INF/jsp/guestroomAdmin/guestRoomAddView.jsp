@@ -38,7 +38,7 @@
     	<h1 class="buttonTitle">
         <p>GuestRoom Add View</p>
         </h1>
-		<form action="/guestRoomInfoInsert" method="post" enctype="multipart/form-data">
+		<form action="/guestRoomInsert" method="post" enctype="multipart/form-data">
 			<label for="">&nbsp;&nbsp; GuestRoomName</label>
 			<input name="guestRoomName" type="text" placeholder="객실 이름 입력" />
 			<label for="">GuestRoomContents1</label>

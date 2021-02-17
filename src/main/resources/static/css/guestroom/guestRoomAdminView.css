@@ -118,3 +118,7 @@
             background: #193f6e;
             color: white;
         }
+        .hotelHugWrap > h3 {
+            text-align: center;
+            margin-top: 110px;
+        }

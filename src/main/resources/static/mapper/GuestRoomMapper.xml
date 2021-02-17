@@ -16,9 +16,16 @@
  		, guestRoomImage3
  		, guestRoomImage4
  	</sql>
- 	<insert id="guestRoomInfoInsert" parameterType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
+ 	
+ 	<!-- 객실 관리 리스트 -->
+ 	<select id="guestRoomAdminList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
+ 		SELECT *
+ 		FROM guestRoom
+ 	</select>
+ 	<!-- 객실 추가 -->
+ 	<insert id="guestRoomInsert" parameterType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
 		INSERT INTO
-		guestRoomInfo (
+		guestRoom (
 			<include refid="guestRoomColumns"/>
 		) VALUES (
 			  #{guestRoomName}
@@ -34,4 +41,10 @@
 			, #{guestRoomImage4}
 		)
 	</insert>
+	<!-- 객실 삭제 -->
+	<delete id="guestRoomDelete" parameterType="String">
+		DELETE
+		FROM guestRoom
+		WHERE guestRoomName = #{guestRoomName}
+	</delete>
  </mapper>
