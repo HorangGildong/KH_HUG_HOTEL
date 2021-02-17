@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MemberLoginController {
 	
-	@RequestMapping("/signUp")
-	public String signUp() {
-		return "/member/signUp";
-	}
+//	@RequestMapping("/signUp")
+//	public String signUp() {
+//		return "/member/signUp";
+//	}
 }
