@@ -80,7 +80,7 @@
 					<button class="btn btn-primary btn-lg btn-block"
 						style="background-color: #1EC800; border: #1EC800; padding: 0; height: 45px;">
 						<div
-							style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 22px;">N</div>
+							style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 20px;">N</div>
 						<div
 							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
 							네이버 아이디로 로그인</div>
