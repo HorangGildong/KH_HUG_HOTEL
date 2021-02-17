@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.iei.hotel.guestroom.service.GuestRoomService;
 import kr.iei.hotel.guestroom.vo.GuestRoomVO;
@@ -25,11 +26,15 @@ public class GuestRoomController {
 	
 	@RequestMapping(value = "/guestRoomView", method = RequestMethod.GET)
 	public String guestRoomView()throws Exception {
+	
 		return "/guestroom/guestRoomView";
+	
 	}
 	@RequestMapping(value = "/guestRoomDetailView", method = RequestMethod.GET)
 	public String guestRoomDetailView()throws Exception {
+	
 		return "/guestroom/guestRoomDetailView";
+	
 	}
 	
 	//-------------------------------------Admin--------------------------------------------
@@ -61,6 +66,7 @@ public class GuestRoomController {
 		guestRoomVO.setGuestRoomImage4(guestRoomVO.getImage4().getOriginalFilename());
 		guestRoomService.guestRoomInsert(guestRoomVO);
 		return "redirect:/guestRoomAdminView";
+	
 	}
 	//객실 삭제
 	@RequestMapping(value = "/guestRoomDelete", method = RequestMethod.GET)
@@ -72,11 +78,41 @@ public class GuestRoomController {
 	
 	}
 	//객실 관리 정보 리스트 뷰
-	@RequestMapping(value ="/guestRoomAdminInfoView", method = RequestMethod.GET)
+	@RequestMapping(value ="/guestRoomAdminInfoView", method = {RequestMethod.POST,RequestMethod.GET})
 	public String guestRoomAdminInfoList(String guestRoomName, Model model)throws Exception {
-		model.addAttribute("guestRoomName", guestRoomName);
+		
 		logger.info("객실 관리 정보 리스트 뷰");
+		model.addAttribute("list", guestRoomService.guestRoomAdminInfoList());
+		model.addAttribute("guestRoomName", guestRoomName);
 		return "/guestroomAdmin/guestRoomAdminInfoView";
 	
+	}
+	//객실 정보 추가 뷰
+	@RequestMapping(value = "/guestRoomInfoAddView", method = RequestMethod.GET)
+	public String guestRoomInfoAddView(String guestRoomName, Model model)throws Exception {
+		
+		logger.info("객실 정보 추가 뷰");
+		model.addAttribute("guestRoomName", guestRoomName);
+		return "/guestroomAdmin/guestRoomInfoAddView";
+	
+	}
+	//객실 정보 추가
+	@RequestMapping(value = "/guestRoomInfoInsert", method = {RequestMethod.POST,RequestMethod.GET})
+	public String guestRoomInfoInsert(GuestRoomVO guestRoomVO, Model model)throws Exception {
+		
+		logger.info("객실 정보 추가");
+		guestRoomService.guestRoomInfoInsert(guestRoomVO);
+		return "forward:/guestRoomAdminInfoView";
+		
+	}
+	//객실 정보 삭제
+	@RequestMapping(value = "/guestRoomInfoDelete", method = RequestMethod.GET)
+	public String guestRoomInfoDelete(int guestRoomNo)throws Exception {
+		
+		logger.info("객실 정보 삭제");
+		guestRoomService.guestRoomInfoDelete(guestRoomNo);
+		return "forward:/guestRoomAdminInfoView";
+		
+		
 	}
 }

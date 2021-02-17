@@ -36,8 +36,13 @@
             <p>${guestRoomName } GuestRoom Info List</p>
         </h1>
         
-        <a href="/guestRoomAddView">추가</a>
-
+        <a href="/guestRoomInfoAddView?guestRoomName=${guestRoomName }">추가</a>
+	
+		<c:if test="${empty list}">
+		<h3>테이블이 비어있어요... 추가해주세요... 예? ㅡㅡ</h3>
+		</c:if>
+		<c:if test="${!empty list}">
+        <c:forEach items="${list }" var="list">
         <div class="reservationInfo"">    
             <table class="reservationWrap">
                 <tr>
@@ -49,21 +54,22 @@
                     <th class="lengthSort">성인 금액</th>
                     <th class="lengthSort">어린이 금액</th>
                     <th class="lengthSort">가격</th>
-                    <th  rowspan="2" class="guestRoomButton"><a href="/guestRoomAdminView">삭제</a></th>
+                    <th  rowspan="2" class="guestRoomButton"><a href="/guestRoomInfoDelete?guestRoomNo=${list.guestRoomNo }&guestRoomName=${list.guestRoomName}">삭제</a></th>
                 </tr>
                 <tr>
-                    <td class="lengthSort">1005호</td>
-                    <td class="lengthSort">바다,산</td>
-                    <td class="lengthSort">45m²</td>
-                    <td class="lengthSort">2명</td>
-                    <td class="lengthSort">TWIN</td>
-                    <td class="lengthSort">50000원</td>
-                    <td class="lengthSort">30000원</td>
-                    <td class="lengthSort">320000원</td>
+                    <td class="lengthSort">${list.guestRoomNo }</td>
+                    <td class="lengthSort">${list.guestRoomView }</td>
+                    <td class="lengthSort">${list.guestRoomArea }m²</td>
+                    <td class="lengthSort">${list.standardPersonnel }명</td>
+                    <td class="lengthSort">${list.guestRoomBedType }</td>
+                    <td class="lengthSort">${list.adultPrice }원</td>
+                    <td class="lengthSort">${list.childPrice }원</td>
+                    <td class="lengthSort">${list.guestRoomPrice }원</td>
                 </tr>
             </table> 
         </div>
-
+		</c:forEach>
+		</c:if>
     </section>
         <!--section end-->
         <!--footer start-->
