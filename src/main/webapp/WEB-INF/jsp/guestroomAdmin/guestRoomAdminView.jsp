@@ -35,7 +35,7 @@
         <h1 class="buttonTitle">
             <p>객실 관리 및 추가/삭제</p>
         </h1>
-        <a href="guestRoomAddView">추가</a>
+        <a href="/guestRoomAddView">추가</a>
 		<c:if test="${empty list}">
 		<h3>테이블이 비어있어요... 추가해주세요... 예? ㅡㅡ</h3>
 		</c:if>
@@ -70,7 +70,7 @@
                 <div class="roomPrice">
                     <p>1박</p>
                     <span>320000 원 ~</span>
-                    <a href="/guestRoomInfoDelete?guestRoomName=${list.guestRoomName}">삭제</a>
+                    <a href="/guestRoomDelete?guestRoomName=${list.guestRoomName}">삭제</a>
                 </div>
             </div>
         </div>    

@@ -42,32 +42,32 @@ public class GuestRoomController {
 		return "/guestroomAdmin/guestRoomAdminView";
 	
 	}
-	//객실 정보 추가 뷰
+	//객실 추가 뷰
 	@RequestMapping(value = "/guestRoomAddView", method = RequestMethod.GET)
 	public String guestRoomAddView()throws Exception {
 		
-		logger.info("객실 정보 추가 뷰");
+		logger.info("객실 추가 뷰");
 		return "/guestroomAdmin/guestRoomAddView";
 	
 	}
-	//객실 정보 추가
-	@RequestMapping(value = "/guestRoomInfoInsert", method = RequestMethod.POST)
-	public String guestRoomInfoInsert(GuestRoomVO guestRoomVO)throws Exception {
+	//객실 추가
+	@RequestMapping(value = "/guestRoomInsert", method = RequestMethod.POST)
+	public String guestRoomInsert(GuestRoomVO guestRoomVO)throws Exception {
 		
-		logger.info("객실 정보 추가");
+		logger.info("객실 추가");
 		guestRoomVO.setGuestRoomImage1(guestRoomVO.getImage1().getOriginalFilename());
 		guestRoomVO.setGuestRoomImage2(guestRoomVO.getImage2().getOriginalFilename());
 		guestRoomVO.setGuestRoomImage3(guestRoomVO.getImage3().getOriginalFilename());
 		guestRoomVO.setGuestRoomImage4(guestRoomVO.getImage4().getOriginalFilename());
-		guestRoomService.guestRoomInfoInsert(guestRoomVO);
+		guestRoomService.guestRoomInsert(guestRoomVO);
 		return "redirect:/guestRoomAdminView";
 	}
-	//객실 정보 삭제
-	@RequestMapping(value = "/guestRoomInfoDelete", method = RequestMethod.GET)
+	//객실 삭제
+	@RequestMapping(value = "/guestRoomDelete", method = RequestMethod.GET)
 	public String guestRoomInfo(String guestRoomName)throws Exception {
 		
-		logger.info("객실 정보 삭제");
-		guestRoomService.guestRoomInfoDelete(guestRoomName);
+		logger.info("객실 삭제");
+		guestRoomService.guestRoomDelete(guestRoomName);
 		return "redirect:/guestRoomAdminView";
 	
 	}
