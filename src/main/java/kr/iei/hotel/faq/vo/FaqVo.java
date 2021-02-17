@@ -1,11 +1,26 @@
 package kr.iei.hotel.faq.vo;
 
 public class FaqVo {
-
+	
+	int id;
 	String category;
 	String question;
 	String answer;
+	int no;
+		
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
 	public String getCategory() {
 		return category;
 	}

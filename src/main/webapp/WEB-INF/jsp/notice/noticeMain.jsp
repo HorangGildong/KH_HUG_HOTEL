@@ -72,10 +72,8 @@
 						var selected = 'title';
 						frm.menu.value = selected;
 						frm.action = "/noticeTitle";
-						frm.submit();
-						
-					}		
-											
+						frm.submit();						
+					}													
 				};
 			};	
 		};
@@ -132,8 +130,7 @@
                         </select>
                 
                         <input type="text" id='text'class="form-control" name='findStr' value="${param.findStr }">            
-                        <input type="button" id='btnFind' class="form-control" value='Search'><br>
-                      	                       
+                        <input type="button" id='btnFind' class="form-control" value='Search'><br>                      	                       
                     </div>                        
                 </form>
 

@@ -34,9 +34,9 @@
     <!-- jQuery -->  	
   	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   	<script src='js/NoticeFaq/faq.js'></script>
-  
+ 	 	 
     <title>FAQ</title>
-
+    
 </head>
 
 <body>
@@ -57,24 +57,25 @@
                 </dl>
                 
 	<%-- ─────────────────────────────────── 메뉴 부분 ─────────────────────────────────── --%>
-                 <ul id='menu'>                 
-                     <li><a href='#' id='btncago1'>전체</a></li>
-                     <li><a href='#' id='btncago2'>이용안내</a></li>
-                     <li><a href='#' id='btncago3'>객실</a></li>
-                     <li><a href='#' id='btncago4'>다이닝</a></li>
-                     <li><a href='#' id='btncago5'>부대시설</a></li>
-                     <li><a href='#' id='btncago6'>결제</a></li>
-                     <li><a href='#' id='btncago7'>기타</a></li>
-                 </ul>
-                 <hr class='style-five'>                    
-                   
+                <ul id='menu'>                 
+                    <li><a href='#' id='btncago1' class='aclick'>전체</a></li>
+                    <li><a href='#' id='btncago2' class='aclick'>이용안내</a></li>
+                    <li><a href='#' id='btncago3' class='aclick'>객실</a></li>
+                    <li><a href='#' id='btncago4' class='aclick'>다이닝</a></li>
+                    <li><a href='#' id='btncago5' class='aclick'>부대시설</a></li>
+                    <li><a href='#' id='btncago6' class='aclick'>결제</a></li>
+                	<li><a href='#' id='btncago7' class='aclick'>기타</a></li>
+				</ul>
+                <hr class='style-five'>                    
+                 <!-- faq메인 메뉴 -->  
 	<%-- ─────────────────────────────────── ajax 적용 부분 ─────────────────────────────────── --%>                     
-                 <div id="here"></div>								
-				
-					
+                <div id="here"></div>
+                <div id='base'>메뉴를 선택해 주세요.</div>								
+								 	
 			</div>
 		</div>
         </section>
+        
         <!--section end-->
                 
         <!--footer start-->
@@ -82,8 +83,6 @@
         <!--footer end-->        
                 
     </div>
-
-
 <script>faq()</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrapjs/bootstrap.min.js"></script>

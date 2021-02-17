@@ -18,14 +18,15 @@ import kr.iei.hotel.notice.vo.Page;
 @Service
 @Transactional
 public class FaqDao implements FaqService {
-
+	Map<String, Object> map = new HashMap<String, Object>();
+	List<FaqVo> list = null;
+	
 	@Autowired
 	FaqMapper mapper;
-
+	
+	/*--------------------------------- 전체 조회,검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> select(Page page) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<FaqVo> list = null;
 		
 		if (page == null) {
 			page = new Page();
@@ -44,12 +45,55 @@ public class FaqDao implements FaqService {
 		map.put("list", list);		
 		
 		return map;
+	}	
+	/*--------------------------------- 전체 질문 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> total_question_select(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else {
+			page.setNowPage(1);
+		}
+		
+		int totListSize = mapper.total_question_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.total_question_select(page);
+				
+		map.put("page", page);
+		map.put("list", list);
+				
+		return map;
 	}
-
+	/*--------------------------------- 전체 답변 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> total_answer_select(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else {
+			page.setNowPage(1);
+		}
+		
+		int totListSize = mapper.total_answer_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.total_answer_select(page);
+				
+		map.put("page", page);
+		map.put("list", list);
+				
+		return map;
+	}
+	
+	/*--------------------------------- 이용안내 조회, 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> faqGuide(Page page) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<FaqVo> list = null;
 		
 		if (page == null) {
 			page = new Page();
@@ -58,7 +102,7 @@ public class FaqDao implements FaqService {
 			page.setNowPage(1);
 		}		
 		
-		int totListSize = mapper.tot_list_size(page);
+		int totListSize = mapper.tot_guide_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
 		
@@ -69,11 +113,9 @@ public class FaqDao implements FaqService {
 		
 		return map;
 	}
-
+	/*--------------------------------- 이용안내 질문 검색 ---------------------------------*/
 	@Override
-	public Map<String, Object> faqRoom(Page page) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<FaqVo> list = null;
+	public Map<String, Object> guide_question_select(Page page) {
 		
 		if (page == null) {
 			page = new Page();
@@ -82,7 +124,52 @@ public class FaqDao implements FaqService {
 			page.setNowPage(1);
 		}		
 		
-		int totListSize = mapper.tot_list_size(page);
+		int totListSize = mapper.guide_question_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.guide_question_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	/*--------------------------------- 이용안내 답변 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> guide_answer_select(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.guide_answer_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.guide_answer_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	
+	/*--------------------------------- 객실 조회, 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> faqRoom(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_room_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
 		
@@ -93,11 +180,9 @@ public class FaqDao implements FaqService {
 		
 		return map;
 	}
-
+	/*--------------------------------- 객식 질문 검색 ---------------------------------*/
 	@Override
-	public Map<String, Object> faqDining(Page page) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<FaqVo> list = null;
+	public Map<String, Object> room_question_select(Page page) {
 		
 		if (page == null) {
 			page = new Page();
@@ -106,7 +191,52 @@ public class FaqDao implements FaqService {
 			page.setNowPage(1);
 		}		
 		
-		int totListSize = mapper.tot_list_size(page);
+		int totListSize = mapper.room_question_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.room_question_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	/*--------------------------------- 객식 답변 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> room_answer_select(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.room_answer_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.room_answer_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	
+	/*--------------------------------- 다이닝 조회, 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> faqDining(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_dining_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
 		
@@ -117,11 +247,9 @@ public class FaqDao implements FaqService {
 		
 		return map;
 	}
-
+	/*--------------------------------- 다이닝 질문 검색 ---------------------------------*/
 	@Override
-	public Map<String, Object> faqFacility(Page page) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<FaqVo> list = null;
+	public Map<String, Object> dining_question_select(Page page) {
 		
 		if (page == null) {
 			page = new Page();
@@ -130,7 +258,52 @@ public class FaqDao implements FaqService {
 			page.setNowPage(1);
 		}		
 		
-		int totListSize = mapper.tot_list_size(page);
+		int totListSize = mapper.dining_question_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.dining_question_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	/*--------------------------------- 다이닝 답변 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> dining_answer_select(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.dining_answer_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.dining_answer_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}	
+	
+	/*--------------------------------- 부대시설 조회, 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> faqFacility(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_facility_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
 		
@@ -141,11 +314,9 @@ public class FaqDao implements FaqService {
 		
 		return map;
 	}
-
+	/*--------------------------------- 부대시설 질문 검색 ---------------------------------*/
 	@Override
-	public Map<String, Object> faqPayment(Page page) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<FaqVo> list = null;
+	public Map<String, Object> facility_question_select(Page page) {
 		
 		if (page == null) {
 			page = new Page();
@@ -154,7 +325,51 @@ public class FaqDao implements FaqService {
 			page.setNowPage(1);
 		}		
 		
-		int totListSize = mapper.tot_list_size(page);
+		int totListSize = mapper.facility_question_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.facility_question_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;	}	
+	/*--------------------------------- 부대시설 답변 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> facility_answer_select(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.facility_answer_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.facility_answer_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	
+	/*--------------------------------- 결제 조회, 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> faqPayment(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_payment_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
 		
@@ -165,11 +380,9 @@ public class FaqDao implements FaqService {
 		
 		return map;
 	}
-
+	/*--------------------------------- 결제 질문 검색 ---------------------------------*/
 	@Override
-	public Map<String, Object> faqEtc(Page page) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<FaqVo> list = null;
+	public Map<String, Object> payment_question_select(Page page) {
 		
 		if (page == null) {
 			page = new Page();
@@ -178,7 +391,52 @@ public class FaqDao implements FaqService {
 			page.setNowPage(1);
 		}		
 		
-		int totListSize = mapper.tot_list_size(page);
+		int totListSize = mapper.payment_question_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.payment_question_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	/*--------------------------------- 결제 답변 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> payment_answer_select(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.payment_answer_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.payment_answer_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	
+	/*--------------------------------- 기타 조회, 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> faqEtc(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.tot_etc_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
 		
@@ -189,6 +447,49 @@ public class FaqDao implements FaqService {
 		
 		return map;
 	}
-	
-	
+	/*--------------------------------- 기타 질문 검색 ---------------------------------*/	
+	@Override
+	public Map<String, Object> etc_question_select(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.etc_question_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.etc_question_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}	
+	/*--------------------------------- 기타 답변 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> etc_answer_select(Page page) {
+			
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.etc_answer_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.etc_answer_select(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}	
+
 }

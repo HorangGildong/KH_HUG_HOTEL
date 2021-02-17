@@ -19,6 +19,7 @@ public class NoticeDao implements NoticeService {
 	@Autowired
 	NoticeMapper mapper;
 	
+	/*--------------------------------- 전체 조회,검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> select(Page page){
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -45,6 +46,7 @@ public class NoticeDao implements NoticeService {
 		return map;
 	}
 	
+	/*--------------------------------- 제목 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> title_select(Page page){
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -71,6 +73,7 @@ public class NoticeDao implements NoticeService {
 		return map;
 	}
 	
+	/*--------------------------------- 내용 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> contents_select(Page page){
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -97,6 +100,7 @@ public class NoticeDao implements NoticeService {
 		return map;
 	}	
 	
+	/*--------------------------------- 공지 등록 ---------------------------------*/
 	@Override
 	public String insert(NoticeVo vo) {
 		String msg = "공지사항이 성공적으로 등록 되었습니다.";
@@ -109,6 +113,7 @@ public class NoticeDao implements NoticeService {
 		return msg;
 	}
 	
+	/*--------------------------------- 공지 수정 ---------------------------------*/
 	@Override
 	public String update(NoticeVo vo) {
 		String msg = "공지사항이 성공적으로 수정 되었습니다.";
@@ -121,6 +126,7 @@ public class NoticeDao implements NoticeService {
 		return msg;
 	}
 	
+	/*--------------------------------- 공지 삭제 ---------------------------------*/
 	@Override
 	public String delete(int nNo) {
 		String msg = "공지사항 게시글이 성공적으로 삭제 되었습니다.";
@@ -133,6 +139,7 @@ public class NoticeDao implements NoticeService {
 		return msg;
 	}
 	
+	/*--------------------------------- 공지 상세보기 ---------------------------------*/
 	@Override
 	public NoticeVo view(int nNo) {
 		mapper.hit(nNo);	
@@ -141,6 +148,7 @@ public class NoticeDao implements NoticeService {
 		return vo;		
 	}
 
+	/*--------------------------------- 전체검색 시 이전글, 다음글 ---------------------------------*/
 	@Override
 	public NoticeVo total_article(int nNo, String findStr) {
 		System.out.println("전체 전");
@@ -151,6 +159,7 @@ public class NoticeDao implements NoticeService {
 		return vo;
 	}
 	
+	/*--------------------------------- 제목검색 시 이전글, 다음글 ---------------------------------*/
 	@Override
 	public NoticeVo title_article(int nNo, String findStr) {
 		System.out.println("제목 전");
@@ -160,6 +169,7 @@ public class NoticeDao implements NoticeService {
 		return vo;		
 	}
 	
+	/*--------------------------------- 내용검색 시 이전글, 다음글 ---------------------------------*/
 	@Override
 	public NoticeVo content_article(int nNo, String findStr) {
 		System.out.println("내용 전");

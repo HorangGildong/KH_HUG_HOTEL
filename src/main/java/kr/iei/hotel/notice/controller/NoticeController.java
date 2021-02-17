@@ -20,6 +20,7 @@ public class NoticeController {
 	NoticeService service;
 	
 	// ────────────────────────────────────────────────── 사용자 ──────────────────────────────────────────────────
+	/*--------------------------------- 전체조회, 검색---------------------------------*/
 	@RequestMapping(value="/noticeMain", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView noticeMain(Page page) {
 		ModelAndView mv = new ModelAndView();
@@ -36,6 +37,7 @@ public class NoticeController {
 		return mv;		
 	}
 	
+	/*--------------------------------- 제목 검색 ---------------------------------*/
 	@RequestMapping(value="/noticeTitle", method=RequestMethod.POST)
 	public ModelAndView noticeTitle(Page page) {
 		ModelAndView mv = new ModelAndView();
@@ -52,6 +54,7 @@ public class NoticeController {
 		return mv;		
 	}
 	
+	/*--------------------------------- 내용 검색 ---------------------------------*/
 	@RequestMapping(value="/noticeContents", method=RequestMethod.POST)
 	public ModelAndView noticeContents(Page page) {
 		ModelAndView mv = new ModelAndView();
@@ -68,6 +71,7 @@ public class NoticeController {
 		return mv;		
 	}
 	
+	/*--------------------------------- 뷰 상세보기 ---------------------------------*/
 	@RequestMapping(value="/noticeDetail", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView noticeDetail(NoticeVo vo, 
 			@RequestParam(value="menu", required=false, defaultValue="total") String str,
@@ -97,6 +101,7 @@ public class NoticeController {
 	}
 	
 	// ────────────────────────────────────────────────── 관리자 ──────────────────────────────────────────────────
+	/*--------------------------------- 전체조회, 검색 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeMain", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView adminNoticeMain(Page page) {
 		ModelAndView mv = new ModelAndView();
@@ -109,10 +114,11 @@ public class NoticeController {
 		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
-		mv.setViewName("notice_admin/adminNoticeMain");		
+		mv.setViewName("noticeAdmin/adminNoticeMain");		
 		return mv;		
 	}
 	
+	/*--------------------------------- 제목 검색 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeTitle", method=RequestMethod.POST)
 	public ModelAndView adminNoticeTitle(Page page) {
 		ModelAndView mv = new ModelAndView();
@@ -125,10 +131,11 @@ public class NoticeController {
 		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
-		mv.setViewName("notice_admin/adminNoticeMain");		
+		mv.setViewName("noticeAdmin/adminNoticeMain");		
 		return mv;		
 	}
 	
+	/*--------------------------------- 내용 검색 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeContents", method=RequestMethod.POST)
 	public ModelAndView adminNoticeContents(Page page) {
 		ModelAndView mv = new ModelAndView();
@@ -141,10 +148,11 @@ public class NoticeController {
 		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
-		mv.setViewName("notice_admin/adminNoticeMain");		
+		mv.setViewName("noticeAdmin/adminNoticeMain");		
 		return mv;		
 	}
 	
+	/*--------------------------------- 뷰 상세보기 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeDetail", method= RequestMethod.POST)
 	public ModelAndView adminNoticeDetail(NoticeVo vo, 
 			@RequestParam(value="menu", required=false, defaultValue="total") String str,
@@ -169,18 +177,20 @@ public class NoticeController {
 		
 		mv.addObject("vo", vo);
 		mv.addObject("vo1", vo1);
-		mv.setViewName("notice_admin/adminNoticeDetail");
+		mv.setViewName("noticeAdmin/adminNoticeDetail");
 		return mv;
 	}
 	
+	/*--------------------------------- 공지 등록 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeInsert", method= RequestMethod.POST)
 	public ModelAndView adminNoticeInsert() {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("notice_admin/adminNoticeInsert");
+		mv.setViewName("noticeAdmin/adminNoticeInsert");
 		return mv;
 	}
 	
+	/*--------------------------------- 공지 등록 시 모달창 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeInsertR", method= RequestMethod.POST)
 	public ModelAndView adminNoticeInsertR(NoticeVo vo) {
 		ModelAndView mv = new ModelAndView();
@@ -191,10 +201,11 @@ public class NoticeController {
 		String msg = service.insert(vo);
 		
 		mv.addObject("msg", msg);
-		mv.setViewName("notice_admin/insertAlert");
+		mv.setViewName("noticeAdmin/insertAlert");
 		return mv;
 	}
 	
+	/*--------------------------------- 공지 수정 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeUpdate", method= RequestMethod.POST)
 	public ModelAndView adminNoticeUpdate(NoticeVo vo) {
 		ModelAndView mv = new ModelAndView();
@@ -202,10 +213,11 @@ public class NoticeController {
 		vo = service.view(vo.getnNo());
 		
 		mv.addObject("vo", vo);
-		mv.setViewName("notice_admin/adminNoticeUpdate");
+		mv.setViewName("noticeAdmin/adminNoticeUpdate");
 		return mv;
 	}
 	
+	/*--------------------------------- 공지 수정 시 모달창 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeModify", method= RequestMethod.POST)
 	public ModelAndView adminNoticeModify(NoticeVo vo) {
 		ModelAndView mv = new ModelAndView();
@@ -217,11 +229,11 @@ public class NoticeController {
 		String msg = service.update(vo);		
 		
 		mv.addObject("msg", msg);
-		mv.setViewName("notice_admin/modifyAlert");
+		mv.setViewName("noticeAdmin/modifyAlert");
 		return mv;
 	}
 	
-	
+	/*--------------------------------- 공지 삭제 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeDelete", method= RequestMethod.POST)
 	public ModelAndView adminNoticeDelete(NoticeVo vo) {
 		ModelAndView mv = new ModelAndView();
@@ -230,7 +242,7 @@ public class NoticeController {
 		String msg = service.delete(vo.getnNo());
 		
 		mv.addObject("msg", msg);
-		mv.setViewName("notice_admin/deleteAlert");
+		mv.setViewName("noticeAdmin/deleteAlert");
 		return mv;
 	}
 	
