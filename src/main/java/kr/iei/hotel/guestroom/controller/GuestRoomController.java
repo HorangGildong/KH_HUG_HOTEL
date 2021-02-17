@@ -64,11 +64,19 @@ public class GuestRoomController {
 	}
 	//객실 삭제
 	@RequestMapping(value = "/guestRoomDelete", method = RequestMethod.GET)
-	public String guestRoomInfo(String guestRoomName)throws Exception {
+	public String guestRoomDelete(String guestRoomName)throws Exception {
 		
 		logger.info("객실 삭제");
 		guestRoomService.guestRoomDelete(guestRoomName);
 		return "redirect:/guestRoomAdminView";
+	
+	}
+	//객실 관리 정보 리스트 뷰
+	@RequestMapping(value ="/guestRoomAdminInfoView", method = RequestMethod.GET)
+	public String guestRoomAdminInfoList(String guestRoomName, Model model)throws Exception {
+		model.addAttribute("guestRoomName", guestRoomName);
+		logger.info("객실 관리 정보 리스트 뷰");
+		return "/guestroomAdmin/guestRoomAdminInfoView";
 	
 	}
 }

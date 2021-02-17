@@ -64,7 +64,7 @@
                             <span>베드타입</span>
                             TWIN
                         </p>
-                        <a href="">객실 정보 추가하기</a>
+                        <a href="/guestRoomAdminInfoView?guestRoomName=${list.guestRoomName }">객실 정보 추가하기</a>
                     </div>
                 </div>
                 <div class="roomPrice">
