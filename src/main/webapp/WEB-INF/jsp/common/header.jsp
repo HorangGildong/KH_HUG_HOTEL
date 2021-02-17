@@ -68,7 +68,7 @@
                             <li><a href="#">회원관리</a></li>
                         </ul>
                     </li> -->
-                    <li><a href='/member/login'>로그인</a></li>
+                    <li><a href='/login'>로그인</a></li>
                     <!-- <li><a href="#">로그아웃</a></li> -->
                     <li><a href='#' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
                 </ul>
