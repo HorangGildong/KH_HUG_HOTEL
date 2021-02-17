@@ -16,6 +16,13 @@
  		, guestRoomImage3
  		, guestRoomImage4
  	</sql>
+ 	
+ 	<!-- 객실 관리 리스트 -->
+ 	<select id="guestRoomAdminList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
+ 		SELECT *
+ 		FROM guestRoomInfo
+ 	</select>
+ 	<!-- 객실 정보 추가 -->
  	<insert id="guestRoomInfoInsert" parameterType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
 		INSERT INTO
 		guestRoomInfo (
@@ -34,4 +41,10 @@
 			, #{guestRoomImage4}
 		)
 	</insert>
+	<!-- 객실 정보 삭제 -->
+	<delete id="guestRoomInfoDelete" parameterType="String">
+		DELETE
+		FROM guestRoomInfo
+		WHERE guestRoomName = #{guestRoomName}
+	</delete>
  </mapper>
