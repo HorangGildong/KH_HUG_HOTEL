@@ -47,16 +47,16 @@
 		<section>
 			<div style="margin: 100px 0px 100px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
-				
-				<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
-					
-					<form class="col-md-12 form-horizontal" action="/login" method="post">
+
+					<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
+
+					<form class="col-md-12 form-horizontal" action="/login"
+						method="post">
 						<div class="form-group">
 							<div class="input-group">
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-user" aria-hidden="true"></span>
-								</span>
-								<input type="email" class="form-control input-lg"
+								</span> <input type="email" class="form-control input-lg"
 									name="memberEmail" id="inputEmail" placeholder="E-mail">
 							</div>
 						</div>
@@ -64,8 +64,7 @@
 							<div class="input-group">
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-								</span>
-								<input type="password" class="form-control input-lg"
+								</span> <input type="password" class="form-control input-lg"
 									name="memberPassword" id="inputPassword" placeholder="Password">
 							</div>
 						</div>
@@ -87,6 +86,7 @@
 							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
 							네이버 아이디로 로그인</div>
 					</button>
+					${test}
 				</div>
 			</div>
 		</section>

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -30,9 +31,10 @@ public class MemberLoginController {
 	
 	// login
 	@PostMapping("/login")
-	public String login(MemberLoginFormDto memberLoginFormDto, HttpSession session) {
+	public String login(MemberLoginFormDto memberLoginFormDto, HttpSession session, Model model) {
 		AuthInfoDto authInfoDto = memberService.getAuthInfoDto(memberLoginFormDto);
 		session.setAttribute("authInfoDto", authInfoDto);
+		model.addAttribute("test", session.getAttribute("authInfoDto"));
 		return "/member/login";
 	}
 	
