@@ -46,3 +46,21 @@
 	background: #193f6e;
 	color: white;
 }
+.hotelHugWrap .jypButton2 {
+	background: white;
+    border: 1px solid #193f6e;
+    padding: 24px;
+    /* width: 47%; */
+    font-size: 20px;
+    margin-left: 299px;
+    /* margin-top: 50px; */
+    /* margin-bottom: 200px; */
+    padding: 24px 245px;
+    /* color: beige; */
+    color: black;
+    text-decoration: none;
+}
+.hotelHugWrap .jypButton2:hover {
+	background: #193f6e;
+	color: white;
+}

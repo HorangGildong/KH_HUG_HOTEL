@@ -70,6 +70,7 @@
         </div>
 		</c:forEach>
 		</c:if>
+		<a href="/guestRoomAdminView">목록</a>
     </section>
         <!--section end-->
         <!--footer start-->

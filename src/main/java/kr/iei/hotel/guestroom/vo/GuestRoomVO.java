@@ -30,8 +30,15 @@ public class GuestRoomVO {
 	private int standardPersonnel;
 	private int adultPrice;
 	private int childPrice;
+	private int standardNo;
 	
 	
+	public int getStandardNo() {
+		return standardNo;
+	}
+	public void setStandardNo(int standardNo) {
+		this.standardNo = standardNo;
+	}
 	public int getGuestRoomNo() {
 		return guestRoomNo;
 	}

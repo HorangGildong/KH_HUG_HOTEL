@@ -53,23 +53,23 @@
                     </p>
                     <div class="roomInfo">
                         <p>
-                            <span>면적</span>
-                            45m²
+                            <span>내용</span>
+                            2
                         </p>
                         <p>
-                            <span>인원</span>
-                            성인 2인 기준 / 최대 4인
+                            <span>사진</span>
+                            4
                         </p>
                         <p>
-                            <span>베드타입</span>
-                            TWIN
+                            <span>서비스</span>
+                            16
                         </p>
                         <a href="/guestRoomAdminInfoView?guestRoomName=${list.guestRoomName }">객실 정보 추가하기</a>
                     </div>
                 </div>
                 <div class="roomPrice">
-                    <p>1박</p>
-                    <span>320000 원 ~</span>
+                    <p></p>
+                    <span></span>
                     <a href="/guestRoomDelete?guestRoomName=${list.guestRoomName}">삭제</a>
                 </div>
             </div>
