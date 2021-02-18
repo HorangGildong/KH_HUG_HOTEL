@@ -47,9 +47,7 @@
 		<section>
 			<div style="margin: 100px 0px 100px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
-
 					<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
-
 					<form class="col-md-12 form-horizontal" action="/login"
 						method="post">
 						<div class="form-group">
