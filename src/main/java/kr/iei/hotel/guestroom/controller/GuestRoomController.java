@@ -82,7 +82,7 @@ public class GuestRoomController {
 	public String guestRoomAdminInfoList(String guestRoomName, Model model)throws Exception {
 		
 		logger.info("객실 관리 정보 리스트 뷰");
-		model.addAttribute("list", guestRoomService.guestRoomAdminInfoList());
+		model.addAttribute("list", guestRoomService.guestRoomAdminInfoList(guestRoomName));
 		model.addAttribute("guestRoomName", guestRoomName);
 		return "/guestroomAdmin/guestRoomAdminInfoView";
 	

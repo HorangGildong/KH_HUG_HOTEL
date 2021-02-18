@@ -58,10 +58,11 @@
 		FROM guestRoom
 		WHERE guestRoomName = #{guestRoomName}
 	</delete>
-	<!-- 객실 관리 리스트 -->
- 	<select id="guestRoomAdminInfoList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
+	<!-- 객실 관리 정보 리스트 -->
+ 	<select id="guestRoomAdminInfoList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO" parameterType="String">
  		SELECT *
  		FROM guestRoomInfo
+ 		where guestRoomName = #{guestRoomName}
  	</select>
 	<!-- 객실 정보 추가 -->
  	<insert id="guestRoomInfoInsert" parameterType="kr.iei.hotel.guestroom.vo.GuestRoomVO">

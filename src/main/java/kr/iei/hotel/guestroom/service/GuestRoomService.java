@@ -32,8 +32,8 @@ public class GuestRoomService {
 		guestRoomMapper.guestRoomDelete(guestRoomName);
 	}
 	//객실 관리 정보 리스트
-	public List<GuestRoomVO> guestRoomAdminInfoList()throws Exception {
-		return guestRoomMapper.guestRoomAdminInfoList();
+	public List<GuestRoomVO> guestRoomAdminInfoList(String guestRoomName)throws Exception {
+		return guestRoomMapper.guestRoomAdminInfoList(guestRoomName);
 	}
 	//객실 정보 추가
 	public void guestRoomInfoInsert(GuestRoomVO guestRoomVO)throws Exception {
