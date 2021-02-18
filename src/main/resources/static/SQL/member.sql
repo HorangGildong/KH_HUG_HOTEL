@@ -54,8 +54,8 @@ INSERT INTO GRADE (gradeName, gradeDiscount) VALUES('MEMBERSHIP',30);
 INSERT INTO MEMBER (memberEmail, memberName, memberNick, memberPhone, memberGender, memberPassword, memberBirth)
 VALUES(
     'gildong@hwalbin.com',
-    'È«±æµ¿',
-    'È«±æµ¿¼­³²ºÏºÏ¼­·ÎÁø·Î¸¦µ¹·Á¶ó',
+    'í™ê¸¸ë™',
+    'í™ê¸¸ë™ì„œë‚¨ë¶ë¶ì„œë¡œì§„ë¡œë¥¼ëŒë ¤ë¼',
     '010-1234-5678',
     0,
     '123',
@@ -65,8 +65,8 @@ VALUES(
 INSERT INTO MEMBER (memberEmail, memberName, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
 VALUES(
     'tiger@hughotel.com',
-    'ÇÑ¸¸¿ù',
-    '°ü¸®ÀÚ',
+    'í•œë§Œì›”',
+    'ê´€ë¦¬ì',
     '010-7777-7777',
     1,
     0,

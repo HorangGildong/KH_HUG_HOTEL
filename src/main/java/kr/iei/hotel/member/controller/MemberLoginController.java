@@ -2,9 +2,8 @@ package kr.iei.hotel.member.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 public class MemberLoginController {
@@ -14,9 +13,16 @@ public class MemberLoginController {
 	 * 2순위 : resource/static
 	 */
 	
-	// login
+	// loginPage
 	@GetMapping(value="/login")
 	public String login() {		
-		return "/member/signUp";		
+		return "/member/login";		
 	}
+	
+	@PostMapping(value="/login")
+	public String login2() {
+		return "/member/login";
+	}
+	
+	// login
 }

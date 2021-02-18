@@ -50,13 +50,13 @@
 				
 				<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
 					
-					<form class="col-md-12 form-horizontal">
+					<form class="col-md-12 form-horizontal" action="/login" method="post">
 						<div class="form-group">
 							<div class="input-group">
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span> <input type="email" class="form-control input-lg"
-									id="inputEmail3" placeholder="E-mail">
+									name="memberEmail" id="inputEmail" placeholder="E-mail">
 							</div>
 						</div>
 						<div class="form-group">
@@ -64,7 +64,7 @@
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 								</span> <input type="password" class="form-control input-lg"
-									id="inputPassword3" placeholder="Password">
+									name="memberPassword" id="inputPassword" placeholder="Password">
 							</div>
 						</div>
 						<div class="form-group">
