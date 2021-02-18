@@ -54,8 +54,7 @@
 #faqmain #menu{
     display: flex;
     justify-content: space-around;
-    list-style: none;
-    
+    list-style: none;    
 }
 
 #faqmain #menu .menu-active{
@@ -113,8 +112,10 @@
     top:0px;    
 }
 #faqmain .panel-heading #span4{
-    position: relative;
-    left: 650px;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top:0px;
       
 }
 #faqmain .panel-heading #span4>img{

@@ -67,7 +67,7 @@
 #notice #writer{
     margin-top: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
 }
 #notice #writer input{

@@ -3,6 +3,15 @@
  * 작성자: 곽재훈
  */
   
+@font-face{
+  font-family:'NanumBarunGothic';
+  src:url("../fonts/NanumBarunGothic.eot");
+  src:local("☺"),url("../fonts/NanumBarunGothic.woff") format("woff");
+}
+
+section {font-family: "맑은 고딕","Malgun Gothic",  sans-serif; }  
+  
+
 function getID(id) {
     return document.getElementById(id)
  } 
@@ -19,30 +28,45 @@ var notice = function(){
 			
 			if (selectBox.value == "total") {	
 				var selected = 'total';
+				frm.nowPage.value = 1;
 				frm.menu.value = selected;						
 				frm.action = "/noticeMain";
 				frm.submit();
 				
-			}else if (selectBox.value == "contents") {
+			} else if (selectBox.value == "title") {
+				var selected = 'title';
+				frm.nowPage.value = 1;
+				frm.menu.value = selected;
+				frm.action = "/noticeTitle";
+				frm.submit();						
+			} else if (selectBox.value == "contents") {
 				var selected = 'contents';
+				frm.nowPage.value = 1;
 				frm.menu.value = selected;
 				frm.action = "/noticeContents";
 				frm.submit();
 				
-			}else if (selectBox.value == "title") {
-				var selected = 'title';
-				frm.menu.value = selected;
-				frm.action = "/noticeTitle";
-				frm.submit();				
-			}										
+			}													
 		};
 	};	
 	
 	if (btnBack != null) {
 		btnBack.onclick = function(){
-			var frm = document.frm_notice;    			
-			frm.action = "/noticeMain";
-			frm.submit();
+			var frm = document.frm_notice;
+			alert(frm.menu.value)
+			if (frm.menu.value == "total") {
+				frm.action = "/noticeMain";
+				frm.submit();
+				
+			} else if (frm.menu.value == "title") {
+				frm.action = "/noticeTitle";
+				frm.submit();
+				
+			} else if (frm.menu.value == "contents") {
+				frm.action = "/noticeContents";
+				frm.submit();
+				
+			}
 		}
 	}
 	
@@ -59,8 +83,18 @@ notice.btnView = function(num,page){
 notice.goPage = function(page){			
 	var frm = document.frm_notice;
 	frm.nowPage.value = page;
-	frm.action = "/noticeMain";
-	frm.submit();
+	if (selectBox.value == "total") {
+		frm.action = "/noticeMain";
+		frm.submit();	
+	}else if (selectBox.value == "title") {
+		frm.action = "/noticeTitle";
+		frm.submit();
+		
+	}else if (selectBox.value == "contents") {
+		frm.action = "/noticeContents";
+		frm.submit();
+		
+	}
 }
 
 notice.preArticle = function(num){
@@ -68,13 +102,12 @@ notice.preArticle = function(num){
 		var frm = document.frm_notice;
 		frm.nNo.value = num;
 		frm.action = "/noticeDetail";
-		frm.submit();				
+		frm.submit();
 	}
 }
 
 notice.nextArticle = function(num){
-	var totpage = "<c:out value='${param.totalPage }'/>"; 
-	
+	var totpage = "<c:out value='${param.totalPage }'/>";			
 	var frm = document.frm_notice;
 	frm.nNo.value = num;
 	frm.action = "/noticeDetail";

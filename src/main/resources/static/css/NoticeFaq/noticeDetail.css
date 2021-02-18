@@ -230,3 +230,7 @@
 #detail_Footer .cursor{
 	cursor: pointer;
 }
+#detail_Footer #detail_Footer .btnHide{
+	pointer-events: none; 
+	cursor: default;
+}

@@ -58,20 +58,23 @@
 					
 					if (adminSelectBox.value == "total") {	
 						var selected = 'total';
+						frm.nowPage.value = 1;
 						frm.menu.value = selected;						
 						frm.action = "/adminNoticeMain";
 						frm.submit();
 						
-					}else if (adminSelectBox.value == "contents") {
-						var selected = 'contents';
-						frm.menu.value = selected;
-						frm.action = "/adminNoticeContents";
-						frm.submit();
-						
-					}else if (adminSelectBox.value == "title") {
+					} else if (adminSelectBox.value == "title") {
 						var selected = 'title';
+						frm.nowPage.value = 1;
 						frm.menu.value = selected;
 						frm.action = "/adminNoticeTitle";
+						frm.submit();
+						
+					} else if (adminSelectBox.value == "contents") {
+						var selected = 'contents';
+						frm.nowPage.value = 1;
+						frm.menu.value = selected;
+						frm.action = "/adminNoticeContents";
 						frm.submit();
 						
 					}		
@@ -97,8 +100,18 @@
 		notice.goPage = function(page){			
 			var frm = document.frm_notice;
 			frm.nowPage.value = page;
-			frm.action = "/adminNoticeMain";
-			frm.submit();
+			if (adminSelectBox.value == "total") {
+				frm.action = "/adminNoticeMain";
+				frm.submit();				
+			}else if (adminSelectBox.value == "title") {
+				frm.action = "/adminNoticeTitle";
+				frm.submit();
+				
+			}else if (adminSelectBox.value == "contents") {
+				frm.action = "/adminNoticeContents";
+				frm.submit();
+				
+			}
 		}
 	</script>
 
@@ -159,7 +172,7 @@
 	               <tr class='view' onclick="notice.adminbtnView(${vo.nNo },${page.totListSize })">
 	                 <td>${vo.nNo }</td>
 	                 <c:if test="${vo.pub eq 1 }">
-	                 	<td><span id='secret'>[★비밀글]&ensp;</span>${vo.title }</td>
+	                 	<td><span id='secret'>[★비공개]&ensp;</span>${vo.title }</td>
 	                 </c:if>
 	                 <c:if test="${vo.pub eq 0 }">
 	                 	<td>${vo.title }</td>

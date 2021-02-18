@@ -16,7 +16,6 @@
 	<!-- css, js 링크 연결 -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/NoticeFaq/noticeDetail.css">
-
 	<link rel="shortcut icon" href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
 	
     <!-- Bootstrap -->
@@ -40,10 +39,8 @@
 		
 		section {font-family: "맑은 고딕","Malgun Gothic",  sans-serif; }				
 	</style>
-		
-    <title>공지사항 상세페이지</title>
-    
-    <script>
+	
+	<script>
 	    function getID(id) {
 		    return document.getElementById(id)
 		 } 
@@ -52,14 +49,25 @@
     		
 			var btnBack = getID('btnBack');  		
     		    		
-    		if (btnBack != null) {
-    			btnBack.onclick = function(){
-    				var frm = document.frm_notice;    			
-    				frm.action = "/noticeMain";
-					frm.submit();
-    			}
-			}    		
-    	}
+			if (btnBack != null) {
+				btnBack.onclick = function(){
+					var frm = document.frm_notice;
+					if (frm.menu.value == "title") {
+						frm.action = "/noticeTitle";
+						frm.submit();
+						
+					} else if (frm.menu.value == "contents") {
+						frm.action = "/noticeContents";
+						frm.submit();
+						
+					} else {
+						frm.action = "/noticeMain";
+						frm.submit();
+						
+					}
+				};
+			};    		
+    	};
     
 		notice.preArticle = function(num){
 			if (num > 0) {
@@ -89,6 +97,8 @@
 		}
 		
     </script>
+	
+    <title>공지사항 상세페이지</title>
     
 </head>
 <body>
@@ -190,11 +200,11 @@
                 <form name='frm_notice' method='post'>
 	                <span id='back'>
 	                    <input type="button" id='btnBack' value='목록' class="form-control">
-	                    <input type='hidden' name='menu' value="${param.menu }">
+	                    <input type='text' name='menu' value="${param.menu }">
 						<input type='hidden' name='nowPage' value="${param.nowPage }">
 						<input type='hidden' name='nNo' value="${param.nNo}">
 	                    <input type="hidden" name='findStr' value="${param.findStr }"> 
-	                    <input type='hidden' name='totalPage' value='${param.totalPage }'>                   
+	                    <input type='hidden' name='totalPage' value='${param.totalPage }'>	                                     
 	                </span>
                 </form>
                 

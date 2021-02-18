@@ -58,8 +58,19 @@
 	   		if (adminBtnBack != null) {
 				adminBtnBack.onclick = function(){
 					var frm = document.frm_notice;
-					frm.action = "/adminNoticeMain";
-					frm.submit();
+					if (frm.menu.value == "title") {
+						frm.action = "/adminNoticeTitle";
+						frm.submit();
+						
+					} else if (frm.menu.value == "contents") {
+						frm.action = "/adminNoticeContents";
+						frm.submit();
+						
+					}else {
+						frm.action = "/adminNoticeMain";
+						frm.submit();
+						
+					}					
 				}
 			}
 	   		

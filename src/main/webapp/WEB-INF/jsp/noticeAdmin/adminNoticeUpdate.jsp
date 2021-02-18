@@ -63,8 +63,19 @@
     		if (adminBtnBack != null) {
 				adminBtnBack.onclick = function(){
 					var frm = document.frm_notice;
-					frm.action = "/adminNoticeMain";
-					frm.submit();
+					if (frm.menu.value == "title") {
+						frm.action = "/adminNoticeTitle";
+						frm.submit();
+						
+					} else if (frm.menu.value == "contents") {
+						frm.action = "/adminNoticeContents";
+						frm.submit();
+						
+					}else {
+						frm.action = "/adminNoticeMain";
+						frm.submit();
+						
+					}
 				}
 			}
     		
@@ -116,7 +127,7 @@
                 
 	<%-- ─────────────────────────────────── 비밀글  부분 ─────────────────────────────────── --%> 
                     <div class='secret_check'>
-                       	<label for="secret">비밀글</label>
+                       	<label for="secret">비공개</label>
                     	<c:if test="${vo.pub eq 1 }">                    		
                         	<input type="checkbox" name='pub' id='pub' value='1'>
                     		<script>                    			
@@ -132,8 +143,12 @@
 	                <span id='adminback'>
 	                    <input type="button" id='adminBtnBack' value='목록' class="form-control">
 	                    <input type="button" id='adminBtnModify' value='수정' class="form-control">
-			            <input type='text' name='nNo' value="${param.nNo}">
-	                </span>
+			            <input type='hidden' name='nNo' value="${param.nNo}">
+	                    <input type='hidden' name='menu' value="${param.menu }">
+		                <input type='hidden' name='nowPage' value="${param.nowPage }">
+		                <input type="hidden" name='findStr' value="${param.findStr }">
+		                <input type='hidden' name='totalPage' value='${param.totalPage }'>
+		       		</span>
                 </form>
                 
                 </div>

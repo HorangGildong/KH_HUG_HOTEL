@@ -37,12 +37,13 @@
 		 	<c:forEach var='vo' items='${list }'>	               				                    			
 		   		<div class="panel-heading" id='cover'>
 		       		<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${vo.no }" id='faqQuestion'>			       							       
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${vo.no }" class='arrowControl' id='faqQuestion'>			       							       
 			            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${vo.category }</span>
 							<span id='span2'>${vo.question }</span>
-							<span id='span3'><img name='before' src="img/kjh_img/allowBottom.PNG"></span>
-							<span id='span4'><img name='after' src="img/kjh_img/allowTop.PNG"></span>
-							
+							<span id='arrow'>
+								<span id='span3'><img name='before' src="img/kjh_img/allowTop.PNG"></span>
+								<span id='span4'><img name='after' src="img/kjh_img/allowBottom.PNG"></span>
+							</span>							
 						</a>
 					</h4>
 				</div>			                     	 

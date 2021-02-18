@@ -24,14 +24,13 @@
 	
 	<!-- css, js 링크 연결 -->
     <link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/NoticeFaq/notice.css">
-
+	<link rel="stylesheet" href="css/NoticeFaq/notice.css">	
 	<link rel="shortcut icon" href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
 	
     <!-- Bootstrap -->
     <link href="css/bootstrapcss/bootstrap.min.css" rel="stylesheet">    
-    <link href="css/bootstrapcss/custom2.css" rel="stylesheet">
-    
+    <link href="css/bootstrapcss/custom2.css" rel="stylesheet">	
+		
 	<style>
 		@font-face{
 		  font-family:'NanumBarunGothic';
@@ -58,24 +57,28 @@
 					
 					if (selectBox.value == "total") {	
 						var selected = 'total';
+						frm.nowPage.value = 1;
 						frm.menu.value = selected;						
 						frm.action = "/noticeMain";
 						frm.submit();
 						
-					}else if (selectBox.value == "contents") {
+					} else if (selectBox.value == "title") {
+						var selected = 'title';
+						frm.nowPage.value = 1;
+						frm.menu.value = selected;
+						frm.action = "/noticeTitle";
+						frm.submit();						
+					} else if (selectBox.value == "contents") {
 						var selected = 'contents';
+						frm.nowPage.value = 1;
 						frm.menu.value = selected;
 						frm.action = "/noticeContents";
 						frm.submit();
 						
-					}else if (selectBox.value == "title") {
-						var selected = 'title';
-						frm.menu.value = selected;
-						frm.action = "/noticeTitle";
-						frm.submit();						
 					}													
 				};
-			};	
+			};
+			
 		};
 					
 		notice.btnView = function(num,page){
@@ -89,8 +92,18 @@
 		notice.goPage = function(page){			
 			var frm = document.frm_notice;
 			frm.nowPage.value = page;
-			frm.action = "/noticeMain";
-			frm.submit();
+			if (selectBox.value == "total") {
+				frm.action = "/noticeMain";
+				frm.submit();	
+			}else if (selectBox.value == "title") {
+				frm.action = "/noticeTitle";
+				frm.submit();
+				
+			}else if (selectBox.value == "contents") {
+				frm.action = "/noticeContents";
+				frm.submit();
+				
+			}
 		}
 	</script>
 
@@ -120,7 +133,8 @@
                         <input type='hidden' name='menu' value="${param.menu }">
                         <input type='hidden' name='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
                       	<input type='hidden' name='nNo' value="${param.nNo}">
-                      	<input type='hidden' name='totalPage' value='${param.totalPage }'>
+                      	<input type='hidden' name='totalPage' value='${param.totalPage }'>   
+                      	<input type='text' name='selbox' id='selbox' value='${param.selbox }'>                 	
                     </div>
                     <div>
                         <select class="form-control" name='selectBox' id='selectBox' >
@@ -184,7 +198,7 @@
         <!--footer end-->
         
     </div>
-    
+
 <script>notice()</script>
 
 <!-- Optional JavaScript -->

@@ -5,8 +5,8 @@
 
 /*────────────────────────────────── 여러가지 기능 작동 함수  ──────────────────────────────────*/   	
 /*--------------------- id함수 선언 ---------------------*/
-function getID(id){
-	return document.getElementById(id);
+function getID(id){	
+	return document.getElementById(id);	
 }
 
 var faq = function(){
@@ -34,7 +34,7 @@ var faq = function(){
 		btncago1.onclick = function(){
 			fnReset();
 			totalAjax('faqTotal');
-		}
+		}		
 	}
 	if(btncago2 != null){
 		btncago2.onclick = function(){
@@ -56,16 +56,19 @@ var faq = function(){
 	}
 	if(btncago5 != null){
 		btncago5.onclick = function(){
+			fnReset();
 	   		totalAjax('faqFacility');
 		}
 	}
 	if(btncago6 != null){
 		btncago6.onclick = function(){
+			fnReset();
 	   		totalAjax('faqPayment');
 		}
 	}
 	if(btncago7 != null){
 		btncago7.onclick = function(){
+			fnReset();
 			totalAjax('faqEtc');
 		}
 	}
@@ -315,4 +318,6 @@ guideGoPage7 = function(page){
 	frm.nowPage.value = page;
 	totalAjax('faqEtc');
 }
+
+
 
