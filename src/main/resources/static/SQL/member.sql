@@ -5,7 +5,7 @@ DROP TABLE GRADE;
 
 CREATE TABLE MEMBER (
 	memberId	    NUMBER	                            CONSTRAINT PK_MEMBER_ID PRIMARY KEY,
-	gradeName       VARCHAR2(100)   DEFAULT 'GENERAL'   NOT NULL,
+	memberGrade     NUMBER(1)       DEFAULT 0           NOT NULL,
 	memberReg   	DATE		    DEFAULT SYSDATE     NOT NULL,
 	memberUnReg	    DATE,
 	memberPwChange 	DATE	        DEFAULT SYSDATE     NOT NULL,
@@ -21,13 +21,13 @@ CREATE TABLE MEMBER (
 );
 
 CREATE TABLE GRADE (
-	gradeName       VARCHAR2(100)  	DEFAULT 'GENERAL'   CONSTRAINT PK_GRADE_NAME PRIMARY KEY,
-	gradeDiscount   NUMBER          DEFAULT 0	        NOT NULL
+	memberGrade     NUMBER(1)       DEFAULT 0           CONSTRAINT PK_GRADE_NAME PRIMARY KEY,
+	discountRate    NUMBER          DEFAULT 0	        NOT NULL
 );
 
 ALTER TABLE MEMBER
-ADD CONSTRAINT FK_MEMBER FOREIGN KEY (gradeName) 
-REFERENCES GRADE(gradeName) ON DELETE CASCADE;
+ADD CONSTRAINT FK_MEMBER FOREIGN KEY (memberGrade) 
+REFERENCES GRADE(memberGrade) ON DELETE CASCADE;
 
 CREATE SEQUENCE MEMBER_SEQ;
 
@@ -47,8 +47,8 @@ END;
 COMMIT;
 
 
-INSERT INTO GRADE (gradeName, gradeDiscount) VALUES('GENERAL',0);
-INSERT INTO GRADE (gradeName, gradeDiscount) VALUES('MEMBERSHIP',30);
+INSERT INTO GRADE (memberGrade, discountRate) VALUES(0,0);
+INSERT INTO GRADE (memberGrade, discountRate) VALUES(1,30);
 
 
 INSERT INTO MEMBER (memberEmail, memberName, memberNick, memberPhone, memberGender, memberPassword, memberBirth)

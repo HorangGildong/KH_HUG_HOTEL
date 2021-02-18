@@ -50,12 +50,12 @@
 				
 				<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
 
-					<form class="form-horizontal" action="/memberSignUp" method="post">
+					<form class="form-horizontal" action="/signUp" method="post">
 
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">아이디</label>
 							<div class="col-xs-8">
-								<input type="email" class="form-control" name="memberName" id="inputEmail"
+								<input type="email" class="form-control" name="memberEmail" id="inputEmail"
 									placeholder="E-mail">
 							</div>
 						</div>
@@ -103,10 +103,10 @@
 						<div class="form-group">
 							<label class="col-xs-4 control-label">성별</label> <label
 								class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGender" value="male"
+								type="radio" name="memberGender" id="inputGender" value="0"
 								checked> 남
 							</label> <label class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGender" value="female">
+								type="radio" name="memberGender" id="inputGender" value="1">
 								여
 							</label>
 						</div>

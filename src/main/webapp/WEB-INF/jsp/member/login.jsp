@@ -55,7 +55,8 @@
 							<div class="input-group">
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-user" aria-hidden="true"></span>
-								</span> <input type="email" class="form-control input-lg"
+								</span>
+								<input type="email" class="form-control input-lg"
 									name="memberEmail" id="inputEmail" placeholder="E-mail">
 							</div>
 						</div>
@@ -63,7 +64,8 @@
 							<div class="input-group">
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-								</span> <input type="password" class="form-control input-lg"
+								</span>
+								<input type="password" class="form-control input-lg"
 									name="memberPassword" id="inputPassword" placeholder="Password">
 							</div>
 						</div>
