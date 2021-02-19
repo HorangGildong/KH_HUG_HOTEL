@@ -1,6 +1,10 @@
 package kr.iei.hotel.guestroom.controller;
 
 
+import java.io.File;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +61,16 @@ public class GuestRoomController {
 	}
 	//객실 추가
 	@RequestMapping(value = "/guestRoomInsert", method = RequestMethod.POST)
-	public String guestRoomInsert(GuestRoomVO guestRoomVO)throws Exception {
+	public String guestRoomInsert(GuestRoomVO guestRoomVO, HttpServletRequest req)throws Exception {
 		
 		logger.info("객실 추가");
+		String PATH = req.getSession().getServletContext().getRealPath("/img/");
+
+		guestRoomVO.getImage1().transferTo(new File(PATH + guestRoomVO.getImage1().getOriginalFilename()));
+		guestRoomVO.getImage2().transferTo(new File(PATH + guestRoomVO.getImage2().getOriginalFilename()));
+		guestRoomVO.getImage3().transferTo(new File(PATH + guestRoomVO.getImage3().getOriginalFilename()));
+		guestRoomVO.getImage4().transferTo(new File(PATH + guestRoomVO.getImage4().getOriginalFilename()));
+
 		guestRoomVO.setGuestRoomImage1(guestRoomVO.getImage1().getOriginalFilename());
 		guestRoomVO.setGuestRoomImage2(guestRoomVO.getImage2().getOriginalFilename());
 		guestRoomVO.setGuestRoomImage3(guestRoomVO.getImage3().getOriginalFilename());

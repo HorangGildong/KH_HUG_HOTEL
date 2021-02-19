@@ -38,7 +38,7 @@
         <div class="innerBox">
             <div class="roomWrap">
                 <div class="imageBox">
-                    <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                    <img src="../../../img/room2.jpg" alt="이미지입니다">
                 </div>
                 <div class="roomContent">
                     <p class="roomTitle">

@@ -60,7 +60,9 @@
 		<label for="">StandardNumber(중요 객실당 하나만 나머지는 0 입력)</label>
 		<input name="standardNo" placeholder="객실의 기준으로 설정하는 정보만 숫자 1 입력 객실당 하나만" type="text" /><br />
 		<button class="jypButton" type="submit">추가</button> <br />
-		<a class="jypButton2" href="">취소</a> 
+		<div class="dkQKrclsp">
+		<a class="jypButton2" href="/guestRoomAdminInfoView?guestRoomName=${guestRoomName }">취소</a> 
+        </div>
         </form>
 		
     </section>
