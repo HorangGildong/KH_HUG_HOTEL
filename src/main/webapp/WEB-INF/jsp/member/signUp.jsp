@@ -103,10 +103,10 @@
 						<div class="form-group">
 							<label class="col-xs-4 control-label">성별</label> <label
 								class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGender" value="0"
+								type="radio" name="memberGender" id="inputGender" value="male"
 								checked> 남
 							</label> <label class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGender" value="1">
+								type="radio" name="memberGender" id="inputGender" value="female">
 								여
 							</label>
 						</div>

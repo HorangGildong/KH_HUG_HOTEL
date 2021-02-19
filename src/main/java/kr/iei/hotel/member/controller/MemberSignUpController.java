@@ -24,8 +24,7 @@ public class MemberSignUpController {
 	
 	@PostMapping("/signUp")
 	public String signUp(MemberSignUpFormDto memberSignUpFormDto) {
-		MemberDto memberDto = new MemberDto();
-		
+
 		
 		return "/member/signUp";
 	}

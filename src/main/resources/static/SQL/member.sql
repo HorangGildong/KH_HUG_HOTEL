@@ -4,25 +4,25 @@ DROP TABLE MEMBER;
 DROP TABLE GRADE;
 
 CREATE TABLE MEMBER (
-	memberId	    NUMBER	                            CONSTRAINT PK_MEMBER_ID PRIMARY KEY,
-	memberGrade     NUMBER(1)       DEFAULT 0           NOT NULL,
-	memberReg   	DATE		    DEFAULT SYSDATE     NOT NULL,
-	memberUnReg	    DATE,
-	memberPwChange 	DATE	        DEFAULT SYSDATE     NOT NULL,
-    memberAgree	    NUMBER(1)       DEFAULT 0           NOT NULL,
-	memberRole	    NUMBER(1)		DEFAULT 0           NOT NULL,
-	memberEmail	    VARCHAR2(100),
-	memberName	    VARCHAR2(100),
-	memberNick  	VARCHAR2(100),
-	memberPhone     VARCHAR2(100),
-	memberGender    NUMBER(1),
-	memberPassword	VARCHAR2(100),
-	memberBirth 	DATE
+	memberId	        NUMBER	                            CONSTRAINT PK_MEMBER_ID PRIMARY KEY,
+	memberGrade         VARCHAR(20)     DEFAULT 'general'   NOT NULL,
+	memberRegDate  	    DATE		                        NOT NULL,
+	memberUnRegDate     DATE,
+	memberPwChangeDate  DATE	                            NOT NULL,
+    memberAgree	        NUMBER(1)       DEFAULT 0           NOT NULL,
+	memberRole	        VARCHAR(20)		DEFAULT 'general'   NOT NULL,
+	memberEmail	        VARCHAR2(100),
+	memberName	        VARCHAR2(100),
+	memberNick          VARCHAR2(100),
+	memberPhone         VARCHAR2(100),
+	memberGender        VARCHAR2(20),
+	memberPassword	    VARCHAR2(100),
+	memberBirth         DATE
 );
 
 CREATE TABLE GRADE (
-	memberGrade     NUMBER(1)       DEFAULT 0           CONSTRAINT PK_GRADE_NAME PRIMARY KEY,
-	discountRate    NUMBER          DEFAULT 0	        NOT NULL
+	memberGrade         VARCHAR(20)     DEFAULT 'general'   CONSTRAINT PK_GRADE_NAME PRIMARY KEY,
+	discountRate        NUMBER          DEFAULT 0	        NOT NULL
 );
 
 ALTER TABLE MEMBER
@@ -47,29 +47,34 @@ END;
 COMMIT;
 
 
-INSERT INTO GRADE (memberGrade, discountRate) VALUES(0,0);
-INSERT INTO GRADE (memberGrade, discountRate) VALUES(1,30);
+INSERT INTO GRADE (memberGrade, discountRate) VALUES('general',0);
+INSERT INTO GRADE (memberGrade, discountRate) VALUES('membership',0.3);
 
 
-INSERT INTO MEMBER (memberEmail, memberName, memberNick, memberPhone, memberGender, memberPassword, memberBirth)
+INSERT INTO MEMBER (memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
 VALUES(
     'gildong@hwalbin.com',
     '홍길동',
+    SYSDATE,
+    SYSDATE,
     '홍길동서남북북서로진로를돌려라',
     '010-1234-5678',
-    0,
+    'general',
+    'male',
     '123',
     TO_DATE('1986-01-01','YYYY-MM-DD')
 );
 
-INSERT INTO MEMBER (memberEmail, memberName, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
+INSERT INTO MEMBER (memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
 VALUES(
     'tiger@hughotel.com',
     '한만월',
+    SYSDATE,
+    SYSDATE,
     '관리자',
     '010-7777-7777',
-    1,
-    0,
+    'admin',
+    'female',
     '777',
     TO_DATE('1998-01-01','YYYY-MM-DD')
 );
@@ -79,7 +84,7 @@ COMMIT;
 SELECT * FROM GRADE;
 SELECT * FROM MEMBER;
 
---EXAMPLE : JOIN
+--EXAMPLE : JOIN(TEST)
 SELECT M.memberId ID, M.memberEmail EMAIL, M.memberName NAME, memberRole ROLE, M.gradeName GRADE, G.gradeDiscount DC
 FROM MEMBER M
 LEFT JOIN GRADE G ON M.gradeName = G.gradeName;

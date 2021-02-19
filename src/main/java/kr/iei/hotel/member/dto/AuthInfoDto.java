@@ -4,12 +4,12 @@ public class AuthInfoDto {
 	
 	private Long memberId;
 	private String memberNick;
-	private int memberGrade;
-	private int memberRole;
+	private String memberGrade;
+	private String memberRole;
 	
 	public AuthInfoDto() {}
 
-	public AuthInfoDto(Long memberId, String memberNick, int memberGrade, int memberRole) {
+	public AuthInfoDto(Long memberId, String memberNick, String memberGrade, String memberRole) {
 		this.memberId = memberId;
 		this.memberNick = memberNick;
 		this.memberGrade = memberGrade;
@@ -32,19 +32,19 @@ public class AuthInfoDto {
 		this.memberNick = memberNick;
 	}
 
-	public int getMemberGrade() {
+	public String getMemberGrade() {
 		return memberGrade;
 	}
 
-	public void setMemberGrade(int memberGrade) {
+	public void setMemberGrade(String memberGrade) {
 		this.memberGrade = memberGrade;
 	}
 
-	public int getMemberRole() {
+	public String getMemberRole() {
 		return memberRole;
 	}
 
-	public void setMemberRole(int memberRole) {
+	public void setMemberRole(String memberRole) {
 		this.memberRole = memberRole;
 	}
 
