@@ -25,4 +25,6 @@ public interface NoticeMapper {
 	public NoticeVo title_article(int nNo, String findStr);
 	public NoticeVo content_article(int nNo, String findStr);
 	
+	public int Rinsert(NoticeVo vo);
+	
 }

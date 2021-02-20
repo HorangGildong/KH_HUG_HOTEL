@@ -79,19 +79,19 @@
     font-size: 14px; 
     background-color: rgb(240, 240, 240); 
 }
-#notice_detail #detail_Middle1 #input2{
+#notice_detail #detail_Middle1 #input2{    
     text-align: left;
     text-indent: 4px;
     width:120px;
-    height: 30px;   
-    background-color: white;  
+    height: 30px;
+    background-color: white;
 }
 #notice_detail #detail_Middle1 #input3{
     width:60px; 
     text-align: center; 
     height: 30px; 
     font-size: 14px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240);    
 }
 #notice_detail #detail_Middle1 #input4{
     text-indent: 4px;
