@@ -45,7 +45,7 @@ public class Config extends WebSecurityConfigurerAdapter {
         	.and()
         	.formLogin()
         	.loginPage("/login")							// 권한 없는 페이지에 접근할 때 이동할 경로 
-//        	.usernameParameter("memberEmail")				// default(username)를 변경해줌 -> 보통 안바꾸고 씀(근데 애들이 member로 하라그래서 바꿈. 흥!)
+//        	.usernameParameter("memberEmail")
         	.loginProcessingUrl("/loginProc")				// '/login'호출시 시큐리티가 진행 -> controller에 '/login' 불필요
         	.defaultSuccessUrl("/")							// 로그인 성공시 이동할 경로
         	.failureUrl("/login")							// 로그인 실패시 이동할 경로
