@@ -78,11 +78,11 @@
                 </form>
             </div>
         
-            
+
             <div class="innerBox">
                 <div class="roomWrap">
                     <div class="imageBox">
-                        <img src="/img/room1.jpg" alt="이미지입니다">
+                        <img src="../../../img/스탠다드1.jpg" alt="이미지입니다">
                     </div>
                     <div class="roomContent">
                         <p class="roomTitle">
@@ -102,7 +102,10 @@
                                 <span>베드타입</span>
                                 TWIN
                             </p>
-                            <a href="">선택한 객실의 가격변동 상세보기</a>
+                            <p>
+                                <span>전망</span>
+                                우주/바다
+                            </p>
                         </div>
                     </div>
                     <div class="roomPrice">
@@ -114,7 +117,30 @@
                 <div class="searchRoomDetailInfo">
                     <form action="">
                     <ul><h1>남은방 개수<span> 선택한 객실 : <input readonly class="ipButtonType" type="text" value="스탠다드"></span></h1>
-                        <li>3개(자바스크립트로 남은방 개수를 확인하여 0일 경우 예약하기버튼을 클릭시 얼럿창을 띄우고 예약못하게 한다)</li>
+                        <li>3개(원하시는 객실 호수를 선택해주세요.)</li>
+                    	<table class="guestRoomNumberTable">
+                    		<tr>
+                    			<th class="jypSizeUp">객실번호</th>
+                    			<th class="jypSizeUp">베드타입</th>
+                    			<th class="jypSizeUp">전망</th>
+                    		</tr>
+                    		
+                    		<tr>
+                    			<td class="jypSizeUp"><input name="guestRoomNo" type="checkbox" onclick='checkOnlyOne(this)' />1303호</td>
+                    			<td class="jypSizeUp">TWIN</td>
+                    			<td class="jypSizeUp">우주</td>
+                    		</tr>
+                    		<tr>
+                    			<td class="jypSizeUp"><input name="guestRoomNo" type="checkbox" onclick='checkOnlyOne(this)' />1303호</td>
+                    			<td class="jypSizeUp">TWIN</td>
+                    			<td class="jypSizeUp">우주</td>
+                    		</tr>
+                    		<tr>
+                    			<td class="jypSizeUp"><input name="guestRoomNo" type="checkbox" onclick='checkOnlyOne(this)' />1303호</td>
+                    			<td class="jypSizeUp">TWIN</td>
+                    			<td class="jypSizeUp">우주</td>
+                    		</tr>
+                    	</table>
                     </ul>
                     <ul><h1>숙박기간에 대한 추가금<span> 선택한 날짜 : <input readonly class="ipButtonType" type="text" value="20210205">-<input readonly class="ipButtonType" type="text" value="20210210"></span></h1>
                         <li>5박</li>
@@ -139,6 +165,7 @@
                     </form>
                 </div>
             </div>
+
     
   
         
@@ -186,7 +213,19 @@
         choiceType3.addEventListener('click',function(){
             innerBox.style.display='flex';
         });
-
+</script>
+<script>
+function checkOnlyOne(element) {
+  
+  const checkboxes 
+      = document.getElementsByName("guestRoomNo");
+  
+  checkboxes.forEach((cb) => {
+    cb.checked = false;
+  })
+  
+  element.checked = true;
+}
 </script>
 </body>
 
