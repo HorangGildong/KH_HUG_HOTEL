@@ -42,10 +42,10 @@
             </h1>
     
             <div class="buttonChoice">
-                <form action="">
+                <form action="/reservationSearchProcess" method="post">
                     <div class="checkInOut">
-                        <input style="margin-right: 10px;" class="checkIn" type="text" id="datepicker1" placeholder="CheckIn">
-                        <input class="checkOut" type="text" id="datepicker2" placeholder="CheckOut">
+                        <input name="checkIn" style="margin-right: 10px;" class="checkIn" type="text" id="datepicker1" placeholder="CheckIn">
+                        <input name="checkOut" class="checkOut" type="text" id="datepicker2" placeholder="CheckOut">
                     </div>
             
                 
@@ -54,24 +54,24 @@
 
                     <!-- <p >날짜선택</p> -->
                     <div class="choiceType">
-                    <select class="choiceType2" >
+                    <select class="choiceType2" name="guestRoomName">
                         <option class="choiceFirst" value="">객실선택</option>
-                        <option value="">스탠다드</option>
-                        <option value="">슈페리어</option>
-                        <option value="">디럭스</option>
-                        <option value="">로얄</option>
+                        <option value="스탠다드">스탠다드</option>
+                        <option value="슈페리어">슈페리어</option>
+                        <option value="디럭스">디럭스</option>
+                        <option value="로얄">로얄</option>
                     </select>
-                    <select class="choiceType2" >
+                    <select class="choiceType2" name="adult">
                         <option class="choiceFirst" value="">인원선택(성인)</option>
-                        <option value="">성인 1</option>
-                        <option value="">성인 2</option>
-                        <option value="">성인 3</option>
+                        <option value="1">성인 1</option>
+                        <option value="2">성인 2</option>
+                        <option value="3">성인 3</option>
                     </select>
-                    <select class="choiceType2" >
+                    <select class="choiceType2" name="child">
                         <option class="choiceFirst" value="">인원선택(어린이)</option>
-                        <option value="">어린이 1</option>
-                        <option value="">어린이 2</option>
-                        <option value="">어린이 3</option>
+                        <option value="1">어린이 1</option>
+                        <option value="2">어린이 2</option>
+                        <option value="3">어린이 3</option>
                     </select>
                     <button class="choiceType3" type="submit">검색</button>
                     </div>
@@ -82,35 +82,35 @@
             <div class="innerBox">
                 <div class="roomWrap">
                     <div class="imageBox">
-                        <img src="../../../img/스탠다드1.jpg" alt="이미지입니다">
+                        <img src="../../../img/${guestRoom.guestRoomImage1 }" alt="이미지입니다">
                     </div>
                     <div class="roomContent">
                         <p class="roomTitle">
-                            <span>스탠다드</span>
+                            <span>${guestRoom.guestRoomName }</span>
                             <!-- 모던하면서도 아늑한 인테리어의 스탠다드 룸 -->
                         </p>
                         <div class="roomInfo">
                             <p>
                                 <span>면적</span>
-                                45m²
+                                ${guestRoom.guestRoomArea }m²
                             </p>
                             <p>
                                 <span>인원</span>
-                                성인 2인 기준
+                                성인 ${guestRoom.standardPersonnel }인 기준
                             </p>
                             <p>
                                 <span>베드타입</span>
-                                TWIN
+                                ${guestRoom.guestRoomBedType }
                             </p>
                             <p>
                                 <span>전망</span>
-                                우주/바다
+                                ${guestRoom.guestRoomView }
                             </p>
                         </div>
                     </div>
                     <div class="roomPrice">
                         <p>1박</p>
-                        <span>320000 원 ~</span>
+                        <span>${guestRoom.guestRoomPrice } 원 ~</span>
                         <button type=""> <a href="예약뷰2.html"></a> 예약하기</button>
                     </div>
                 </div>
