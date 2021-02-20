@@ -12,12 +12,16 @@ import kr.iei.hotel.member.dto.MemberDto;
 // 로그인 완료시 시큐리티 세션 생성(Security ContextHolder)
 // Authentication 타입 객체(세션에 저장될 오브젝트) -> Member정보
 
-public class MemberDetails implements UserDetails {
+public class PrincipalDetails implements UserDetails {
 
 	private MemberDto memberDto;
 
-	public MemberDetails(MemberDto memberDto) {
+	public PrincipalDetails(MemberDto memberDto) {
 		this.memberDto = memberDto;
+	}
+
+	public MemberDto getMemberDto() {
+		return memberDto;
 	}
 
 	// 권한 (원래 권한이 여러개 있을 수 있으므로 Collection 루프 돌려야 함)

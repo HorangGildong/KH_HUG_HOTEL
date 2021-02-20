@@ -16,4 +16,14 @@ public class MemberServiceImp implements MemberService {
 	public void join(MemberJoinFormDto memberJoinFormDto) {
 		memberDao.join(memberJoinFormDto);		
 	}
+	
+	@Override
+	public int emailCheck(String memberEmail) {
+		return memberDao.emailCheck(memberEmail);
+	}
+	
+	@Override
+	public int nickCheck(String memberNick) {
+		return memberDao.nickCheck(memberNick);
+	}
 }

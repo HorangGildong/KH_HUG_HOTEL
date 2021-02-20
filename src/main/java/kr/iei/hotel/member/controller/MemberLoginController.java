@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.iei.hotel.member.config.auth.MemberDetails;
+import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.service.MemberService;
@@ -37,7 +37,7 @@ public class MemberLoginController {
 
 	@GetMapping("/auth")	// TEST
 	@ResponseBody
-	public String str(@AuthenticationPrincipal MemberDetails principal) {
+	public String str(@AuthenticationPrincipal PrincipalDetails principal) {
 		return ("로그인 사용자 : " + principal.getNick());
 	}
 	

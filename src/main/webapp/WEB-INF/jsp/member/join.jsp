@@ -47,24 +47,27 @@
 		<section>
 			<div style="margin: 100px 0px 100px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
-				
-				<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
+
+					<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
 
 					<form class="form-horizontal" action="/join" method="post">
 
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">아이디</label>
 							<div class="col-xs-8">
-								<input type="email" class="form-control" name="memberEmail" id="inputEmail"
-									placeholder="E-mail">
+								<input type="email" class="form-control" name="memberEmail"
+									id="inputEmail" placeholder="E-mail" required>
+								<div class="check_font" id="emailCheck"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputPassword" class="col-xs-4 control-label">비밀번호</label>
 							<div class="col-xs-8">
-								<input type="password" class="form-control" name="memberPassword" id="inputPassword"
-									placeholder="Password">
+								<input type="password" class="form-control"
+									name="memberPassword" id="inputPassword" placeholder="Password"
+									required>
+								<div class="check_font" id="passwordCheck"></div>
 							</div>
 						</div>
 
@@ -72,39 +75,42 @@
 							<label for="inputPassword" class="col-xs-4 control-label">비밀번호
 								확인</label>
 							<div class="col-xs-8">
-								<input type="password" class="form-control" id="inputPassword"
-									placeholder="Password">
+								<input type="password" class="form-control" id="inputPassword2"
+									placeholder="PasswordCheck" disabled required>
+								<div class="check_font" id="passwordCheck2"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputName" class="col-xs-4 control-label">이름</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" name="memberName" id="inputName"
-									placeholder="Name">
+								<input type="text" class="form-control" name="memberName"
+									id="inputName" placeholder="Name" required>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputNick" class="col-xs-4 control-label">닉네임</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" name="memberNick" id="inputNickname"
-									placeholder="Nick">
+								<input type="text" class="form-control" name="memberNick"
+									id="inputNickname" placeholder="Nick" required>
+								<div class="check_font" id="nickCheck"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" name="memberPhone" id="inputPhone"
-									placeholder="PhoneNumber">
+								<input type="text" class="form-control" name="memberPhone"
+									id="inputPhone" placeholder="PhoneNumber" required>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputBirth" class="col-xs-4 control-label">생년월일</label>
 							<div class="col-xs-8">
-								<input type="date" class="form-control" name="memberBirth" id="inputBirth">
+								<input type="date" class="form-control" name="memberBirth"
+									id="inputBirth" required>
 							</div>
 						</div>
 
@@ -124,7 +130,8 @@
 						<div class="form-group" style="margin-bottom: 10px;">
 							<div class="checkbox">
 								<label class="checkbox-inline col-xs-5"> <input
-									type="checkbox" id="chk-terms1" value="chk"> (필수) 동의합니다.
+									type="checkbox" id="chk-terms1" value="chk" required>
+									(필수) 동의합니다.
 								</label>
 							</div>
 						</div>
@@ -159,7 +166,8 @@
 						<div class="form-group" style="margin-bottom: 10px;">
 							<div class="checkbox">
 								<label class="checkbox-inline col-xs-5"> <input
-									type="checkbox" name="memberAgree" id="chk-terms2" value="chk"> (선택) 동의합니다.
+									type="checkbox" name="memberAgree" id="chk-terms2" value="chk">
+									(선택) 동의합니다.
 								</label>
 							</div>
 						</div>
@@ -195,7 +203,7 @@
 
 						<div class="col-xs-12">
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-lg btn-block"
+								<button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn" 
 									style="font-weight: bold;">회원가입</button>
 							</div>
 						</div>
@@ -223,53 +231,144 @@
 	<script src="/js/header.js"></script>
 	<script src="/js/index.js"></script>
 
-<!-- 	<script
+	<!-- 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 
 	<script>
-    $(function () {
-      $('#terms1').collapse({
-        toggle: false
-      })
-    });
-    $(function () {
-      $('#terms2').collapse({
-        toggle: false
-      })
-    });
-    var autoHypenPhone = function (str) {
-      str = str.replace(/[^0-9]/g, '');
-      var tmp = '';
-      if (str.length < 4) {
-        return str;
-      } else if (str.length < 7) {
-        tmp += str.substr(0, 3);
-        tmp += '-';
-        tmp += str.substr(3);
-        return tmp;
-      } else if (str.length < 11) {
-        tmp += str.substr(0, 3);
-        tmp += '-';
-        tmp += str.substr(3, 3);
-        tmp += '-';
-        tmp += str.substr(6);
-        return tmp;
-      } else {
-        tmp += str.substr(0, 3);
-        tmp += '-';
-        tmp += str.substr(3, 4);
-        tmp += '-';
-        tmp += str.substr(7);
-        return tmp;
-      }
-      return str;
-    }
-    var phoneNum = document.getElementById('inputPhone');
-    phoneNum.onkeyup = function () {
-      console.log(this.value);
-      this.value = autoHypenPhone(this.value);
-    } 
-  </script>
+		$(function() {
+			$('#terms1').collapse({
+				toggle : false
+			})
+		});
+		$(function() {
+			$('#terms2').collapse({
+				toggle : false
+			})
+		});
+		var autoHypenPhone = function(str) {
+			str = str.replace(/[^0-9]/g, '');
+			var tmp = '';
+			if (str.length < 4) {
+				return str;
+			} else if (str.length < 7) {
+				tmp += str.substr(0, 3);
+				tmp += '-';
+				tmp += str.substr(3);
+				return tmp;
+			} else if (str.length < 11) {
+				tmp += str.substr(0, 3);
+				tmp += '-';
+				tmp += str.substr(3, 3);
+				tmp += '-';
+				tmp += str.substr(6);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 3);
+				tmp += '-';
+				tmp += str.substr(3, 4);
+				tmp += '-';
+				tmp += str.substr(7);
+				return tmp;
+			}
+			return str;
+		}
+		var phoneNum = document.getElementById('inputPhone');
+		phoneNum.onkeyup = function() {
+			console.log(this.value);
+			this.value = autoHypenPhone(this.value);
+		}
+
+		$("#inputEmail").blur(function() {
+			var email = $('#inputEmail').val();
+			$.ajax({
+				url : '${pageContext.request.contextPath}/join/emailCheck?email=' + email,
+				type : 'get',
+				success : function(data) {
+					if (data) {
+						$("#emailCheck").text("사용중인 아이디입니다. ㅠㅠ");
+						$("#emailCheck").css("color",	"red");
+						$("#submitBtn").attr("disabled", true);
+					} else {
+						$("#emailCheck").text("");
+						$("#submitBtn").attr("disabled", false);
+					}			
+				}
+			});
+		});
+		
+		$("#inputNickname").blur(function() {
+			var nick = $('#inputNickname').val();
+			$.ajax({
+				url : '${pageContext.request.contextPath}/join/nickCheck?nick=' + nick,
+				type : 'get',
+				success : function(data) {
+					if (nick == "") {
+						$("#nickCheck").text("");
+						$("#submitBtn").attr("disabled", false);
+					} else if (data) {
+						$("#nickCheck").text("사용중인 닉네임입니다. ㅠㅠ");
+						$("#nickCheck").css("color",	"red");
+						$("#submitBtn").attr("disabled", true);
+					} else {
+						$("#nickCheck").text("사용가능한 닉네임입니다.");
+						$("#nickCheck").css("color",	"blue");
+						$("#submitBtn").attr("disabled", false);
+					}
+				}
+			});
+		});
+		
+		$("#inputPassword").blur(function() {
+			var pw = $("#inputPassword").val();
+			var num = pw.search(/[0-9]/g);
+			var eng = pw.search(/[a-z]/ig);
+			var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+			if(pw == "") {
+				$("#passwordCheck").text("");
+				$("#inputPassword2").attr("disabled", true);
+			} else if(pw.length < 8) {
+				$("#passwordCheck").text("8자리 이상으로 입력해주세요.");
+				$("#passwordCheck").css("color", "red");
+				$("#submitBtn").attr("disabled", true);
+				$("#inputPassword2").attr("disabled", true);
+			} else if(pw.search(/\s/) != -1) {
+				$("#passwordCheck").text("비밀번호는 공백 없이 입력해주세요.");
+				$("#passwordCheck").css("color", "red");
+				$("#submitBtn").attr("disabled", true);
+				$("#inputPassword2").attr("disabled", true);
+			} else if(num < 0 || eng < 0 || spe < 0 ) {
+				$("#passwordCheck").text("영문/숫자/특수문자를 혼합해주세요.");
+				$("#passwordCheck").css("color", "red");
+				$("#submitBtn").attr("disabled", true);
+				$("#inputPassword2").attr("disabled", true);
+			} else {
+				$("#passwordCheck").text("사용가능한 비밀번호입니다.");
+				$("#passwordCheck").css("color", "blue");
+				$("#inputPassword2").attr("disabled", false);
+			}
+		});
+		
+		/* $("#inputPassword2").attr("disabled") == undefined */
+		
+		$("#inputPassword, #inputPassword2").blur(function() { 
+			var pw1=$("#inputPassword").val();
+			var pw2=$("#inputPassword2").val();
+			if($("#inputPassword2").attr("disabled") != undefined  || pw2 == "")
+			{
+				$("#passwordCheck2").text("");	
+			} else if(pw1 == pw2) { 
+				$("#passwordCheck2").text("비밀번호가 일치합니다.");
+				$("#passwordCheck2").css("color", "blue");
+				$("#submitBtn").attr("disabled", false);	
+			} else {
+				$("#passwordCheck2").text("비밀번호가 일치하지 않습니다. ㅠㅠ");
+				$("#passwordCheck2").css("color", "red");
+				$("#submitBtn").attr("disabled", true);
+			}
+		});
+		
+		
+	</script>
 
 </body>
 

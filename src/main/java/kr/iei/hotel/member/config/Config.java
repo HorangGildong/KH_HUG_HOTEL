@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import kr.iei.hotel.member.config.auth.MemberDetailsService;
+import kr.iei.hotel.member.config.auth.PrincipalDetailsService;
 
 @Configuration
 @EnableWebSecurity	// 시큐리티 활성화
@@ -20,7 +20,7 @@ import kr.iei.hotel.member.config.auth.MemberDetailsService;
 public class Config extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private MemberDetailsService memberDetailsService;
+	private PrincipalDetailsService principalDetailsService;
 	
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -29,7 +29,7 @@ public class Config extends WebSecurityConfigurerAdapter {
     
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    	auth.userDetailsService(memberDetailsService).passwordEncoder(passwordEncoder());
+    	auth.userDetailsService(principalDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Config extends WebSecurityConfigurerAdapter {
         	.formLogin()
         	.loginPage("/login")							// 권한 없는 페이지에 접근할 때 이동할 경로 
 //        	.usernameParameter("memberEmail")
-        	.loginProcessingUrl("/loginProc")				// '/login'호출시 시큐리티가 진행 -> controller에 '/login' 불필요
+        	.loginProcessingUrl("/loginProc")				// '/loginProc'호출시 시큐리티가 진행 -> controller 불필요
         	.defaultSuccessUrl("/")							// 로그인 성공시 이동할 경로
         	.failureUrl("/login")							// 로그인 실패시 이동할 경로
         	;
