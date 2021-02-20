@@ -40,25 +40,28 @@ public class ReservationController {
 		int reservationCount = reservationService.selectReservationCount(reservationVO);
 		int guestRoomInfoCount = reservationService.selectGuestRoomInfoCount(reservationVO);
 		
+		//객실 남은방
 		reservationVO.setGuestRoomRemaining(guestRoomInfoCount - reservationCount);
+		//숙박 기간
 		reservationVO.setLodgmentPeriod(reservationVO.getCheckOut() - reservationVO.getCheckIn());
 		
 
+		
+		//기준이되는 객실 정보들을 먼저 셋팅한다
 		GuestRoomVO guestRoomVO = new GuestRoomVO();
-		
 		List<GuestRoomVO> guestRoomVOList = new ArrayList<>();
-		List<Integer> guestRoomNumberList = new ArrayList<>();
-		
 		guestRoomVOList = reservationService.selectGuestRoomInfoList(reservationVO);
-		guestRoomNumberList = reservationService.reservationGuestRoomNumberList(reservationVO);
-		
 		guestRoomVO = guestRoomVOList.get(0);
+		model.addAttribute("guestRoom", guestRoomVO);
+		
+		
 		
 		int standardPersonnelProcess = guestRoomVO.getStandardPersonnel();
 		int adultProcess = reservationVO.getAdult();
 		int childProcess = reservationVO.getChild();
 		int adultCountProcess;
 		int childCountProcess;
+		
 		// 기준인원을 넘어선 성인을 우선으로 두고 추가금 개수를 구하는 것
 		if(standardPersonnelProcess < adultProcess) {
 			adultCountProcess = adultProcess - standardPersonnelProcess;
@@ -74,12 +77,14 @@ public class ReservationController {
 				standardPersonnelProcess = standardPersonnelProcess + adultProcess;
 			}
 		}
+		reservationVO.setAdultCount(adultCountProcess);
+		reservationVO.setChildCount(childCountProcess);
 		
-		System.out.println("기준인원 : "+standardPersonnelProcess);
-		System.out.println("성인카운트 : "+adultCountProcess);
-		System.out.println("어린이카운트 : "+childCountProcess);
 		
-		model.addAttribute("guestRoom", guestRoomVO);
+		
+		List<Integer> guestRoomNumberList = new ArrayList<>();
+		guestRoomNumberList = reservationService.reservationGuestRoomNumberList(reservationVO);
+		
 		//예약 되어있지 않은 객실 호수 번호 + 정보를 구해온다 
 		for(int index1 = 0; index1 < guestRoomVOList.size(); index1++) {
 			guestRoomVO = guestRoomVOList.get(index1);
@@ -90,8 +95,23 @@ public class ReservationController {
 				}
 			}
 		}
-		System.out.println(guestRoomVOList.size());
 		model.addAttribute("guestRoomInfoList", guestRoomVOList);
+		
+		
+		
+		
+		//구해온 정보들로 예약한 객실에 대한 총금액을 가져온다
+		for(int index = 0; index < reservationVO.getLodgmentPeriod(); index++) {
+			reservationVO.setTotalPrice(reservationVO.getTotalPrice() + guestRoomVO.getGuestRoomPrice());
+		}
+		for(int index = 0; index < reservationVO.getAdultCount(); index++) {
+			reservationVO.setTotalPrice(reservationVO.getTotalPrice() + guestRoomVO.getAdultPrice());
+		}
+		for(int index = 0; index < reservationVO.getChildCount(); index++) {
+			reservationVO.setTotalPrice(reservationVO.getTotalPrice() + guestRoomVO.getChildPrice());
+		}
+		System.out.println(reservationVO.getTotalPrice());
+		model.addAttribute("reservationInfo", reservationVO);
 
 		return "forward:/reservationView1";
 		

@@ -83,7 +83,7 @@
                 </form>
             </div>
         
-
+			<c:if test="${!empty reservationInfo.guestRoomRemaining }">
             <div class="innerBox">
                 <div class="roomWrap">
                     <div class="imageBox">
@@ -121,8 +121,8 @@
                 </div>
                 <div class="searchRoomDetailInfo">
                     <form action="">
-                    <ul><h1>남은방 개수<span> 선택한 객실 : <input readonly class="ipButtonType" type="text" value="스탠다드"></span></h1>
-                        <li>3개(원하시는 객실 호수를 선택해주세요.)</li>
+                    <ul><h1>남은방 개수<span> 선택한 객실 : <input readonly class="ipButtonType" type="text" value="${guestRoom.guestRoomName }"></span></h1>
+                        <li>${reservationInfo.guestRoomRemaining }개(원하시는 객실 호수를 선택해주세요.)</li>
                     	<table class="guestRoomNumberTable">
                     		<tr>
                     			<th class="jypSizeUp">객실번호</th>
@@ -138,29 +138,30 @@
                     		</c:forEach>
                     	</table>
                     </ul>
-                    <ul><h1>숙박기간에 대한 추가금<span> 선택한 날짜 : <input readonly class="ipButtonType" type="text" value="20210205">-<input readonly class="ipButtonType" type="text" value="20210210"></span></h1>
-                        <li>5박</li>
-                        <li>+ 320000</li>
-                        <li>+ 320000</li>
-                        <li>+ 320000</li>
-                        <li>+ 320000</li>
-                        <li>+ 320000</li>
+                    <ul><h1>숙박기간에 대한 추가금<span> 선택한 날짜 : <input readonly class="ipButtonType" type="text" value="${reservationInfo.checkIn }">-<input readonly class="ipButtonType" type="text" value="${reservationInfo.checkOut }"></span></h1>
+                        <li>${reservationInfo.lodgmentPeriod }박</li>
+                        <c:forEach begin="1" end="${reservationInfo.lodgmentPeriod }">
+                        <li>+ ${guestRoom.guestRoomPrice }</li>
+                        </c:forEach>
                     </ul>
-                    <ul><h1>기준인원을 넘어선 추가금<span> 선택한 인원 : 성인 <input readonly class="ipButtonType1" type="text" value="3">, 어린이 <input readonly class="ipButtonType1" type="text" value="3"></span></h1>
-                        <li>성인 + 50000</li>
-                        <li>어린이 + 30000</li>
-                        <li>어린이 + 30000</li>
-                        <li>어린이 + 30000</li>
+                    <ul><h1>기준인원을 넘어선 추가금<span> 선택한 인원 : 성인 <input readonly class="ipButtonType1" type="text" value="${reservationInfo.adult }">, 어린이 <input readonly class="ipButtonType1" type="text" value="${reservationInfo.child }"></span></h1>
+                        <c:forEach begin="1" end="${reservationInfo.adultCount }">
+                        <li>성인 + ${guestRoom.adultPrice }</li>
+                        </c:forEach>
+                        <c:forEach begin="1" end="${reservationInfo.childCount }">
+                        <li>어린이 + ${guestRoom.childPrice }</li>
+                        </c:forEach>
                     </ul>
                     <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input readonly class="ipButtonType" type="text" value="다이아"></span></h1>
                         <li>30%</li>
                     </ul>
                     <ul><h1>총 금액</h1>
-                        <li><input readonly class="ipButtonType2" type="text" value="1111111"> 원</li>
+                        <li><input readonly class="ipButtonType2" type="text" value="${reservationInfo.totalPrice }"> 원</li>
                     </ul>
                     </form>
                 </div>
             </div>
+            </c:if>
 
     
   
