@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="member"/>
+</sec:authorize>
+
 <!doctype html>
 <html lang="en">
 
@@ -48,14 +55,14 @@
 			<div style="margin: 100px 0px 100px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 					<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
-					<form class="col-md-12 form-horizontal" action="/login"
+					<form class="col-md-12 form-horizontal" action="/loginProc"
 						method="post">
 						<div class="form-group">
 							<div class="input-group">
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span> <input type="email" class="form-control input-lg"
-									name="memberEmail" id="inputEmail" placeholder="E-mail">
+									name="username" id="inputEmail" placeholder="E-mail">
 							</div>
 						</div>
 						<div class="form-group">
@@ -63,7 +70,7 @@
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 								</span> <input type="password" class="form-control input-lg"
-									name="memberPassword" id="inputPassword" placeholder="Password">
+									name="password" id="inputPassword" placeholder="Password">
 							</div>
 						</div>
 						<div class="form-group">
@@ -72,7 +79,7 @@
 						</div>
 					</form>
 					<div class="text-center">
-						<a href="/signUp">회원가입</a> | <a href="#">아이디 찾기</a> | <a href="#">비밀번호
+						<a href="/join">회원가입</a> | <a href="#">아이디 찾기</a> | <a href="#">비밀번호
 							찾기</a>
 					</div>
 					<br>
@@ -84,7 +91,7 @@
 							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
 							네이버 아이디로 로그인</div>
 					</button>
-					${test}
+					${member.nick}
 				</div>
 			</div>
 		</section>

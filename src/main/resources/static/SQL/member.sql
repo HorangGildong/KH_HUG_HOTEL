@@ -4,13 +4,13 @@ DROP TABLE MEMBER;
 DROP TABLE GRADE;
 
 CREATE TABLE MEMBER (
-	memberId	        NUMBER	                            CONSTRAINT PK_MEMBER_ID PRIMARY KEY,
-	memberGrade         VARCHAR(20)     DEFAULT 'general'   NOT NULL,
-	memberRegDate  	    DATE		                        NOT NULL,
+	memberId	        NUMBER	                                CONSTRAINT PK_MEMBER_ID PRIMARY KEY,
+	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' NOT NULL,
+	memberRegDate  	    DATE		                            NOT NULL,
 	memberUnRegDate     DATE,
-	memberPwChangeDate  DATE	                            NOT NULL,
-    memberAgree	        NUMBER(1)       DEFAULT 0           NOT NULL,
-	memberRole	        VARCHAR(20)		DEFAULT 'general'   NOT NULL,
+	memberPwChangeDate  DATE	                                NOT NULL,
+    memberAgree	        VARCHAR(20),
+	memberRole	        VARCHAR(20)		DEFAULT 'ROLE_GENERAL'  NOT NULL,
 	memberEmail	        VARCHAR2(100),
 	memberName	        VARCHAR2(100),
 	memberNick          VARCHAR2(100),
@@ -21,8 +21,8 @@ CREATE TABLE MEMBER (
 );
 
 CREATE TABLE GRADE (
-	memberGrade         VARCHAR(20)     DEFAULT 'general'   CONSTRAINT PK_GRADE_NAME PRIMARY KEY,
-	discountRate        NUMBER          DEFAULT 0	        NOT NULL
+	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' CONSTRAINT PK_GRADE_NAME PRIMARY KEY,
+	discountRate        NUMBER          DEFAULT 0	            NOT NULL
 );
 
 ALTER TABLE MEMBER
@@ -44,11 +44,10 @@ END;
 
 /
 
+INSERT INTO GRADE (memberGrade, discountRate) VALUES('GRADE_GENERAL',   0);
+INSERT INTO GRADE (memberGrade, discountRate) VALUES('GRADE_MEMBERSHIP',0.3);
+
 COMMIT;
-
-
-INSERT INTO GRADE (memberGrade, discountRate) VALUES('general',0);
-INSERT INTO GRADE (memberGrade, discountRate) VALUES('membership',0.3);
 
 
 INSERT INTO MEMBER (memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
@@ -59,10 +58,12 @@ VALUES(
     SYSDATE,
     '홍길동서남북북서로진로를돌려라',
     '010-1234-5678',
-    'general',
-    'male',
-    '123',
-    TO_DATE('1986-01-01','YYYY-MM-DD')
+    'ROLE_GENERAL',
+    'MALE',
+    '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke', -- '123'으로 로그인하면 됨
+    SYSDATE
+--    'Sat Feb 20 00:00:00 KST 2021'
+--    TO_DATE('1986-01-01','YYYY-MM-DD')
 );
 
 INSERT INTO MEMBER (memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
@@ -73,9 +74,9 @@ VALUES(
     SYSDATE,
     '관리자',
     '010-7777-7777',
-    'admin',
-    'female',
-    '777',
+    'ROLE_ADMIN',
+    'FEMALE',
+    '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW', -- '777'로 로그인하면 됨
     TO_DATE('1998-01-01','YYYY-MM-DD')
 );
 

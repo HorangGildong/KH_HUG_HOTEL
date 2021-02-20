@@ -1,11 +1,12 @@
 package kr.iei.hotel.member.dto;
 
 import java.text.ParseException;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.sql.Date;
 
-public class MemberSignUpFormDto {
+public class MemberJoinFormDto {
 
-	private int memberAgree;
+	private String memberAgree;
 	private String memberEmail;
 	private String memberName;
 	private String memberNick;
@@ -14,9 +15,9 @@ public class MemberSignUpFormDto {
 	private String memberPassword;
 	private Date memberBirth;
 	
-	public MemberSignUpFormDto() {}
+	public MemberJoinFormDto() {}
 
-	public MemberSignUpFormDto(int memberAgree, String memberEmail, String memberName, String memberNick,
+	public MemberJoinFormDto(String memberAgree, String memberEmail, String memberName, String memberNick,
 			String memberPhone, String memberGender, String memberPassword, Date memberBirth) {
 		this.memberAgree = memberAgree;
 		this.memberEmail = memberEmail;
@@ -28,11 +29,11 @@ public class MemberSignUpFormDto {
 		this.memberBirth = memberBirth;
 	}
 
-	public int getMemberAgree() {
+	public String getMemberAgree() {
 		return memberAgree;
 	}
 
-	public void setMemberAgree(int memberAgree) {
+	public void setMemberAgree(String memberAgree) {
 		this.memberAgree = memberAgree;
 	}
 
@@ -84,17 +85,9 @@ public class MemberSignUpFormDto {
 		this.memberPassword = memberPassword;
 	}
 
-	public void setMemberBirth(String memberBirth) {
-		try {
-			this.memberBirth = new java.text.SimpleDateFormat("yyyy-MM-dd").parse(memberBirth);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-	}
-
-	public void setMemberBirth(Date memberBirth) {
-		this.memberBirth = memberBirth;
+	public void setMemberBirth(String memberBirth) throws ParseException {
+//		this.memberBirth = new SimpleDateFormat("yyyy-MM-dd").parse(memberBirth);
+		this.memberBirth = Date.valueOf(memberBirth);
 	}
 
 	@Override

@@ -11,7 +11,7 @@ public class MemberDto {
 	private Date memberRegDate;
 	private Date memberUnRegDate;
 	private Date memberPwChangeDate;
-	private int memberAgree;
+	private String memberAgree;
 	private String memberRole;
 	private String memberEmail;
 	private String memberName;
@@ -24,7 +24,7 @@ public class MemberDto {
 	public MemberDto() {}
 
 	public MemberDto(Long memberId, String memberGrade, Date memberRegDate, Date memberUnRegDate,
-			Date memberPwChangeDate, int memberAgree, String memberRole, String memberEmail, String memberName,
+			Date memberPwChangeDate, String memberAgree, String memberRole, String memberEmail, String memberName,
 			String memberNick, String memberPhone, String memberGender, String memberPassword, Date memberBirth) {
 		this.memberId = memberId;
 		this.memberGrade = memberGrade;
@@ -82,11 +82,11 @@ public class MemberDto {
 		this.memberPwChangeDate = memberPwChangeDate;
 	}
 
-	public int getMemberAgree() {
+	public String getMemberAgree() {
 		return memberAgree;
 	}
 
-	public void setMemberAgree(int memberAgree) {
+	public void setMemberAgree(String memberAgree) {
 		this.memberAgree = memberAgree;
 	}
 
