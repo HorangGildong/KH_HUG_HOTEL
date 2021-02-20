@@ -70,7 +70,7 @@
                     </li> -->
                     <li><a href='/login'>로그인</a></li>
                     <!-- <li><a href="#">로그아웃</a></li> -->
-                    <li><a href='#' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
+                    <li><a href='/reservationView1' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
                 </ul>
             </nav>
         </header>
