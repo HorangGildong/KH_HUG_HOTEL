@@ -66,12 +66,17 @@
                         <option value="1">성인 1</option>
                         <option value="2">성인 2</option>
                         <option value="3">성인 3</option>
+                        <option value="4">성인 4</option>
+                        <option value="5">성인 5</option>
                     </select>
                     <select class="choiceType2" name="child">
                         <option class="choiceFirst" value="">인원선택(어린이)</option>
+                        <option value="0">어린이 0</option>
                         <option value="1">어린이 1</option>
                         <option value="2">어린이 2</option>
                         <option value="3">어린이 3</option>
+                        <option value="4">어린이 4</option>
+                        <option value="5">어린이 5</option>
                     </select>
                     <button class="choiceType3" type="submit">검색</button>
                     </div>
@@ -124,22 +129,13 @@
                     			<th class="jypSizeUp">베드타입</th>
                     			<th class="jypSizeUp">전망</th>
                     		</tr>
-                    		
+                    		<c:forEach var="list" items="${guestRoomInfoList }">
                     		<tr>
-                    			<td class="jypSizeUp"><input name="guestRoomNo" type="checkbox" onclick='checkOnlyOne(this)' />1303호</td>
-                    			<td class="jypSizeUp">TWIN</td>
-                    			<td class="jypSizeUp">우주</td>
+                    			<td class="jypSizeUp"><input name="guestRoomNo" type="checkbox" value="${list.guestRoomNo }" onclick='checkOnlyOne(this)' />${list.guestRoomNo }호</td>
+                    			<td class="jypSizeUp">${list.guestRoomBedType }</td>
+                    			<td class="jypSizeUp">${list.guestRoomView }</td>
                     		</tr>
-                    		<tr>
-                    			<td class="jypSizeUp"><input name="guestRoomNo" type="checkbox" onclick='checkOnlyOne(this)' />1303호</td>
-                    			<td class="jypSizeUp">TWIN</td>
-                    			<td class="jypSizeUp">우주</td>
-                    		</tr>
-                    		<tr>
-                    			<td class="jypSizeUp"><input name="guestRoomNo" type="checkbox" onclick='checkOnlyOne(this)' />1303호</td>
-                    			<td class="jypSizeUp">TWIN</td>
-                    			<td class="jypSizeUp">우주</td>
-                    		</tr>
+                    		</c:forEach>
                     	</table>
                     </ul>
                     <ul><h1>숙박기간에 대한 추가금<span> 선택한 날짜 : <input readonly class="ipButtonType" type="text" value="20210205">-<input readonly class="ipButtonType" type="text" value="20210210"></span></h1>
