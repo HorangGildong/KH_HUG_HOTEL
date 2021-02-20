@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en">
 
@@ -31,21 +33,19 @@
         <section class="hotelHugDetailWrap">
             <h2 class="contDetailTitle">
                 <p class="titleBig">
-                    ROYAL
+                    ${list.guestRoomName }
                 </p>
                 <p class="titleSmall">
-                    고급스러운 색체와 감각적인 분위기를 지닌 풀빌라의 정석, 로얄 풀빌라
+                	${list.guestRoomContents1 }
                 </p>
-                별관에 위치하여 독립적인 공간에서의 프라이빗한 휴식을 즐길 수 있으며, 풀빌라 내 고급 편의 시설과
-                <br>
-                풀빌라 전용으로 제공되는 서비스는 단순한 휴식을 넘어 완력박 휴양을 제공할 것입니다.
+                	${list.guestRoomContents2 }
             </h2>
             <div class="imageArea">
                 <ul class="slides">
-                    <li><img src="img/cjy_img/room1.jpg" alt=""></li>
-                    <li><img src="img/cjy_img/room2.jpg" alt=""></li>
-                    <li><img src="img/cjy_img/room3.jpg" alt=""></li>
-                    <li><img src="img/cjy_img/room4.jpg" alt=""></li>
+                    <li><img src="../../../img/${list.guestRoomImage1 }" alt=""></li>
+                    <li><img src="../../../img/${list.guestRoomImage2 }" alt=""></li>
+                    <li><img src="../../../img/${list.guestRoomImage3 }" alt=""></li>
+                    <li><img src="../../../img/${list.guestRoomImage4 }" alt=""></li>
                 </ul>
             </div>
             <p class="controls">
@@ -66,67 +66,28 @@
                     <div class="listType1">
                     <h3>객실 서비스</h3>
                         <ul  class="floatLeft">
+                            <c:forEach var="service1" items="${serviceList1 }">
                             <li>
-                                * 무료 WIFI
+                                * ${service1 }
                             </li>
-                            <li>
-                                * 55인지 FULL HD TV(침실)                            </li>
-                            <li>
-                                * 개인용 금고
-                            </li>
-                            <li>
-                                * 커피캡슐 6개
-                            </li>                            <li>
-                               * 미네랄 워터 2병
-                            </li> 
-                            <li>
-                                * 투숙 1박당 미니바 1회 무료 제공
-                            </li>
+                            </c:forEach>
                         </ul>
                         <ul class="floatRight">
+                            <c:forEach var="service2" items="${serviceList2 }">
                             <li>
-                                * 55인지 FULL HD TV(거실)                            </li>
-                            <li>
-                                * 위성 TV 58개 채널
+                                * ${service2 }
                             </li>
-                            <li>
-                                * 네스프레소 커피머신
-                            </li>
-                            <li>
-                                * 녹차, 홍차(티백)
-                            </li>
-                            <li>
-                                * 커피포트
-                            </li>
+                            </c:forEach>
                         </ul>
                     </div>
                     <div class="listType2">   
                         <h3>어메니티</h3>     
                         <ul>
+                            <c:forEach var="amenity" items="${amenityList }">
                             <li>
-                                * 배쓰 어메니티 5종
+                                * ${amenity }
                             </li>
-                            <li>
-                                * 배쓰 타올
-                            </li>
-                            <li>
-                                * 목욕용 가운
-                            </li>
-                            <li>
-                                * 샤워캡
-                            </li>
-                            <li>
-                                * 머리빗
-                            </li>
-                            <li>
-                                * 면봉
-                            </li>
-                            <li>
-                                * 에머리보드
-                            </li>
-                            <li>
-                                * 헤어드라이어
-                            </li>
+                            </c:forEach>
                         </ul>
                     </div>
                     <div class="listType3">
@@ -151,12 +112,11 @@
                     안내사항
                 </h2>
                 <ul class="guideList2">
+                    <c:forEach var="information" items="${informationList }">
                     <li>
-                        * 성수기 시즌 체크 인/아웃 시간은 조정될 수 있습니다.
+                    	* ${information }
                     </li>
-                    <li>
-                        * 호텔 내 유아용 킥보드 및 전동 퀵보드 사용은 엄격하게 제한됩니다.
-                    </li>
+                    </c:forEach>
                 </ul>
             </div>
     

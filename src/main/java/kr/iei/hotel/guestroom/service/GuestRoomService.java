@@ -17,6 +17,16 @@ public class GuestRoomService {
 	@Autowired
 	GuestRoomMapper guestRoomMapper;
 	//-------------------------------------User--------------------------------------------
+	
+	//객실 리스트
+	public List<GuestRoomVO> guestRoomList(int standardNumber)throws Exception {
+		return guestRoomMapper.guestRoomList(standardNumber);
+	}
+	//객실 상세 리스트
+	public GuestRoomVO guestRoomDetailList(GuestRoomVO guestRoomVO)throws Exception {
+		return guestRoomMapper.guestRoomDetailList(guestRoomVO);
+	}
+	
 	//-------------------------------------Admin--------------------------------------------
 	
 	//객실 관리 리스트
@@ -44,5 +54,4 @@ public class GuestRoomService {
 		guestRoomMapper.guestRoomInfoDelete(guestRoomNo);
 	}
 	
-
 }

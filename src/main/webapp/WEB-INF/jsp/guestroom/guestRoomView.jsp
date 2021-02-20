@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en">
 
@@ -35,121 +37,40 @@
             <br>
             격이 다른 휴식과 여유를 경험해 보세요.
         </h1>
+        <c:forEach var="list" items="${list }">
         <div class="innerBox">
             <div class="roomWrap">
                 <div class="imageBox">
-                    <img src="../../../img/room2.jpg" alt="이미지입니다">
+                    <img src="../../../img/${list.guestRoomImage1 }" alt="이미지입니다">
                 </div>
                 <div class="roomContent">
                     <p class="roomTitle">
-                        <span>스탠다드</span>
-                        모던하면서도 아늑한 인테리어의 스탠다드 룸
+                        <span>${list.guestRoomName }</span>
+                        ${list.guestRoomContents1 }
                     </p>
                     <div class="roomInfo">
                         <p>
                             <span>면적</span>
-                            45m²
+                            ${list.guestRoomArea }m²
                         </p>
                         <p>
                             <span>인원</span>
-                            성인 2인 기준 / 최대 4인
+                            성인 ${list.standardPersonnel }인 기준
                         </p>
                         <p>
                             <span>베드타입</span>
-                            TWIN
+                            ${list.guestRoomBedType }
                         </p>
-                        <a class="buttonTypeSmall" href="/guestRoomDetailView"><span>상세 보기</span></a>
+                        <p>
+                            <span>전망</span>
+                            ${list.guestRoomView }
+                        </p>
+                        <a class="buttonTypeSmall" href="/guestRoomDetailView?guestRoomName=${list.guestRoomName }&standardNo=${list.standardNo}"><span>상세 보기</span></a>
                     </div>
                 </div>
             </div>
         </div>
-       
-        <div class="innerBox">
-            <div class="roomWrap">
-                <div class="imageBox">
-                    <img src="img/cjy_img/room2.jpg" alt="이미지입니다">
-                </div>
-                <div class="roomContent">
-                    <p class="roomTitle">
-                        <span>슈페리어</span>
-                        침실과 거실이 하나로 이어지는 특별한 공간 구성과 모던한 감각, 슈페리어 룸
-                    </p>
-                    <div class="roomInfo">
-                        <p>
-                            <span>면적</span>
-                            65m²
-                        </p>
-                        <p>
-                            <span>인원</span>
-                            성인 3인 기준 / 최대 6인
-                        </p>
-                        <p>
-                            <span>베드타입</span>
-                            DOUBLE
-                        </p>
-                        <a class="buttonTypeSmall" href=""><span>상세 보기</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="innerBox">
-            <div class="roomWrap">
-                <div class="imageBox">
-                    <img src="img/cjy_img/room3.jpg" alt="이미지입니다">
-                </div>
-                <div class="roomContent">
-                    <p class="roomTitle">
-                        <span>디럭스</span>
-                        편안한 분위기의 침실과 우아한 감성의 거실이 분리되어 독립적 공간 활용이 매력적인 디럭스 룸
-                    </p>
-                    <div class="roomInfo">
-                        <p>
-                            <span>면적</span>
-                            85m²
-                        </p>
-                        <p>
-                            <span>인원</span>
-                            성인 4인 기준 / 최대 8인
-                        </p>
-                        <p>
-                            <span>베드타입</span>
-                            QUEEN
-                        </p>
-                        <a class="buttonTypeSmall" href=""><span>상세 보기</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="innerBox">
-            <div class="roomWrap">
-                <div class="imageBox">
-                    <img src="img/cjy_img/room4.jpg" alt="이미지입니다">
-                </div>
-                <div class="roomContent">
-                    <p class="roomTitle">
-                        <span>로얄</span>
-                        고급스러운 색체와 감각적인 분위기를 지닌 풀빌라의 정석, 로얄 풀빌라
-                    </p>
-                    <div class="roomInfo">
-                        <p>
-                            <span>면적</span>
-                            145m²
-                        </p>
-                        <p>
-                            <span>인원</span>
-                            성인 5인 기준 / 최대 10인
-                        </p>
-                        <p>
-                            <span>베드타입</span>
-                            KING
-                        </p>
-                        <a class="buttonTypeSmall" href=""><span>상세 보기</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+       </c:forEach>
     </section>
         <!--section end-->
         <!--footer start-->

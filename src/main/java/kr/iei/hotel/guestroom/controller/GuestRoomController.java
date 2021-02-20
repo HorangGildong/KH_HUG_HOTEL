@@ -2,6 +2,9 @@ package kr.iei.hotel.guestroom.controller;
 
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,16 +30,56 @@ public class GuestRoomController {
 	GuestRoomService guestRoomService;
 	
 	//-------------------------------------User--------------------------------------------
-	
+	//객실 리스트 뷰
 	@RequestMapping(value = "/guestRoomView", method = RequestMethod.GET)
-	public String guestRoomView()throws Exception {
-	
+	public String guestRoomView(Model model)throws Exception {
+		
+		logger.info("객실 리스트");
+		final int standardNumber = 1;
+		model.addAttribute("list", guestRoomService.guestRoomList(standardNumber));
 		return "/guestroom/guestRoomView";
 	
 	}
+	//객실 상세 뷰
 	@RequestMapping(value = "/guestRoomDetailView", method = RequestMethod.GET)
-	public String guestRoomDetailView()throws Exception {
-	
+	public String guestRoomDetailView(Model model, GuestRoomVO guestRoomVO)throws Exception {
+		
+		logger.info("객실 상세 리스트");
+		
+		guestRoomVO = guestRoomService.guestRoomDetailList(guestRoomVO);
+		
+		String[] serviceList1 = guestRoomVO.getGuestRoomService1().split(",");
+		String[] serviceList2 = guestRoomVO.getGuestRoomService2().split(",");
+		String[] amenityList = guestRoomVO.getGuestRoomAmenity().split(",");
+		String[] informationList = guestRoomVO.getGuestRoomInformation().split(",");
+		
+		List<String> guestRoomServiceList1 = new ArrayList();
+		List<String> guestRoomServiceList2 = new ArrayList();
+		List<String> guestRoomAmenityList = new ArrayList();
+		List<String> guestRoomInformationList = new ArrayList();
+		
+		for(int i = 0; i < serviceList1.length; i++) {
+			guestRoomServiceList1.add(serviceList1[i]);
+		}
+		model.addAttribute("serviceList1", guestRoomServiceList1);
+		
+		for(int i = 0; i < serviceList2.length; i++) {
+			guestRoomServiceList2.add(serviceList2[i]);
+		}
+		model.addAttribute("serviceList2", guestRoomServiceList2);
+		
+		for(int i = 0; i < amenityList.length; i++) {
+			guestRoomAmenityList.add(amenityList[i]);
+		}
+		model.addAttribute("amenityList", guestRoomAmenityList);
+		
+		for(int i = 0; i < informationList.length; i++) {
+			guestRoomInformationList.add(informationList[i]);
+		}
+		model.addAttribute("informationList", guestRoomInformationList);
+		
+		model.addAttribute("list", guestRoomVO);
+		
 		return "/guestroom/guestRoomDetailView";
 	
 	}
@@ -47,7 +90,9 @@ public class GuestRoomController {
 	public String guestRoomAdminList(Model model)throws Exception {
 		
 		logger.info("객실 관리 리스트");
-		model.addAttribute("list", guestRoomService.guestRoomAdminList());
+		List<GuestRoomVO> guestRoomVOList = new ArrayList();
+		guestRoomVOList = guestRoomService.guestRoomAdminList();
+		model.addAttribute("list", guestRoomVOList);
 		return "/guestroomAdmin/guestRoomAdminView";
 	
 	}

@@ -32,6 +32,8 @@ public class GuestRoomVO {
 	private int childPrice;
 	private int standardNo;
 	
+	private final int StandardNumber = 1;
+	
 	
 	public int getStandardNo() {
 		return standardNo;
