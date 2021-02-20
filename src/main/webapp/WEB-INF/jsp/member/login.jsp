@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="member"/>
 </sec:authorize>
@@ -62,7 +62,7 @@
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span> <input type="email" class="form-control input-lg"
-									name="username" id="inputEmail" placeholder="E-mail">
+									name="username" id="inputEmail" placeholder="E-mail" value="gildong@hwalbin.com">
 							</div>
 						</div>
 						<div class="form-group">
@@ -70,7 +70,7 @@
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 								</span> <input type="password" class="form-control input-lg"
-									name="password" id="inputPassword" placeholder="Password">
+									name="password" id="inputPassword" placeholder="Password" value="123">
 							</div>
 						</div>
 						<div class="form-group">

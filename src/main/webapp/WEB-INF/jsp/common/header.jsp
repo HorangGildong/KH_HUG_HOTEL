@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>   
+    pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="member"/>
+</sec:authorize>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +62,9 @@
                             <li><a href='/myPage'>회원정보수정</a></li>
                         </ul>
                     </li>
-                    <!-- <li><a href="#">관리자페이지</a>
+
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">   
+                    <li><a href="#">관리자페이지</a>
                         <ul>
                             <li><a href="#">객실관리</a></li>
                             <li><a href="#">고객지원관리</a>
@@ -67,9 +76,17 @@
                             </li>
                             <li><a href="#">회원관리</a></li>
                         </ul>
-                    </li> -->
+                    </li>
+					</sec:authorize>
+					
+					<sec:authorize access="isAnonymous()">
                     <li><a href='/login'>로그인</a></li>
-                    <!-- <li><a href="#">로그아웃</a></li> -->
+                    </sec:authorize>
+                    
+                    <sec:authorize access="isAuthenticated()">
+                    <li><a href="/logout">로그아웃</a></li>
+                    </sec:authorize>
+                    
                     <li><a href='/reservationView1' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
                 </ul>
             </nav>
