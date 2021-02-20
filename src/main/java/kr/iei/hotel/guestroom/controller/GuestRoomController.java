@@ -87,11 +87,29 @@ public class GuestRoomController {
 	//-------------------------------------Admin--------------------------------------------
 	//객실 관리 리스트 뷰
 	@RequestMapping(value = "/guestRoomAdminView", method = RequestMethod.GET)
-	public String guestRoomAdminList(Model model)throws Exception {
+	public String guestRoomAdminList(Model model, GuestRoomVO guestRoomVO)throws Exception {
 		
 		logger.info("객실 관리 리스트");
 		List<GuestRoomVO> guestRoomVOList = new ArrayList();
+		List<Integer> serviceCountList = new ArrayList();
+		List<Integer> amenityCountList = new ArrayList();
+		List<Integer> informationCountList = new ArrayList();
 		guestRoomVOList = guestRoomService.guestRoomAdminList();
+		for(int index = 0; index < guestRoomVOList.size(); index++) {
+		guestRoomVO = guestRoomVOList.get(index);
+		String[] serviceList1 = guestRoomVO.getGuestRoomService1().split(",");
+		String[] serviceList2 = guestRoomVO.getGuestRoomService2().split(",");
+		String[] amenityList = guestRoomVO.getGuestRoomAmenity().split(",");
+		String[] information = guestRoomVO.getGuestRoomInformation().split(",");
+		int totalServiceCount = serviceList1.length + serviceList2.length;
+		serviceCountList.add(totalServiceCount);
+		amenityCountList.add(amenityList.length);
+		informationCountList.add(information.length);
+		}
+		model.addAttribute("serviceCountList", serviceCountList);
+		model.addAttribute("amenityCountList", amenityCountList);
+		model.addAttribute("informationCountList", informationCountList);
+
 		model.addAttribute("list", guestRoomVOList);
 		return "/guestroomAdmin/guestRoomAdminView";
 	

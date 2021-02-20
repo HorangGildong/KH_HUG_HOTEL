@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!doctype html>
 <html lang="en">
 
@@ -40,7 +41,7 @@
 		<h3>테이블이 비어있어요... 추가해주세요... 예? ㅡㅡ</h3>
 		</c:if>
 		<c:if test="${!empty list}">
-		<c:forEach items="${list }" var="list">
+		<c:forEach var="list" items="#{list }" begin="0" varStatus="status">
         <div class="innerBox">
             <div class="roomWrap">
                 <div class="imageBox">
@@ -53,16 +54,16 @@
                     </p>
                     <div class="roomInfo">
                         <p>
-                            <span>내용</span>
-                            2
-                        </p>
-                        <p>
-                            <span>사진</span>
-                            4
-                        </p>
-                        <p>
                             <span>서비스</span>
-                            16
+                            ${serviceCountList[status.index]}개
+                        </p>
+                        <p>
+                            <span>어메니티</span>
+                            ${amenityCountList[status.index]}개
+                        </p>
+                        <p>
+                            <span>안내사항</span>
+                            ${informationCountList[status.index]}개
                         </p>
                         <a href="/guestRoomAdminInfoView?guestRoomName=${list.guestRoomName }">객실 정보 추가하기</a>
                     </div>
