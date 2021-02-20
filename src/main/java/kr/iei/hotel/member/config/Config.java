@@ -39,8 +39,8 @@ public class Config extends WebSecurityConfigurerAdapter {
         	.formLogin().disable()							// 몰라
         	.headers().frameOptions().disable();			// 몰라
         http.authorizeRequests()
-        	.antMatchers("/introduce/**").authenticated()	// 경로 접근 권한 -> 로그인 된 경우
-        	.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")	// 경로 접근 권한 -> 'ROLE_ADMIN'
+        	.antMatchers("/path/**").authenticated()	// 경로 접근 권한 -> 로그인 된 경우
+        	.antMatchers("/path/**").access("hasRole('ROLE_ADMIN')")	// 경로 접근 권한 -> 'ROLE_ADMIN'
         	.anyRequest().permitAll()						// 나머지 경로에 접근 권한 -> 모든 권한
         	.and()
         	.formLogin()
