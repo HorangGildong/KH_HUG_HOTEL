@@ -56,8 +56,13 @@
 		<label for="">ChildPrice</label>
 		<input name="childPrice" placeholder="어린이 추가금 입력(숫자만)" type="text" />
 		<label for="">GuestRoomPrice</label>
-		<input name="guestRoomPrice" placeholder="객실 가격 입력(숫자만)" type="text" /><br />
-		<button class="jypButton" type="submit">추가</button>  
+		<input name="guestRoomPrice" placeholder="객실 가격 입력(숫자만)" type="text" />
+		<label for="">StandardNumber(중요 객실당 하나만 나머지는 0 입력)</label>
+		<input name="standardNo" placeholder="객실의 기준으로 설정하는 정보만 숫자 1 입력 객실당 하나만" type="text" /><br />
+		<button class="jypButton" type="submit">추가</button> <br />
+		<div class="dkQKrclsp">
+		<a class="jypButton2" href="/guestRoomAdminInfoView?guestRoomName=${guestRoomName }">취소</a> 
+        </div>
         </form>
 		
     </section>

@@ -57,7 +57,7 @@
                     <th  rowspan="2" class="guestRoomButton"><a href="/guestRoomInfoDelete?guestRoomNo=${list.guestRoomNo }&guestRoomName=${list.guestRoomName}">삭제</a></th>
                 </tr>
                 <tr>
-                    <td class="lengthSort">${list.guestRoomNo }</td>
+                    <td class="lengthSort">${list.guestRoomNo }호</td>
                     <td class="lengthSort">${list.guestRoomView }</td>
                     <td class="lengthSort">${list.guestRoomArea }m²</td>
                     <td class="lengthSort">${list.standardPersonnel }명</td>
@@ -70,6 +70,7 @@
         </div>
 		</c:forEach>
 		</c:if>
+		<a href="/guestRoomAdminView">목록</a>
     </section>
         <!--section end-->
         <!--footer start-->

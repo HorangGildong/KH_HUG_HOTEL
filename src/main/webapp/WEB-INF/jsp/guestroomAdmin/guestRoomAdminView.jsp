@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!doctype html>
 <html lang="en">
 
@@ -40,11 +41,11 @@
 		<h3>테이블이 비어있어요... 추가해주세요... 예? ㅡㅡ</h3>
 		</c:if>
 		<c:if test="${!empty list}">
-		<c:forEach items="${list }" var="list">
+		<c:forEach var="list" items="#{list }" begin="0" varStatus="status">
         <div class="innerBox">
             <div class="roomWrap">
                 <div class="imageBox">
-                    <img src="/img/cjy_img/${list.guestRoomImage1 }" alt="이미지입니다">
+                    <img src="../../../img/${list.guestRoomImage1 }" alt="이미지입니다">
                 </div>
                 <div class="roomContent">
                     <p class="roomTitle">
@@ -53,23 +54,23 @@
                     </p>
                     <div class="roomInfo">
                         <p>
-                            <span>면적</span>
-                            45m²
+                            <span>서비스</span>
+                            ${serviceCountList[status.index]}개
                         </p>
                         <p>
-                            <span>인원</span>
-                            성인 2인 기준 / 최대 4인
+                            <span>어메니티</span>
+                            ${amenityCountList[status.index]}개
                         </p>
                         <p>
-                            <span>베드타입</span>
-                            TWIN
+                            <span>안내사항</span>
+                            ${informationCountList[status.index]}개
                         </p>
                         <a href="/guestRoomAdminInfoView?guestRoomName=${list.guestRoomName }">객실 정보 추가하기</a>
                     </div>
                 </div>
                 <div class="roomPrice">
-                    <p>1박</p>
-                    <span>320000 원 ~</span>
+                    <p></p>
+                    <span></span>
                     <a href="/guestRoomDelete?guestRoomName=${list.guestRoomName}">삭제</a>
                 </div>
             </div>

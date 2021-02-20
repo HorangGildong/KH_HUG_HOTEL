@@ -26,8 +26,25 @@
  		, standardPersonnel
  		, adultPrice
  		, childPrice
+ 		, standardNo
  	</sql>
- 	
+ 	<!-- 객실 리스트 -->
+ 	<select id="guestRoomList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO" parameterType="int">
+ 		SELECT *
+ 		FROM guestRoom
+ 		JOIN guestRoomInfo
+ 		ON guestRoom.guestRoomName = guestRoomInfo.guestRoomName
+ 		WHERE guestRoomInfo.standardNo = #{standardNumber}
+ 	</select>
+ 	<!-- 객실 상세 리스트 -->
+ 	<select id="guestRoomDetailList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO" parameterType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
+ 		SELECT *
+ 		FROM guestRoom
+ 		JOIN guestRoomInfo
+ 		ON guestRoom.guestRoomName = guestRoomInfo.guestRoomName
+ 		WHERE guestRoomInfo.standardNo = #{standardNo}
+ 		AND guestRoom.guestRoomName = #{guestRoomName}
+ 	</select>
  	<!-- 객실 관리 리스트 -->
  	<select id="guestRoomAdminList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
  		SELECT *
@@ -58,10 +75,11 @@
 		FROM guestRoom
 		WHERE guestRoomName = #{guestRoomName}
 	</delete>
-	<!-- 객실 관리 리스트 -->
- 	<select id="guestRoomAdminInfoList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
+	<!-- 객실 관리 정보 리스트 -->
+ 	<select id="guestRoomAdminInfoList" resultType="kr.iei.hotel.guestroom.vo.GuestRoomVO" parameterType="String">
  		SELECT *
  		FROM guestRoomInfo
+ 		where guestRoomName = #{guestRoomName}
  	</select>
 	<!-- 객실 정보 추가 -->
  	<insert id="guestRoomInfoInsert" parameterType="kr.iei.hotel.guestroom.vo.GuestRoomVO">
@@ -78,6 +96,7 @@
 			, #{standardPersonnel}
 			, #{adultPrice}
 			, #{childPrice}
+			, #{standardNo}
 		)
 	</insert>
 	<!-- 객실 정보 삭제 -->
