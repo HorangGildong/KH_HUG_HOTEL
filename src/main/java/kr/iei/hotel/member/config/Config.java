@@ -10,7 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import kr.iei.hotel.member.config.auth.MemberDetailsService;
+import kr.iei.hotel.member.config.auth.PrincipalDetailsService;
+import kr.iei.hotel.member.config.auth.PrincipalOauth2UserService;
 
 @Configuration
 @EnableWebSecurity	// 시큐리티 활성화
@@ -20,7 +21,11 @@ import kr.iei.hotel.member.config.auth.MemberDetailsService;
 public class Config extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private MemberDetailsService memberDetailsService;
+	private PrincipalDetailsService principalDetailsService;
+	
+	@Autowired
+	private PrincipalOauth2UserService principalOauth2UserService;
+//	private final CustomOAuth2UserService customOAuth2UserService;
 	
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -29,27 +34,42 @@ public class Config extends WebSecurityConfigurerAdapter {
     
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    	auth.userDetailsService(memberDetailsService).passwordEncoder(passwordEncoder());
+    	auth.userDetailsService(principalDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()								// cors 비활성화 -> 몰라
+        http
+        	.csrf().disable()								// cors 비활성화 -> 몰라
         	.cors().disable()								// csrf 비활성화 -> 몰라
         	.formLogin().disable()							// 몰라
-        	.headers().frameOptions().disable();			// 몰라
-        http.authorizeRequests()
-        	.antMatchers("/introduce/**").authenticated()			// '경로1'에 접근 가능 -> 로그인 된 경우
-        	.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")	// '경로2'에 접근 가능 -> 'ROLE_ADMIN' 
-        	.anyRequest().permitAll()						// 나머지 경로에 접근 가능 -> 모든 권한
-        	.and()
-        	.formLogin()
-        	.loginPage("/login")							// 권한 없는 페이지에 접근할 때 이동할 경로 
-//        	.usernameParameter("memberEmail")
-        	.loginProcessingUrl("/loginProc")				// '/login'호출시 시큐리티가 진행 -> controller에 '/login' 불필요
-        	.defaultSuccessUrl("/")							// 로그인 성공시 이동할 경로
-        	.failureUrl("/login")							// 로그인 실패시 이동할 경로
+        	.headers().frameOptions().disable()				// 몰라
         	;
-        	
+        http
+        	.authorizeRequests()
+        		.antMatchers("/path/**").authenticated()	// 경로 접근 권한 -> 로그인 된 경우
+        		.antMatchers("/path/**").access("hasRole('ROLE_ADMIN')")	// 경로 접근 권한 -> 'ROLE_ADMIN'
+        		.anyRequest().permitAll()						// 나머지 경로에 접근 권한 -> 모든 권한
+        		.and()
+        	.formLogin()
+        		.loginPage("/login")							// 권한 없는 페이지에 접근할 때 이동할 경로 
+//        		.usernameParameter("memberEmail")
+        		.loginProcessingUrl("/loginProc")				// '/loginProc'호출시 시큐리티가 진행 -> controller 불필요
+        		.defaultSuccessUrl("/")							// 로그인 성공시 이동할 경로
+        		.failureUrl("/login")							// 로그인 실패시 이동할 경로
+        		.and()
+        	.logout()
+            	.clearAuthentication(true)
+            	.invalidateHttpSession(true)
+                .logoutSuccessUrl("/login")
+        	;
+        http
+        	.oauth2Login()
+        		.loginPage("/login")
+        		.userInfoEndpoint()
+        		.userService(principalOauth2UserService)		// 구글 로그인 후 토큰 & 프로필을 받아서 처리하는 함수
+        	.and()
+    		;
     }
+    
 }

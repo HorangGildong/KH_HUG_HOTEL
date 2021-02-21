@@ -50,36 +50,19 @@
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
 
-					<form class="form-horizontal" action="/join" method="post">
 
+					<form class="form-horizontal">			
 						<div class="form-group">
-							<label for="inputEmail" class="col-xs-4 control-label">아이디</label>
+							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
 							<div class="col-xs-8">
 								<input type="email" class="form-control" name="memberEmail"
-									id="inputEmail" placeholder="E-mail" required>
+									id="inputEmail" value="${email}" disabled>
 								<div class="check_font" id="emailCheck"></div>
 							</div>
 						</div>
+					</form>
 
-						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">비밀번호</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control"
-									name="memberPassword" id="inputPassword" placeholder="Password"
-									required>
-								<div class="check_font" id="passwordCheck"></div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">비밀번호
-								확인</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control" id="inputPassword2"
-									placeholder="PasswordCheck" disabled required>
-								<div class="check_font" id="passwordCheck2"></div>
-							</div>
-						</div>
+					<form class="form-horizontal" action="/oAuthJoin" method="post">
 
 						<div class="form-group">
 							<label for="inputName" class="col-xs-4 control-label">이름</label>
@@ -117,10 +100,10 @@
 						<div class="form-group">
 							<label class="col-xs-4 control-label">성별</label> <label
 								class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGenderMale" value="MALE"
+								type="radio" name="memberGender" id="inputGender" value="MALE"
 								checked> 남
 							</label> <label class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGenderFemale" value="FEMALE">
+								type="radio" name="memberGender" id="inputGender" value="FEMALE">
 								여
 							</label>
 						</div>
@@ -204,7 +187,7 @@
 						<div class="col-xs-12">
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn" 
-									style="font-weight: bold;" disabled>회원가입</button>
+									style="font-weight: bold;">회원가입</button>
 							</div>
 						</div>
 
@@ -212,6 +195,33 @@
 
 				</div>
 			</div>
+			
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+			   aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
+			   <div class="modal-dialog">
+			      <div class="modal-content">
+			         <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal" 
+			               aria-hidden="true">×
+			            </button>
+			            <h4 class="modal-title" id="myModalLabel">
+			              	 환영합니다!
+			            </h4>
+			         </div>
+			         <div class="modal-body">
+			            Google 로그인이 처음이신 경우 회원가입이 진행됩니다.
+			         </div>
+			         <div class="modal-footer">
+			            <button type="button" class="btn btn-default" 
+			               data-dismiss="modal">닫기
+			            </button>
+			         </div>
+			      </div>
+			   </div>
+			</div>
+			<!-- Modal -->
+
 		</section>
 		<!--section end-->
 
@@ -235,6 +245,12 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 
 	<script>
+	
+	    $(function() {
+	    	$('#myModal').modal( {
+			})
+		});
+	
 		$(function() {
 			$('#terms1').collapse({
 				toggle : false
@@ -278,115 +294,28 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
-		var isEmail;
-		var isNick;
-		var isPassword;
-		
-		$("#inputEmail").blur(function() {
-			var email = $('#inputEmail').val();
-			var str = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-			isEmail = false;
-			$.ajax({
-				url : '${pageContext.request.contextPath}/join/emailCheck?email=' + email,
-				type : 'get',
-				success : function(data) {
-					if (!str.test(email) && email!="") {
-						$("#emailCheck").text("이메일 형식이 바르지 않습니다.");
-						$("#emailCheck").css("color",	"red");
-					} else if (data) {
-						$("#emailCheck").text("사용중인 아이디입니다.");
-						$("#emailCheck").css("color",	"red");
-					} else if (email!="") {
-						isEmail = true;
-						$("#emailCheck").text("사용가능한 아이디입니다.");
-						$("#emailCheck").css("color",	"blue");
-					} else {
-						$("#emailCheck").text("");
-					}			
-					$.fn.submitDisable();
-				}
-			});
-		});
 		
 		$("#inputNickname").blur(function() {
 			var nick = $('#inputNickname').val();
-			isNick = false;
 			$.ajax({
 				url : '${pageContext.request.contextPath}/join/nickCheck?nick=' + nick,
 				type : 'get',
 				success : function(data) {
 					if (nick == "") {
 						$("#nickCheck").text("");
+						$("#submitBtn").attr("disabled", false);
 					} else if (data) {
 						$("#nickCheck").text("사용중인 닉네임입니다. ㅠㅠ");
 						$("#nickCheck").css("color",	"red");
+						$("#submitBtn").attr("disabled", true);
 					} else {
 						$("#nickCheck").text("사용가능한 닉네임입니다.");
 						$("#nickCheck").css("color",	"blue");
-						isNick = true;
+						$("#submitBtn").attr("disabled", false);
 					}
-					$.fn.submitDisable();
 				}
 			});
 		});
-		
-		$("#inputPassword").blur(function() {
-			var pw = $("#inputPassword").val();
-			var num = pw.search(/[0-9]/g);
-			var eng = pw.search(/[a-z]/ig);
-			var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-			isPassword = false;
-			if(pw == "") {
-				$("#passwordCheck").text("");
-				$("#inputPassword2").attr("disabled", true);
-			} else if(pw.length < 8) {
-				$("#passwordCheck").text("8자리 이상으로 입력해주세요.");
-				$("#passwordCheck").css("color", "red");
-				$("#inputPassword2").attr("disabled", true);
-			} else if(pw.search(/\s/) != -1) {
-				$("#passwordCheck").text("비밀번호는 공백 없이 입력해주세요.");
-				$("#passwordCheck").css("color", "red");
-				$("#inputPassword2").attr("disabled", true);
-			} else if(num < 0 || eng < 0 || spe < 0 ) {
-				$("#passwordCheck").text("영문/숫자/특수문자를 혼합해주세요.");
-				$("#passwordCheck").css("color", "red");
-				$("#inputPassword2").attr("disabled", true);
-			} else {
-				$("#passwordCheck").text("사용가능한 비밀번호입니다.");
-				$("#passwordCheck").css("color", "blue");
-				$("#inputPassword2").attr("disabled", false);
-			}
-			$.fn.submitDisable();
-		});
-		
-		/* $("#inputPassword2").attr("disabled") == undefined */
-		
-		$("#inputPassword, #inputPassword2").blur(function() { 
-			var pw1=$("#inputPassword").val();
-			var pw2=$("#inputPassword2").val();
-			isPassword = false;
-			if($("#inputPassword2").attr("disabled") != undefined  || pw2 == "")
-			{
-				$("#passwordCheck2").text("");
-			} else if(pw1 == pw2) { 
-				$("#passwordCheck2").text("비밀번호가 일치합니다.");
-				$("#passwordCheck2").css("color", "blue");
-				isPassword = true;
-			} else {
-				$("#passwordCheck2").text("비밀번호가 일치하지 않습니다. ㅠㅠ");
-				$("#passwordCheck2").css("color", "red");
-			}
-			$.fn.submitDisable();
-		});
-		
-		$.fn.submitDisable = function () {
-			console.log(isEmail, isNick, isPassword);
-			if(isEmail == true && isNick == true && isPassword == true) {
-				$("#submitBtn").attr("disabled", false);
-			} else {
-				$("#submitBtn").attr("disabled", true);
-			}
-		}
 		
 	</script>
 

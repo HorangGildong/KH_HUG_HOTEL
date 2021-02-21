@@ -4,7 +4,7 @@ DROP TABLE MEMBER;
 DROP TABLE GRADE;
 
 CREATE TABLE MEMBER (
-	memberId	        NUMBER	                                CONSTRAINT PK_MEMBER_ID PRIMARY KEY,
+	memberId	        NUMBER	                                CONSTRAINT PK_MEMBER_MEMBERID PRIMARY KEY,
 	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' NOT NULL,
 	memberRegDate  	    DATE		                            NOT NULL,
 	memberUnRegDate     DATE,
@@ -21,12 +21,12 @@ CREATE TABLE MEMBER (
 );
 
 CREATE TABLE GRADE (
-	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' CONSTRAINT PK_GRADE_NAME PRIMARY KEY,
+	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' CONSTRAINT PK_GRADE_MEMBERGRADE PRIMARY KEY,
 	discountRate        NUMBER          DEFAULT 0	            NOT NULL
 );
 
 ALTER TABLE MEMBER
-ADD CONSTRAINT FK_MEMBER FOREIGN KEY (memberGrade) 
+ADD CONSTRAINT FK_MEMBER_MEMBERGRADE FOREIGN KEY (memberGrade)
 REFERENCES GRADE(memberGrade) ON DELETE CASCADE;
 
 CREATE SEQUENCE MEMBER_SEQ;
@@ -68,7 +68,7 @@ VALUES(
 
 INSERT INTO MEMBER (memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
 VALUES(
-    'tiger@hughotel.com',
+    'tiger@hug.com',
     '한만월',
     SYSDATE,
     SYSDATE,
@@ -86,6 +86,10 @@ SELECT * FROM GRADE;
 SELECT * FROM MEMBER;
 
 --EXAMPLE : JOIN(TEST)
-SELECT M.memberId ID, M.memberEmail EMAIL, M.memberName NAME, memberRole ROLE, M.gradeName GRADE, G.gradeDiscount DC
+SELECT M.memberId ID, M.memberEmail EMAIL, M.memberName NAME, memberRole ROLE, M.memberGrade GRADE, G.discountRate DC
 FROM MEMBER M
-LEFT JOIN GRADE G ON M.gradeName = G.gradeName;
+LEFT JOIN GRADE G ON M.memberGrade = G.memberGrade;
+
+
+
+------------------

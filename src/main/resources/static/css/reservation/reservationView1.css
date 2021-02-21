@@ -201,13 +201,14 @@
             font-weight: bold;
         }
         .searchRoomDetailInfo .ipButtonType1 {
-            width: 10px;
+            width: 18px;
+            
             color: #72a5d3;
             font-weight: bold;
         }
         .searchRoomDetailInfo .ipButtonType2 {
             color: black;
-            width: 70px;
+            width: 100px;
             font-weight: 300;
             font-size: 20px;
         }

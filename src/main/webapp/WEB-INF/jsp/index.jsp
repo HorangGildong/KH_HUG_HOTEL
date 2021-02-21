@@ -123,7 +123,7 @@
                         <h1>ROOM</h1>
                         <h4>애메랄드 빛 바다와 천혜의 <br> 자연이 만들어내는 특별한 여행을 위한 공간</h4>
                         <h5>스탠다드 / 슈페리어 / 디럭스 / 로얄</h5>
-                        <button type="button" class="room-button" onclick="location.href='';">▶</button>
+                        <button type="button" class="room-button" onclick="location.href='/guestRoomView';">▶</button>
                     </div>
                 </div>
                 <div class="main-dining">
@@ -145,7 +145,7 @@
                         <h1>DINING</h1>
                         <h4>다채로운 미식의 세계로의 초대</h4>
                         <h5>게스토랑 / 라운지 & 바</h5>
-                        <button type="button" class="dining-button" onclick="location.href='';">▶</button>
+                        <button type="button" class="dining-button" onclick="location.href='/diningView';">▶</button>
                         <!-- <button class="dining-button"><a href="">▶</a></button> -->
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                     <div class="main-facility-title">
                         <h1>FACILITIES</h1>
                         <h5>POOL / SAUNA / PITNESS / SPA / PARK / KIDS</h5>
-                        <button type="button" class="facility-button" onclick="location.href='';">▶</button>
+                        <button type="button" class="facility-button" onclick="location.href='/facilityView';">▶</button>
                     </div>
                     <div class="halfGallery">
                         <ul class="halfCont">

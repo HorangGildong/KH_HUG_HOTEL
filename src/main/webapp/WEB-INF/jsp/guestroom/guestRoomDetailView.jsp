@@ -9,7 +9,7 @@
    	<!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
     <link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
@@ -18,7 +18,17 @@
     <link rel="stylesheet" href="css/guestroom/guestRoomDetailView.css">
     <!-- <script src="https://kit.font.awesome.com/096073a2a8.js" crossorigin="anonymous"></script> -->
 
-
+	<!--글씨체 링크 한글-->
+   	<link rel="preconnect" href="https://fonts.gstatic.com">
+   	<link
+     	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      	rel="stylesheet">
+   
+   	<!--글씨체 링크 영어-->
+   	<link rel="preconnect" href="https://fonts.gstatic.com">
+   	<link
+      	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      	rel="stylesheet">
 
     <link rel="shortcut icon" href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
     <title> H.U.G HOTEL 제주</title>
@@ -58,7 +68,7 @@
             </p>
             <div class="buttonArea">
                 <a href=""><span>문의하기</span></a>
-                <a href="예약뷰1.html"><span>예약하기</span></a>
+                <a href="/reservationView1"><span>예약하기</span></a>
             </div>
             <div class="detailInfo">
                 <h3>상세정보</h3>
@@ -142,7 +152,7 @@
         slideMargin = 30,
         prevBtn = document.querySelector('.prev'),
         nextBtn = document.querySelector('.next');
-        console.log(dot[1]);
+
 
 
         slides.style.width = (slideWidth + slideMargin)*slideCount - slideMargin + 'px';

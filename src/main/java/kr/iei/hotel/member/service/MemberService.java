@@ -6,4 +6,8 @@ public interface MemberService {
 
 	void join(MemberJoinFormDto memberJoinFormDto);
 
+	int emailCheck(String memberEmail);
+
+	int nickCheck(String memberNick);
+
 }

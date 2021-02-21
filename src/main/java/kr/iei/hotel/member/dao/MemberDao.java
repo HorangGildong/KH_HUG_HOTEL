@@ -20,10 +20,13 @@ public interface MemberDao {
 			+ " '${memberEmail}', '${memberName}', SYSDATE, SYSDATE, '${memberNick}',"
 			+ " '${memberPhone}', '${memberGender}', '${memberPassword}', '${memberBirth}', '${memberAgree}'"
 			+ " )")
-//	'${memberBirth}'
 	void join(MemberJoinFormDto memberJoinFormDto);
 	
-//	@Select("SELECT * FROM MEMBER WHERE memberEmail = '${memberEmail}'")
-//	MemberDto findByEmail(String memberEmail);
+	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberEmail = '${memberEmail}'")
+	int emailCheck(String memberEmail);
+
+	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberNick = '${memberNick}'")
+	int nickCheck(String memberNick);
+	
 
 }

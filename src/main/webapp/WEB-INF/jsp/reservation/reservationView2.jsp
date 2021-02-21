@@ -11,11 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
+    <!-- <link rel="stylesheet" href="css/bootstrapcss/nomalize.css"> -->
     <link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
+    
+
 
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/guestroom/guestRoomView.css">
+    <link rel="stylesheet" href="css/reservation/reservationView2.css">
     <!-- <script src="https://kit.font.awesome.com/096073a2a8.js" crossorigin="anonymous"></script> -->
 
 	<!--글씨체 링크 한글-->
@@ -42,46 +44,67 @@
         <!--header end-->
         <!--section start-->
     <section class="hotelHugWrap">
-        <h1 class="contTitle">
-            <span></span>
-            호텔 H.U.G만의 예술적 품격을 갖춘 객실에서
+        <h1 class="buttonTitle">
+            <span class="buttonType">1</span>ㅡ
+            <span class="buttonType on">2</span>ㅡ
+            <span class="buttonType">3</span>
             <br>
-            격이 다른 휴식과 여유를 경험해 보세요.
+            <p>예약 결제 및 취소</p>
         </h1>
-        <c:forEach var="list" items="${list }">
-        <div class="innerBox">
-            <div class="roomWrap">
-                <div class="imageBox">
-                    <img src="../../../img/${list.guestRoomImage1 }" alt="이미지입니다">
+        
+        <div class="selectedShowBox">
+            <form class="showBoxWrap" action="">
+                <div class="positionLeft">
+                <ul><p>예약번호</p>
+                    <li>12312312</li>
+                </ul>
+                <ul><p>닉네임</p>
+                    <li>12312312</li>
+                </ul>
+                <ul><p>성인</p>
+                    <li>12312312</li>
+                </ul>
                 </div>
-                <div class="roomContent">
-                    <p class="roomTitle">
-                        <span>${list.guestRoomName }</span>
-                        ${list.guestRoomContents1 }
-                    </p>
-                    <div class="roomInfo">
-                        <p>
-                            <span>면적</span>
-                            ${list.guestRoomArea }m²
-                        </p>
-                        <p>
-                            <span>인원</span>
-                            성인 ${list.standardPersonnel }인 기준
-                        </p>
-                        <p>
-                            <span>베드타입</span>
-                            ${list.guestRoomBedType }
-                        </p>
-                        <p>
-                            <span>전망</span>
-                            ${list.guestRoomView }
-                        </p>
-                        <a class="buttonTypeSmall" href="/guestRoomDetailView?guestRoomName=${list.guestRoomName }&standardNo=${list.standardNo}"><span>상세 보기</span></a>
-                    </div>
+                <div class="positionRight">
+                <ul><p>룸</p>
+                    <li>12312312</li>
+                </ul>
+                <ul><p>예약날짜</p>
+                    <li>12312312</li>
+                </ul>
+                <ul><p>어린이</p>
+                    <li>12312312</li>
+                </ul>
                 </div>
-            </div>
+                <p>가격</p>
+                <p class="angryJYP">ddd</p>
+
+
+                <div class="guideBox">
+                    <h2 class="guideList1">
+                         환불관련 안내사항
+                    </h2>
+                    <ul class="guideList2">
+                        <li>
+                            * 성수기 시즌 체크 인/아웃 시간은 조정될 수 있습니다.
+                        </li>
+                        <li>
+                            * 호텔 내 유아용 킥보드 및 전동 퀵보드 사용은 엄격하게 제한됩니다.
+                        </li>
+                    </ul>
+                </div>
+            
+            
+                <div class="buttonJYP">
+                    <button type="submit">결제</button>
+                    <a href="">취소</a>
+                </div>
+            
+            </form>
         </div>
-       </c:forEach>
+
+
+    
     </section>
         <!--section end-->
         <!--footer start-->
@@ -94,6 +117,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="js/bootstrapjs/bootstrap.min.js"></script>
 <script src="js/header.js"></script>
+
+
+
 
 
 </body>
