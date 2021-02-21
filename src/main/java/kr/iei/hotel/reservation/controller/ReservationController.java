@@ -1,7 +1,10 @@
 package kr.iei.hotel.reservation.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,26 +29,49 @@ public class ReservationController {
 	
 	//예약 뷰
 	@RequestMapping(value = "/reservationView1", method = {RequestMethod.GET,RequestMethod.POST})
-	public String reservationView()throws Exception {
+	public String reservationView(Model model, ReservationVO reservationVO, HttpServletResponse response)throws Exception {
 		logger.info("예약 뷰");
 		return "reservation/reservationView1";
 	}
 	
 	//예약 처리
-	@RequestMapping(value = "/reservationSearchProcess", method = RequestMethod.POST)
-	public String reservationSearchProcess(ReservationVO reservationVO, Model model)throws Exception {
+	@RequestMapping(value = "/reservationSearchProcess", method = {RequestMethod.POST,RequestMethod.GET})
+	public String reservationSearchProcess(ReservationVO reservationVO, Model model, HttpServletResponse response)throws Exception {
 		
 		logger.info("예약 검색 처리");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		if(reservationVO.getGuestRoomName() != null) {
+		//체크아웃이 체크인보다 높거나 체크인 체크아웃 값이 같은 경우 처리
+		if(reservationVO.getCheckIn() >= reservationVO.getCheckOut()) {
+			out.println("<script>alert('날짜 선택을 잘못하셨습니다.'); history.go(-1);</script>");
+			out.flush();
+		}
+		
 		
 		int reservationCount = reservationService.selectReservationCount(reservationVO);
 		int guestRoomInfoCount = reservationService.selectGuestRoomInfoCount(reservationVO);
+
+		//조회하여 객실이 존재하지 않다는 처리
+		if(reservationCount >= guestRoomInfoCount) {
+			out.println("<script>alert('선택한 날짜에 객실이 없습니다.'); history.go(-1);</script>");
+	        out.flush();
+		}
+		
 		
 		//객실 남은방
 		reservationVO.setGuestRoomRemaining(guestRoomInfoCount - reservationCount);
 		//숙박 기간
 		reservationVO.setLodgmentPeriod(reservationVO.getCheckOut() - reservationVO.getCheckIn());
 		
-
+		
+		//예약기간이 30일 이상이면 예약 못하게 처리
+		if(reservationVO.getLodgmentPeriod() >= 30) {
+			out.println("<script>alert('예약기간은 한달 이상 불가합니다.'); history.go(-1);</script>");
+	        out.flush();
+		}
+		
 		
 		//기준이되는 객실 정보들을 먼저 셋팅한다
 		GuestRoomVO guestRoomVO = new GuestRoomVO();
@@ -112,8 +138,10 @@ public class ReservationController {
 		}
 		System.out.println(reservationVO.getTotalPrice());
 		model.addAttribute("reservationInfo", reservationVO);
-
-		return "forward:/reservationView1";
+		}
+		
+		
+		return "reservation/reservationView1";
 		
 	}
 }

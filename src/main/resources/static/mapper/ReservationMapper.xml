@@ -8,13 +8,16 @@
 	<select id="selectReservationCount" parameterType="kr.iei.hotel.reservation.vo.ReservationVO" resultType="int">
 		SELECT 	COUNT(*)
 		FROM 	reservation
-		WHERE 	(checkIn >= #{checkIn}
-		AND 	checkIn &lt; #{checkOut})
-		OR 		(checkOut > #{checkIn}
-		AND 	checkOut &lt; #{checkOut})
-		OR 		(checkIn &lt;= #{checkIn}
-		AND 	checkOut >= #{checkOut})
-		AND 	guestRoomName = #{guestRoomName}
+		WHERE 	(guestRoomName = #{guestRoomName})
+		AND 	(checkIn >= #{checkIn})
+		AND 	(checkIn &lt; #{checkOut})
+		OR 		(guestRoomName = #{guestRoomName})
+		AND 	(checkOut > #{checkIn})
+		AND 	(checkOut &lt; #{checkOut})
+		OR 		(guestRoomName = #{guestRoomName})
+		AND 	(checkIn &lt;= #{checkIn})
+		AND 	(checkOut >= #{checkOut})
+		
 	</select>
 	<!-- 객실 정보 개수 검색 -->
 	<select id="selectGuestRoomInfoCount" parameterType="kr.iei.hotel.reservation.vo.ReservationVO" resultType="int">
@@ -34,12 +37,14 @@
 	<select id="reservationGuestRoomNumberList" parameterType="kr.iei.hotel.reservation.vo.ReservationVO" resultType="int">
 		SELECT 	guestRoomNo
 		FROM 	reservation
-		WHERE 	(checkIn >= #{checkIn}
-		AND 	checkIn &lt; #{checkOut})
-		OR 		(checkOut > #{checkIn}
-		AND 	checkOut &lt; #{checkOut})
-		OR 		(checkIn &lt;= #{checkIn}
-		AND 	checkOut >= #{checkOut})
-		AND 	guestRoomName = #{guestRoomName}
+		WHERE 	(guestRoomName = #{guestRoomName})
+		AND 	(checkIn >= #{checkIn})
+		AND 	(checkIn &lt; #{checkOut})
+		OR 		(guestRoomName = #{guestRoomName})
+		AND 	(checkOut > #{checkIn})
+		AND 	(checkOut &lt; #{checkOut})
+		OR 		(guestRoomName = #{guestRoomName})
+		AND 	(checkIn &lt;= #{checkIn})
+		AND 	(checkOut >= #{checkOut})
 	</select>
 </mapper>

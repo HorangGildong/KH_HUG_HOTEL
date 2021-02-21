@@ -42,7 +42,7 @@
             </h1>
     
             <div class="buttonChoice">
-                <form action="/reservationSearchProcess" method="post">
+                <form>
                     <div class="checkInOut">
                         <input name="checkIn" style="margin-right: 10px;" class="checkIn" type="text" id="datepicker1" placeholder="CheckIn">
                         <input name="checkOut" class="checkOut" type="text" id="datepicker2" placeholder="CheckOut">
@@ -54,14 +54,14 @@
 
                     <!-- <p >날짜선택</p> -->
                     <div class="choiceType">
-                    <select class="choiceType2" name="guestRoomName">
+                    <select class="choiceType2" name="guestRoomName" id="guestRoomName">
                         <option class="choiceFirst" value="">객실선택</option>
                         <option value="스탠다드">스탠다드</option>
                         <option value="슈페리어">슈페리어</option>
                         <option value="디럭스">디럭스</option>
                         <option value="로얄">로얄</option>
                     </select>
-                    <select class="choiceType2" name="adult">
+                    <select class="choiceType2" name="adult" id="adult">
                         <option class="choiceFirst" value="">인원선택(성인)</option>
                         <option value="1">성인 1</option>
                         <option value="2">성인 2</option>
@@ -69,7 +69,7 @@
                         <option value="4">성인 4</option>
                         <option value="5">성인 5</option>
                     </select>
-                    <select class="choiceType2" name="child">
+                    <select class="choiceType2" name="child" id="chile">
                         <option class="choiceFirst" value="">인원선택(어린이)</option>
                         <option value="0">어린이 0</option>
                         <option value="1">어린이 1</option>
@@ -78,12 +78,12 @@
                         <option value="4">어린이 4</option>
                         <option value="5">어린이 5</option>
                     </select>
-                    <button class="choiceType3" type="submit">검색</button>
+                    <button id="reservationSearch" class="choiceType3" type="button">검색</button>
                     </div>
                 </form>
             </div>
         
-			<c:if test="${!empty reservationInfo.guestRoomRemaining }">
+			<c:if test="${empty reservationInfo.guestRoomRemaining }">
             <div class="innerBox">
                 <div class="roomWrap">
                     <div class="imageBox">
@@ -121,7 +121,7 @@
                 </div>
                 <div class="searchRoomDetailInfo">
                     <form action="">
-                    <ul><h1>남은방 개수<span> 선택한 객실 : <input readonly class="ipButtonType" type="text" value="${guestRoom.guestRoomName }"></span></h1>
+                    <ul><h1>남은 객실<span> 선택한 객실 : <input readonly class="ipButtonType" type="text" value="${guestRoom.guestRoomName }"></span></h1>
                         <li>${reservationInfo.guestRoomRemaining }개(원하시는 객실 호수를 선택해주세요.)</li>
                     	<table class="guestRoomNumberTable">
                     		<tr>
@@ -145,6 +145,7 @@
                         </c:forEach>
                     </ul>
                     <ul><h1>기준인원을 넘어선 추가금<span> 선택한 인원 : 성인 <input readonly class="ipButtonType1" type="text" value="${reservationInfo.adult }">, 어린이 <input readonly class="ipButtonType1" type="text" value="${reservationInfo.child }"></span></h1>
+      					<li>기준인원 ${guestRoom.standardPersonnel }명</li>
                         <c:forEach begin="1" end="${reservationInfo.adultCount }">
                         <li>성인 + ${guestRoom.adultPrice }</li>
                         </c:forEach>
@@ -202,14 +203,6 @@
         $("#datepicker2").datepicker();
     });
 
-
-    var choiceType3 = document.querySelector('.choiceType3'),
-        innerBox = document.querySelector('.innerBox');
-        console.log(innerBox);
-
-        choiceType3.addEventListener('click',function(){
-            innerBox.style.display='flex';
-        });
 </script>
 <script>
 function checkOnlyOne(element) {
@@ -224,6 +217,31 @@ function checkOnlyOne(element) {
   element.checked = true;
 }
 </script>
+<script>
+$(document).ready(function() {
+$("#reservationSearch").click(function() {
+	$.ajax({
+		type: "POST",
+		url: "/reservationSearchProcess",
+		data: {
+			"checkIn" 		: 	$(".checkIn").val(),
+			"checkOut" 		: 	$(".checkOut").val(),
+			"guestRoomName" : 	$("#guestRoomName").val(),
+			"adult" 		: 	$("#adult").val(),
+			"child" 		: 	$("#child").val() 	
+		},
+		success: function(data) {
+			alert("성공");
+			location.reload();
+		},
+		error: function(data) {
+			alert("실패"+data);
+		}
+	});
+});
+});
+</script>
+
 </body>
 
 </html>
