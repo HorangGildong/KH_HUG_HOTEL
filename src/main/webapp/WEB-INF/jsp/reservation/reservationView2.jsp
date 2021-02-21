@@ -97,7 +97,7 @@
             
                 <div class="buttonJYP">
                     <button type="submit">결제</button>
-                    <a href="">취소</a>
+                    <a href="/">취소</a>
                 </div>
             
             </form>
