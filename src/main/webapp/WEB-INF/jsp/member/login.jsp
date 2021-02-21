@@ -6,6 +6,12 @@
 <sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="member"/>
 </sec:authorize>
+<sec:authorize access="hasRole('ROLE_GENERAL')">
+</sec:authorize>
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+</sec:authorize>
+<sec:authorize access="isAnonymous()">
+</sec:authorize>
 
 <!doctype html>
 <html lang="en">
@@ -62,7 +68,8 @@
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span> <input type="email" class="form-control input-lg"
-									name="username" id="inputEmail" placeholder="E-mail" value="gildong@hwalbin.com">
+									name="username" id="inputEmail" placeholder="E-mail"
+									value="gildong@hwalbin.com">
 							</div>
 						</div>
 						<div class="form-group">
@@ -70,7 +77,8 @@
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 								</span> <input type="password" class="form-control input-lg"
-									name="password" id="inputPassword" placeholder="Password" value="123">
+									name="password" id="inputPassword" placeholder="Password"
+									value="123">
 							</div>
 						</div>
 						<div class="form-group">
@@ -91,7 +99,14 @@
 							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
 							네이버 아이디로 로그인</div>
 					</button>
-					${member.nick}
+					<button class="btn btn-primary btn-lg btn-block"
+						style="background-color: #4285F4; border: #4285F4; padding: 0; height: 45px; margin-top: 10px" onclick = "location.href = '/oauth2/authorization/google' ">
+						<div
+							style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 20px;">G</div>
+						<div
+							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
+							구글 아이디로 로그인</div>
+					</button>
 				</div>
 			</div>
 		</section>
