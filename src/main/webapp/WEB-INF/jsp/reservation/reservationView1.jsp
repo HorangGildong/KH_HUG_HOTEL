@@ -42,7 +42,7 @@
             </h1>
     
             <div class="buttonChoice">
-                <form>
+                <form action="/reservationSearchProcess" method="post">
                     <div class="checkInOut">
                         <input name="checkIn" style="margin-right: 10px;" class="checkIn" type="text" id="datepicker1" placeholder="CheckIn">
                         <input name="checkOut" class="checkOut" type="text" id="datepicker2" placeholder="CheckOut">
@@ -78,12 +78,12 @@
                         <option value="4">어린이 4</option>
                         <option value="5">어린이 5</option>
                     </select>
-                    <button id="reservationSearch" class="choiceType3" type="button">검색</button>
+                    <button id="reservationSearch" class="choiceType3" type="submit">검색</button>
                     </div>
                 </form>
             </div>
         
-			<c:if test="${empty reservationInfo.guestRoomRemaining }">
+			<c:if test="${!empty reservationInfo.guestRoomRemaining }">
             <div class="innerBox">
                 <div class="roomWrap">
                     <div class="imageBox">
@@ -217,30 +217,7 @@ function checkOnlyOne(element) {
   element.checked = true;
 }
 </script>
-<script>
-$(document).ready(function() {
-$("#reservationSearch").click(function() {
-	$.ajax({
-		type: "POST",
-		url: "/reservationSearchProcess",
-		data: {
-			"checkIn" 		: 	$(".checkIn").val(),
-			"checkOut" 		: 	$(".checkOut").val(),
-			"guestRoomName" : 	$("#guestRoomName").val(),
-			"adult" 		: 	$("#adult").val(),
-			"child" 		: 	$("#child").val() 	
-		},
-		success: function(data) {
-			alert("성공");
-			location.reload();
-		},
-		error: function(data) {
-			alert("실패"+data);
-		}
-	});
-});
-});
-</script>
+
 
 </body>
 

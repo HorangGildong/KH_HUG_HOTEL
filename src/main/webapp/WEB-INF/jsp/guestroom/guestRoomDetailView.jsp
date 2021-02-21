@@ -58,7 +58,7 @@
             </p>
             <div class="buttonArea">
                 <a href=""><span>문의하기</span></a>
-                <a href="예약뷰1.html"><span>예약하기</span></a>
+                <a href="/reservationView1"><span>예약하기</span></a>
             </div>
             <div class="detailInfo">
                 <h3>상세정보</h3>

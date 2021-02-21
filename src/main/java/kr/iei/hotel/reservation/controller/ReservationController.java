@@ -42,7 +42,11 @@ public class ReservationController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
+		//객실이름에 값이 있는지 확인하고 처리
 		if(reservationVO.getGuestRoomName() != null) {
+		
+			
+		
 		//체크아웃이 체크인보다 높거나 체크인 체크아웃 값이 같은 경우 처리
 		if(reservationVO.getCheckIn() >= reservationVO.getCheckOut()) {
 			out.println("<script>alert('날짜 선택을 잘못하셨습니다.'); history.go(-1);</script>");
@@ -141,7 +145,7 @@ public class ReservationController {
 		}
 		
 		
-		return "reservation/reservationView1";
+		return "forward:/reservationView1";
 		
 	}
 }
