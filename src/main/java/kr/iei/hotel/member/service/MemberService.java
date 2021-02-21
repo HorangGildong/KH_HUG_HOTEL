@@ -2,17 +2,21 @@ package kr.iei.hotel.member.service;
 
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
+import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 
 public interface MemberService {
 
 	void join(MemberJoinFormDto memberJoinFormDto);
 
-	void oAuth2join(String memberKey, String memberEmail);
+	void autoJoin(String memberKey, String memberEmail);
+	
+	void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto);
 	
 	int checkEmail(String memberEmail);
 
 	int checkNick(String memberNick);
 
 	MemberDto findByKey(String memberKey);
+
 
 }

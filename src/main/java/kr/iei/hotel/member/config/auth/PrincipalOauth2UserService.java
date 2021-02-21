@@ -23,20 +23,17 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 	// 구글로부터 받은 userRequest 데이터를 후처리
 	@Override
 	public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
-		System.out.println("test");
 		OAuth2User oAuth2User = super.loadUser(userRequest);
 //		String memberProvider = userRequest.getClientRegistration().getClientId();	// google
 		String memberKey = oAuth2User.getAttribute("sub");							// 114558055230202652163
-		System.out.println(memberKey);
 		String memberEmail = oAuth2User.getAttribute("email");
-		System.out.println(memberEmail);
 		
 		MemberDto memberDto = memberService.findByKey(memberKey);
 		if (memberDto == null) {
-			memberService.oAuth2join(memberKey, memberEmail);
+			memberService.autoJoin(memberKey, memberEmail);
 			memberDto = memberService.findByKey(memberKey);
+		} else {
 		}
-		System.out.println(memberDto);
 		return new PrincipalDetails(memberDto, oAuth2User.getAttributes());
 	}
 

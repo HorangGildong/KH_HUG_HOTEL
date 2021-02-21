@@ -65,7 +65,7 @@ public class Config extends WebSecurityConfigurerAdapter {
         	;
         http
         	.oauth2Login()
-        		.defaultSuccessUrl("/")
+        		.defaultSuccessUrl("/login/oAuth2")
         		.loginPage("/login")
         		.userInfoEndpoint()
         		.userService(principalOauth2UserService)		// 구글 로그인 후 토큰 & 프로필을 받아서 처리하는 함수

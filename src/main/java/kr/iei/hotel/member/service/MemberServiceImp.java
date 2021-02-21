@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import kr.iei.hotel.member.dao.MemberDao;
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
+import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 
 @Service
 public class MemberServiceImp implements MemberService {
@@ -19,8 +20,13 @@ public class MemberServiceImp implements MemberService {
 	}
 	
 	@Override
-	public void oAuth2join(String memberKey, String memberEmail) {
-		memberDao.oAuth2join(memberKey, memberEmail);
+	public void autoJoin(String memberKey, String memberEmail) {
+		memberDao.autoJoin(memberKey, memberEmail);
+	}
+	
+	@Override
+	public void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
+		memberDao.oAuth2Join(memberOAuth2JoinFormDto);
 	}
 	
 	@Override

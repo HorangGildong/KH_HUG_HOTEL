@@ -1,7 +1,6 @@
 package kr.iei.hotel.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
+import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 import kr.iei.hotel.member.service.MemberService;
 
 @Controller
@@ -30,12 +30,6 @@ public class MemberJoinController {
 		return "/member/join";
 	}
 	
-	@GetMapping("/oAuthJoin")
-	public String oAuthJoinPage(@AuthenticationPrincipal OAuth2User oAuth2user, Model model) {
-		model.addAttribute("email", oAuth2user.getAttribute("email"));
-		return "/member/oAuthJoin";
-	}
-	
 	// join
 	@PostMapping("/join")
 	public String join(MemberJoinFormDto memberJoinFormDto) {
@@ -45,13 +39,29 @@ public class MemberJoinController {
 		return "/member/login";
 	}
 	
-	@PostMapping("/oAuthJoin")
-	public String oAuthJoin(MemberJoinFormDto memberJoinFormDto, @AuthenticationPrincipal OAuth2User oAuth2user) {
-		memberJoinFormDto.setMemberPassword(passwordEncoder.encode("password"));
-		memberJoinFormDto.setMemberEmail(oAuth2user.getAttribute("email"));
-		memberService.join(memberJoinFormDto);
-		return "/member/login";
+	@GetMapping("/Join/oAuth2")
+	public String oAuthJoinPage(@AuthenticationPrincipal OAuth2User oAuth2user, Model model) {
+		model.addAttribute("email", oAuth2user.getAttribute("email"));
+		return "/member/oAuth2Join";
 	}
+	
+	@PostMapping("/Join/oAuth2")
+	public String oAuth2Join(@AuthenticationPrincipal OAuth2User oAuth2user,
+			MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
+		memberOAuth2JoinFormDto.setMemberEmail(oAuth2user.getAttribute("email"));
+		memberOAuth2JoinFormDto.setMemberKey(oAuth2user.getAttribute("sub"));
+		memberService.oAuth2Join(memberOAuth2JoinFormDto);
+		return "redirect:/";
+	}
+	
+	
+//	@PostMapping("/oAuthJoin")
+//	public String oAuthJoin(MemberJoinFormDto memberJoinFormDto, @AuthenticationPrincipal OAuth2User oAuth2user) {
+//		memberJoinFormDto.setMemberPassword(passwordEncoder.encode("password"));
+//		memberJoinFormDto.setMemberEmail(oAuth2user.getAttribute("email"));
+//		memberService.join(memberJoinFormDto);
+//		return "/member/login";
+//	}
 		
 	@GetMapping("/join/emailCheck")
 	@ResponseBody

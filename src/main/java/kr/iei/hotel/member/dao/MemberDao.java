@@ -3,9 +3,11 @@ package kr.iei.hotel.member.dao;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
+import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 
 @Mapper
 public interface MemberDao {
@@ -26,16 +28,24 @@ public interface MemberDao {
 	void join(MemberJoinFormDto memberJoinFormDto);
 	
 	@Insert("INSERT INTO MEMBER ("
-			+ " memberKey, memberRegDate, memberEmail, memberRole)"
+			+ " memberKey, memberEmail, memberRole)"
 			+ " VALUES("
-			+ " '${memberKey}', SYSDATE, '${memberEmail}', 'ROLE_ASSOCIATE'"
+			+ " '${memberKey}', '${memberEmail}', 'ROLE_ASSOCIATE'"
 			+ " )")
-	void oAuth2join(String memberKey, String memberEmail);
+	void autoJoin(String memberKey, String memberEmail);
+	
+	@Update("UPDATE MEMBER SET"
+			+ " memberEmail = '${memberEmail}', memberName = '${memberName}', memberRegDate = SYSDATE,"
+			+ " memberNick = '${memberNick}', memberRole = 'ROLE_REGURAL', memberPhone = '${memberPhone}',"
+			+ " memberGender = '${memberGender}', memberBirth = '${memberBirth}', memberAgree = '${memberAgree}'"
+			+ " WHERE memberKey = '${memberKey}'")
+	void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto);
 	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberEmail = '${memberEmail}'")
 	int checkEmail(String memberEmail);
 
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberNick = '${memberNick}'")
 	int checkNick(String memberNick);
+
 
 }

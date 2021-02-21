@@ -50,19 +50,14 @@
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
 
-
-					<form class="form-horizontal">			
+					<form class="form-horizontal" action="/Join/oAuth2" method="post">
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
 							<div class="col-xs-8">
 								<input type="email" class="form-control" name="memberEmail"
 									id="inputEmail" value="${email}" disabled>
-								<div class="check_font" id="emailCheck"></div>
 							</div>
 						</div>
-					</form>
-
-					<form class="form-horizontal" action="/oAuthJoin" method="post">
 
 						<div class="form-group">
 							<label for="inputName" class="col-xs-4 control-label">이름</label>
@@ -206,11 +201,11 @@
 			               aria-hidden="true">×
 			            </button>
 			            <h4 class="modal-title" id="myModalLabel">
-			              	 환영합니다!
+			              	 회원가입
 			            </h4>
 			         </div>
 			         <div class="modal-body">
-			            Google 로그인이 처음이신 경우 회원가입이 진행됩니다.
+			            	방문을 환영합니다. -HUG HOTEL-
 			         </div>
 			         <div class="modal-footer">
 			            <button type="button" class="btn btn-default" 
@@ -294,16 +289,15 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
-		
 		$("#inputNickname").blur(function() {
 			var nick = $('#inputNickname').val();
+			$("#submitBtn").attr("disabled", false);
 			$.ajax({
 				url : '${pageContext.request.contextPath}/join/nickCheck?nick=' + nick,
 				type : 'get',
 				success : function(data) {
 					if (nick == "") {
 						$("#nickCheck").text("");
-						$("#submitBtn").attr("disabled", false);
 					} else if (data) {
 						$("#nickCheck").text("사용중인 닉네임입니다. ㅠㅠ");
 						$("#nickCheck").css("color",	"red");
@@ -311,11 +305,12 @@
 					} else {
 						$("#nickCheck").text("사용가능한 닉네임입니다.");
 						$("#nickCheck").css("color",	"blue");
-						$("#submitBtn").attr("disabled", false);
-					}
+						isNick = true;
+					}	
 				}
 			});
 		});
+		
 		
 	</script>
 

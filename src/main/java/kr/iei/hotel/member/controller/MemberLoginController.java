@@ -34,23 +34,28 @@ public class MemberLoginController {
 		return "/member/login";		
 	}
 
-//	@GetMapping("/login/oauth2")	// TEST
-//	@ResponseBody
-//	public String oauth2Login(Model model,
-//			Authentication authentication, @AuthenticationPrincipal OAuth2User oAuth2user) {
-//		OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
-//		System.out.println("authentication : " + oAuth2User.getAttributes());
-//		Model m = model.addAttribute("m", oAuth2User.getAttributes());
-//		return m;
-//	}
+	@GetMapping("/login/oAuth2")
+	public String oauth2Login(Authentication authentication, @AuthenticationPrincipal OAuth2User oAuth2user) {
+		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
+		if(principalDetails.getMemberDto().getMemberRole().equals("ROLE_ASSOCIATE"))
+		{
+			return "redirect:/Join/oAuth2";
+		} else {
+			System.out.println("okok");
+		}
+			
+		return "redirect:/";
+	}
 
+	
+	
 	
 	@GetMapping("/test1")	// TEST
 	@ResponseBody
 	public String str1(
 			Authentication authentication,
 			@AuthenticationPrincipal PrincipalDetails userDetails) {
-		System.out.println("/test ====================");
+		System.out.println("/test 1===================");
 		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
 		System.out.println("authentication : " + principalDetails.getMemberDto());
 		
@@ -58,12 +63,12 @@ public class MemberLoginController {
 		return "세션 정보 확인하기";
 	}
 	
-	@GetMapping("/test2")	// TEST
+	@GetMapping("/test2")	// TEST oauth2
 	@ResponseBody
 	public String str2(
 			Authentication authentication,
 			@AuthenticationPrincipal OAuth2User oAuth2user) {
-		System.out.println("/test ====================");
+		System.out.println("/test 2===================");
 		OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
 		System.out.println("authentication : " + oAuth2User.getAttributes());
 		System.out.println("oauth2user : " + oAuth2user.getAttributes());
