@@ -117,10 +117,10 @@
 						<div class="form-group">
 							<label class="col-xs-4 control-label">성별</label> <label
 								class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGender" value="MALE"
+								type="radio" name="memberGender" id="inputGenderMale" value="MALE"
 								checked> 남
 							</label> <label class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGender" value="FEMALE">
+								type="radio" name="memberGender" id="inputGenderFemale" value="FEMALE">
 								여
 							</label>
 						</div>
@@ -204,7 +204,7 @@
 						<div class="col-xs-12">
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn" 
-									style="font-weight: bold;">회원가입</button>
+									style="font-weight: bold;" disabled>회원가입</button>
 							</div>
 						</div>
 
@@ -278,42 +278,54 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
+		var isEmail;
+		var isNick;
+		var isPassword;
+		
 		$("#inputEmail").blur(function() {
 			var email = $('#inputEmail').val();
+			var str = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+			isEmail = false;
 			$.ajax({
 				url : '${pageContext.request.contextPath}/join/emailCheck?email=' + email,
 				type : 'get',
 				success : function(data) {
-					if (data) {
-						$("#emailCheck").text("사용중인 아이디입니다. ㅠㅠ");
+					if (!str.test(email) && email!="") {
+						$("#emailCheck").text("이메일 형식이 바르지 않습니다.");
 						$("#emailCheck").css("color",	"red");
-						$("#submitBtn").attr("disabled", true);
+					} else if (data) {
+						$("#emailCheck").text("사용중인 아이디입니다.");
+						$("#emailCheck").css("color",	"red");
+					} else if (email!="") {
+						isEmail = true;
+						$("#emailCheck").text("사용가능한 아이디입니다.");
+						$("#emailCheck").css("color",	"blue");
 					} else {
 						$("#emailCheck").text("");
-						$("#submitBtn").attr("disabled", false);
 					}			
+					$.fn.submitDisable();
 				}
 			});
 		});
 		
 		$("#inputNickname").blur(function() {
 			var nick = $('#inputNickname').val();
+			isNick = false;
 			$.ajax({
 				url : '${pageContext.request.contextPath}/join/nickCheck?nick=' + nick,
 				type : 'get',
 				success : function(data) {
 					if (nick == "") {
 						$("#nickCheck").text("");
-						$("#submitBtn").attr("disabled", false);
 					} else if (data) {
 						$("#nickCheck").text("사용중인 닉네임입니다. ㅠㅠ");
 						$("#nickCheck").css("color",	"red");
-						$("#submitBtn").attr("disabled", true);
 					} else {
 						$("#nickCheck").text("사용가능한 닉네임입니다.");
 						$("#nickCheck").css("color",	"blue");
-						$("#submitBtn").attr("disabled", false);
+						isNick = true;
 					}
+					$.fn.submitDisable();
 				}
 			});
 		});
@@ -323,29 +335,28 @@
 			var num = pw.search(/[0-9]/g);
 			var eng = pw.search(/[a-z]/ig);
 			var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+			isPassword = false;
 			if(pw == "") {
 				$("#passwordCheck").text("");
 				$("#inputPassword2").attr("disabled", true);
 			} else if(pw.length < 8) {
 				$("#passwordCheck").text("8자리 이상으로 입력해주세요.");
 				$("#passwordCheck").css("color", "red");
-				$("#submitBtn").attr("disabled", true);
 				$("#inputPassword2").attr("disabled", true);
 			} else if(pw.search(/\s/) != -1) {
 				$("#passwordCheck").text("비밀번호는 공백 없이 입력해주세요.");
 				$("#passwordCheck").css("color", "red");
-				$("#submitBtn").attr("disabled", true);
 				$("#inputPassword2").attr("disabled", true);
 			} else if(num < 0 || eng < 0 || spe < 0 ) {
 				$("#passwordCheck").text("영문/숫자/특수문자를 혼합해주세요.");
 				$("#passwordCheck").css("color", "red");
-				$("#submitBtn").attr("disabled", true);
 				$("#inputPassword2").attr("disabled", true);
 			} else {
 				$("#passwordCheck").text("사용가능한 비밀번호입니다.");
 				$("#passwordCheck").css("color", "blue");
 				$("#inputPassword2").attr("disabled", false);
 			}
+			$.fn.submitDisable();
 		});
 		
 		/* $("#inputPassword2").attr("disabled") == undefined */
@@ -353,20 +364,29 @@
 		$("#inputPassword, #inputPassword2").blur(function() { 
 			var pw1=$("#inputPassword").val();
 			var pw2=$("#inputPassword2").val();
+			isPassword = false;
 			if($("#inputPassword2").attr("disabled") != undefined  || pw2 == "")
 			{
-				$("#passwordCheck2").text("");	
+				$("#passwordCheck2").text("");
 			} else if(pw1 == pw2) { 
 				$("#passwordCheck2").text("비밀번호가 일치합니다.");
 				$("#passwordCheck2").css("color", "blue");
-				$("#submitBtn").attr("disabled", false);	
+				isPassword = true;
 			} else {
 				$("#passwordCheck2").text("비밀번호가 일치하지 않습니다. ㅠㅠ");
 				$("#passwordCheck2").css("color", "red");
-				$("#submitBtn").attr("disabled", true);
 			}
+			$.fn.submitDisable();
 		});
 		
+		$.fn.submitDisable = function () {
+			console.log(isEmail, isNick, isPassword);
+			if(isEmail == true && isNick == true && isPassword == true) {
+				$("#submitBtn").attr("disabled", false);
+			} else {
+				$("#submitBtn").attr("disabled", true);
+			}
+		}
 		
 	</script>
 
