@@ -34,11 +34,12 @@ public class MemberLoginController {
 		return "/member/login";		
 	}
 
-	@GetMapping("/auth")	// TEST
+	@GetMapping("/login/oauth2")	// TEST
 	@ResponseBody
-	public String str(@AuthenticationPrincipal PrincipalDetails principal) {
-		return ("로그인 사용자 : " + principal.getNick());
+	public String oauth2Login() {
+		return ("ok");
 	}
+
 	
 	@GetMapping("/test1")	// TEST
 	@ResponseBody
