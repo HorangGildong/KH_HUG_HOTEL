@@ -7,7 +7,7 @@ public class NoticeReplyVo {
 	String content;
 	String regdate;
 	String memberNick;
-	int password;
+	String password;
 	
 	
 	
@@ -17,10 +17,10 @@ public class NoticeReplyVo {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	public String getMemberNick() {

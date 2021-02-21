@@ -10,8 +10,8 @@ CREATE TABLE NOTICE (
     title     VARCHAR2(200)  not null,
     contents  CLOB           not null,
     hit	      VARCHAR2(200)  DEFAULT 0,
-    regdate   DATE           DEFAULT SYSDATE,
-    pub       NUMBER(1)      DEFAULT 0    
+    regdate   varchar2(100)  DEFAULT SYSDATE,
+    pub       NUMBER(1)      DEFAULT 0   
 );
 
 /*------------------------------- 시퀀스 생성 -------------------------------*/

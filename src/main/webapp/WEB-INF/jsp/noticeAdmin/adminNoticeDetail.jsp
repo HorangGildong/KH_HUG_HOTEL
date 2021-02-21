@@ -146,7 +146,7 @@
                         <tr id='detail_1'>
                           <th width='100px'>${vo.nNo }</th>
                           <th width='500px'>${vo.title }</th>
-                          <th width='80px'><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.regdate }"/></th>                          
+                          <th width='80px'>${vo.regdate }</th>                          
                         </tr>
                     </thead>
                         
@@ -200,33 +200,14 @@
                             <tr>                        
                                 <td colspan="2"><div><hr class='style-six'></div></td>
                             </tr>   
-                            
-			<%-- ──────────────────── 댓글 등록시 반복 ──────────────────── --%> 
-                            <tr>
-                                <td colspan='2'><input id='input8' type="text" readonly value="관리자"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><div style="margin-left: 70px; margin-right: 70px;">관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/관리자입니다/</div></td>                         
-                            </tr>
-                            <tr>
-                                <td colspan="1"><input id='input9' type="text" readonly value="2020.01.25 오전 11:20:04"></td>
-                                <td>
-                                    <span id='btnupdel'>
-                                        <span id='span1'><input type="button" value="수정"></span>
-                                        <span id='span2'><input type="button" value="삭제"></span>
-                                    </span>
-                                </td>
-                            </tr>                                
-                            <tr>                        
-                                <td colspan="2"><div><hr class='style-six'></div></td>
-                            </tr>                                                                            
+                                                                           
                                 
                             </table>                             
                         </div>
                     </div>  
                     
 	<%-- ─────────────────────────────────── 페이징  부분 ─────────────────────────────────── --%> 
-                    <ul class="pagination">
+                    <ul class="pagination" id='user_pagination'>
                         <li class="disabled"><a href="#">«</a></li>
                         <li class="active"><a href="#">1</a></li>
                         <li ><a href="#">2</a></li>
@@ -256,12 +237,12 @@
                     <tr class='footer_tr' height='40' onclick="notice.adminPreArticle(${vo1.preNo})">
                         <th class='cursor' width='100px'>이전글</th>                        
                         <td class='footer_td' width='1000px'><input class='sContent' type="button" value='${vo1.preNo }&emsp;&emsp;${vo1.preTitle }'></td>
-                        <td class='cursor' width='150px'><fmt:formatDate pattern="yyyy-MM-dd" value="${vo1.preDate }"/></td>
+                        <td class='cursor' width='150px'>${vo1.preDate }</td>
                     </tr>
                     <tr class='footer_tr' height='40' onclick="notice.adminNextArticle(${vo1.nextNo})">
                         <th class='cursor'>다음글</th>                        
                         <td class='footer_td'><input class='sContent' type="button" value='${vo1.nextNo }&emsp;&emsp;${vo1.nextTitle }'></td>
-                        <td class='cursor'><fmt:formatDate pattern="yyyy-MM-dd" value="${vo1.nextDate }"/></td>
+                        <td class='cursor'>${vo1.nextDate }</td>
                     </tr>                  
                 </table>
                 </div>

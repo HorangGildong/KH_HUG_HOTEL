@@ -81,18 +81,18 @@ public class NoticeController {
 	
 	/*--------------------------------- 뷰 상세보기 ---------------------------------*/
 	@RequestMapping(value="/noticeDetail", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView noticeDetail(NoticeVo vo, Page page, 
+	public ModelAndView noticeDetail(NoticeVo vo, Page page, NoticeReplyVo vo2, 
 			@RequestParam(value="menu", required=false, defaultValue="total") String str,
 			@RequestParam(value="findStr", required=false, defaultValue="") String findStr) {
 		
 		ModelAndView mv = new ModelAndView();
-		NoticeVo vo1 = null;
-		NoticeReplyVo vo2 = new NoticeReplyVo();
-		
+		NoticeVo vo1 = null;		
+		System.out.println("vo2.getMemberNick(): "+vo2.getMemberNick());
 		System.out.println("1.menu: "+str);
 		System.out.println("2.vo.getnNo(): "+vo.getnNo());
 		System.out.println("3.findStr : "+ findStr);
-
+		
+		
 		vo = service.view(vo.getnNo());
 
 		if (str.equals("total")) {

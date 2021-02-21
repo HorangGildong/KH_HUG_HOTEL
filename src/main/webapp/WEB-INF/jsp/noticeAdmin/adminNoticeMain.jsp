@@ -177,7 +177,7 @@
 	                 <c:if test="${vo.pub eq 0 }">
 	                 	<td>${vo.title }</td>
 	                 </c:if>
-	                 <td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.regdate }"/> </td>
+	                 <td>${vo.regdate }</td>
 	                 <td>${vo.hit }</td>
 	               </tr>
 	           </c:forEach>

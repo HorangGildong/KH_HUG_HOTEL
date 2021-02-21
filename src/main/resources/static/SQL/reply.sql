@@ -6,27 +6,35 @@ drop sequence seq_reply_rNo;
 
 /*------------------------------- REPLY 테이블 생성 -------------------------------*/
 CREATE table REPLY(
-    rNo     NUMBER         NOT NULL,
-    nNo     NUMBER         NOT NULL,
-    writer  VARCHAR2(15)   DEFAULT '관리자',----------------------수정
-    content VARCHAR2(2000) NOT NULL,
-    regdate DATE           DEFAULT SYSDATE,
-    constraint fk_reply_nNo FOREIGN KEY(nNo) REFERENCES NOTICE(nNo)
+    rNo      NUMBER         NOT NULL primary key,
+    nNo      NUMBER         NOT NULL,
+    memberId NUMBER,
+    content  VARCHAR2(2000) NOT NULL,
+    password VARCHAR2(20)   NOT NULL,
+    regdate  VARCHAR2(100)  DEFAULT SYSDATE,
+    
+    constraint fk_reply_nNo FOREIGN KEY(nNo) REFERENCES NOTICE(nNo)on delete cascade ,
+    constraint fk_reply_memberId FOREIGN KEY(memberId) REFERENCES MEMBER(memberId) on delete cascade
 );
 
 /*------------------------------- 시퀀스 생성 -------------------------------*/
 CREATE SEQUENCE seq_reply_rNo;
 
 /*------------------------------- REPLY 데이터 등록 -------------------------------*/
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 10, '안녕하세요 반갑습니다.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 9, '안녕하세요 관리자님.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 8, '안녕하세요 승우님.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 7, '안녕하세요 유찬님.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 6, '안녕하세요 아현님.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 5, '안녕하세요 주영님.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 4, '안녕하세요 법규님.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 3, '안녕하세요 재훈님.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 2, '안녕하세요 하이하이.');
-INSERT INTO REPLY (rNo, nNo, content) VALUES (seq_reply_rNo.nextval, 5, '안녕하세요 핼로우.');
+INSERT INTO REPLY (rNo, nNo, memberId, password, content, regdate) 
+VALUES (seq_reply_rNo.nextval, 100, 1, 1111,'안녕하세요 반갑습니다.1', to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS') );
+INSERT INTO REPLY (rNo, nNo, memberId, password, content, regdate) 
+VALUES (seq_reply_rNo.nextval, 100, 1, 1111,'안녕하세요 반갑습니다.2', to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS') );
+INSERT INTO REPLY (rNo, nNo, memberId, password, content, regdate) 
+VALUES (seq_reply_rNo.nextval, 100, 1, 1111,'안녕하세요 반갑습니다.3', to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS') );
+INSERT INTO REPLY (rNo, nNo, memberId, password, content, regdate) 
+VALUES (seq_reply_rNo.nextval, 100, 1, 1111,'안녕하세요 반갑습니다.4', to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS') );
+INSERT INTO REPLY (rNo, nNo, memberId, password, content, regdate) 
+VALUES (seq_reply_rNo.nextval, 100, 1, 1111,'안녕하세요 반갑습니다.5', to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS') );
+INSERT INTO REPLY (rNo, nNo, memberId, password, content, regdate) 
+VALUES (seq_reply_rNo.nextval, 100, 1, 1111,'안녕하세요 반갑습니다.6', to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS') );
+INSERT INTO REPLY (rNo, nNo, memberId, password, content, regdate) 
+VALUES (seq_reply_rNo.nextval, 100, 1, 1111,'안녕하세요 반갑습니다.7', to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS') );
+
 
 commit;

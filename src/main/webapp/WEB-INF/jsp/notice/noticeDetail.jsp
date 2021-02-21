@@ -8,7 +8,6 @@
 	<sec:authentication property="principal" var="member"/>
 </sec:authorize>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,8 +53,12 @@
 		 
 		var notice = function(){
     		
-			var btnBack = getID('btnBack');  		
-			var input7  = getID('input7');
+			var btnBack  = getID('btnBack');  		
+			var input7   = getID('input7');
+			var input4   = getID('input4');
+			var textarea = getID('textarea');
+			var Rupdate  = getID('Rupdate');
+			var Rdelete  = getID('Rdelete');
     		    		
 			if (btnBack != null) {
 				btnBack.onclick = function(){
@@ -79,14 +82,41 @@
 			if (input7 != null) {
 				input7.onclick = function(){
 					var frm = document.frm_notice;
-					alert("출발");
-					frm.action = "/noticeDetail_Rinsert";
+					var len1 = input4.value.length;
+					var len2 = textarea.value.length;
+					if (len1 < 1 || len2 < 1) {
+						alert('암호와 text를 입력하세요.');
+						
+					} else {
+						frm.action = "/noticeDetail_Rinsert";
+						frm.submit();						
+					}
+				}
+			}
+			
+			if (Rupdate != null) {
+				Rupdate.onclick = function(){
+					var frm = document.frm_notice;															
+					frm.action = "/Rupdate";
 					frm.submit();
 				}
 			}
+			
+			if (Rdelete != null) {
+				Rdelete.onclick = function(){
+					var frm = document.frm_notice;
+					let pwd = prompt("삭제하시려면 작성한 암호를 입력해주세요.");					
+					frm.pwd.value = pwd;
+					frm.action = "/Rdelete";
+					frm.submit();
+				}
+			}
+			
+			
+			
     	};
     
-		notice.preArticle = function(num){
+    	notice.preArticle = function(num){
 			if (num > 0) {
 				
 				var frm = document.frm_notice;
@@ -96,7 +126,7 @@
 			}
 		}
 		
-		notice.nextArticle = function(num){
+    	notice.nextArticle = function(num){
 			var totpage = "<c:out value='${param.totalPage }'/>"; 
 			
 			var frm = document.frm_notice;
@@ -112,8 +142,15 @@
 				frm.submit();
 			}
 			--%>		
-		}
+		};
 
+		notice.goPage = function(page){			
+			var frm = document.frm_notice;
+			frm.nowPage.value = page;
+			frm.action = "/noticeDetail";
+			frm.submit();					
+		};
+		
 		
 		
     </script>
@@ -164,6 +201,7 @@
 								<input type='hidden' name='nNo' value="${param.nNo}">
 			                    <input type="hidden" name='findStr' value="${param.findStr }"> 
 			                    <input type='hidden' name='totalPage' value='${param.totalPage }'>
+			                    <input type='hidden' name='pwd' value='${param.pwd }'>
 	                            <table id='detail_Middle1'>				                    
 	                                <tr>                                    
 	                                    <td width='10px'><input type="text" id='input1' value='작성자' readonly class="form-control"></td>
@@ -206,12 +244,14 @@
 		                                    <td>
 		                                    	<input id='input9' type="text" readonly value="${reply.regdate }">		                                    	
 		                                    </td>
-		                                    <td>
-		                                        <span id='btnupdel'>
-		                                            <span id='span1'><input type="button" value="수정"></span>
-		                                            <span id='span2'><input type="button" value="삭제"></span>
-		                                        </span>
-		                                    </td>
+		                                    <c:if test="${reply.memberNick == member.nick }">
+			                                    <td>		                                    	
+			                                        <span id='btnupdel'>
+			                                            <span id='span1'><input type="button" id='Rupdate' value="수정"></span>
+			                                            <span id='span2'><input type="button" id='Rdelete' value="삭제"></span>
+			                                        </span>
+			                                    </td>
+		                                    </c:if>
 		                                </tr>                                
 		                                <tr>                        
 		                                    <td colspan="2"><div><hr class='style-six'></div></td>
@@ -223,15 +263,15 @@
                         </div>
                     </div>     
 	<%-- ─────────────────────────────────── 페이징  부분 ─────────────────────────────────── --%> 
-                    <ul class="pagination">
-                        <li class="disabled"><a href="#">«</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
+                    <ul class="pagination" id='user_pagination'>
+		                <li><a class="${(page.startPage > 1)? '' : 'btnHide' }" id="btnPrev" onclick="notice.goPage(${page.startPage-1})">«</a></li>
+		
+		              	<c:forEach var='i' begin='${page.startPage }' end='${page.endPage }'>
+		                	<li class="${(param.nowPage == i)? 'active':'' }"><a onclick="notice.goPage(${i})">${i }</a></li>
+		                </c:forEach>
+		    
+		               	<li><a class="${(page.endPage < page.totPage)? '' : 'btnHide' }" id="btnNect" onclick="notice.goPage(${page.endPage+1})">»</a></li>             
+		            </ul>
                 </div>
                 
 	<%-- ─────────────────────────────────── 목록  부분 ─────────────────────────────────── --%> 

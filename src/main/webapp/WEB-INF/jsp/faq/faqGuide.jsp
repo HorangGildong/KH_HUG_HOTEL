@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,16 +51,28 @@
 				<div id='collapseOne${vo.no }' class="panel-collapse collapse ">
 					<div class="panel-body" id='faqAnswer'>
 		           		${vo.answer }
-						<div id='btnupdel'>
-		                	<span id='span5'><input type="button" value="수정"></span>
-		                    <span id='span6'><input type="button" value="삭제"></span>
-						</div>
+		           		<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<div id='btnupdel'>
+			                	<span id='span5'><input type="button" value="수정"></span>
+			                    <span id='span6'><input type="button" value="삭제"></span>
+							</div>
+						</sec:authorize>
 					</div>
 				</div>								
 			</c:forEach>					                       
 		</div>	
 	</div>
 
+	<%-- ─────────────────────────────────── 글쓰기 부분 ─────────────────────────────────── --%>
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
+       	<div id='writer'>
+        	<div></div>
+			<div>
+				<input type="button" class="form-control" value='글쓰기'>            
+			</div>
+		</div>
+	</sec:authorize>
+		
 	<%-- ─────────────────────────────────── 페이징 부분 ─────────────────────────────────── --%>
 	<ul class="pagination" id="user_pagination">
         <li><a class="${(page.startPage > 1)? '' : 'btnHide' }" id="btnPrev" onclick="guideGoPage2(${page.startPage-1})">«</a></li>

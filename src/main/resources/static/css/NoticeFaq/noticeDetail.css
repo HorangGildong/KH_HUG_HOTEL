@@ -169,13 +169,17 @@
 }
 
 /*--------------------- 페이징 부분 ---------------------*/
-#notice_detail .pagination {
+#notice_detail #user_pagination {
     position:relative;
-    left: 40%;
+    left: 41.3%;
     margin-top: 0px;
-    margin-bottom: 25px; 
+    margin-bottom: 25px;
+    cursor: pointer;	    
 }
-
+#notice_detail .pagination .btnHide{
+	pointer-events: none; 
+	cursor: default;
+}
 /*--------------------- 목록 부분 ---------------------*/
 #notice_detail #back{
     position: relative;
