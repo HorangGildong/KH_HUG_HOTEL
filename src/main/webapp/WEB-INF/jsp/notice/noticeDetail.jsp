@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="member"/>
+</sec:authorize>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,8 +78,9 @@
 			
 			if (input7 != null) {
 				input7.onclick = function(){
-					var frm = document.frm_rinsert;
-					frm.action = "/noticeRinsert_result";
+					var frm = document.frm_notice;
+					alert("출발");
+					frm.action = "/noticeDetail_Rinsert";
 					frm.submit();
 				}
 			}
@@ -80,6 +88,7 @@
     
 		notice.preArticle = function(num){
 			if (num > 0) {
+				
 				var frm = document.frm_notice;
 				frm.nNo.value = num;
 				frm.action = "/noticeDetail";
@@ -134,7 +143,7 @@
                         <tr id='detail_1'>
                           <th width='100px'>${vo.nNo }</th>
                           <th width='500px'>${vo.title }</th>
-                          <th width='80px'><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.regdate }"/></th>                          
+                          <th width='80px'>${vo.regdate }</th>                          
                         </tr>
                     </thead>
                         
@@ -149,59 +158,68 @@
                 <div id='div_1'>        
                     <div id='div_2'>
                         <div id='div_3'>
-                        	<form id='frm_rinsert' name='frm_rinsert' method='post'>
-                            <table id='detail_Middle1'>
-                                <tr>                                    
-                                    <td width='10px'><input type="text" id='input1' value='작성자' readonly class="form-control"></td>
-                                    <td><input type="text" id='input2' value='방구석코딩ddfkldjfalk러' readonly class="form-control"></td>
-                                    <td><input id='input3' type="text" value="암호" readonly class="form-control"/></td>
-                                    <td><input id='input4' type="password" class="form-control"/></td>
-                                    <td width="430px"></td>
-                                    <td><input id='input5' type="text" value="작성일" readonly class="form-control"/></td>
-                                    <td><input id='input6' type="text" value="${vo.date }" readonly class="form-control"/></td>
-                                </tr> 
-                            </table>
-
-                            <table id='detail_Middle2'>
-                                <tr>
-                                	<!-- 
-                                	<c:if test="${empty member }">
-	                                    <td><textarea id='textarea' cols="128" rows="5" readOnly style="resize: none;" placeholder="로그인시 댓글 작성 가능합니다."></textarea></td>                                                
-	                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' type="button" value='등록'></div></td>
-	                                </c:if>
-	                                 -->
-	                                    
-	                                    <td><textarea id='textarea' cols="128" rows="5" style="resize: none;" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea></td>                                                
-	                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' type="button" value='등록'></div></td>
-	                                
-                                </tr>
-                                <tr>                        
-                                    <td colspan="2"><div><br><hr class='style-six'></div></td>
-                                </tr>        
-                                            
-	<%-- ──────────────────── 댓글 등록시 반복 ──────────────────── --%> 
-                                <tr>
-                                    <td colspan='2'><input id='input8' type="text" readonly value="방구석코딩러"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><div style="margin-left: 70px; margin-right: 70px;">내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입내용삽입</div></td>                         
-                                </tr>
-                                <tr>
-                                    <td><input id='input9' type="text" readonly value="2020.01.25 오전 11:20:04"></td>
-                                    <td>
-                                        <span id='btnupdel'>
-                                            <span id='span1'><input type="button" value="수정"></span>
-                                            <span id='span2'><input type="button" value="삭제"></span>
-                                        </span>
-                                    </td>
-                                </tr>                                
-                                <tr>                        
-                                    <td colspan="2"><div><hr class='style-six'></div></td>
-                                </tr>                                   
-
-
-                            </table> 
-                            
+                        	<form id='frm_notice' name='frm_notice' method='post'>
+                        		<input type='hidden' name='menu' value="${param.menu }">
+								<input type='hidden' name='nowPage' value="${param.nowPage }">
+								<input type='hidden' name='nNo' value="${param.nNo}">
+			                    <input type="hidden" name='findStr' value="${param.findStr }"> 
+			                    <input type='hidden' name='totalPage' value='${param.totalPage }'>
+	                            <table id='detail_Middle1'>				                    
+	                                <tr>                                    
+	                                    <td width='10px'><input type="text" id='input1' value='작성자' readonly class="form-control"></td>
+	                                    <td><input type="text" id='input2' value='${member.nick }' name='memberNick' readonly class="form-control"></td>
+	                                    <td><input id='input3' type="text" value="암호" readonly class="form-control"/></td>
+	                                    <td><input id='input4' type="password" name='password' class="form-control"/></td>
+	                                    <td width="430px"></td>
+	                                    <td><input id='input5' type="text" value="작성일" readonly class="form-control"/></td>
+	                                    <td><input id='input6' type="text" name='regdate' value="${vo2.regdate }" readonly class="form-control"/></td>
+	                                </tr> 
+	                            </table>
+	
+	                            <table id='detail_Middle2'>
+	                                <tr>
+	                                	
+	                                	<c:if test="${empty member.nick }">
+		                                    <td><textarea id='textarea' cols="128" rows="5" readOnly style="resize: none;" placeholder="로그인시 댓글 작성 가능합니다."></textarea>&nbsp;&nbsp;&nbsp;</td>                                                
+		                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' disabled type="button" value='등록'></div></td>
+		                                </c:if>
+		                                 
+		                                <c:if test="${not empty member.nick }">    
+		                                    <td><textarea id='textarea' name='content' cols="128" rows="5" style="resize: none;" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea>&nbsp;&nbsp;&nbsp;</td>		                                                                               
+		                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' type="button" value='등록'></div></td>
+		                                </c:if>
+	                                </tr>
+	                                <tr>                        
+	                                    <td colspan="2"><div><br><hr class='style-six'></div></td>
+	                                </tr>        
+	                                            
+		<%-- ──────────────────── 댓글 등록시 반복 ──────────────────── --%> 
+	                                <c:forEach var='reply' items='${list }'>
+	                               	<c:if test="${vo.nNo == reply.nNo }">
+		                                <tr>
+		                                    <td colspan='2'><input id='input8' type="text" readonly value="${reply.memberNick }"></td>
+		                                </tr>
+		                                <tr>
+		                                    <td colspan="2"><div style="margin-left: 70px; margin-right: 70px;">${reply.content }</div></td>                         
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                    	<input id='input9' type="text" readonly value="${reply.regdate }">		                                    	
+		                                    </td>
+		                                    <td>
+		                                        <span id='btnupdel'>
+		                                            <span id='span1'><input type="button" value="수정"></span>
+		                                            <span id='span2'><input type="button" value="삭제"></span>
+		                                        </span>
+		                                    </td>
+		                                </tr>                                
+		                                <tr>                        
+		                                    <td colspan="2"><div><hr class='style-six'></div></td>
+		                                </tr>                                   
+									</c:if>									
+									</c:forEach>
+	                            </table> 
+                            </form>                            
                         </div>
                     </div>     
 	<%-- ─────────────────────────────────── 페이징  부분 ─────────────────────────────────── --%> 
@@ -217,28 +235,23 @@
                 </div>
                 
 	<%-- ─────────────────────────────────── 목록  부분 ─────────────────────────────────── --%> 
-                <form name='frm_notice' method='post'>
+            
 	                <span id='back'>
-	                    <input type="button" id='btnBack' value='목록' class="form-control">
-	                    <input type='text' name='menu' value="${param.menu }">
-						<input type='hidden' name='nowPage' value="${param.nowPage }">
-						<input type='hidden' name='nNo' value="${param.nNo}">
-	                    <input type="hidden" name='findStr' value="${param.findStr }"> 
-	                    <input type='hidden' name='totalPage' value='${param.totalPage }'>	                                     
+	                    <input type="button" id='btnBack' value='목록' class="form-control">	                  	                                     
 	                </span>
-                </form>
+             
                 
 	<%-- ─────────────────────────────────── 이전글 다음글  부분 ─────────────────────────────────── --%> 
                 <table class='table table-bordered' id='detail_Footer'>
 					<tr class='footer_tr' height='40' onclick="notice.preArticle(${vo1.preNo})">
                         <th class='cursor' width='100px'>이전글</th>                        
                         <td class='footer_td' width='1000px'><input class='sContent' type="button" value='${vo1.preNo }&emsp;&emsp;${vo1.preTitle }'></td>
-                        <td class='cursor' width='150px'><fmt:formatDate pattern="yyyy-MM-dd" value="${vo1.preDate }"/></td>
+                        <td class='cursor' width='150px'>${vo1.preDate }</td>
                     </tr>
                     <tr class='footer_tr' height='40' onclick="notice.nextArticle(${vo1.nextNo})">
                         <th class='cursor'>다음글</th>                        
                         <td class='footer_td'><input class='sContent' type="button" value='${vo1.nextNo }&emsp;&emsp;${vo1.nextTitle }'></td>
-                        <td class='cursor'><fmt:formatDate pattern="yyyy-MM-dd" value="${vo1.nextDate }"/></td>
+                        <td class='cursor'>${vo1.nextDate }</td>
                     </tr>                  
                 </table>
                 </div>

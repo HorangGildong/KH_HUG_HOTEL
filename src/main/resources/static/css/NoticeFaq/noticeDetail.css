@@ -82,7 +82,7 @@
 #notice_detail #detail_Middle1 #input2{    
     text-align: left;
     text-indent: 4px;
-    width:120px;
+    width:140px;
     height: 30px;
     background-color: white;
 }
@@ -117,14 +117,14 @@
     display: inline-block;    
     text-align: center;
     width: 100px;
-    height: 90px;
-    line-height: 90px;    
+    height: 80px;
+    line-height: 80px;    
 }
 #notice_detail #detail_Middle2 #input7{    
     border: 0;
     background-color: white;
     width: 100px; 
-    height: 90px;
+    height: 80px;
     font-size: 23px;        
 }
 #notice_detail #detail_Middle2 #input8{

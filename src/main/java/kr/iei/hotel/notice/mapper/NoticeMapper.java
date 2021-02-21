@@ -3,13 +3,17 @@ package kr.iei.hotel.notice.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import kr.iei.hotel.notice.vo.NoticeReplyVo;
 import kr.iei.hotel.notice.vo.NoticeVo;
 import kr.iei.hotel.notice.vo.Page;
+import kr.iei.hotel.notice.vo.ReplyJoinVo;
 
 @Repository
 @Mapper
 public interface NoticeMapper {
 	
+	/*---------- 공지사항 ----------*/
 	public int tot_list_size(Page page);
 	public int tot_title_size(Page page);
 	public int tot_contents_size(Page page);
@@ -24,7 +28,13 @@ public interface NoticeMapper {
 	public NoticeVo total_article(int nNo, String findStr);
 	public NoticeVo title_article(int nNo, String findStr);
 	public NoticeVo content_article(int nNo, String findStr);
+
+	/*---------- 댓글 ----------*/	
+	public int tot_reply_list_size(Page page);
+	public List<NoticeReplyVo> reply_select(Page page);
+	public int Rinsert(NoticeReplyVo vo2);
+	public ReplyJoinVo Rselect2(String memberNick);
 	
-	public int Rinsert(NoticeVo vo);
+	
 	
 }

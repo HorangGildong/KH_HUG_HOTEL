@@ -138,15 +138,45 @@
 		WHERE nNo = #{param1}
 	</select>	
 
+	<!-- ──────────────────────── 댓글 ──────────────────────── -->
+	<select id='tot_reply_list_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select count(rNo) from reply		
+	</select>
+	
+	<select id='reply_select' resultType='kr.iei.hotel.notice.vo.NoticeReplyVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+		    select rownum no, r.* from (
+		        SELECT rp.rNo, rp.nNo, rp.memberId, rp.content, rp.regdate, M.memberNick
+		        FROM REPLY rp
+		        LEFT JOIN MEMBER M ON RP.memberId = M.memberId
+		        order by rNo desc
+		        ) r
+		) where no between #{startNo} and #{endNo}
+		order by rNo desc
+	</select>
+
+	<select id='Rselect2' resultType='kr.iei.hotel.notice.vo.ReplyJoinVo' parameterType='String'>
+		select m.memberid id , m.membernick nick FROM REPLY rp
+		right JOIN MEMBER M ON RP.memberId = M.memberId
+		where memberNick = #{param1}
+		group by m.memberid, m.membernick	
+	</select>
+	
+	
 	<!-- ─────────────────────────────────── insert ─────────────────────────────────── -->
 	<insert id='insert' parameterType='kr.iei.hotel.notice.vo.NoticeVo'>
 		insert into notice (nNo, title, regdate, contents, pub) 
 		values (seq_notice_nNo.nextval, #{title}, sysdate, #{contents}, #{pub})			
 	</insert>
 	
-	<insert id='Rinsert' parameterType='kr.iei.hotel.notice.vo.NoticeVo'>
-		insert
+	<insert id='Rinsert' parameterType='kr.iei.hotel.notice.vo.NoticeReplyVo'>
+		insert into reply (rNo, nNo, memberId, password, content, regdate) 
+		values (seq_reply_rNo.nextval, #{nNo}, #{memberId}, #{password}, #{content}, to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS'))
 	</insert>
+	
+	
+	
+	
 	
 	<!-- ─────────────────────────────────── update ─────────────────────────────────── -->
 	<update id='update' parameterType='kr.iei.hotel.notice.vo.NoticeVo'>
@@ -157,10 +187,19 @@
 		update notice set hit = hit + 1 where nNo=#{nNo}	
 	</update>
 	
+	
+	
+	
+	
 	<!-- ─────────────────────────────────── delete ─────────────────────────────────── -->
 	<delete id='delete' parameterType='int'>
 		delete from notice where nNo=#{nNo}
 	</delete>
+	
+	
+	
+	
+	
 	
 
 </mapper>

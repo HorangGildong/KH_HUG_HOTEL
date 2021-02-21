@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import kr.iei.hotel.notice.service.NoticeReplyService;
 import kr.iei.hotel.notice.service.NoticeService;
+import kr.iei.hotel.notice.vo.NoticeReplyVo;
 import kr.iei.hotel.notice.vo.NoticeVo;
 import kr.iei.hotel.notice.vo.Page;
 
@@ -20,6 +23,9 @@ public class NoticeController {
 		
 	@Autowired
 	NoticeService service;
+	
+	@Autowired
+	NoticeReplyService Rservice;
 	
 	// ────────────────────────────────────────────────── 사용자 ──────────────────────────────────────────────────
 	/*--------------------------------- 전체조회, 검색---------------------------------*/
@@ -75,31 +81,47 @@ public class NoticeController {
 	
 	/*--------------------------------- 뷰 상세보기 ---------------------------------*/
 	@RequestMapping(value="/noticeDetail", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView noticeDetail(NoticeVo vo, 
+	public ModelAndView noticeDetail(NoticeVo vo, Page page, 
 			@RequestParam(value="menu", required=false, defaultValue="total") String str,
 			@RequestParam(value="findStr", required=false, defaultValue="") String findStr) {
 		
 		ModelAndView mv = new ModelAndView();
-		NoticeVo vo1 = null;		
+		NoticeVo vo1 = null;
+		NoticeReplyVo vo2 = new NoticeReplyVo();
 		
-		System.out.println(str);
-		
-		vo = service.view(vo.getnNo());	
-			
+		System.out.println("1.menu: "+str);
+		System.out.println("2.vo.getnNo(): "+vo.getnNo());
+		System.out.println("3.findStr : "+ findStr);
+
+		vo = service.view(vo.getnNo());
+
 		if (str.equals("total")) {
-			vo1 = service.total_article(vo.getnNo(),findStr);			
+			vo1 = service.total_article(vo.getnNo(),findStr);
 		}
 		else if (str.equals("title")) {
 			vo1 = service.title_article(vo.getnNo(),findStr);
 		}
 		else if (str.equals("contents")) {
 			vo1 = service.content_article(vo.getnNo(),findStr);
-		}	
+		}
 		
-		Date date = new Date(System.currentTimeMillis());
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd a HH:mm:ss");
-		vo.setDate(dateFormat.format(date));
+		Map<String, Object> map = Rservice.Rselect(page);
+	      
+	    List<NoticeReplyVo> list = (List<NoticeReplyVo>) map.get("list");
+	    page = (Page) map.get("page");
 		
+	   	Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		vo2.setRegdate(dateFormat.format(date));
+		
+		System.out.println("4.reply_data: "+ vo2.getRegdate());		
+		System.out.println("5.vo.getnNo(): "+vo.getnNo());
+		
+		
+		
+		mv.addObject("vo2", vo2);
+		mv.addObject("list", list);
+		mv.addObject("page", page);  
 		mv.addObject("vo", vo);
 		mv.addObject("vo1", vo1);		
 		mv.setViewName("notice/noticeDetail");

@@ -1,12 +1,58 @@
 package kr.iei.hotel.notice.vo;
 
-import java.util.Date;
-
 public class NoticeReplyVo {
 	int rNo;
 	int nNo;
-	int user_no; // 일련번호로?
+	int memberId; 
 	String content;
-	Date regdate;
+	String regdate;
+	String memberNick;
+	int password;
+	
+	
+	
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+	public int getPassword() {
+		return password;
+	}
+	public void setPassword(int password) {
+		this.password = password;
+	}
+	public String getMemberNick() {
+		return memberNick;
+	}
+	public void setMemberNick(String memberNick) {
+		this.memberNick = memberNick;
+	}
+	public int getrNo() {
+		return rNo;
+	}
+	public void setrNo(int rNo) {
+		this.rNo = rNo;
+	}
+	public int getnNo() {
+		return nNo;
+	}
+	public void setnNo(int nNo) {
+		this.nNo = nNo;
+	}
+	public int getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	
 }

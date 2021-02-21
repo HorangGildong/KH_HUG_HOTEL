@@ -1,29 +1,38 @@
 package kr.iei.hotel.notice.vo;
 
-import java.util.Date;
-
 public class NoticeVo {
 	
 	int nNo;
 	String title;
 	String contents;
 	String hit;
-	Date regdate;
+	String regdate;
 	int pub;
 	int preNo;
 	String preTitle;
-	Date preDate;
+	String preDate;
 	int nextNo;
 	String nextTitle;
-	Date nextDate;
-	String date;
+	String nextDate;
 	
 
-	public String getDate() {
-		return date;
+	public String getPreDate() {
+		return preDate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setPreDate(String preDate) {
+		this.preDate = preDate;
+	}
+	public String getNextDate() {
+		return nextDate;
+	}
+	public void setNextDate(String nextDate) {
+		this.nextDate = nextDate;
+	}
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
 	public int getnNo() {
 		return nNo;
@@ -48,13 +57,7 @@ public class NoticeVo {
 	}
 	public void setHit(String hit) {
 		this.hit = hit;
-	}
-	public Date getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
+	}	
 	public int getPub() {
 		return pub;
 	}
@@ -73,12 +76,6 @@ public class NoticeVo {
 	public void setPreTitle(String preTitle) {
 		this.preTitle = preTitle;
 	}
-	public Date getPreDate() {
-		return preDate;
-	}
-	public void setPreDate(Date preDate) {
-		this.preDate = preDate;
-	}
 	public int getNextNo() {
 		return nextNo;
 	}
@@ -91,11 +88,6 @@ public class NoticeVo {
 	public void setNextTitle(String nextTitle) {
 		this.nextTitle = nextTitle;
 	}
-	public Date getNextDate() {
-		return nextDate;
-	}
-	public void setNextDate(Date nextDate) {
-		this.nextDate = nextDate;
-	}
+
 		
 }
