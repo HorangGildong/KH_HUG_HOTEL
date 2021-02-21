@@ -48,6 +48,7 @@
 		var notice = function(){
     		
 			var btnBack = getID('btnBack');  		
+			var input7  = getID('input7');
     		    		
 			if (btnBack != null) {
 				btnBack.onclick = function(){
@@ -65,8 +66,16 @@
 						frm.submit();
 						
 					}
-				};
-			};    		
+				};			
+			};  
+			
+			if (input7 != null) {
+				input7.onclick = function(){
+					var frm = document.frm_rinsert;
+					frm.action = "/noticeRinsert_result";
+					frm.submit();
+				}
+			}
     	};
     
 		notice.preArticle = function(num){
@@ -95,6 +104,8 @@
 			}
 			--%>		
 		}
+
+		
 		
     </script>
 	
@@ -138,22 +149,31 @@
                 <div id='div_1'>        
                     <div id='div_2'>
                         <div id='div_3'>
+                        	<form id='frm_rinsert' name='frm_rinsert' method='post'>
                             <table id='detail_Middle1'>
                                 <tr>                                    
                                     <td width='10px'><input type="text" id='input1' value='작성자' readonly class="form-control"></td>
-                                    <td><input type="text" id='input2' value='방구석코딩러' readonly class="form-control"></td>
+                                    <td><input type="text" id='input2' value='방구석코딩ddfkldjfalk러' readonly class="form-control"></td>
                                     <td><input id='input3' type="text" value="암호" readonly class="form-control"/></td>
                                     <td><input id='input4' type="password" class="form-control"/></td>
                                     <td width="430px"></td>
                                     <td><input id='input5' type="text" value="작성일" readonly class="form-control"/></td>
-                                    <td><input id='input6' type="text" value="2020.01.25 오전 11:20:04" readonly class="form-control"/></td>
+                                    <td><input id='input6' type="text" value="${vo.date }" readonly class="form-control"/></td>
                                 </tr> 
                             </table>
 
                             <table id='detail_Middle2'>
                                 <tr>
-                                    <td><textarea id='textarea' cols="134" rows="5" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea></td>                                                
-                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' type="button" value='등록'></div></td>
+                                	<!-- 
+                                	<c:if test="${empty member }">
+	                                    <td><textarea id='textarea' cols="128" rows="5" readOnly style="resize: none;" placeholder="로그인시 댓글 작성 가능합니다."></textarea></td>                                                
+	                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' type="button" value='등록'></div></td>
+	                                </c:if>
+	                                 -->
+	                                    
+	                                    <td><textarea id='textarea' cols="128" rows="5" style="resize: none;" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea></td>                                                
+	                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' type="button" value='등록'></div></td>
+	                                
                                 </tr>
                                 <tr>                        
                                     <td colspan="2"><div><br><hr class='style-six'></div></td>

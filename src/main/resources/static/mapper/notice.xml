@@ -144,6 +144,9 @@
 		values (seq_notice_nNo.nextval, #{title}, sysdate, #{contents}, #{pub})			
 	</insert>
 	
+	<insert id='Rinsert' parameterType='kr.iei.hotel.notice.vo.NoticeVo'>
+		insert
+	</insert>
 	
 	<!-- ─────────────────────────────────── update ─────────────────────────────────── -->
 	<update id='update' parameterType='kr.iei.hotel.notice.vo.NoticeVo'>

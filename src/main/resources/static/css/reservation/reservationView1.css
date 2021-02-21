@@ -76,7 +76,8 @@
             padding-top: 30px;
             border-top: 1px solid #193f6e;
             height:  187px;
-            margin-bottom: 65px;
+                margin-bottom: 64px;
+            
             position: relative;
             /* float: left; */
             width: 100%;
@@ -118,7 +119,7 @@
             position: relative;
             margin-top: 7px;
             padding-left: 65px;
-            line-height: 22px;
+            line-height: 28px;
             color: #999;
         }
         .hotelHugWrap > .innerBox > .roomWrap > .roomContent > .roomInfo > p > span {
@@ -150,6 +151,10 @@
             color: #193f6e;
             padding: 30px;
         }
+        .hotelHugWrap > .innerBox > .roomWrap > .roomPrice > button:hover {
+            color: white;
+            background: #193f6e;
+        }
         .checkInOut{
             position: absolute;
         }
@@ -171,6 +176,7 @@
             /* background: #72a5d3; */
             /* margin-top: 280px; */
             /* margin-bottom: 0rem; */
+            margin-bottom: 3rem;
         }
         .searchRoomDetailInfo h1 {
             font-size: 20px;
@@ -195,13 +201,26 @@
             font-weight: bold;
         }
         .searchRoomDetailInfo .ipButtonType1 {
-            width: 10px;
+            width: 18px;
+            
             color: #72a5d3;
             font-weight: bold;
         }
         .searchRoomDetailInfo .ipButtonType2 {
             color: black;
-            width: 70px;
+            width: 100px;
             font-weight: 300;
             font-size: 20px;
+        }
+        .guestRoomNumberTable {
+        }
+        .guestRoomNumberTable .jypSizeUp {
+        border: 1px solid #72a5d3;
+        width: 150px;
+        }
+        .guestRoomNumberTable th {
+
+   		background: #72a5d3
+        }
+        .guestRoomNumberTable td {
         }

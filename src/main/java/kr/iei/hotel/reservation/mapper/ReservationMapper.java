@@ -1,5 +1,21 @@
 package kr.iei.hotel.reservation.mapper;
 
-public interface ReservationMapper {
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import kr.iei.hotel.guestroom.vo.GuestRoomVO;
+import kr.iei.hotel.reservation.vo.ReservationVO;
+
+@Mapper
+public interface ReservationMapper {
+	
+	//예약 개수 검색
+	public int selectReservationCount(ReservationVO reservationVO)throws Exception;
+	//객실 정보 개수 검색
+	public int selectGuestRoomInfoCount(ReservationVO reservationVO)throws Exception;
+	//객실 정보 리스트
+	public List<GuestRoomVO> selectGuestRoomInfoList(ReservationVO reservationVO)throws Exception;
+	//예약 객실 넘버 리스트
+	public List<Integer> reservationGuestRoomNumberList(ReservationVO reservationVO)throws Exception;
 }

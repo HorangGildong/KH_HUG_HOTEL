@@ -1,5 +1,7 @@
 package kr.iei.hotel.notice.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -93,6 +95,10 @@ public class NoticeController {
 		else if (str.equals("contents")) {
 			vo1 = service.content_article(vo.getnNo(),findStr);
 		}	
+		
+		Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd a HH:mm:ss");
+		vo.setDate(dateFormat.format(date));
 		
 		mv.addObject("vo", vo);
 		mv.addObject("vo1", vo1);		
