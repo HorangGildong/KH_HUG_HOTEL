@@ -53,10 +53,10 @@
             </h1>
     
             <div class="buttonChoice">
-                <form action="/reservationSearchProcess" method="post">
+                <form action="/reservationSearchProcess" method="post" id="jypRequest1">
                     <div class="checkInOut">
-                        <input name="checkIn" style="margin-right: 10px;" class="checkIn" type="text" id="datepicker1" placeholder="CheckIn">
-                        <input name="checkOut" class="checkOut" type="text" id="datepicker2" placeholder="CheckOut">
+                        <input name="checkIn" style="margin-right: 10px;" class="checkIn" type="text" id="datepicker1" value="CheckIn">
+                        <input name="checkOut" class="checkOut" type="text" id="datepicker2"  value ="CheckOut">
                     </div>
             
                 
@@ -66,14 +66,14 @@
                     <!-- <p >날짜선택</p> -->
                     <div class="choiceType">
                     <select class="choiceType2" name="guestRoomName" id="guestRoomName">
-                        <option class="choiceFirst" value="">객실선택</option>
+                        <option class="choiceFirst">객실선택</option>
                         <option value="스탠다드">스탠다드</option>
                         <option value="슈페리어">슈페리어</option>
                         <option value="디럭스">디럭스</option>
                         <option value="로얄">로얄</option>
                     </select>
                     <select class="choiceType2" name="adult" id="adult">
-                        <option class="choiceFirst" value="">인원선택(성인)</option>
+                        <option class="choiceFirst" value="0">인원선택(성인)</option>
                         <option value="1">성인 1</option>
                         <option value="2">성인 2</option>
                         <option value="3">성인 3</option>
@@ -81,15 +81,14 @@
                         <option value="5">성인 5</option>
                     </select>
                     <select class="choiceType2" name="child" id="chile">
-                        <option class="choiceFirst" value="">인원선택(어린이)</option>
-                        <option value="0">어린이 0</option>
+                        <option class="choiceFirst" value="0">인원선택(어린이)</option>
                         <option value="1">어린이 1</option>
                         <option value="2">어린이 2</option>
                         <option value="3">어린이 3</option>
                         <option value="4">어린이 4</option>
                         <option value="5">어린이 5</option>
                     </select>
-                    <button id="reservationSearch" class="choiceType3" type="submit">검색</button>
+                    <button form="jypRequest1" id="reservationSearch" class="choiceType3" type="submit">검색</button>
                     </div>
                 </form>
             </div>
@@ -127,13 +126,13 @@
                     <div class="roomPrice">
                         <p>1박</p>
                         <span>${guestRoom.guestRoomPrice } 원 ~</span>
-                        <button type=""> <a href="예약뷰2.html"></a> 예약하기</button>
+                        <button type="submit" form="jypRequest"> 예약하기</button>
                     </div>
                 </div>
                 <div class="searchRoomDetailInfo">
-                    <form action="">
-                    <ul><h1>남은 객실<span> 선택한 객실 : <input readonly class="ipButtonType" type="text" value="${guestRoom.guestRoomName }"></span></h1>
-                        <li>${reservationInfo.guestRoomRemaining }개(원하시는 객실 호수를 선택해주세요.)</li>
+                    <form action="/reservationView2" method="post" id="jypRequest">
+                    <ul><h1>남은 객실<span> 선택한 객실 : <input readonly class="ipButtonType" type="text" value="${guestRoom.guestRoomName }" name="guestRoomName"></span></h1>
+                        <li>${reservationInfo.guestRoomRemaining }  개  (원하시는 객실 호수를 선택해주세요.)</li>
                     	<table class="guestRoomNumberTable">
                     		<tr>
                     			<th class="jypSizeUp">객실번호</th>
@@ -149,14 +148,14 @@
                     		</c:forEach>
                     	</table>
                     </ul>
-                    <ul><h1>숙박기간에 대한 추가금<span> 선택한 날짜 : <input readonly class="ipButtonType" type="text" value="${reservationInfo.checkIn }">-<input readonly class="ipButtonType" type="text" value="${reservationInfo.checkOut }"></span></h1>
-                        <li>${reservationInfo.lodgmentPeriod }박</li>
+                    <ul><h1>숙박기간에 대한 추가금<span> 선택한 날짜 : <input name="checkIn" readonly class="ipButtonType" type="text" value="${reservationInfo.checkIn }">-<input name="checkOut" readonly class="ipButtonType" type="text" value="${reservationInfo.checkOut }"></span></h1>
+                        <li><input style="width: 22px;" name="lodgmentPeriod" readonly type="text" value="${reservationInfo.lodgmentPeriod }" />박</li> 
                         <c:forEach begin="1" end="${reservationInfo.lodgmentPeriod }">
                         <li>+ ${guestRoom.guestRoomPrice }</li>
                         </c:forEach>
                     </ul>
-                    <ul><h1>기준인원을 넘어선 추가금<span> 선택한 인원 : 성인 <input readonly class="ipButtonType1" type="text" value="${reservationInfo.adult }">, 어린이 <input readonly class="ipButtonType1" type="text" value="${reservationInfo.child }"></span></h1>
-      					<li>기준인원 ${guestRoom.standardPersonnel }명</li>
+                    <ul><h1>기준인원을 넘어선 추가금<span> 선택한 인원 : 성인 <input name="adult" readonly class="ipButtonType1" type="text" value="${reservationInfo.adult }">, 어린이 <input name="child" readonly class="ipButtonType1" type="text" value="${reservationInfo.child }"></span></h1>
+      					<li>기준인원 ${guestRoom.standardPersonnel }  명</li>
                         <c:forEach begin="1" end="${reservationInfo.adultCount }">
                         <li>성인 + ${guestRoom.adultPrice }</li>
                         </c:forEach>
@@ -164,11 +163,11 @@
                         <li>어린이 + ${guestRoom.childPrice }</li>
                         </c:forEach>
                     </ul>
-                    <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input readonly class="ipButtonType" type="text" value="다이아"></span></h1>
+                    <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input name="memberGrade" readonly class="ipButtonType" type="text" value="다이아"></span></h1>
                         <li>30%</li>
                     </ul>
                     <ul><h1>총 금액</h1>
-                        <li><input readonly class="ipButtonType2" type="text" value="${reservationInfo.totalPrice }"> 원</li>
+                        <li><input name="totalPrice" readonly class="ipButtonType2" type="text" value="${reservationInfo.totalPrice }"> 원</li>
                     </ul>
                     </form>
                 </div>
@@ -228,7 +227,6 @@ function checkOnlyOne(element) {
   element.checked = true;
 }
 </script>
-
 
 </body>
 

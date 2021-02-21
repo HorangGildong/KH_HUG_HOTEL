@@ -96,15 +96,19 @@ public class ReservationController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		//객실이름에 값이 있는지 확인하고 처리
-		if(reservationVO.getGuestRoomName() != null) {
+		//인원 선택 체크
+		if(reservationVO.getAdult() == 0) {
+			out.println("<script>alert('인원 선택 오류.'); history.go(-1);</script>");
+			out.flush();
+			return "redirect:";
+		}
 		
-			
 		
 		//체크아웃이 체크인보다 높거나 체크인 체크아웃 값이 같은 경우 처리
 		if(reservationVO.getCheckIn() >= reservationVO.getCheckOut()) {
 			out.println("<script>alert('날짜 선택을 잘못하셨습니다.'); history.go(-1);</script>");
 			out.flush();
+			return "redirect:";
 		}
 		
 		
@@ -113,8 +117,9 @@ public class ReservationController {
 
 		//조회하여 객실이 존재하지 않다는 처리
 		if(reservationCount >= guestRoomInfoCount) {
-			out.println("<script>alert('선택한 날짜에 객실이 없습니다.'); history.go(-1);</script>");
+			out.println("<script>alert('선택한 날짜에 객실이 없거나 객실 선택 안하셨네요.'); history.go(-1);</script>");
 	        out.flush();
+	        return "redirect:";
 		}
 		
 		
@@ -128,6 +133,7 @@ public class ReservationController {
 		if(reservationVO.getLodgmentPeriod() >= 30) {
 			out.println("<script>alert('예약기간은 한달 이상 불가합니다.'); history.go(-1);</script>");
 	        out.flush();
+	        return "redirect:";
 		}
 		
 		
@@ -199,7 +205,6 @@ public class ReservationController {
 		
 		
 		
-		}// (reservationVO.getGuestRoomName() != null)
 		return "forward:/reservationView1";
 	}
 }
