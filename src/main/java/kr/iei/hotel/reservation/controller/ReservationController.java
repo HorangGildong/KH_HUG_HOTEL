@@ -27,12 +27,66 @@ public class ReservationController {
 	@Autowired
 	ReservationService reservationService;
 	
-	//예약 뷰
-	@RequestMapping(value = "/reservationView1", method = {RequestMethod.GET,RequestMethod.POST})
-	public String reservationView(Model model, ReservationVO reservationVO, HttpServletResponse response)throws Exception {
-		logger.info("예약 뷰");
-		return "reservation/reservationView1";
+	
+	//-------------------------------------Admin--------------------------------------------
+	//관리자 예약 관리 뷰
+	@RequestMapping(value = "/reservationAdminListView", method = RequestMethod.GET)
+	public String reservationAdminList()throws Exception {
+		
+		logger.info("관리자 리스트 뷰");
+		return "/reservationAdmin/reservationAdminListView";
+				
 	}
+	//관리자 예약 삭제 처리
+	@RequestMapping(value = "/reservationAdminDelete", method = RequestMethod.GET)
+	public String reservationAdminDelete()throws Exception {
+		
+		logger.info("관리자 예약 삭제 처리");
+		return "redirect:/reservationAdminListView";
+		
+	}
+	
+	
+	//-------------------------------------User--------------------------------------------
+	//예약 뷰1
+	@RequestMapping(value = "/reservationView1", method = {RequestMethod.GET,RequestMethod.POST})
+	public String reservationView1(Model model, ReservationVO reservationVO, HttpServletResponse response)throws Exception {
+	
+		logger.info("예약 뷰1");
+		return "reservation/reservationView1";
+		
+	}
+	
+	
+	//예약 뷰2
+	@RequestMapping(value = "/reservationView2", method = {RequestMethod.GET,RequestMethod.POST})
+	public String reservationView2(ReservationVO reservationVO)throws Exception {
+		
+		logger.info("예약 뷰2");
+		return "reservation/reservationView2";
+		
+	}
+	
+	
+	//예약 뷰3
+	@RequestMapping(value = "/reservationView3", method = RequestMethod.GET)
+	public String reservationView3()throws Exception {
+		
+		logger.info("예약 뷰3");
+		return "reservation/reservationView3";
+		
+	}
+	
+	
+	//예약 insert
+	@RequestMapping(value = "/reservationInsertProcess", method = RequestMethod.POST)
+	public String reservationInsertProcess(ReservationVO reservationVO)throws Exception {
+		
+		logger.info("예약 insert 처리");
+		return "redirect:/reservationView3";
+		
+	}
+	
 	
 	//예약 처리
 	@RequestMapping(value = "/reservationSearchProcess", method = {RequestMethod.POST,RequestMethod.GET})
@@ -142,10 +196,10 @@ public class ReservationController {
 		}
 		System.out.println(reservationVO.getTotalPrice());
 		model.addAttribute("reservationInfo", reservationVO);
-		}
 		
 		
+		
+		}// (reservationVO.getGuestRoomName() != null)
 		return "forward:/reservationView1";
-		
 	}
 }
