@@ -65,16 +65,16 @@ function closeOverlay() {
 	$(document).ready(function() {
     var elevator = $('.elevator');
     var floors = $('.floor');
-    var f1 = $('#f1');
+    var b2 = $('#b2');
     var people = $('.people');
     var runner = $('#runner');
     people.css({
-        top: f1.position().top + 1505,
-        left: f1.position().left + 650
+        top: b2.position().top + 1505,
+        left: b2.position().left + 650
     });
     elevator.css({
-        top: f1.position().top + 1505,
-        left: f1.position().left + 324
+        top: b2.position().top + 1505,
+        left: b2.position().left + 324
     });
     elevator.hover(function() {
         $(this).addClass('yellowgreen');
@@ -123,6 +123,9 @@ function closeOverlay() {
             }, 500);
         });
     });
+	
+	
+	
 });
 /* } else {
 	$(document).ready(function() {

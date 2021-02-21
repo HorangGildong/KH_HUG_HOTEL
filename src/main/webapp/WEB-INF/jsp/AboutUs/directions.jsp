@@ -68,19 +68,20 @@
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
 								<div class="panel-body">
-								<hr>
-								<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
-								경로 1 (약 1시간 8분 | 총 40.34km) <br>
-							 	노형로(2.7km) -> 평화로(16.1km) -> 중산간서로(3.5km) <br>
-								경로 2 (약 1시간 12분 | 총 40.24km) <br>
-								평화로(16.1km) -> 한창로(4.6km) -> 일주서로(3.4km) <br>
-								<hr>
-								<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
-								경로 1 (약 51분 | 총 38.70km) <br>
-							 	중산간서로(3.3km) -> 평화로(21.0km) -> 노형로(4.3km) <br>
-								경로 2 (약 57분 | 총 38.79km) <br>
-								상예로(4.3km) -> 산록남로(6.2km) -> 평화로(16.9km) -> 노형로(4.3km) <br>
-								<hr>
+									<hr>
+									<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
+									<span class="txt_required">경로 1 </span>(약 1시간 8분 | 총 40.34km) <br>
+								 	노형로(2.7km) -> 평화로(16.1km) -> 중산간서로(3.5km) <br>
+									<span class="txt_required">경로 2 </span>(약 1시간 12분 | 총 40.24km) <br>
+									평화로(16.1km) -> 한창로(4.6km) -> 일주서로(3.4km) <br>
+									<hr>
+									<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
+									<span class="txt_required">경로 1 </span>(약 51분 | 총 38.70km) <br>
+								 	중산간서로(3.3km) -> 평화로(21.0km) -> 노형로(4.3km) <br>
+									<span class="txt_required">경로 2 </span>(약 57분 | 총 38.79km) <br>
+									상예로(4.3km) -> 산록남로(6.2km) -> 평화로(16.9km) -> 노형로(4.3km) <br>
+									<hr>
+								</div>
 							</div>
 						</div>
 						<div class="panel panel-default">
@@ -92,19 +93,19 @@
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse ">
 								<div class="panel-body">
-								<hr>
-								<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
-								운행시간 : 06:10 ~ 22:50 <br>
-								운행간격 : 14분 ~ 16분 <br>
-								탑승장소 : 도착장 5번 Gate <br>
-								소요시간 : 약 60분 <br>
-								<hr>
-								<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
-								운행시간 : 06:40 ~ 22:00 <br>
-								운행간격 : 14분 ~ 16분 <br>
-								탑승장소 : 제주 H.U.G 호텔 정문 앞 <br>
-								소요시간 : 약 60분 <br>
-								<hr>
+									<hr>
+									<strong>제주국제공항 -> 제주 H.U.G 호텔</strong> <br>
+									운행시간 : 06:10 ~ 22:50 <br>
+									운행간격 : 14분 ~ 16분 <br>
+									탑승장소 : 도착장 5번 Gate <br>
+									소요시간 : 약 60분 <br>
+									<hr>
+									<strong>제주 H.U.G 호텔 -> 제주국제공항</strong> <br>
+									운행시간 : 06:40 ~ 22:00 <br>
+									운행간격 : 14분 ~ 16분 <br>
+									탑승장소 : 제주 H.U.G 호텔 정문 앞 <br>
+									소요시간 : 약 60분 <br>
+									<hr>
 								</div>
 							</div>
 						</div>
@@ -167,21 +168,29 @@
 				</div>
 				<div class="floor-info">
 					<h1>층별안내</h1>
-					<div class="tower">
-						<div id="f7" class="floor">9 &nbsp;Floor</div>
-						<div id="f7" class="floor">7 ~ 8 Floor</div>
-						<div id="f6" class="floor">6 &nbsp;Floor</div>
-						<div id="f5" class="floor">4 ~ 5 Floor</div>
-						<div id="f4" class="floor">2 ~ 3 Floor</div>
-						<div id="f3" class="floor">1 &nbsp;Floor</div>
-						<div id="f2" class="floor">B1 &nbsp;Floor</div>
-						<div id="f1" class="floor">B2 &nbsp;Floor</div>
+						<div class="tower">
+							<div id="f9" class="floor">9 &nbsp;Floor</div>
+							<div id="f7" class="floor">7 ~ 8 Floor</div>
+							<div id="f6" class="floor">6 &nbsp;Floor</div>
+							<div id="f4" class="floor">4 ~ 5 Floor</div>
+							<div id="f2" class="floor">2 ~ 3 Floor</div>
+							<div id="f1" class="floor">1 &nbsp;Floor</div>
+							<div id="b1" class="floor">B1 &nbsp;Floor</div>
+							<div id="b2" class="floor">B2 &nbsp;Floor</div>
+						</div>
+						<div class="elevator">Elevator</div>
+						<img id="runner" class="people" alt="people"
+							src="img/hah_img/호텔리어.png">
+					<div class="floor-detail-info">
+						<div id="info-f9" class="floor-info">Room - 로얄</div>
+						<div id="info-f7" class="floor-info">Room - 디럭스</div>
+						<div id="info-f6" class="floor-info">Dining - Restaurant(TRATTORIA)<br>ROUNGE & BAR</div>
+						<div id="info-f4" class="floor-info">Room - 슈페리어</div>
+						<div id="info-f2" class="floor-info">Room - 스탠다드</div>
+						<div id="info-f1" class="floor-info">Dining-Restaurant(THE BUFFET)<br>Facility-POOL, SAUNA</div>
+						<div id="info-b1" class="floor-info">Facility-PITNESS, SPA</div>
+						<div id="info-b2" class="floor-info" >Facility-PARK, KIDS</div>
 					</div>
-					<div class="elevator">Elevator</div>
-					<img id="runner" class="people" alt="people"
-						src="img/hah_img/호텔리어.png">
-
-
 				</div>
 			</div>
 		</section>
