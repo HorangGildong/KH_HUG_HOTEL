@@ -6,7 +6,7 @@ DROP TABLE GRADE;
 CREATE TABLE MEMBER (
 	memberId	        NUMBER	                                CONSTRAINT PK_MEMBER_MEMBERID PRIMARY KEY,
 	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' NOT NULL,
-	memberRegDate  	    DATE		                            NOT NULL,
+	memberRegDate  	    DATE,
 	memberUnRegDate     DATE,
 	memberPwChangeDate  DATE,
     memberAgree	        VARCHAR(20),
@@ -91,6 +91,9 @@ SELECT M.memberId ID, M.memberEmail EMAIL, M.memberName NAME, memberRole ROLE, M
 FROM MEMBER M
 LEFT JOIN GRADE G ON M.memberGrade = G.memberGrade;
 
+UPDATE MEMBER SET 
+memberName = '홍홍홍', memberEmail = '이메일'
+WHERE memberId = 1;
 
-
+SELECT memberName, memberEmail, memberRole, memberKey FROM MEMBER;
 ------------------
