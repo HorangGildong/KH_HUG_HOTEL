@@ -13,7 +13,7 @@ CREATE TABLE MEMBER (
 	memberRole	        VARCHAR(20)		DEFAULT 'ROLE_REGURAL'  NOT NULL,
 	memberEmail	        VARCHAR2(100),
 	memberName	        VARCHAR2(100),
-	memberNick          VARCHAR2(100),
+	memberNick          VARCHAR2(100)                           CONSTRAINT UQ_MEMBER_MEMBERNICK UNIQUE,
 	memberPhone         VARCHAR2(100),
 	memberGender        VARCHAR2(20),
 	memberPassword	    VARCHAR2(100),
@@ -50,7 +50,6 @@ INSERT INTO GRADE (memberGrade, discountRate) VALUES('GRADE_MEMBERSHIP',0.3);
 
 COMMIT;
 
-
 INSERT INTO MEMBER (memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
 VALUES(
     'gildong@hwalbin.com',
@@ -61,10 +60,8 @@ VALUES(
     '010-1234-5678',
     'ROLE_REGURAL',
     'MALE',
-    '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke', -- '123'으로 로그인하면 됨
+    '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke', -- 'password : 123'
     SYSDATE
---    'Sat Feb 20 00:00:00 KST 2021'
---    TO_DATE('1986-01-01','YYYY-MM-DD')
 );
 
 INSERT INTO MEMBER (memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick, memberPhone, memberRole, memberGender, memberPassword, memberBirth)
@@ -77,16 +74,17 @@ VALUES(
     '010-7777-7777',
     'ROLE_ADMIN',
     'FEMALE',
-    '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW', -- '777'로 로그인하면 됨
+    '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW', -- 'password : 777'
     TO_DATE('1998-01-01','YYYY-MM-DD')
 );
 
 COMMIT;
 
+---------- EXAMPLE : TEST ----------
+
 SELECT * FROM GRADE;
 SELECT * FROM MEMBER;
 
---EXAMPLE : JOIN(TEST)
 SELECT M.memberId ID, M.memberEmail EMAIL, M.memberName NAME, memberRole ROLE, M.memberGrade GRADE, G.discountRate DC
 FROM MEMBER M
 LEFT JOIN GRADE G ON M.memberGrade = G.memberGrade;
