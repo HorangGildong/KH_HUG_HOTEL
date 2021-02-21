@@ -1,11 +1,5 @@
 package kr.iei.hotel.member.config;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,9 +8,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetailsService;
 import kr.iei.hotel.member.config.auth.PrincipalOauth2UserService;
@@ -61,9 +53,9 @@ public class Config extends WebSecurityConfigurerAdapter {
         		.and()
         	.formLogin()
         		.loginPage("/login")						// 권한 없는 페이지에 접근할 때 이동할 경로 
-//        		.usernameParameter("memberEmail")
+        		.usernameParameter("memberEmail")
         		.loginProcessingUrl("/loginProc")			// '/loginProc'호출시 시큐리티가 진행 -> controller 불필요
-//        		.defaultSuccessUrl("/")						// 로그인 성공시 이동할 경로
+        		.defaultSuccessUrl("/")						// 로그인 성공시 이동할 경로
         		.failureUrl("/login")						// 로그인 실패시 이동할 경로
         		.and()
         	.logout()
@@ -73,7 +65,7 @@ public class Config extends WebSecurityConfigurerAdapter {
         	;
         http
         	.oauth2Login()
-        		.defaultSuccessUrl("/login/oauth2")
+        		.defaultSuccessUrl("/")
         		.loginPage("/login")
         		.userInfoEndpoint()
         		.userService(principalOauth2UserService)		// 구글 로그인 후 토큰 & 프로필을 받아서 처리하는 함수

@@ -8,20 +8,21 @@ CREATE TABLE MEMBER (
 	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' NOT NULL,
 	memberRegDate  	    DATE		                            NOT NULL,
 	memberUnRegDate     DATE,
-	memberPwChangeDate  DATE	                                NOT NULL,
+	memberPwChangeDate  DATE,
     memberAgree	        VARCHAR(20),
-	memberRole	        VARCHAR(20)		DEFAULT 'ROLE_GENERAL'  NOT NULL,
+	memberRole	        VARCHAR(20)		DEFAULT 'ROLE_REGURAL'  NOT NULL,
 	memberEmail	        VARCHAR2(100),
 	memberName	        VARCHAR2(100),
 	memberNick          VARCHAR2(100),
 	memberPhone         VARCHAR2(100),
 	memberGender        VARCHAR2(20),
 	memberPassword	    VARCHAR2(100),
-	memberBirth         DATE
+	memberBirth         DATE,
+    memberKey           VARCHAR2(100)
 );
 
 CREATE TABLE GRADE (
-	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' CONSTRAINT PK_GRADE_MEMBERGRADE PRIMARY KEY,
+	memberGrade         VARCHAR(20)     DEFAULT 'ROLE_REGURAL'  CONSTRAINT PK_GRADE_MEMBERGRADE PRIMARY KEY,
 	discountRate        NUMBER          DEFAULT 0	            NOT NULL
 );
 
@@ -58,7 +59,7 @@ VALUES(
     SYSDATE,
     '홍길동서남북북서로진로를돌려라',
     '010-1234-5678',
-    'ROLE_GENERAL',
+    'ROLE_REGURAL',
     'MALE',
     '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke', -- '123'으로 로그인하면 됨
     SYSDATE

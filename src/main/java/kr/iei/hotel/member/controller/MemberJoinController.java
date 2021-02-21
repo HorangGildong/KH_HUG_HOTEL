@@ -56,12 +56,12 @@ public class MemberJoinController {
 	@GetMapping("/join/emailCheck")
 	@ResponseBody
 	public boolean isEmailCheck(@RequestParam("email") String memberEmail) {
-		return !(memberService.emailCheck(memberEmail)==0);
+		return !(memberService.checkEmail(memberEmail)==0);
 	}
 	
 	@GetMapping("/join/nickCheck")
 	@ResponseBody
 	public boolean isNickCheck(@RequestParam("nick") String memberNick) {
-		return !(memberService.nickCheck(memberNick)==0);
+		return !(memberService.checkNick(memberNick)==0);
 	}
 }

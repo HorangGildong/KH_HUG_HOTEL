@@ -1,8 +1,7 @@
 package kr.iei.hotel.member.dto;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.sql.Date;
+import java.text.ParseException;
 
 public class MemberJoinFormDto {
 

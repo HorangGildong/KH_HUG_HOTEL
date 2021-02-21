@@ -2,9 +2,11 @@ package kr.iei.hotel.member.config.auth;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import kr.iei.hotel.member.dto.MemberDto;
 
@@ -12,16 +14,24 @@ import kr.iei.hotel.member.dto.MemberDto;
 // 로그인 완료시 시큐리티 세션 생성(Security ContextHolder)
 // Authentication 타입 객체(세션에 저장될 오브젝트) -> Member정보
 
-public class PrincipalDetails implements UserDetails {
+public class PrincipalDetails implements UserDetails, OAuth2User {
 
 	private MemberDto memberDto;
+	private Map<String, Object> attributes;
 
+	// 일반 로그인
 	public PrincipalDetails(MemberDto memberDto) {
 		this.memberDto = memberDto;
 	}
 	
 	public MemberDto getMemberDto() {
 		return memberDto;
+	}
+	
+	// OAuth 로그인
+	public PrincipalDetails(MemberDto memberDto, Map<String, Object> attributes) {
+		this.memberDto = memberDto;
+		this.attributes = attributes;
 	}
 
 	// 권한 (원래 권한이 여러개 있을 수 있으므로 Collection 루프 돌려야 함)
@@ -49,15 +59,16 @@ public class PrincipalDetails implements UserDetails {
 		return memberDto.getMemberPassword();
 	}
 
-	// 이름
+	// 이메일
 	@Override
 	public String getUsername() {
-		return memberDto.getMemberName();
+		return memberDto.getMemberEmail();
 	}
 	
-	// 이메일
-	public String getEmail() {
-		return memberDto.getMemberEmail();
+	// 이름
+	@Override
+	public String getName() {
+		return memberDto.getMemberName();
 	}
 	
 	// 닉네임
@@ -97,6 +108,11 @@ public class PrincipalDetails implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	@Override
+	public Map<String, Object> getAttributes() {
+		return attributes;
 	}
 	
 }

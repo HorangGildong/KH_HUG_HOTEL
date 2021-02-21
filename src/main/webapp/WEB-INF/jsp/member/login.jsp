@@ -68,7 +68,7 @@
 								<span class="input-group-addon"> <span
 									class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span> <input type="email" class="form-control input-lg"
-									name="username" id="inputEmail" placeholder="E-mail"
+									name="memberEmail" id="inputEmail" placeholder="E-mail"
 									value="gildong@hwalbin.com">
 							</div>
 						</div>

@@ -13,6 +13,9 @@ public interface MemberDao {
 	@Select("SELECT * FROM MEMBER WHERE memberEmail = '${memberEmail}'")
 	MemberDto findByEmail(String memberEmail);
 
+	@Select("SELECT * FROM MEMBER WHERE memberKey = '${memberKey}'")
+	MemberDto findByKey(String memberKey);
+	
 	@Insert("INSERT INTO MEMBER ("
 			+ " memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick,"
 			+ " memberPhone, memberGender, memberPassword, memberBirth, memberAgree)"
@@ -22,11 +25,17 @@ public interface MemberDao {
 			+ " )")
 	void join(MemberJoinFormDto memberJoinFormDto);
 	
+	@Insert("INSERT INTO MEMBER ("
+			+ " memberKey, memberRegDate, memberEmail, memberRole)"
+			+ " VALUES("
+			+ " '${memberKey}', SYSDATE, '${memberEmail}', 'ROLE_ASSOCIATE'"
+			+ " )")
+	void oAuth2join(String memberKey, String memberEmail);
+	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberEmail = '${memberEmail}'")
-	int emailCheck(String memberEmail);
+	int checkEmail(String memberEmail);
 
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberNick = '${memberNick}'")
-	int nickCheck(String memberNick);
-	
+	int checkNick(String memberNick);
 
 }
