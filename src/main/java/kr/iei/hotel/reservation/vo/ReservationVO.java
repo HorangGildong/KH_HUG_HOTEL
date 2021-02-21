@@ -1,8 +1,8 @@
 package kr.iei.hotel.reservation.vo;
 
 public class ReservationVO {
-	int reservationNo;
-	int memberId;
+	String reservationNo;
+	int memberId = 1;
 	String guestRoomName;
 	int guestRoomNo;
 	int checkIn;
@@ -12,8 +12,8 @@ public class ReservationVO {
 	int adult;
 	int child;
 	String reservationDate;
-	String memeberName;
-	String memberGrade;
+	String memberName = "test";
+	String memberGrade = "test";
 	
 	int discount;
 	int adultCount;
@@ -22,10 +22,11 @@ public class ReservationVO {
 	int guestRoomRemaining;
 	
 	
-	public int getReservationNo() {
+
+	public String getReservationNo() {
 		return reservationNo;
 	}
-	public void setReservationNo(int reservationNo) {
+	public void setReservationNo(String reservationNo) {
 		this.reservationNo = reservationNo;
 	}
 	public int getMemberId() {
@@ -88,11 +89,12 @@ public class ReservationVO {
 	public void setReservationDate(String reservationDate) {
 		this.reservationDate = reservationDate;
 	}
-	public String getMemeberName() {
-		return memeberName;
+
+	public String getMemberName() {
+		return memberName;
 	}
-	public void setMemeberName(String memeberName) {
-		this.memeberName = memeberName;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	public String getMemberGrade() {
 		return memberGrade;

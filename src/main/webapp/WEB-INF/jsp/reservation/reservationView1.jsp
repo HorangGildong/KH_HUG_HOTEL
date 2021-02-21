@@ -163,8 +163,8 @@
                         <li>어린이 + ${guestRoom.childPrice }</li>
                         </c:forEach>
                     </ul>
-                    <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input name="memberGrade" readonly class="ipButtonType" type="text" value="다이아"></span></h1>
-                        <li>30%</li>
+                    <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input name="memberGrade" readonly class="ipButtonType" type="text" value="${reservationInfo.memberGrade }"></span></h1>
+                        <li>없음</li>
                     </ul>
                     <ul><h1>총 금액</h1>
                         <li><input name="totalPrice" readonly class="ipButtonType2" type="text" value="${reservationInfo.totalPrice }"> 원</li>

@@ -3,6 +3,7 @@ package kr.iei.hotel.reservation.controller;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,21 +32,32 @@ public class ReservationController {
 	//-------------------------------------Admin--------------------------------------------
 	//관리자 예약 관리 뷰
 	@RequestMapping(value = "/reservationAdminListView", method = RequestMethod.GET)
-	public String reservationAdminList()throws Exception {
+	public String reservationAdminList(Model model)throws Exception {
 		
 		logger.info("관리자 리스트 뷰");
+		model.addAttribute("list", reservationService.reservationAdminList());
 		return "/reservationAdmin/reservationAdminListView";
 				
 	}
 	//관리자 예약 삭제 처리
 	@RequestMapping(value = "/reservationAdminDelete", method = RequestMethod.GET)
-	public String reservationAdminDelete()throws Exception {
+	public String reservationAdminDelete(String reservationNo)throws Exception {
 		
 		logger.info("관리자 예약 삭제 처리");
+		reservationService.reservationAdminDelete(reservationNo);
 		return "redirect:/reservationAdminListView";
 		
 	}
-	
+	//관리자 예약 검색 처리
+	@RequestMapping(value = "/reservationAdminSearch", method = {RequestMethod.GET,RequestMethod.POST})
+	public String reservationAdminSearch(String reservationNo, Model model)throws Exception {
+		
+		logger.info("관리자 예약 검색 처리");
+		model.addAttribute("list", reservationService.reservationAdminSearch(reservationNo));
+		return "/reservationAdmin/reservationAdminListView";
+		
+		
+	}
 	
 	//-------------------------------------User--------------------------------------------
 	//예약 뷰1
@@ -60,9 +72,21 @@ public class ReservationController {
 	
 	//예약 뷰2
 	@RequestMapping(value = "/reservationView2", method = {RequestMethod.GET,RequestMethod.POST})
-	public String reservationView2(ReservationVO reservationVO)throws Exception {
+	public String reservationView2(ReservationVO reservationVO, Model model, HttpServletResponse response)throws Exception {
 		
 		logger.info("예약 뷰2");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		//
+		if(reservationVO.getGuestRoomNo() == 0){
+			out.println("<script>alert('원하시는 객실 선택 안하셨네요.'); location.href='/reservationView1';</script>");
+			out.flush();
+
+		}else {
+		//UUID 사용하여 고유키 셋팅
+		reservationVO.setReservationNo(UUID.randomUUID().toString());
+		model.addAttribute("reservationInfo", reservationVO);
+		}
 		return "reservation/reservationView2";
 		
 	}
@@ -83,6 +107,7 @@ public class ReservationController {
 	public String reservationInsertProcess(ReservationVO reservationVO)throws Exception {
 		
 		logger.info("예약 insert 처리");
+		reservationService.reservationInsertProcess(reservationVO);
 		return "redirect:/reservationView3";
 		
 	}
@@ -98,17 +123,17 @@ public class ReservationController {
 		
 		//인원 선택 체크
 		if(reservationVO.getAdult() == 0) {
-			out.println("<script>alert('인원 선택 오류.'); history.go(-1);</script>");
+			out.println("<script>alert('인원 선택 오류.'); location.href='/reservationView1';</script>");
 			out.flush();
-			return "redirect:";
+
 		}
 		
 		
 		//체크아웃이 체크인보다 높거나 체크인 체크아웃 값이 같은 경우 처리
 		if(reservationVO.getCheckIn() >= reservationVO.getCheckOut()) {
-			out.println("<script>alert('날짜 선택을 잘못하셨습니다.'); history.go(-1);</script>");
+			out.println("<script>alert('날짜 선택을 잘못하셨습니다.'); location.href='/reservationView1';</script>");
 			out.flush();
-			return "redirect:";
+
 		}
 		
 		
@@ -117,9 +142,9 @@ public class ReservationController {
 
 		//조회하여 객실이 존재하지 않다는 처리
 		if(reservationCount >= guestRoomInfoCount) {
-			out.println("<script>alert('선택한 날짜에 객실이 없거나 객실 선택 안하셨네요.'); history.go(-1);</script>");
+			out.println("<script>alert('선택한 날짜에 객실이 없거나 객실 선택 안하셨네요.'); location.href='/reservationView1';</script>");
 	        out.flush();
-	        return "redirect:";
+
 		}
 		
 		
@@ -131,9 +156,9 @@ public class ReservationController {
 		
 		//예약기간이 30일 이상이면 예약 못하게 처리
 		if(reservationVO.getLodgmentPeriod() >= 30) {
-			out.println("<script>alert('예약기간은 한달 이상 불가합니다.'); history.go(-1);</script>");
+			out.println("<script>alert('예약기간은 한달 이상 불가합니다.'); location.href='/reservationView1';</script>");
 	        out.flush();
-	        return "redirect:";
+
 		}
 		
 		

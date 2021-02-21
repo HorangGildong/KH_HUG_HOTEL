@@ -47,13 +47,19 @@
         <h1 class="buttonTitle">
             <p>예약관리 및 예약취소</p>
         </h1>
-        <form action="">
+        <form action="/reservationAdminSearch">
         <div class="searchArea">
         
-            <input class="textArea" type="text"value="" placeholder="예약번호를 입력해주세요">
-            <input class="buttonArea" type="button" value="검색">
+            <input class="textArea" name="reservationNo" type="text" placeholder="예약번호를 입력해주세요">
+            <input class="buttonArea" type="submit" value="검색">
 
         </div>
+        </form>
+        <c:if test="${empty list}">
+		<h3>현재 예약 되어있는 테이블이 없습니다......... 수....고...</h3>
+		</c:if>
+		<c:if test="${!empty list}">  
+        <c:forEach var="list" items="${list }">
         <div class="reservationInfo">    
             <table class="reservationWrap">
                 <tr>
@@ -61,129 +67,26 @@
                     <th class="lengthSort">닉네임</th>
                     <th class="lengthSort">예약날짜</th>
                     <th class="lengthSort">룸</th>
-                    <th class="lengthSort">성인</th>
-                    <th class="lengthSort">어린이</th>
+                    <th class="lengthSort">성인/어린이</th>
+                    <th class="lengthSort">회원등급</th>
                     <th class="lengthSort">가격</th>
                 </tr>
                 <tr>
-                    <td class="lengthUp">jweldddddddddddkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">20192020-20192020</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">10000000원</td>
+                    <td class="lengthUp">${list.reservationNo }</td>
+                    <td class="lengthSort">${list.memberName }</td>
+                    <td class="lengthSort">${list.checkIn } - ${list.checkOut }</td>
+                    <td class="lengthSort">${list.guestRoomName }${list.guestRoomNo }호</td>
+                    <td class="lengthSort">${list.adult }명/${list.child }명</td>
+                    <td class="lengthSort">${list.memberGrade }</td>
+                    <td class="lengthSort">${list.totalPrice }원</td>
                 </tr>
             </table>
             <div class="buttonWrap">
-                <a href="">취소</a>
+                <a href="/reservationAdminDelete?reservationNo=${list.reservationNo }">취소</a>
             </div>
         </div>
-        <div class="reservationInfo">    
-            <table class="reservationWrap">
-                <tr>
-                    <th class="lengthUp">예약번호</th>
-                    <th class="lengthSort">닉네임</th>
-                    <th class="lengthSort">예약날짜</th>
-                    <th class="lengthSort">룸</th>
-                    <th class="lengthSort">성인</th>
-                    <th class="lengthSort">어린이</th>
-                    <th class="lengthSort">가격</th>
-                </tr>
-                <tr>
-                    <td class="lengthUp">jweldddddddddddkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">20192020-20192020</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">10000000원</td>
-                </tr>
-            </table>
-            <div class="buttonWrap">
-                <a href="">취소</a>
-            </div>
-        </div>         <div class="reservationInfo">    
-            <table class="reservationWrap">
-                <tr>
-                    <th class="lengthUp">예약번호</th>
-                    <th class="lengthSort">닉네임</th>
-                    <th class="lengthSort">예약날짜</th>
-                    <th class="lengthSort">룸</th>
-                    <th class="lengthSort">성인</th>
-                    <th class="lengthSort">어린이</th>
-                    <th class="lengthSort">가격</th>
-                </tr>
-                <tr>
-                    <td class="lengthUp">jweldddddddddddkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">20192020-20192020</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">10000000원</td>
-                </tr>
-            </table>
-            <div class="buttonWrap">
-                <a href="">취소</a>
-            </div>
-        </div> 
-        <div class="reservationInfo">    
-            <table class="reservationWrap">
-                <tr>
-                    <th class="lengthUp">예약번호</th>
-                    <th class="lengthSort">닉네임</th>
-                    <th class="lengthSort">예약날짜</th>
-                    <th class="lengthSort">룸</th>
-                    <th class="lengthSort">성인</th>
-                    <th class="lengthSort">어린이</th>
-                    <th class="lengthSort">가격</th>
-                </tr>
-                <tr>
-                    <td class="lengthUp">jweldddddddddddkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">20192020-20192020</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">10000000원</td>
-                </tr>
-            </table>
-            <div class="buttonWrap">
-                <a href="">취소</a>
-            </div>
-        </div> 
-        <div class="reservationInfo">    
-            <table class="reservationWrap">
-                <tr>
-                    <th class="lengthUp">예약번호</th>
-                    <th class="lengthSort">닉네임</th>
-                    <th class="lengthSort">예약날짜</th>
-                    <th class="lengthSort">룸</th>
-                    <th class="lengthSort">성인</th>
-                    <th class="lengthSort">어린이</th>
-                    <th class="lengthSort">가격</th>
-                </tr>
-                <tr>
-                    <td class="lengthUp">jweldddddddddddkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">20192020-20192020</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">ewkrljwelkrj</td>
-                    <td class="lengthSort">10000000원</td>
-                </tr>
-            </table>
-            <div class="buttonWrap">
-                <a href="">취소</a>
-            </div>
-
-        </div>  
-    </form>   
-
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
+        </c:forEach>
+        </c:if> 
     </section>
         <!--section end-->
         <!--footer start-->

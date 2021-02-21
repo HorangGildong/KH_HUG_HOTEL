@@ -53,31 +53,49 @@
         </h1>
         
         <div class="selectedShowBox">
-            <form class="showBoxWrap" action="">
+            <form class="showBoxWrap" action="/reservationInsertProcess" method="post">
                 <div class="positionLeft">
+                <input style="display: none;" type="text" name="reservationNo" value="${reservationInfo.reservationNo}" />
+                <input style="display: none;" type="text" name="memberId" value="${reservationInfo.memberId}" />
+                <input style="display: none;" type="text" name="guestRoomName" value="${reservationInfo.guestRoomName}" />
+                <input style="display: none;" type="text" name="guestRoomNo" value="${reservationInfo.guestRoomNo}" />
+                <input style="display: none;" type="text" name="checkIn" value="${reservationInfo.checkIn}" />
+                <input style="display: none;" type="text" name="checkOut" value="${reservationInfo.checkOut}" />
+                <input style="display: none;" type="text" name="lodgmentPeriod" value="${reservationInfo.lodgmentPeriod}" />
+                <input style="display: none;" type="text" name="totalPrice" value="${reservationInfo.totalPrice}" />
+                <input style="display: none;" type="text" name="adult" value="${reservationInfo.adult}" />
+                <input style="display: none;" type="text" name="child" value="${reservationInfo.child}" />
+                <input style="display: none;" type="text" name="memberName" value="${reservationInfo.memberName}" />
+                <input style="display: none;" type="text" name="memberGrade" value="${reservationInfo.memberGrade}" />
                 <ul><p>예약번호</p>
-                    <li>12312312</li>
+                    <li>${reservationInfo.reservationNo }></li>
                 </ul>
                 <ul><p>닉네임</p>
-                    <li>12312312</li>
+                    <li>${reservationInfo.memberName }</li>
+                </ul>
+                <ul><p>회원등급</p>
+                    <li>${reservationInfo.memberGrade }</li>
                 </ul>
                 <ul><p>성인</p>
-                    <li>12312312</li>
+                    <li>${reservationInfo.adult }명</li>
                 </ul>
                 </div>
                 <div class="positionRight">
                 <ul><p>룸</p>
-                    <li>12312312</li>
+                    <li>${reservationInfo.guestRoomName } ${reservationInfo.guestRoomNo }호</li>
                 </ul>
                 <ul><p>예약날짜</p>
-                    <li>12312312</li>
+                    <li>${reservationInfo.checkIn }-${reservationInfo.checkOut }</li>
+                </ul>
+                <ul><p>숙박기간</p>
+                    <li>${reservationInfo.lodgmentPeriod }박</li>
                 </ul>
                 <ul><p>어린이</p>
-                    <li>12312312</li>
+                    <li>${reservationInfo.child }명</li>
                 </ul>
                 </div>
                 <p>가격</p>
-                <p class="angryJYP">ddd</p>
+                <p class="angryJYP">${reservationInfo.totalPrice }</p>
 
 
                 <div class="guideBox">

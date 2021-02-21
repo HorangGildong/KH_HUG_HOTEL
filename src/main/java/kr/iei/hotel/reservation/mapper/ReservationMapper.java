@@ -18,4 +18,12 @@ public interface ReservationMapper {
 	public List<GuestRoomVO> selectGuestRoomInfoList(ReservationVO reservationVO)throws Exception;
 	//예약 객실 넘버 리스트
 	public List<Integer> reservationGuestRoomNumberList(ReservationVO reservationVO)throws Exception;
+	//예약 추가 처리
+	public void reservationInsertProcess(ReservationVO reservationVO)throws Exception;
+	//예약 관리 리스트
+	public List<ReservationVO> reservationAdminList()throws Exception;
+	//예약 관리 삭제
+	public void reservationAdminDelete(String reservationNo)throws Exception;
+	//예약 관리 검색
+	public List<ReservationVO> reservationAdminSearch(String reservationNo)throws Exception;
 }

@@ -31,4 +31,20 @@ public class ReservationService {
 	public List<Integer> reservationGuestRoomNumberList(ReservationVO reservationVO)throws Exception {
 		return reservationMapper.reservationGuestRoomNumberList(reservationVO);
 	}
+	//예약 insert 처리
+	public void reservationInsertProcess(ReservationVO reservationVO)throws Exception {
+		reservationMapper.reservationInsertProcess(reservationVO);
+	}
+	//예약 관리 리스트
+	public List<ReservationVO> reservationAdminList()throws Exception {
+		return reservationMapper.reservationAdminList();
+	}
+	//예약 관리 삭제
+	public void reservationAdminDelete(String reservationNo)throws Exception {
+		reservationMapper.reservationAdminDelete(reservationNo);
+	}
+	//예약 관리 검색
+	public List<ReservationVO> reservationAdminSearch(String reservationNo)throws Exception {
+		return reservationMapper.reservationAdminSearch(reservationNo);
+	}
 }
