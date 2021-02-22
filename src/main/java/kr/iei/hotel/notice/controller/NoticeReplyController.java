@@ -46,7 +46,7 @@ public class NoticeReplyController {
 				vo3.setNick(vo2.getMemberNick());
 				
 				ReplyJoinVo list2 = Rservice.Rselect2(vo3.getNick());
-				vo2.setMemberId(list2.getId());
+				vo2.setMemberNumber(list2.getId());
 						
 				System.out.println("---댓글 작성 끝---");
 							
