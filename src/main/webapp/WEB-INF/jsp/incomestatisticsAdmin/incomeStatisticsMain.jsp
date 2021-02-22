@@ -47,11 +47,18 @@
         <h1 class="buttonTitle">
             <p>수입 / 통계 관리</p>
         </h1>
+		<form action=""id="formTest">
+		<input  type="hidden" name="val" id="val" value="70000000" />
+		<input type="button" value="클릭" id="btnTest" />
+		
+		</form>
+		<div id="here">
 		<div class="incomeGraph">
  		<input class="test" type="text" value="20000000" /><br /><br />
 		<input class="test" type="text" value="50000000" /><br /><br />
 		<input class="test" type="text" value="70000000" /><br /><br />
 		<input class="test" type="text" value="45000000" /><br /><br />
+		</div>
 		</div>
     </section>
         <!--section end-->
@@ -66,7 +73,39 @@
 <script src="js/bootstrapjs/bootstrap.min.js"></script>
 <script src="js/header.js"></script>
 <script>
-	let test = document.querySelectorAll(".test"),
+
+	 
+
+	
+	
+	
+	
+	
+	let	processTest = document.querySelector("#btnTest"),
+		processUrl = "/processTest";
+
+		processTest.addEventListener("click", function(){
+				param = $('#formTest').serialize();	
+			$.ajax({
+				url 	 : processUrl,
+				data 	 : param,
+				dataType : 'html', 
+				method 	 : 'POST',
+				success  : function(data){
+					$('#here').html(data);			
+				}		
+			});
+		
+		
+		});
+
+		let income = function(){
+		
+		let btnTest1 = document.querySelector("#btnTest2");
+		console.log(btnTest1);
+		btnTest1.addEventListener("click", function(){
+		
+		let test = document.querySelectorAll(".test"),
 		testlength = test.length;
 		console.log(testlength)
 		for(var index = 0; index < testlength; index++){
@@ -74,9 +113,9 @@
 		testValue = test[index].value;
 		console.log(testValue);
 		test[index].style.width = testValue / 100000 + "px";
-		}
-	
-		
+		};
+		});
+		};
 		 
 </script>
 
