@@ -30,8 +30,8 @@ public interface NoticeMapper {
 	public NoticeVo content_article(int nNo, String findStr);
 
 	/*---------- 댓글 ----------*/	
-	public int tot_reply_list_size(Page page);
-	public List<NoticeReplyVo> reply_select(Page page);
+	public int tot_reply_list_size(int nNo);
+	public List<NoticeReplyVo> reply_select(int startNo, int endNo, int nNo);
 	public int Rinsert(NoticeReplyVo vo2);
 	public ReplyJoinVo Rselect2(String memberNick);
 	

@@ -24,7 +24,7 @@ public class NoticeReplyDao implements NoticeReplyService{
 	
 	/*--------------------------------- 댓글전체 조회 ---------------------------------*/
 	@Override
-	public Map<String, Object> Rselect(Page page) {
+	public Map<String, Object> Rselect(Page page, int nNo) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<NoticeReplyVo> list = null;
 		
@@ -37,11 +37,12 @@ public class NoticeReplyDao implements NoticeReplyService{
 			page.setNowPage(1);
 		}
 		
-		int totListSize = mapper.tot_reply_list_size(page);
+		int totListSize = mapper.tot_reply_list_size(nNo);
+		System.out.println("totListSize: "+totListSize);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
 		
-		list = mapper.reply_select(page);
+		list = mapper.reply_select(page.getStartNo(), page.getEndNo(), nNo);
 		
 		System.out.println("댓글select 도착");
 		
@@ -82,6 +83,15 @@ public class NoticeReplyDao implements NoticeReplyService{
 	public ReplyJoinVo Rselect2(String memberNick) {
 		ReplyJoinVo vo = mapper.Rselect2(memberNick); 
 		return vo;
+	}
+	
+	/*--------------------------------- 댓글 수정 ---------------------------------*/
+	@Override
+	public NoticeReplyVo Rview(int getrNo) {
+		
+		
+		
+		return null;
 	}
    
    

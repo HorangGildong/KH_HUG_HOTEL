@@ -139,8 +139,8 @@
 	</select>	
 
 	<!-- ──────────────────────── 댓글 ──────────────────────── -->
-	<select id='tot_reply_list_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
-		select count(rNo) from reply		
+	<select id='tot_reply_list_size' resultType='int' parameterType='int'>
+		select count(rNo) from reply where nNo = #{nNo}		
 	</select>
 	
 	<select id='reply_select' resultType='kr.iei.hotel.notice.vo.NoticeReplyVo' parameterType='kr.iei.hotel.notice.vo.Page'>
@@ -148,10 +148,11 @@
 		    select rownum no, r.* from (
 		        SELECT rp.rNo, rp.nNo, rp.memberId, rp.content, rp.regdate, M.memberNick
 		        FROM REPLY rp
-		        LEFT JOIN MEMBER M ON RP.memberId = M.memberId
-		        order by rNo desc
+		        LEFT JOIN MEMBER M ON rp.memberId = M.memberId
+		        where nNo = #{param3}
+                order by rNo desc                
 		        ) r
-		) where no between #{startNo} and #{endNo}
+		) where no between #{param1} and #{param2}
 		order by rNo desc
 	</select>
 

@@ -87,11 +87,12 @@ public class NoticeController {
 		
 		ModelAndView mv = new ModelAndView();
 		NoticeVo vo1 = null;		
+		System.out.println("---상세보기 시작---");
 		System.out.println("vo2.getMemberNick(): "+vo2.getMemberNick());
 		System.out.println("1.menu: "+str);
 		System.out.println("2.vo.getnNo(): "+vo.getnNo());
 		System.out.println("3.findStr : "+ findStr);
-		
+		System.out.println("vo2nNo: " + vo2.getnNo());
 		
 		vo = service.view(vo.getnNo());
 
@@ -105,7 +106,7 @@ public class NoticeController {
 			vo1 = service.content_article(vo.getnNo(),findStr);
 		}
 		
-		Map<String, Object> map = Rservice.Rselect(page);
+		Map<String, Object> map = Rservice.Rselect(page, vo2.getnNo());						
 	      
 	    List<NoticeReplyVo> list = (List<NoticeReplyVo>) map.get("list");
 	    page = (Page) map.get("page");
@@ -117,7 +118,7 @@ public class NoticeController {
 		System.out.println("4.reply_data: "+ vo2.getRegdate());		
 		System.out.println("5.vo.getnNo(): "+vo.getnNo());
 		
-		
+		System.out.println("---상세보기 끝---");
 		
 		mv.addObject("vo2", vo2);
 		mv.addObject("list", list);

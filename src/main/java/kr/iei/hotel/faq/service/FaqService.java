@@ -2,6 +2,7 @@ package kr.iei.hotel.faq.service;
 
 import java.util.Map;
 
+import kr.iei.hotel.faq.vo.FaqVo;
 import kr.iei.hotel.notice.vo.Page;
 
 public interface FaqService {
@@ -32,6 +33,11 @@ public interface FaqService {
 	
 	public Map<String, Object> faqEtc(Page page);
 	public Map<String, Object> etc_question_select(Page page);
-	public Map<String, Object> etc_answer_select(Page page);	
+	public Map<String, Object> etc_answer_select(Page page);
+	
+	public void faqInsert(FaqVo vo);
+	public FaqVo view(int id);
+	public void faqUpdate(FaqVo vo);
+	public void faqDelete(int id);	
 	
 }

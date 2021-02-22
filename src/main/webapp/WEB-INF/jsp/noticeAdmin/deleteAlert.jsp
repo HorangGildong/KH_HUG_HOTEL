@@ -4,14 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Delete Result</title>
+<title>공지사항 삭제 결과</title>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-
 <script>
-
 $(function(){
 	$().ready(function () {                   
 	    swal({
