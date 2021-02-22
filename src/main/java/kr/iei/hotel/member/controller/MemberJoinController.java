@@ -44,20 +44,23 @@ public class MemberJoinController {
 	}
 	
 	@GetMapping("/join/oAuth2")
-	public String oAuthJoinPage(HttpServletRequest req) {
+	public String oAuthJoinPage(HttpServletRequest req, Model model) {
 		MemberDto memberDto = (MemberDto) req.getAttribute("memberDto");
-//		model.addAttribute(memberDto);
-		req.setAttribute("memberDto", memberDto);
-		req.setAttribute("email", memberDto.getMemberEmail());
-		req.setAttribute("key", memberDto.getMemberKey());
+		model.addAttribute(memberDto);
+//		req.setAttribute("email", memberDto.getMemberEmail());
+//		req.setAttribute("key", memberDto.getMemberEmail());
 		return "/member/oAuth2Join";
 	}
 	
 	@PostMapping("/Join/oAuth2")
 	@ResponseBody
-	public String oAuth2Join(HttpServletRequest req, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
+	public String oAuth2Join(HttpServletRequest req, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {
+		System.out.println(req);
 		System.out.println(memberOAuth2JoinFormDto);
-		System.out.println(req.getAttribute("email"));
+		System.out.println(model.getAttribute("memberDto"));
+		System.out.println(model.getAttribute("memberDto.memberEmail"));
+		System.out.println(req.getAttribute("memberDto.memberEmail"));
+		
 		
 //		memberService.oAuth2Join(memberOAuth2JoinFormDto);
 //		return "redirect:/";

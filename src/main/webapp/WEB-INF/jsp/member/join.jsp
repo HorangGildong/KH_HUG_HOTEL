@@ -309,7 +309,7 @@
 						$("#idCheck").text("공백 없이 입력해주세요.");
 						$("#idCheck").css("color", "red");
 					} else if (id!="") {
-						isEmail = true;
+						isId = true;
 						$("#idCheck").text("사용가능한 아이디입니다.");
 						$("#idCheck").css("color", "blue");
 					} else {

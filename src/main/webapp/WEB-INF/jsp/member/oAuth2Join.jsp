@@ -51,15 +51,13 @@
 				<div class="container" style="width: 400px; text-align: center;">
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
-					<%-- <c:set var="email" value="${memberDto.memberEmail}"/> --%>
-					<c:set var="email" value="abc"/>
-					<c:set var="key" value="${key}"/>
-					<form class="form-horizontal" action="/Join/oAuth2" method="post">
+					<%-- <c:set var="emailabc" value="${email}"/> --%>
+					<form class="form-horizontal" action="/Join/oAuth2?mamberEmail=${memberDto.memberEmail}" method="post">
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
 							<div class="col-xs-8">
 								<input type="email" class="form-control" name="memberEmail"
-									id="inputEmail" value="${param.email}" disabled>
+									id="inputEmail" value="${memberDto.memberEmail}" disabled>
 							</div>
 						</div>
 
