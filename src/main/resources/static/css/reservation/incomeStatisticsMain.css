@@ -1,0 +1,31 @@
+@charset "UTF-8";
+        .hotelHugWrap {
+            font-family: 'Noto Sans', sans-serif;
+            padding-top: 50px;
+            font-size: 14px;
+            width: 1280px;
+            padding: 0 80px;
+            margin: 0 auto;
+        }
+        .hotelHugWrap > .buttonTitle {
+            padding: 110px 0 110px;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 40px;
+            color: #193f6e;
+            text-align: center;
+
+        }
+        .hotelHugWrap .buttonTitle p{
+            padding-top: 20px;
+        }
+		.test {
+			border: 1px solid #193f6e;
+			background: #193f6e;
+			transition-duration: 10s;
+			width: 0px;
+			color: white;
+		}
+		.incomeGraph {
+			    margin-left: 170px;
+		}

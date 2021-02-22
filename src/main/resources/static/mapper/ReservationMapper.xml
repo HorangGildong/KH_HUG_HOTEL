@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="kr.iei.hotel.reservation.mapper.ReservationMapper">
-	
+	<!-- ─────────────────────────────────── 예약쿼리 ─────────────────────────────────── -->
 	<sql id="reservationColumns">
 		 reservationNo
 		,memberId
@@ -101,4 +101,6 @@
 		AND 	(checkIn &lt;= #{checkIn})
 		AND 	(checkOut >= #{checkOut})
 	</select>
+	
+	<!-- ─────────────────────────────────── 수입통계 쿼리 ─────────────────────────────────── -->
 </mapper>

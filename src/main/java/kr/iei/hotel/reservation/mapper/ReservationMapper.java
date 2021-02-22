@@ -10,6 +10,9 @@ import kr.iei.hotel.reservation.vo.ReservationVO;
 @Mapper
 public interface ReservationMapper {
 	
+	
+	//-------------------------------------예약--------------------------------------------
+	
 	//예약 개수 검색
 	public int selectReservationCount(ReservationVO reservationVO)throws Exception;
 	//객실 정보 개수 검색
@@ -26,4 +29,6 @@ public interface ReservationMapper {
 	public void reservationAdminDelete(String reservationNo)throws Exception;
 	//예약 관리 검색
 	public List<ReservationVO> reservationAdminSearch(String reservationNo)throws Exception;
+	
+	//-------------------------------------수입통계--------------------------------------------
 }
