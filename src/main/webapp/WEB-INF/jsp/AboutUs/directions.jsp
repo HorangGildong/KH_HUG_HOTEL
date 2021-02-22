@@ -178,19 +178,20 @@
 							<div id="b1" class="floor">B1 &nbsp;Floor</div>
 							<div id="b2" class="floor">B2 &nbsp;Floor</div>
 						</div>
-						<div class="elevator">Elevator</div>
+						<div class="elevator" style="top: 0; left: 0;">Elevator</div>
+						
 						<img id="runner" class="people" alt="people"
 							src="img/hah_img/호텔리어.png">
-					<div class="floor-detail-info">
-						<div id="info-f9" class="floor-info">Room - 로얄</div>
-						<div id="info-f7" class="floor-info">Room - 디럭스</div>
-						<div id="info-f6" class="floor-info">Dining - Restaurant(TRATTORIA)<br>ROUNGE & BAR</div>
-						<div id="info-f4" class="floor-info">Room - 슈페리어</div>
-						<div id="info-f2" class="floor-info">Room - 스탠다드</div>
-						<div id="info-f1" class="floor-info">Dining-Restaurant(THE BUFFET)<br>Facility-POOL, SAUNA</div>
-						<div id="info-b1" class="floor-info">Facility-PITNESS, SPA</div>
-						<div id="info-b2" class="floor-info" >Facility-PARK, KIDS</div>
-					</div>
+						<div class="floor-detail-info">
+							<div id="info-f9" class="floor-info">Room - 로얄</div>
+							<div id="info-f7" class="floor-info">Room - 디럭스</div>
+							<div id="info-f6" class="floor-info">Dining - Restaurant(TRATTORIA)<br>ROUNGE & BAR</div>
+							<div id="info-f4" class="floor-info">Room - 슈페리어</div>
+							<div id="info-f2" class="floor-info">Room - 스탠다드</div>
+							<div id="info-f1" class="floor-info">Dining-Restaurant(THE BUFFET)<br>Facility-POOL, SAUNA</div>
+							<div id="info-b1" class="floor-info">Facility-PITNESS, SPA</div>
+							<div id="info-b2" class="floor-info" >Facility-PARK, KIDS</div>
+						</div>
 				</div>
 			</div>
 		</section>

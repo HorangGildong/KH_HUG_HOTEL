@@ -44,6 +44,20 @@
 						수많은 제주의 보석 같은 여행지를 안내해드립니다. 
 					</p>
                 </div>
+                <div class="alert">
+                	<div id="a1" class="alert1">이게 뜨나?</div>
+                	<div id="a2" class="alert2">이게 뜨나?</div>
+                </div>
+                <div class="map">
+                	<img alt="" src="img/hah_img/map.png" usemap="#tourmap" width="1130" height="840" onClick="javascript:getLoc()">
+            		<map name="tourmap">
+            			<area shape="circle" coords="412,345,10" id="a1" onClick="javascript:popup(1)" tabindex="1" alt="" href="/tourismDetailView">
+            			<area shape="circle" coords="241,415,10" id="a2" onClick="javascript:popup(2)" tabindex="2"  alt="" href="/tourismDetailView">
+            			
+            			
+            			
+            		</map>
+                </div>
             </div>    
         </section>
         <!--section end-->
@@ -58,6 +72,23 @@
 <script src="js/bootstrapjs/bootstrap.min.js"></script>
 <script src="js/header.js"></script>
 <script src="js/Travel/tourismView.js"></script>
+<script type="text/javascript">
+function getLoc() {
+	var x = event.offsetX;
+	var y = event.offsetY;
+	alert("현재좌효는 :" + x + "/" + y);
+}
+$('area').mouseover(function(){
+    var showId = $(this).attr('id');
+    $(showId).show();
+});
+
+$('area').mouseout(function(){
+    var hideId = $(this).attr('id');
+    $(hideId).hide();
+});
+
+</script>
 </body>
 
 

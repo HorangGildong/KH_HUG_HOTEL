@@ -56,11 +56,10 @@
             </div>
             <div class="imageArea">
                 <ul class="slides">
-                    <li>
-                        <img src="img/cjy_img/room1.jpg" alt=" "></li>
-                    <li><img src="img/cjy_img/room2.jpg " alt=" "></li>
-                    <li><img src="img/cjy_img/room3.jpg " alt=" "></li>
-                    <li><img src="img/cjy_img/room4.jpg " alt=" "></li>
+                    <li><img src="img/hah_img/dining/trattoria01.jpg" alt=" "></li>
+                    <li><img src="img/hah_img/dining/trattoria02.jpg " alt=" "></li>
+                    <li><img src="img/hah_img/dining/trattoria03.jpg " alt=" "></li>
+                    <li><img src="img/hah_img/dining/trattoria04.jpg " alt=" "></li>
                 </ul>
             </div>
             <p class="controls ">

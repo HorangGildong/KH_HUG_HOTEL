@@ -53,7 +53,7 @@
                 <div class="innerBox">
                     <div class="diningWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/dining/더뷔페01.jpg" alt="이미지입니다">
                         </div>
                         <div class="diningContent">
                             <p class="diningTitle">
@@ -72,7 +72,7 @@
                 <div class="innerBox">
                     <div class="diningWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/dining/trattoria01.jpg" alt="이미지입니다">
                         </div>
                         <div class="diningContent">
                             <p class="diningTitle">
@@ -91,7 +91,7 @@
                 <div class="innerBox">
                     <div class="diningWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/dining/라운지01.jpg" alt="이미지입니다">
                         </div>
                         <div class="diningContent">
                             <p class="diningTitle">
