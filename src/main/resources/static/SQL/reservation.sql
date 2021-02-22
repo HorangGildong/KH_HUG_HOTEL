@@ -19,6 +19,9 @@ foreign key(memberId) references member(memberId),
 foreign key(guestRoomName) references guestRoom(guestRoomName)
 );
 
+-- 이거 꼭 해제 부탁드림
+alter table reservation drop primary key;
+
 commit;
 
 
