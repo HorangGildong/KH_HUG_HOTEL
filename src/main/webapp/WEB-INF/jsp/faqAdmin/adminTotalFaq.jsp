@@ -49,10 +49,27 @@
 		   	<h3>FAQ</h3>
 		  	
 		  	<form name='frm_faqmain' id='frm_faqmain' method='post' >
-		    	<input type='text' name='menu' value="${param.menu }">
+		    	<input type='hidden' name='menu' value="${param.menu }">
 	          	<input type='hidden' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
-	        	<input type='text' name='totalPage' value='${param.totalPage }'>			
-				<input type='text' name='id' value="${param.id }">		     	
+	        	<input type='hidden' name='totalPage' value='${param.totalPage }'>			
+				<input type='hidden' name='id' value="${param.id }">	
+				
+				<div></div>
+				<div>
+	                <input type="text" readonly class="form-control" id='category' value='카테고리검색'>
+					<select class="form-control" name='selectBox' id='selectBox' >
+			           	<option>전체</option>
+			           	<option>이용안내</option>
+			           	<option>객실</option>
+			           	<option>다이닝</option>
+			           	<option>부대시설</option>
+			           	<option>결제</option>
+			           	<option>기타</option>           
+	     			</select>
+	     			<input type="button" id='btnFind2' class="form-control" value='Search'><br>
+	     			
+     			</div>	
+     						     	
 		   	</form>
 		   			   
 				<div class='title'>
