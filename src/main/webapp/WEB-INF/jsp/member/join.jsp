@@ -418,7 +418,7 @@
 		});
 		
 		$.fn.submitDisable = function () {
-			console.log(isEmail, isNick, isPassword);
+			console.log(isId, isEmail, isNick, isPassword);
 			if(isId == true && isEmail == true && isNick == true && isPassword == true) {
 				$("#submitBtn").attr("disabled", false);
 			} else {

@@ -54,13 +54,12 @@ public class MemberJoinController {
 	
 	@PostMapping("/Join/oAuth2")
 	@ResponseBody
-	public String oAuth2Join(HttpServletRequest req, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {
-		System.out.println(req);
+	public String oAuth2Join(MemberDto memberDto, HttpServletRequest req, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {
+		System.out.println(memberDto);
 		System.out.println(memberOAuth2JoinFormDto);
 		System.out.println(model.getAttribute("memberDto"));
 		System.out.println(model.getAttribute("memberDto.memberEmail"));
 		System.out.println(req.getAttribute("memberDto.memberEmail"));
-		
 		
 //		memberService.oAuth2Join(memberOAuth2JoinFormDto);
 //		return "redirect:/";

@@ -19,10 +19,10 @@ public interface MemberDao {
 	MemberDto findByKey(String memberKey);
 	
 	@Insert("INSERT INTO MEMBER ("
-			+ " memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick,"
+			+ " memberId, memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick,"
 			+ " memberPhone, memberGender, memberPassword, memberBirth, memberAgree)"
 			+ " VALUES("
-			+ " '${memberEmail}', '${memberName}', SYSDATE, SYSDATE, '${memberNick}',"
+			+ " '${memberId}', '${memberEmail}', '${memberName}', SYSDATE, SYSDATE, '${memberNick}',"
 			+ " '${memberPhone}', '${memberGender}', '${memberPassword}', '${memberBirth}', '${memberAgree}'"
 			+ " )")
 	void join(MemberJoinFormDto memberJoinFormDto);
@@ -33,15 +33,6 @@ public interface MemberDao {
 			+ " '${memberKey}', '${memberEmail}', 'ROLE_ASSOCIATE'"
 			+ " )")
 	void autoJoin(String memberKey, String memberEmail);
-	
-//	@Insert("INSERT INTO MEMBER ("
-//			+ " memberEmail, memberName, memberRegDate, memberNick, memberRole"
-//			+ " memberPhone, memberGender, memberBirth, memberAgree, memberKey)"
-//			+ " VALUES("
-//			+ " '${memberEmail}', '${memberName}', SYSDATE, '${memberNick}', 'ROLE_REGURAL',"
-//			+ " '${memberPhone}', '${memberGender}', '${memberBirth}', '${memberAgree}', '${memberKey}'"
-//			+ " )")
-//	void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto);
 	
 	@Update("INSERT INTO MEMBER SET"
 			+ " memberEmail = '${memberEmail}', memberName = '${memberName}', memberRegDate = SYSDATE,"
