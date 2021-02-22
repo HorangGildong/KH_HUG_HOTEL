@@ -490,6 +490,29 @@ public class FaqDao implements FaqService {
 		map.put("list", list);		
 		
 		return map;
+	}
+	
+	/*--------------------------------- 관리자 FAQ 등록 ---------------------------------*/
+	@Override
+	public void faqInsert(FaqVo vo) {		
+		int cnt = mapper.faqInsert(vo);		
+	}
+
+	/*--------------------------------- 관리자 FAQ 상세보기 ---------------------------------*/
+	@Override
+	public FaqVo view(int id) {
+				
+		FaqVo vo = mapper.view(id);
+		
+		return vo;
+	}
+	@Override
+	public void faqUpdate(FaqVo vo) {
+		int cnt = mapper.faqUpdate(vo);
+	}
+	@Override
+	public void faqDelete(int id) {
+		int cnt = mapper.faqDelete(id);
 	}	
 
 }

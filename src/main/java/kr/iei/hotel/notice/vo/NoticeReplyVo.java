@@ -3,7 +3,7 @@ package kr.iei.hotel.notice.vo;
 public class NoticeReplyVo {
 	int rNo;
 	int nNo;
-	int memberId; 
+	int memberNumber; 
 	String content;
 	String regdate;
 	String memberNick;
@@ -40,12 +40,12 @@ public class NoticeReplyVo {
 	}
 	public void setnNo(int nNo) {
 		this.nNo = nNo;
+	}	
+	public int getMemberNumber() {
+		return memberNumber;
 	}
-	public int getMemberId() {
-		return memberId;
-	}
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
 	}
 	public String getContent() {
 		return content;

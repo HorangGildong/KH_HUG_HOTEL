@@ -18,7 +18,6 @@ var faq = function(){
 	var btncago5	= getID('btncago5');
 	var btncago6 	= getID('btncago6');
 	var btncago7 	= getID('btncago7');  			
-	var faqQuestion = getID('faqQuestion');		
 	var menuLinks 	= document.querySelectorAll('.aclick');
 	var selectBox 	= getID('selectBox');
 	var btnFind1	= getID('btnFind1');
@@ -28,7 +27,13 @@ var faq = function(){
 	var btnFind5 	= getID('btnFind5');
 	var btnFind6 	= getID('btnFind6');
 	var btnFind7 	= getID('btnFind7');
-	
+	var faq_insert  = getID('faq_insert');
+	var fBtnBack	= getID('fBtnBack');
+	var fBtnInsert	= getID('fBtnInsert');
+	var fBtnUpdate	= getID('fBtnUpdate');
+	var fBtnDelete	= getID('fBtnDelete');
+	var faqId		= getID('faqId');
+		
 	/*---------------- 메뉴 클릭 시 ----------------*/
 	if(btncago1 != null){
 		btncago1.onclick = function(){
@@ -234,14 +239,47 @@ var faq = function(){
 			};
 		};
 	};
-	
-	/*---------------- 질문 클릭 시 ----------------*/
-	if (faqQuestion != null) {
-		faqQuestion.onclick = function(){
-			console.log("클릭하였음");			
-		}		
+	/*---------------- 목록으로 ----------------*/
+	if(fBtnBack != null){
+		fBtnBack.onclick = function(){
+			var frm = document.frm_faqmain;
+			frm.action = "/adminTotalFaq";
+			frm.submit();
+		}
+	}	
+	/*---------------- 관리자 글쓰기 클릭 시----------------*/
+	if (faq_insert != null){
+		faq_insert.onclick = function(){
+			var frm = document.frm_faqmain;
+			frm.action = "/adminFaqInsert";
+			frm.submit();			
+		}
+	}	
+	/*---------------- 관리자 등록 페이지(등록 버튼) ----------------*/	
+	if(fBtnInsert != null){
+		fBtnInsert.onclick = function(){
+			var frm = document.frm_faqmain;
+			frm.action = "/adminFaqInsertR";
+			frm.submit();
+		}
 	}		
-	
+	/*---------------- 관리자 수정 페이지(수정 버튼) ----------------*/
+	if(fBtnUpdate != null){
+		fBtnUpdate.onclick = function(){
+			var frm = document.frm_faqmain;
+			frm.action = "/adminFaqUpdateR";
+			frm.submit();
+		}
+	}	
+	/*---------------- 관리자 삭제 클릭 시 ----------------*/
+	if (fBtnDelete != null){
+		fBtnDelete.onclick = function(){
+			var frm = document.frm_faqmain;
+			frm.action = "/adminFaqDelete";
+			frm.submit();			
+		}
+	}	
+		
 	/*---------------- 메뉴 클릭 시 색상변경 ----------------*/	
 	function clickMenuHandler() {
 		document.getElementById('base').style.display="none";
@@ -256,6 +294,7 @@ var faq = function(){
 	for (var i = 0; i < menuLinks.length; i++){
 		menuLinks[i].addEventListener('click', clickMenuHandler);
 	}
+	
 	
 } 
 
@@ -283,6 +322,13 @@ var totalAjax = function(url){
 };
   	
 /*────────────────────────────────── 페이징 처리  ──────────────────────────────────*/  	
+guideGoPage = function(page){			
+	var frm = document.frm_faqmain;
+	frm.nowPage.value = page;
+	frm.action = "/adminTotalFaq";
+	frm.submit();
+}
+
 guideGoPage1 = function(page){			
 	var frm = document.frm_faqmain;
 	frm.nowPage.value = page;
@@ -319,5 +365,11 @@ guideGoPage7 = function(page){
 	totalAjax('faqEtc');
 }
 
-
+/*────────────────────────────────── 관리자 게시글 상세보기  ──────────────────────────────────*/  	
+function view(id){
+	var frm = document.frm_faqmain;
+	frm.id.value = id;
+	frm.action = "/adminFaqUpdate";
+	frm.submit();
+}
 

@@ -8,9 +8,10 @@ import kr.iei.hotel.notice.vo.ReplyJoinVo;
 
 public interface NoticeReplyService {
 
-	Map<String, Object> Rselect(Page page);
+	Map<String, Object> Rselect(Page page, int nNo);
 	public String Rinsert(NoticeReplyVo vo2);
 	public ReplyJoinVo Rselect2(String memberNick);
+	NoticeReplyVo Rview(int getrNo);
 
 
 

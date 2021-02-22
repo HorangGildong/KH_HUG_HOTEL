@@ -42,43 +42,47 @@ public class NoticeReplyController {
 			ModelAndView mv = new ModelAndView();
 			
 			if (vo2.getMemberNick() != null) {
-				System.out.println("댓글 작성 들어옴");			
+				System.out.println("---댓글 작성 시작---");			
 				vo3.setNick(vo2.getMemberNick());
 				
 				ReplyJoinVo list2 = Rservice.Rselect2(vo3.getNick());
-				vo2.setMemberId(list2.getId());
+				vo2.setMemberNumber(list2.getId());
 						
-				System.out.println("댓글 작성 나감");
+				System.out.println("---댓글 작성 끝---");
 							
 				String msg = Rservice.Rinsert(vo2);
 			}
-		
-				 					
-			System.out.println("댓글조회 도착");
 			
 			mv.addObject("vo2", vo2);
 			
 			
-			return control.noticeDetail(vo, page, vo2, str, findStr);
-	      
+			return control.noticeDetail(vo, page, vo2, str, findStr);	      
 	   }
 	   
+	   /*--------------------------------- 댓글 수정 ---------------------------------*/
 	   @RequestMapping(value="/Rupdate", method= RequestMethod.POST)
-	   public ModelAndView Rupdate(NoticeVo vo, Page page, NoticeReplyVo vo2,
+	   public ModelAndView Rupdate(NoticeVo vo, Page page, NoticeReplyVo vo2, ReplyJoinVo vo3,
 			   @RequestParam(value="menu", required=false, defaultValue="total") String str,
-			   @RequestParam(value="findStr", required=false, defaultValue="") String findStr) {
+			   @RequestParam(value="findStr", required=false, defaultValue="") String findStr,
+			   @RequestParam(value="Rcontent", required=false, defaultValue="") String Rcontent) {
 		   ModelAndView mv = new ModelAndView();
 		   
-		   System.out.println("getContent: "+vo2.getContent());
-		   System.out.println("getMemberId: "+vo2.getMemberId());
-		   System.out.println("getMemberNick: "+vo2.getMemberNick());
-		   System.out.println("getnNo: "+vo2.getnNo());
-		   System.out.println("getPassword: "+vo2.getPassword());
+		   System.out.println("---댓글 수정 시작---");
+		   		   
+		   System.out.println("getrNo: "+vo2.getrNo());
 		   
+		   vo2.setContent(Rcontent);
+		   System.out.println("getContent: "+vo2.getContent());
+		  
+		  // vo2 = Rservice.Rview(vo2.getrNo());		      
+		      
+		      
+		   System.out.println("---댓글 수정 끝---");		   
 		   
 		   return control.noticeDetail(vo, page, vo2, str, findStr);
 	   }
 	   
+	   /*--------------------------------- 댓글 삭제 ---------------------------------*/
 	   @RequestMapping(value="/Rdelete", method= RequestMethod.POST)
 	   public ModelAndView Rdelete(NoticeVo vo, Page page, NoticeReplyVo vo2,
 			   @RequestParam(value="menu", required=false, defaultValue="total") String str,

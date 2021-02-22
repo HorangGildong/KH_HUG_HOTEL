@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.iei.hotel.faq.service.FaqService;
 import kr.iei.hotel.faq.vo.FaqVo;
 import kr.iei.hotel.notice.vo.NoticeVo;
 import kr.iei.hotel.notice.vo.Page;
@@ -18,7 +19,7 @@ import kr.iei.hotel.notice.vo.Page;
 public class FaqController {
 	
 	@Autowired
-	kr.iei.hotel.faq.service.FaqService service;
+	FaqService service;
 	
 	// ────────────────────────────────────────────────── 사용자 ──────────────────────────────────────────────────
 	/*--------------------------------- 전체조회 ---------------------------------*/
@@ -383,22 +384,109 @@ public class FaqController {
 	}
 	
 	// ────────────────────────────────────────────────── 관리자 ──────────────────────────────────────────────────
+	/*--------------------------------- faq 전체조회 ---------------------------------*/
+	@RequestMapping(value="/adminTotalFaq", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView adminTotalFaq(Page page) {
+		ModelAndView mv = new ModelAndView();
+		
+		Map<String, Object> map = service.select(page);
+		List<FaqVo> list = (List<FaqVo>) map.get("list");
+		page = (Page) map.get("page");				
+	
+		System.out.println("전체 메뉴 입니다");
+				
+		mv.addObject("list", list);
+		mv.addObject("page", page);
+		mv.setViewName("faqAdmin/adminTotalFaq");		
+		return mv;		
+	}
+	
+	
+	
 	/*--------------------------------- faq 등록 ---------------------------------*/
-	@RequestMapping(value="adminFaqInsert")
+	@RequestMapping(value="/adminFaqInsert", method= RequestMethod.POST)
 	public ModelAndView adminFaqInsert() {
 		ModelAndView mv = new ModelAndView();
 				
 		mv.setViewName("faqAdmin/adminFaqInsert");
 		return mv;
 	}
-	/*--------------------------------- faq 수정 ---------------------------------*/
-	@RequestMapping(value="adminFaqUpdate")
-	public ModelAndView adminFaqUpdate() {
+	
+	/*--------------------------------- faq 등록 시 모달창 ---------------------------------*/
+	@RequestMapping(value="/adminFaqInsertR", method= RequestMethod.POST)
+	public ModelAndView adminFaqInsertR(FaqVo vo) {
 		ModelAndView mv = new ModelAndView();
-				
+		System.out.println("getCategory: "+vo.getCategory());
+		System.out.println("getQuestion: "+vo.getQuestion());
+		System.out.println("getAnswer: "+vo.getAnswer());
+		
+		vo.setCategory("["+vo.getCategory()+"]");
+		System.out.println("getQuestion 변경 후 : "+vo.getCategory());
+		
+		service.faqInsert(vo);		
+		
+		mv.setViewName("faqAdmin/faqInsertAlert");
+		return mv;
+	}
+	
+	/*--------------------------------- faq 수정 ---------------------------------*/
+	@RequestMapping(value="/adminFaqUpdate", method= RequestMethod.POST)
+	public ModelAndView adminFaqUpdate(FaqVo vo) {
+		ModelAndView mv = new ModelAndView();
+			
+		System.out.println("getId: "+vo.getId());
+		vo = service.view(vo.getId());
+		
+		System.out.println("getCategory 전: "+vo.getCategory());
+		if (vo.getCategory().equals("[이용안내]")) {
+			vo.setCategory("이용안내");
+		}else if (vo.getCategory().equals("[객실]")) {
+			vo.setCategory("객실");
+		}else if (vo.getCategory().equals("[다이닝]")) {
+			vo.setCategory("다이닝");
+		}else if (vo.getCategory().equals("[부대시설]")) {
+			vo.setCategory("부대시설");
+		}else if (vo.getCategory().equals("[결제]")) {
+			vo.setCategory("결제");
+		}else if (vo.getCategory().equals("[기타]")) {
+			vo.setCategory("기타");
+		}
+		System.out.println("getCategory 후: "+vo.getCategory());
+		
+		mv.addObject("vo",vo);
 		mv.setViewName("faqAdmin/adminFaqUpdate");
 		return mv;
 	}
 	
+	/*--------------------------------- faq 수정 시 모달창 ---------------------------------*/
+	@RequestMapping(value="/adminFaqUpdateR", method= RequestMethod.POST)
+	public ModelAndView adminFaqUpdateR(FaqVo vo) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println(vo.getId());
+		System.out.println(vo.getCategory());
+		System.out.println(vo.getQuestion());
+		System.out.println(vo.getAnswer());
+		
+		vo.setCategory("["+vo.getCategory()+"]");
+		System.out.println("getQuestion 변경 후 : "+vo.getCategory());
+		
+		service.faqUpdate(vo);
+				
+		mv.setViewName("faqAdmin/faqModifyAlert");
+		return mv;
+	}
+
+	/*--------------------------------- faq 삭제 ---------------------------------*/
+	@RequestMapping(value="/adminFaqDelete", method= RequestMethod.POST)
+	public ModelAndView adminFaqDelete(FaqVo vo) {
+		ModelAndView mv = new ModelAndView();
+		
+		System.out.println(vo.getId());
+				
+		service.faqDelete(vo.getId());
+		
+		mv.setViewName("faqAdmin/faqDeleteAlert");
+		return mv;
+	}
 	
 }

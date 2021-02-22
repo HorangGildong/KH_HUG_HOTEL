@@ -62,6 +62,11 @@ public interface FaqMapper {
 	public int etc_answer_size(Page page);
 	public List<FaqVo> etc_answer_select(Page page);
 	
+	public int faqInsert(FaqVo vo);
+	public FaqVo view(int id);
+	public int faqUpdate(FaqVo vo);
+	public int faqDelete(int id);
+	
 	
 	
 

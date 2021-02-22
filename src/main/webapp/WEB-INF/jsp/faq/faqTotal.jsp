@@ -38,7 +38,7 @@
 		 	<c:forEach var='vo' items='${list }'>	               				                    			
 		   		<div class="panel-heading" id='cover'>
 		       		<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${vo.no }" id='faqQuestion'>			       							       
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${vo.id }" id='faqQuestion'>			       							       
 			            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${vo.category }</span>
 							<span id='span2'>${vo.question }</span>
 							<span id='arrow'>
@@ -48,7 +48,7 @@
 						</a>
 					</h4>
 				</div>			                     	 
-				<div id='collapseOne${vo.no }' class="panel-collapse collapse ">
+				<div id='collapseOne${vo.id }' class="panel-collapse collapse ">
 					<div class="panel-body" id='faqAnswer'>
 		           		${vo.answer }
 		           		<sec:authorize access="hasRole('ROLE_ADMIN')">
@@ -68,7 +68,7 @@
        	<div id='writer'>
         	<div></div>
 			<div>
-				<input type="button" class="form-control" value='글쓰기'>            
+				<input type="button" class="form-control" id='faq_insert' value='글쓰기'>            
 			</div>
 		</div>
 	</sec:authorize>

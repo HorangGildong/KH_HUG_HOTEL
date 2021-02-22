@@ -139,27 +139,28 @@
 	</select>	
 
 	<!-- ──────────────────────── 댓글 ──────────────────────── -->
-	<select id='tot_reply_list_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
-		select count(rNo) from reply		
+	<select id='tot_reply_list_size' resultType='int' parameterType='int'>
+		select count(rNo) from reply where nNo = #{nNo}		
 	</select>
 	
 	<select id='reply_select' resultType='kr.iei.hotel.notice.vo.NoticeReplyVo' parameterType='kr.iei.hotel.notice.vo.Page'>
 		select * from (
 		    select rownum no, r.* from (
-		        SELECT rp.rNo, rp.nNo, rp.memberId, rp.content, rp.regdate, M.memberNick
+		        SELECT rp.rNo, rp.nNo, rp.memberNumber, rp.content, rp.regdate, M.memberNick
 		        FROM REPLY rp
-		        LEFT JOIN MEMBER M ON RP.memberId = M.memberId
-		        order by rNo desc
+		        LEFT JOIN MEMBER M ON rp.memberNumber = M.memberNumber
+		        where nNo = #{param3}
+                order by rNo desc                
 		        ) r
-		) where no between #{startNo} and #{endNo}
+		) where no between #{param1} and #{param2}
 		order by rNo desc
 	</select>
 
 	<select id='Rselect2' resultType='kr.iei.hotel.notice.vo.ReplyJoinVo' parameterType='String'>
-		select m.memberid id , m.membernick nick FROM REPLY rp
-		right JOIN MEMBER M ON RP.memberId = M.memberId
+		select m.memberNumber id , m.membernick nick FROM REPLY rp
+		right JOIN MEMBER M ON RP.memberNumber = M.memberNumber
 		where memberNick = #{param1}
-		group by m.memberid, m.membernick	
+		group by m.memberNumber, m.membernick	
 	</select>
 	
 	
@@ -170,8 +171,8 @@
 	</insert>
 	
 	<insert id='Rinsert' parameterType='kr.iei.hotel.notice.vo.NoticeReplyVo'>
-		insert into reply (rNo, nNo, memberId, password, content, regdate) 
-		values (seq_reply_rNo.nextval, #{nNo}, #{memberId}, #{password}, #{content}, to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS'))
+		insert into reply (rNo, nNo, memberNumber, password, content, regdate) 
+		values (seq_reply_rNo.nextval, #{nNo}, #{memberNumber}, #{password}, #{content}, to_char(sysdate, 'yyyy-MM-dd HH24:MI:SS'))
 	</insert>
 	
 	

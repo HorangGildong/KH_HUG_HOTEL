@@ -47,6 +47,8 @@
 	</style>
 	
 	<script>
+		
+	
 	    function getID(id) {
 		    return document.getElementById(id)
 		 } 
@@ -94,11 +96,23 @@
 				}
 			}
 			
+
 			if (Rupdate != null) {
-				Rupdate.onclick = function(){
-					var frm = document.frm_notice;															
-					frm.action = "/Rupdate";
-					frm.submit();
+				Rupdate.onclick = function(){									
+					var frm = document.frm_notice;
+					alert("왔니?");
+					if (frm.Rupdate.value === '수정') {
+						alert("수정왔음");						
+						frm.Rcontent.disabled = false;
+						frm.Rupdate.value = '저장';
+						
+					}else if (frm.Rupdate.value == '저장') {
+						
+						let pwd = prompt("수정된 내용을 저장 하시려면 작성한 암호를 입력해주세요.");					
+						frm.pwd.value = pwd;
+						frm.action = '/Rupdate';
+						frm.submit();
+					}					
 				}
 			}
 			
@@ -150,8 +164,7 @@
 			frm.action = "/noticeDetail";
 			frm.submit();					
 		};
-		
-		
+			
 		
     </script>
 	
@@ -218,12 +231,12 @@
 	                                <tr>
 	                                	
 	                                	<c:if test="${empty member.nick }">
-		                                    <td><textarea id='textarea' cols="128" rows="5" readOnly style="resize: none;" placeholder="로그인시 댓글 작성 가능합니다."></textarea>&nbsp;&nbsp;&nbsp;</td>                                                
+		                                    <td><textarea id='textarea' rows="5" cols="128" readOnly style="resize: none;" placeholder="로그인시 댓글 작성 가능합니다."></textarea>&nbsp;&nbsp;&nbsp;</td>                                                
 		                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' disabled type="button" value='등록'></div></td>
 		                                </c:if>
 		                                 
 		                                <c:if test="${not empty member.nick }">    
-		                                    <td><textarea id='textarea' name='content' cols="128" rows="5" style="resize: none;" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea>&nbsp;&nbsp;&nbsp;</td>		                                                                               
+		                                    <td><textarea id='textarea' name='content' rows="5" cols="128" style="resize: none;" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea>&nbsp;&nbsp;&nbsp;</td>		                                                                               
 		                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' type="button" value='등록'></div></td>
 		                                </c:if>
 	                                </tr>
@@ -234,21 +247,21 @@
 		<%-- ──────────────────── 댓글 등록시 반복 ──────────────────── --%> 
 	                                <c:forEach var='reply' items='${list }'>
 	                               	<c:if test="${vo.nNo == reply.nNo }">
+	                               		<input type='hidden' name='rNo' value='${reply.rNo }'>
+	                               	
 		                                <tr>
 		                                    <td colspan='2'><input id='input8' type="text" readonly value="${reply.memberNick }"></td>
 		                                </tr>
+		                                <tr> 
+		                                    <td colspan="2"><textarea id='Rcontent' name='Rcontent' rows="2" cols="128"  style="resize: none; margin-left: 70px; margin-right: 70px;">${reply.content }</textarea></td>
+		                               </tr>
 		                                <tr>
-		                                    <td colspan="2"><div style="margin-left: 70px; margin-right: 70px;">${reply.content }</div></td>                         
-		                                </tr>
-		                                <tr>
-		                                    <td>
-		                                    	<input id='input9' type="text" readonly value="${reply.regdate }">		                                    	
-		                                    </td>
+		                                    <td><input id='input9' type="text" readonly value="${reply.regdate }"></td>
 		                                    <c:if test="${reply.memberNick == member.nick }">
 			                                    <td>		                                    	
 			                                        <span id='btnupdel'>
-			                                            <span id='span1'><input type="button" id='Rupdate' value="수정"></span>
-			                                            <span id='span2'><input type="button" id='Rdelete' value="삭제"></span>
+			                                            <span id='span1'><input type="button" id='Rupdate' name='Rupdate' value='수정'></span>
+			                                            <span id='span2'><input type="button" id='Rdelete' name='Rdelete' value='삭제'></span>
 			                                        </span>
 			                                    </td>
 		                                    </c:if>
@@ -305,7 +318,7 @@
         <!--footer end-->
 
     </div>
-   
+
 <script>notice()</script>
    
 <!-- Optional JavaScript -->
