@@ -2,6 +2,9 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="member"/>
+</sec:authorize>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +17,7 @@
         <header>
             <div class="header text-center">
                 <h2><a href="/"><strong>H.U.G HOTEL</strong></a></h2>
-                <h5><strong>JEJU</strong></h5>
+                <h5><strong>JEJU ${member.username}</strong></h5>
             </div>
             <nav id='cssmenu'>
                 <div id="head-mobile"></div>
@@ -60,6 +63,9 @@
                         </ul>
                     </li>
                     </sec:authorize>
+					<sec:authorize access="isAnonymous()">
+                    <li><a href="/login">마이페이지</a>
+                    </sec:authorize>
                     <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li><a href="#">관리자페이지</a>
                         <ul>
@@ -75,14 +81,17 @@
                         </ul>
                     </li>
 					</sec:authorize>
-					<sec:authorize access="isAnonymous()||hasRole('ROLE_ASSOCIATE')">
+					<sec:authorize access="isAnonymous()">
                     <li><a href='/login'>로그인</a></li>
 					</sec:authorize>
-					<sec:authorize access="hasRole('ROLE_REGURAL')||hasRole('ROLE_ADMIN')">
+					<sec:authorize access="isAuthenticated()">
                     <li><a href="/logout">로그아웃</a></li>
 					</sec:authorize>
-                    <sec:authorize access="hasRole('ROLE_REGURAL')||hasRole('ROLE_ASSOCIATE')||isAnonymous()">
+					<sec:authorize access="hasRole('ROLE_REGURAL')">
                     <li><a href='/reservationView1' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
+                    </sec:authorize>
+                    <sec:authorize access="isAnonymous()">
+                    <li><a href='/login' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
                     </sec:authorize>
                 </ul>
             </nav>

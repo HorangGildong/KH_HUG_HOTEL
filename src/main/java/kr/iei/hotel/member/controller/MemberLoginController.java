@@ -1,6 +1,7 @@
 package kr.iei.hotel.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -28,13 +29,13 @@ public class MemberLoginController {
 	}
 
 	@GetMapping("/login/oAuth2")
-	public String oauth2Login(HttpServletRequest req, @AuthenticationPrincipal PrincipalDetails userDetails) {
+	public String oauth2Login(HttpSession session, @AuthenticationPrincipal PrincipalDetails userDetails) {
 		MemberDto memberDto = userDetails.getMemberDto();
-		SecurityContextHolder.clearContext();
 		if(memberDto.getMemberRole().equals("ROLE_ASSOCIATE")) {
-			req.setAttribute("memberDto", memberDto);
-			return "forward:/join/oAuth2";
-		}			
+			session.setAttribute("memberDto", memberDto);
+			SecurityContextHolder.clearContext();
+			return "redirect:/join/oAuth2";
+		} 			
 		return "redirect:/";
 	}
 
@@ -47,8 +48,7 @@ public class MemberLoginController {
 			@AuthenticationPrincipal OAuth2User oAuth2user) {
 		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
 		OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
-//		SecurityContextHolder.clearContext();
-		System.out.println(principalDetails);
+		SecurityContextHolder.clearContext();
 		return ("authentication : <br>" + authentication + "<br><br>"
 				+ "authentication.getPrincipal() : <br>" + authentication.getPrincipal() + "<br><br>"
 				+ "userDetails : <br>" + userDetails + "<br><br>"
@@ -68,7 +68,6 @@ public class MemberLoginController {
 		System.out.println("/test 1===================");
 		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
 		System.out.println("authentication : " + principalDetails.getMemberDto());
-		
 		System.out.println("userDetails : " + userDetails.getMemberDto());
 		return "세션 정보 확인하기";
 	}

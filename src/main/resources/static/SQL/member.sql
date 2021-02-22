@@ -5,7 +5,7 @@ DROP TABLE GRADE;
 
 CREATE TABLE MEMBER (
 	memberNumber        NUMBER	                                            CONSTRAINT PK_MEMBER_MEMBERNUMBER PRIMARY KEY,
-    memberId            VARCHAR(20)                             NOT NULL    CONSTRAINT UQ_MEMBER_MEMBERID UNIQUE,   
+    memberId            VARCHAR(100)                            NOT NULL    CONSTRAINT UQ_MEMBER_MEMBERID UNIQUE,   
 	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' NOT NULL,
 	memberRegDate  	    DATE,
 	memberUnRegDate     DATE,

@@ -5,6 +5,7 @@ import java.text.ParseException;
 
 public class MemberOAuth2JoinFormDto {
 
+	private String memberId;
 	private String memberAgree;
 	private String memberEmail;
 	private String memberName;
@@ -30,6 +31,18 @@ public class MemberOAuth2JoinFormDto {
 		this.memberNick = memberNick;
 		this.memberPhone = memberPhone;
 		this.memberGender = memberGender;
+		this.memberBirth = memberBirth;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+	public void setMemberBirth(Date memberBirth) {
 		this.memberBirth = memberBirth;
 	}
 
@@ -100,9 +113,10 @@ public class MemberOAuth2JoinFormDto {
 
 	@Override
 	public String toString() {
-		return "MemberOAuth2JoinFormDto [memberAgree=" + memberAgree + ", memberEmail=" + memberEmail + ", memberName="
-				+ memberName + ", memberNick=" + memberNick + ", memberPhone=" + memberPhone + ", memberGender="
-				+ memberGender + ", memberBirth=" + memberBirth + ", memberKey=" + memberKey + "]";
+		return "MemberOAuth2JoinFormDto [memberId=" + memberId + ", memberAgree=" + memberAgree + ", memberEmail="
+				+ memberEmail + ", memberName=" + memberName + ", memberNick=" + memberNick + ", memberPhone="
+				+ memberPhone + ", memberGender=" + memberGender + ", memberBirth=" + memberBirth + ", memberKey="
+				+ memberKey + "]";
 	}
 	
 }

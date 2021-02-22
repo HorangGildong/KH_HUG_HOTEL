@@ -26,11 +26,10 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 //		String memberProvider = userRequest.getClientRegistration().getClientId();
 		String memberEmail = oAuth2User.getAttribute("email");
 		String memberKey = oAuth2User.getAttribute("sub");
-		
 		MemberDto memberDto = memberService.findByKey(memberKey);
 		if (memberDto == null) {
 			memberDto = new MemberDto("user_" + memberKey, "ROLE_ASSOCIATE", memberEmail, memberKey);
-		}
+		}			
 		return new PrincipalDetails(memberDto, oAuth2User.getAttributes());
 	}
 

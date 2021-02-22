@@ -49,7 +49,7 @@ public class Config extends WebSecurityConfigurerAdapter {
         http
         	.authorizeRequests()
         		.antMatchers("/path/**").authenticated()	// 경로 접근 권한 -> 로그인 된 경우
-        		.antMatchers("/admin/**").access("hasRole('ROlE_ADMIN')")	// 경로 접근 권한 -> 'ROLE_ADMIN'
+        		.antMatchers("/path/**").access("hasRole('ROLE_REGURAL')")	// 경로 접근 권한 -> 'ROLE_REGURAL'
         		.anyRequest().permitAll()					// 나머지 경로에 접근 권한 -> 모든 권한
         		.and()
         	.formLogin()

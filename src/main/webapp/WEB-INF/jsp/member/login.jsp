@@ -90,14 +90,14 @@
 							찾기</a>
 					</div>
 					<br>
-					<button class="btn btn-primary btn-lg btn-block"
+					<!-- <button class="btn btn-primary btn-lg btn-block"
 						style="background-color: #1EC800; border: #1EC800; padding: 0; height: 45px;">
 						<div
 							style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 20px;" onclick = "location.href = '/oauth2/authorization/naver'">N</div>
 						<div
 							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
 							네이버 아이디로 로그인</div>
-					</button>
+					</button> -->
 					<button class="btn btn-primary btn-lg btn-block"
 						style="background-color: #4285F4; border: #4285F4; padding: 0; height: 45px; margin-top: 10px" onclick = "location.href = '/oauth2/authorization/google' ">
 						<div

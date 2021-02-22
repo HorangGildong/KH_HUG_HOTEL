@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="member"/>
+</sec:authorize>
 <!doctype html>
 <html lang="en">
 
@@ -51,8 +54,8 @@
 				<div class="container" style="width: 400px; text-align: center;">
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
-					<%-- <c:set var="emailabc" value="${email}"/> --%>
-					<form class="form-horizontal" action="/Join/oAuth2?mamberEmail=${memberDto.memberEmail}" method="post">
+					<%-- <c:set var="em" value="${memberDto.memberEmail}"/> --%>
+					<form class="form-horizontal" action="/Join/oAuth2" method="post">
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
 							<div class="col-xs-8">
@@ -287,7 +290,6 @@
 		}
 		var phoneNum = document.getElementById('inputPhone');
 		phoneNum.onkeyup = function() {
-			console.log(this.value);
 			this.value = autoHypenPhone(this.value);
 		}
 
