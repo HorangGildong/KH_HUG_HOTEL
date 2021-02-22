@@ -283,7 +283,6 @@
 		}
 		var phoneNum = document.getElementById('inputPhone');
 		phoneNum.onkeyup = function() {
-			console.log(this.value);
 			this.value = autoHypenPhone(this.value);
 		}
 

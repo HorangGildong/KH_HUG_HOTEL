@@ -34,11 +34,13 @@ public interface MemberDao {
 			+ " )")
 	void autoJoin(String memberKey, String memberEmail);
 	
-	@Update("INSERT INTO MEMBER SET"
-			+ " memberEmail = '${memberEmail}', memberName = '${memberName}', memberRegDate = SYSDATE,"
-			+ " memberNick = '${memberNick}', memberRole = 'ROLE_REGURAL', memberPhone = '${memberPhone}',"
-			+ " memberGender = '${memberGender}', memberBirth = '${memberBirth}', memberAgree = '${memberAgree}'"
-			+ " WHERE memberKey = '${memberKey}'")
+	@Insert("INSERT INTO MEMBER ("
+			+ " memberId, memberEmail, memberName, memberRegDate, memberNick,"
+			+ " memberPhone, memberGender, memberBirth, memberAgree, memberKey)"
+			+ " VALUES("
+			+ " '${memberId}', '${memberEmail}', '${memberName}', SYSDATE, '${memberNick}',"
+			+ " '${memberPhone}', '${memberGender}', '${memberBirth}', '${memberAgree}', '${memberKey}'"
+			+ " )")
 	void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto);
 	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberId = '${memberId}'")

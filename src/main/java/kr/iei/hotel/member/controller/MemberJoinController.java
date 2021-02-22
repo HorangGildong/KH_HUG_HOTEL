@@ -1,6 +1,7 @@
 package kr.iei.hotel.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -44,26 +45,21 @@ public class MemberJoinController {
 	}
 	
 	@GetMapping("/join/oAuth2")
-	public String oAuthJoinPage(HttpServletRequest req, Model model) {
-		MemberDto memberDto = (MemberDto) req.getAttribute("memberDto");
-		model.addAttribute(memberDto);
-//		req.setAttribute("email", memberDto.getMemberEmail());
-//		req.setAttribute("key", memberDto.getMemberEmail());
+	public String oAuthJoinPage(HttpServletRequest req, HttpSession session, Model model) {
+		MemberDto memberDto = (MemberDto) session.getAttribute("memberDto");
+		model.addAttribute("memberDto", memberDto);
 		return "/member/oAuth2Join";
 	}
 	
 	@PostMapping("/Join/oAuth2")
-	@ResponseBody
-	public String oAuth2Join(MemberDto memberDto, HttpServletRequest req, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {
-		System.out.println(memberDto);
-		System.out.println(memberOAuth2JoinFormDto);
-		System.out.println(model.getAttribute("memberDto"));
-		System.out.println(model.getAttribute("memberDto.memberEmail"));
-		System.out.println(req.getAttribute("memberDto.memberEmail"));
-		
-//		memberService.oAuth2Join(memberOAuth2JoinFormDto);
-//		return "redirect:/";
-		return "memberOAuth2JoinFormDto";
+	public String oAuth2Join(HttpSession session, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
+		MemberDto memberDto = (MemberDto) session.getAttribute("memberDto");
+		session.invalidate();
+		memberOAuth2JoinFormDto.setMemberId("user_" + memberDto.getMemberKey());
+		memberOAuth2JoinFormDto.setMemberEmail(memberDto.getMemberEmail());
+		memberOAuth2JoinFormDto.setMemberKey(memberDto.getMemberKey());
+		memberService.oAuth2Join(memberOAuth2JoinFormDto);
+		return "redirect:/";
 	}
 	
 	
