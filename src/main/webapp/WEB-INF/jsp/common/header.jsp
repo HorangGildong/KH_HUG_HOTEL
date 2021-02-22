@@ -63,6 +63,9 @@
                         </ul>
                     </li>
                     </sec:authorize>
+					<sec:authorize access="isAnonymous()">
+                    <li><a href="/login">마이페이지</a>
+                    </sec:authorize>
                     <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li><a href="#">관리자페이지</a>
                         <ul>
@@ -84,8 +87,11 @@
 					<sec:authorize access="isAuthenticated()">
                     <li><a href="/logout">로그아웃</a></li>
 					</sec:authorize>
-                    <sec:authorize access="hasRole('ROLE_REGURAL')">
+					<sec:authorize access="hasRole('ROLE_REGURAL')">
                     <li><a href='/reservationView1' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
+                    </sec:authorize>
+                    <sec:authorize access="isAnonymous()">
+                    <li><a href='/login' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
                     </sec:authorize>
                 </ul>
             </nav>
