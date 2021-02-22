@@ -15,6 +15,8 @@ public class ReservationService {
 	@Autowired
 	ReservationMapper reservationMapper;
 	
+	//-------------------------------------예약--------------------------------------------
+	
 	//예약 개수 검색
 	public int selectReservationCount(ReservationVO reservationVO)throws Exception {
 		return reservationMapper.selectReservationCount(reservationVO);
@@ -47,4 +49,10 @@ public class ReservationService {
 	public List<ReservationVO> reservationAdminSearch(String reservationNo)throws Exception {
 		return reservationMapper.reservationAdminSearch(reservationNo);
 	}
+	
+	
+	//-------------------------------------수입통계--------------------------------------------
+	
+	
+	
 }
