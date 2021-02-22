@@ -388,6 +388,20 @@
 	<select id="view" resultType="kr.iei.hotel.faq.vo.FaqVo" parameterType="int">
 		select * from faq where id = #{id}
 	</select>
+	
+	<select id="admin_tot_list" resultType="int" parameterType="String">
+		select count(id) from faq where category = #{catagory}
+	</select>
+	
+	<select id="admin_search" resultType="kr.iei.hotel.faq.vo.FaqVo" parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+			select rownum no, f.* from faq f
+			where f.category = #{category}
+			order by id desc
+			)
+		where no between #{page.startNo} and #{page.endNo}
+		order by id desc
+	</select>
 
 	<!-- ──────────────────────────── insert ──────────────────────────── -->
 	<insert id='faqInsert' parameterType='kr.iei.hotel.faq.vo.FaqVo'>
