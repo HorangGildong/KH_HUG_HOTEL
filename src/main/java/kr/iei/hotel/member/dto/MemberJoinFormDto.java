@@ -5,6 +5,7 @@ import java.text.ParseException;
 
 public class MemberJoinFormDto {
 
+	private String memberId;
 	private String memberAgree;
 	private String memberEmail;
 	private String memberName;
@@ -16,8 +17,9 @@ public class MemberJoinFormDto {
 	
 	public MemberJoinFormDto() {}
 
-	public MemberJoinFormDto(String memberAgree, String memberEmail, String memberName, String memberNick,
-			String memberPhone, String memberGender, String memberPassword, Date memberBirth) {
+	public MemberJoinFormDto(String memberId, String memberAgree, String memberEmail, String memberName,
+			String memberNick, String memberPhone, String memberGender, String memberPassword, Date memberBirth) {
+		this.memberId = memberId;
 		this.memberAgree = memberAgree;
 		this.memberEmail = memberEmail;
 		this.memberName = memberName;
@@ -26,6 +28,14 @@ public class MemberJoinFormDto {
 		this.memberGender = memberGender;
 		this.memberPassword = memberPassword;
 		this.memberBirth = memberBirth;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 	public String getMemberAgree() {
@@ -84,6 +94,10 @@ public class MemberJoinFormDto {
 		this.memberPassword = memberPassword;
 	}
 
+	public Date getMemberBirth() {
+		return memberBirth;
+	}
+	
 	public void setMemberBirth(String memberBirth) throws ParseException {
 //		this.memberBirth = new SimpleDateFormat("yyyy-MM-dd").parse(memberBirth);
 		this.memberBirth = Date.valueOf(memberBirth);
@@ -91,9 +105,10 @@ public class MemberJoinFormDto {
 
 	@Override
 	public String toString() {
-		return "MemberSignUpFormDto [memberAgree=" + memberAgree + ", memberEmail=" + memberEmail + ", memberName="
-				+ memberName + ", memberNick=" + memberNick + ", memberPhone=" + memberPhone + ", memberGender="
-				+ memberGender + ", memberPassword=" + memberPassword + ", memberBirth=" + memberBirth + "]";
+		return "MemberJoinFormDto [memberId=" + memberId + ", memberAgree=" + memberAgree + ", memberEmail="
+				+ memberEmail + ", memberName=" + memberName + ", memberNick=" + memberNick + ", memberPhone="
+				+ memberPhone + ", memberGender=" + memberGender + ", memberPassword=" + memberPassword
+				+ ", memberBirth=" + memberBirth + "]";
 	}
-	
+
 }

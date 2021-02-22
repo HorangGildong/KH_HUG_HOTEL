@@ -42,6 +42,7 @@ public class MemberJoinController {
 	@GetMapping("/Join/oAuth2")
 	public String oAuthJoinPage(@AuthenticationPrincipal OAuth2User oAuth2user, Model model) {
 		model.addAttribute("email", oAuth2user.getAttribute("email"));
+		System.out.println("ok");
 		return "/member/oAuth2Join";
 	}
 	
@@ -63,6 +64,12 @@ public class MemberJoinController {
 //		return "/member/login";
 //	}
 		
+	@GetMapping("/join/idCheck")
+	@ResponseBody
+	public boolean isIdCheck(@RequestParam("id") String memberId) {
+		return !(memberService.checkId(memberId)==0);
+	}
+	
 	@GetMapping("/join/emailCheck")
 	@ResponseBody
 	public boolean isEmailCheck(@RequestParam("email") String memberEmail) {

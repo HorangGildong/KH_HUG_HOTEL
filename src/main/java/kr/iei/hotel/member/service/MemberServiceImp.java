@@ -35,6 +35,15 @@ public class MemberServiceImp implements MemberService {
 	}
 	
 	@Override
+	public MemberDto findById(String memberId) {
+		return memberDao.findById(memberId);
+	}
+	@Override
+	public int checkId(String memberId) {
+		return memberDao.checkId(memberId);
+	}
+	
+	@Override
 	public int checkEmail(String memberEmail) {
 		return memberDao.checkEmail(memberEmail);
 	}

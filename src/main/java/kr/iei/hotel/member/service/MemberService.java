@@ -12,11 +12,14 @@ public interface MemberService {
 	
 	void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto);
 	
+	int checkId(String memberId);
+	
 	int checkEmail(String memberEmail);
 
 	int checkNick(String memberNick);
-
+	
 	MemberDto findByKey(String memberKey);
-
+	
+	MemberDto findById(String memberId);
 
 }

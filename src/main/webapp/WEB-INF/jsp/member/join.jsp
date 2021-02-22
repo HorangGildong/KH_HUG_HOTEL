@@ -53,11 +53,11 @@
 					<form class="form-horizontal" action="/join" method="post">
 
 						<div class="form-group">
-							<label for="inputEmail" class="col-xs-4 control-label">아이디</label>
+							<label for="inputId" class="col-xs-4 control-label">아이디</label>
 							<div class="col-xs-8">
-								<input type="email" class="form-control" name="memberEmail"
-									id="inputEmail" placeholder="E-mail" required>
-								<div class="check_font" id="emailCheck"></div>
+								<input type="text" class="form-control"
+									name="memberId"	id="inputId" placeholder="ID" required>
+								<div class="check_font" id="idCheck"></div>
 							</div>
 						</div>
 
@@ -65,18 +65,16 @@
 							<label for="inputPassword" class="col-xs-4 control-label">비밀번호</label>
 							<div class="col-xs-8">
 								<input type="password" class="form-control"
-									name="memberPassword" id="inputPassword" placeholder="Password"
-									required>
+									name="memberPassword" id="inputPassword" placeholder="Password"	required>
 								<div class="check_font" id="passwordCheck"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">비밀번호
-								확인</label>
+							<label for="inputPassword" class="col-xs-4 control-label">비밀번호	확인</label>
 							<div class="col-xs-8">
-								<input type="password" class="form-control" id="inputPassword2"
-									placeholder="PasswordCheck" disabled required>
+								<input type="password" class="form-control"
+									id="inputPassword2"	placeholder="PasswordCheck" disabled required>
 								<div class="check_font" id="passwordCheck2"></div>
 							</div>
 						</div>
@@ -84,44 +82,52 @@
 						<div class="form-group">
 							<label for="inputName" class="col-xs-4 control-label">이름</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" name="memberName"
-									id="inputName" placeholder="Name" required>
+								<input type="text" class="form-control"
+									name="memberName" id="inputName" placeholder="Name" required>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputNick" class="col-xs-4 control-label">닉네임</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" name="memberNick"
-									id="inputNickname" placeholder="Nick" required>
+								<input type="text" class="form-control"
+									name="memberNick" id="inputNickname" placeholder="Nick" required>
 								<div class="check_font" id="nickCheck"></div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
+							<div class="col-xs-8">
+								<input type="email" class="form-control"
+									name="memberEmail" id="inputEmail" placeholder="E-mail" required>
+								<div class="check_font" id="emailCheck"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" name="memberPhone"
-									id="inputPhone" placeholder="PhoneNumber" required>
+								<input type="text" class="form-control"
+									name="memberPhone" id="inputPhone" placeholder="PhoneNumber" required>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="inputBirth" class="col-xs-4 control-label">생년월일</label>
 							<div class="col-xs-8">
-								<input type="date" class="form-control" name="memberBirth"
-									id="inputBirth" required>
+								<input type="date" class="form-control"
+									name="memberBirth" id="inputBirth" required>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-xs-4 control-label">성별</label> <label
-								class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGenderMale" value="MALE"
-								checked> 남
-							</label> <label class="radio-inline col-xs-offset-1 col-xs-2"> <input
-								type="radio" name="memberGender" id="inputGenderFemale" value="FEMALE">
-								여
+							<label class="col-xs-4 control-label">성별</label>
+							<label class="radio-inline col-xs-offset-1 col-xs-2">
+								<input type="radio" name="memberGender" id="inputGenderMale" value="MALE" checked> 남
+							</label>
+							<label class="radio-inline col-xs-offset-1 col-xs-2">
+								<input type="radio" name="memberGender" id="inputGenderFemale" value="FEMALE"> 여
 							</label>
 						</div>
 
@@ -129,8 +135,8 @@
 
 						<div class="form-group" style="margin-bottom: 10px;">
 							<div class="checkbox">
-								<label class="checkbox-inline col-xs-5"> <input
-									type="checkbox" id="chk-terms1" value="chk" required>
+								<label class="checkbox-inline col-xs-5"> 
+									<input type="checkbox" id="chk-terms1" value="chk" required>
 									(필수) 동의합니다.
 								</label>
 							</div>
@@ -139,13 +145,12 @@
 						<div class="panel panel-warning" style="margin-bottom: 10px;">
 							<div class="panel-heading">
 								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion"
-										href="#terms1"> 이용약관 (자세히 보기) </a>
+									<a data-toggle="collapse" data-parent="#accordion" href="#terms1"> 이용약관 (자세히 보기) </a>
 								</h4>
 							</div>
 							<div id="terms1" class="panel-collapse collapse">
-								<div class="panel-body" style="text-align: left;">Lorem
-									ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+								<div class="panel-body" style="text-align: left;">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
 									suscipit velit sit amet tristique tincidunt. Fusce dapibus
 									tortor ut est ornare porttitor. Aliquam auctor bibendum
 									posuere. Fusce laoreet tincidunt lacinia. Aliquam posuere
@@ -159,14 +164,15 @@
 									urna elementum semper. Etiam dignissim pharetra mauris. Donec
 									rhoncus nisl sem, ut ultrices odio porttitor sed. Donec
 									consequat facilisis velit. Cras feugiat tincidunt fermentum.
-									Duis interdum nec quam id eleifend.</div>
+									Duis interdum nec quam id eleifend.
+								</div>
 							</div>
 						</div>
 
 						<div class="form-group" style="margin-bottom: 10px;">
 							<div class="checkbox">
-								<label class="checkbox-inline col-xs-5"> <input
-									type="checkbox" name="memberAgree" id="chk-terms2" value="chk">
+								<label class="checkbox-inline col-xs-5">
+									<input type="checkbox" name="memberAgree" id="chk-terms2" value="chk">
 									(선택) 동의합니다.
 								</label>
 							</div>
@@ -180,8 +186,8 @@
 								</h4>
 							</div>
 							<div id="terms2" class="panel-collapse collapse">
-								<div class="panel-body" style="text-align: left;">Lorem
-									ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+								<div class="panel-body" style="text-align: left;">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
 									suscipit velit sit amet tristique tincidunt. Fusce dapibus
 									tortor ut est ornare porttitor. Aliquam auctor bibendum
 									posuere. Fusce laoreet tincidunt lacinia. Aliquam posuere
@@ -195,7 +201,8 @@
 									urna elementum semper. Etiam dignissim pharetra mauris. Donec
 									rhoncus nisl sem, ut ultrices odio porttitor sed. Donec
 									consequat facilisis velit. Cras feugiat tincidunt fermentum.
-									Duis interdum nec quam id eleifend.</div>
+									Duis interdum nec quam id eleifend.
+								</div>
 							</div>
 						</div>
 
@@ -203,8 +210,10 @@
 
 						<div class="col-xs-12">
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn" 
-									style="font-weight: bold;" disabled>회원가입</button>
+								<button type="submit" class="btn btn-primary btn-lg btn-block"
+									id="submitBtn" style="font-weight: bold;" disabled>
+									회원가입
+								</button>
 							</div>
 						</div>
 
@@ -278,9 +287,38 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
+		var isId;
 		var isEmail;
 		var isNick;
 		var isPassword;
+		
+		$("#inputId").blur(function() {
+			var id = $("#inputId").val();
+			isId = false;
+			$.ajax({
+				url : '${pageContext.request.contextPath}/join/idCheck?id=' + id,
+				type : 'get',
+				success : function(data) {
+					if (data) {
+						$("#idCheck").text("사용중인 아이디입니다.");
+						$("#idCheck").css("color", "red");
+					} else if((id.length > 0 && id.length < 8) || id.length > 20) {
+						$("#idCheck").text("8~20자리로 입력해주세요.");
+						$("#idCheck").css("color", "red");
+					} else if(id.search(/\s/) != -1) {
+						$("#idCheck").text("공백 없이 입력해주세요.");
+						$("#idCheck").css("color", "red");
+					} else if (id!="") {
+						isEmail = true;
+						$("#idCheck").text("사용가능한 아이디입니다.");
+						$("#idCheck").css("color", "blue");
+					} else {
+						$("#idCheck").text("");
+					}			
+					$.fn.submitDisable();
+				}
+			});
+		});
 		
 		$("#inputEmail").blur(function() {
 			var email = $('#inputEmail').val();
@@ -292,14 +330,14 @@
 				success : function(data) {
 					if (!str.test(email) && email!="") {
 						$("#emailCheck").text("이메일 형식이 바르지 않습니다.");
-						$("#emailCheck").css("color",	"red");
+						$("#emailCheck").css("color", "red");
 					} else if (data) {
 						$("#emailCheck").text("사용중인 아이디입니다.");
-						$("#emailCheck").css("color",	"red");
+						$("#emailCheck").css("color", "red");
 					} else if (email!="") {
 						isEmail = true;
 						$("#emailCheck").text("사용가능한 아이디입니다.");
-						$("#emailCheck").css("color",	"blue");
+						$("#emailCheck").css("color", "blue");
 					} else {
 						$("#emailCheck").text("");
 					}			
@@ -319,10 +357,10 @@
 						$("#nickCheck").text("");
 					} else if (data) {
 						$("#nickCheck").text("사용중인 닉네임입니다. ㅠㅠ");
-						$("#nickCheck").css("color",	"red");
+						$("#nickCheck").css("color", "red");
 					} else {
 						$("#nickCheck").text("사용가능한 닉네임입니다.");
-						$("#nickCheck").css("color",	"blue");
+						$("#nickCheck").css("color", "blue");
 						isNick = true;
 					}
 					$.fn.submitDisable();
@@ -381,7 +419,7 @@
 		
 		$.fn.submitDisable = function () {
 			console.log(isEmail, isNick, isPassword);
-			if(isEmail == true && isNick == true && isPassword == true) {
+			if(isId == true && isEmail == true && isNick == true && isPassword == true) {
 				$("#submitBtn").attr("disabled", false);
 			} else {
 				$("#submitBtn").attr("disabled", true);

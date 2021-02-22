@@ -33,7 +33,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 		this.memberDto = memberDto;
 		this.attributes = attributes;
 	}
-
+	
 	// 권한 (원래 권한이 여러개 있을 수 있으므로 Collection 루프 돌려야 함)
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -53,18 +53,17 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 		return memberDto.getMemberRole();
 	}
 	
-	// 비밀번호
-	@Override
-	public String getPassword() {
-		return memberDto.getMemberPassword();
-	}
-
-	// 이메일
-	@Override
-	public String getUsername() {
-		return memberDto.getMemberEmail();
+	// 일련번호
+	public Long getNumber() {
+		return memberDto.getMemberNumber();
 	}
 	
+	// 아이디
+	@Override
+	public String getUsername() {
+		return memberDto.getMemberId();
+	}
+
 	// 이름
 	@Override
 	public String getName() {
@@ -74,6 +73,17 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	// 닉네임
 	public String getNick() {
 		return memberDto.getMemberNick();
+	}
+	
+	// 비밀번호
+	@Override
+	public String getPassword() {
+		return memberDto.getMemberPassword();
+	}
+
+	// 이메일
+	public String getEmail() {
+		return memberDto.getMemberEmail();
 	}
 	
 	// 등급
