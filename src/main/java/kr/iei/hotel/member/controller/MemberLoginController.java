@@ -1,5 +1,7 @@
 package kr.iei.hotel.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
+import kr.iei.hotel.member.dto.MemberDto;
 
 @Controller
 public class MemberLoginController {
@@ -25,15 +28,13 @@ public class MemberLoginController {
 	}
 
 	@GetMapping("/login/oAuth2")
-	public String oauth2Login(@AuthenticationPrincipal PrincipalDetails userDetails) {
-		System.out.println("ok? : " + userDetails.getMemberDto().getMemberId());
-		System.out.println("ok? : " + userDetails.getMemberDto().getMemberRole());
-		if(userDetails.getMemberDto().getMemberRole().equals("ROLE_ASSOCIATE")) {
-			return "redirect:/Join/oAuth2";
-		} else {
-			System.out.println("okok");
-		}
-			
+	public String oauth2Login(HttpServletRequest req, @AuthenticationPrincipal PrincipalDetails userDetails) {
+		MemberDto memberDto = userDetails.getMemberDto();
+		SecurityContextHolder.clearContext();
+		if(memberDto.getMemberRole().equals("ROLE_ASSOCIATE")) {
+			req.setAttribute("memberDto", memberDto);
+			return "forward:/join/oAuth2";
+		}			
 		return "redirect:/";
 	}
 
