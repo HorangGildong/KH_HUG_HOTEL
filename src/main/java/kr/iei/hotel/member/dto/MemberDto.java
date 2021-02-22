@@ -22,6 +22,11 @@ public class MemberDto {
 	
 	public MemberDto() {}
 
+	public MemberDto(String memberEmail, String memberKey) {
+		this.memberEmail = memberEmail;
+		this.memberKey = memberKey;
+	}
+
 	public MemberDto(Long memberId, String memberGrade, Date memberRegDate, Date memberUnRegDate,
 			Date memberPwChangeDate, String memberAgree, String memberRole, String memberEmail, String memberName,
 			String memberNick, String memberPhone, String memberGender, String memberPassword, Date memberBirth,

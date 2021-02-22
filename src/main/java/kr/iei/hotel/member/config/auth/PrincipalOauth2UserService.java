@@ -30,6 +30,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 		
 		MemberDto memberDto = memberService.findByKey(memberKey);
 		if (memberDto == null) {
+//			memberDto = new MemberDto(memberEmail, memberKey);
 			memberService.autoJoin(memberKey, memberEmail);
 			memberDto = memberService.findByKey(memberKey);
 		} else {

@@ -34,7 +34,16 @@ public interface MemberDao {
 			+ " )")
 	void autoJoin(String memberKey, String memberEmail);
 	
-	@Update("UPDATE MEMBER SET"
+//	@Insert("INSERT INTO MEMBER ("
+//			+ " memberEmail, memberName, memberRegDate, memberNick, memberRole"
+//			+ " memberPhone, memberGender, memberBirth, memberAgree, memberKey)"
+//			+ " VALUES("
+//			+ " '${memberEmail}', '${memberName}', SYSDATE, '${memberNick}', 'ROLE_REGURAL',"
+//			+ " '${memberPhone}', '${memberGender}', '${memberBirth}', '${memberAgree}', '${memberKey}'"
+//			+ " )")
+//	void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto);
+	
+	@Update("INSERT INTO MEMBER SET"
 			+ " memberEmail = '${memberEmail}', memberName = '${memberName}', memberRegDate = SYSDATE,"
 			+ " memberNick = '${memberNick}', memberRole = 'ROLE_REGURAL', memberPhone = '${memberPhone}',"
 			+ " memberGender = '${memberGender}', memberBirth = '${memberBirth}', memberAgree = '${memberAgree}'"
