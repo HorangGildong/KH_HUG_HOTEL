@@ -4,7 +4,8 @@ import java.sql.Date;
 
 public class MemberDto {
 
-	private Long memberId;
+	private Long memberNumber;
+	private String memberId;
 	private String memberGrade;
 	private Date memberRegDate;
 	private Date memberUnRegDate;
@@ -21,16 +22,19 @@ public class MemberDto {
 	private String memberKey;
 	
 	public MemberDto() {}
-
-	public MemberDto(String memberEmail, String memberKey) {
+	
+	public MemberDto(String memberId, String memberRole, String memberEmail, String memberKey) {
+		this.memberId = memberId;
+		this.memberRole = memberRole;
 		this.memberEmail = memberEmail;
 		this.memberKey = memberKey;
 	}
 
-	public MemberDto(Long memberId, String memberGrade, Date memberRegDate, Date memberUnRegDate,
+	public MemberDto(Long memberNumber, String memberId, String memberGrade, Date memberRegDate, Date memberUnRegDate,
 			Date memberPwChangeDate, String memberAgree, String memberRole, String memberEmail, String memberName,
 			String memberNick, String memberPhone, String memberGender, String memberPassword, Date memberBirth,
 			String memberKey) {
+		this.memberNumber = memberNumber;
 		this.memberId = memberId;
 		this.memberGrade = memberGrade;
 		this.memberRegDate = memberRegDate;
@@ -48,11 +52,19 @@ public class MemberDto {
 		this.memberKey = memberKey;
 	}
 
-	public final Long getMemberId() {
+	public final Long getMemberNumber() {
+		return memberNumber;
+	}
+
+	public final void setMemberNumber(Long memberNumber) {
+		this.memberNumber = memberNumber;
+	}
+
+	public final String getMemberId() {
 		return memberId;
 	}
 
-	public final void setMemberId(Long memberId) {
+	public final void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 
@@ -170,12 +182,12 @@ public class MemberDto {
 
 	@Override
 	public String toString() {
-		return "MemberDto [memberId=" + memberId + ", memberGrade=" + memberGrade + ", memberRegDate=" + memberRegDate
-				+ ", memberUnRegDate=" + memberUnRegDate + ", memberPwChangeDate=" + memberPwChangeDate
-				+ ", memberAgree=" + memberAgree + ", memberRole=" + memberRole + ", memberEmail=" + memberEmail
-				+ ", memberName=" + memberName + ", memberNick=" + memberNick + ", memberPhone=" + memberPhone
-				+ ", memberGender=" + memberGender + ", memberPassword=" + memberPassword + ", memberBirth="
-				+ memberBirth + ", memberKey=" + memberKey + "]";
+		return "MemberDto [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberGrade=" + memberGrade
+				+ ", memberRegDate=" + memberRegDate + ", memberUnRegDate=" + memberUnRegDate + ", memberPwChangeDate="
+				+ memberPwChangeDate + ", memberAgree=" + memberAgree + ", memberRole=" + memberRole + ", memberEmail="
+				+ memberEmail + ", memberName=" + memberName + ", memberNick=" + memberNick + ", memberPhone="
+				+ memberPhone + ", memberGender=" + memberGender + ", memberPassword=" + memberPassword
+				+ ", memberBirth=" + memberBirth + ", memberKey=" + memberKey + "]";
 	}
 
 }

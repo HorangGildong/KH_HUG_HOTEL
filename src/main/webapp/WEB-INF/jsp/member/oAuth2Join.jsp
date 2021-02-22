@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -49,13 +51,15 @@
 				<div class="container" style="width: 400px; text-align: center;">
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
-
+					<%-- <c:set var="email" value="${memberDto.memberEmail}"/> --%>
+					<c:set var="email" value="abc"/>
+					<c:set var="key" value="${key}"/>
 					<form class="form-horizontal" action="/Join/oAuth2" method="post">
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
 							<div class="col-xs-8">
 								<input type="email" class="form-control" name="memberEmail"
-									id="inputEmail" value="${email}" disabled>
+									id="inputEmail" value="${param.email}" disabled>
 							</div>
 						</div>
 

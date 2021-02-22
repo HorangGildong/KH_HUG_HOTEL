@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetailsService;
@@ -53,22 +54,23 @@ public class Config extends WebSecurityConfigurerAdapter {
         		.and()
         	.formLogin()
         		.loginPage("/login")						// 권한 없는 페이지에 접근할 때 이동할 경로 
-        		.usernameParameter("memberEmail")
+//        		.usernameParameter("memberEmail")
         		.loginProcessingUrl("/loginProc")			// '/loginProc'호출시 시큐리티가 진행 -> controller 불필요
         		.defaultSuccessUrl("/")						// 로그인 성공시 이동할 경로
         		.failureUrl("/login")						// 로그인 실패시 이동할 경로
         		.and()
         	.logout()
-            	.clearAuthentication(true)
-            	.invalidateHttpSession(true)
+            	.clearAuthentication(true)					// default : true
+            	.invalidateHttpSession(true)				// default : true
                 .logoutSuccessUrl("/login")
         	;
         http
         	.oauth2Login()
         		.defaultSuccessUrl("/login/oAuth2")
+        		.failureUrl("/login")
         		.loginPage("/login")
         		.userInfoEndpoint()
-        		.userService(principalOauth2UserService)		// 구글 로그인 후 토큰 & 프로필을 받아서 처리하는 함수
+        		.userService(principalOauth2UserService)	// 구글 로그인 후 토큰 & 프로필을 받아서 처리하는 함수
     		;
     }
     

@@ -61,24 +61,23 @@
 			<div style="margin: 100px 0px 100px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 					<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
-					<form class="col-md-12 form-horizontal" action="/loginProc"
-						method="post">
+					<form class="col-md-12 form-horizontal" action="/loginProc"	method="post">
 						<div class="form-group">
 							<div class="input-group">
-								<span class="input-group-addon"> <span
-									class="glyphicon glyphicon-user" aria-hidden="true"></span>
-								</span> <input type="email" class="form-control input-lg"
-									name="memberEmail" id="inputEmail" placeholder="E-mail"
-									value="gildong@hwalbin.com">
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								</span>
+								<input type="text" class="form-control input-lg"
+									name="username" id="inputId" placeholder="ID" value="gildong">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="input-group">
-								<span class="input-group-addon"> <span
-									class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-								</span> <input type="password" class="form-control input-lg"
-									name="password" id="inputPassword" placeholder="Password"
-									value="123">
+								<span class="input-group-addon">
+								<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+								</span>
+								<input type="password" class="form-control input-lg"
+									name="password" id="inputPassword" placeholder="Password" value="123">
 							</div>
 						</div>
 						<div class="form-group">

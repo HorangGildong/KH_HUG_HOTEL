@@ -1,5 +1,7 @@
 package kr.iei.hotel.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.iei.hotel.member.config.auth.PrincipalDetails;
+import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 import kr.iei.hotel.member.service.MemberService;
@@ -39,19 +43,25 @@ public class MemberJoinController {
 		return "/member/login";
 	}
 	
-	@GetMapping("/Join/oAuth2")
-	public String oAuthJoinPage(@AuthenticationPrincipal OAuth2User oAuth2user, Model model) {
-		model.addAttribute("email", oAuth2user.getAttribute("email"));
+	@GetMapping("/join/oAuth2")
+	public String oAuthJoinPage(HttpServletRequest req) {
+		MemberDto memberDto = (MemberDto) req.getAttribute("memberDto");
+//		model.addAttribute(memberDto);
+		req.setAttribute("memberDto", memberDto);
+		req.setAttribute("email", memberDto.getMemberEmail());
+		req.setAttribute("key", memberDto.getMemberKey());
 		return "/member/oAuth2Join";
 	}
 	
 	@PostMapping("/Join/oAuth2")
-	public String oAuth2Join(@AuthenticationPrincipal OAuth2User oAuth2user,
-			MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
-		memberOAuth2JoinFormDto.setMemberEmail(oAuth2user.getAttribute("email"));
-		memberOAuth2JoinFormDto.setMemberKey(oAuth2user.getAttribute("sub"));
-		memberService.oAuth2Join(memberOAuth2JoinFormDto);
-		return "redirect:/";
+	@ResponseBody
+	public String oAuth2Join(HttpServletRequest req, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
+		System.out.println(memberOAuth2JoinFormDto);
+		System.out.println(req.getAttribute("email"));
+		
+//		memberService.oAuth2Join(memberOAuth2JoinFormDto);
+//		return "redirect:/";
+		return "memberOAuth2JoinFormDto";
 	}
 	
 	
@@ -63,6 +73,12 @@ public class MemberJoinController {
 //		return "/member/login";
 //	}
 		
+	@GetMapping("/join/idCheck")
+	@ResponseBody
+	public boolean isIdCheck(@RequestParam("id") String memberId) {
+		return !(memberService.checkId(memberId)==0);
+	}
+	
 	@GetMapping("/join/emailCheck")
 	@ResponseBody
 	public boolean isEmailCheck(@RequestParam("email") String memberEmail) {

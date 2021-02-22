@@ -12,8 +12,8 @@ import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 @Mapper
 public interface MemberDao {
 
-	@Select("SELECT * FROM MEMBER WHERE memberEmail = '${memberEmail}'")
-	MemberDto findByEmail(String memberEmail);
+	@Select("SELECT * FROM MEMBER WHERE memberId = '${memberId}'")
+	MemberDto findById(String memberId);
 
 	@Select("SELECT * FROM MEMBER WHERE memberKey = '${memberKey}'")
 	MemberDto findByKey(String memberKey);
@@ -50,11 +50,13 @@ public interface MemberDao {
 			+ " WHERE memberKey = '${memberKey}'")
 	void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto);
 	
+	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberId = '${memberId}'")
+	int checkId(String memberId);
+	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberEmail = '${memberEmail}'")
 	int checkEmail(String memberEmail);
 
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberNick = '${memberNick}'")
 	int checkNick(String memberNick);
-
 
 }

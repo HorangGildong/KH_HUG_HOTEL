@@ -1,27 +1,20 @@
 package kr.iei.hotel.member.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
-import kr.iei.hotel.member.service.MemberService;
+import kr.iei.hotel.member.dto.MemberDto;
 
 @Controller
 public class MemberLoginController {
-	
-	@Autowired
-	private MemberService memberService;
-	
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
 	
 	/*
 	 * 1순위 : 관련 컨트롤러에 맵핑된 주소
@@ -30,29 +23,46 @@ public class MemberLoginController {
 	
 	// loginPage
 	@GetMapping("/login")
-	public String loginPage() {		
+	public String loginPage() {
 		return "/member/login";		
 	}
 
 	@GetMapping("/login/oAuth2")
-	public String oauth2Login(Authentication authentication, @AuthenticationPrincipal OAuth2User oAuth2user) {
-		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
-		if(principalDetails.getMemberDto().getMemberRole().equals("ROLE_ASSOCIATE"))
-		{
-			return "redirect:/Join/oAuth2";
-		} else {
-			System.out.println("okok");
-		}
-			
+	public String oauth2Login(HttpServletRequest req, @AuthenticationPrincipal PrincipalDetails userDetails) {
+		MemberDto memberDto = userDetails.getMemberDto();
+		SecurityContextHolder.clearContext();
+		if(memberDto.getMemberRole().equals("ROLE_ASSOCIATE")) {
+			req.setAttribute("memberDto", memberDto);
+			return "forward:/join/oAuth2";
+		}			
 		return "redirect:/";
 	}
 
 	
-	
+	@GetMapping("/test")	// TEST
+	@ResponseBody
+	public String test(
+			Authentication authentication,
+			@AuthenticationPrincipal PrincipalDetails userDetails,
+			@AuthenticationPrincipal OAuth2User oAuth2user) {
+		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
+		OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
+//		SecurityContextHolder.clearContext();
+		System.out.println(principalDetails);
+		return ("authentication : <br>" + authentication + "<br><br>"
+				+ "authentication.getPrincipal() : <br>" + authentication.getPrincipal() + "<br><br>"
+				+ "userDetails : <br>" + userDetails + "<br><br>"
+				+ "userDetails.getMemberDto() : <br>" + userDetails.getMemberDto() + "<br><br>"
+				+ "(PrincipalDetails) authentication.getPrincipal() : <br>" + principalDetails + "<br><br>"
+				+ "(PrincipalDetails) authentication.getPrincipal().getMemberDto : <br>" + principalDetails.getMemberDto() + "<br><br>"
+				+ "(OAuth2User) authentication.getPrincipal() : <br>" + oAuth2User + "<br><br>"
+				+ "(OAuth2User) authentication.getPrincipal().getAttributes() : <br>" + oAuth2User.getAttributes()
+				);
+	}
 	
 	@GetMapping("/test1")	// TEST
 	@ResponseBody
-	public String str1(
+	public String test1(
 			Authentication authentication,
 			@AuthenticationPrincipal PrincipalDetails userDetails) {
 		System.out.println("/test 1===================");
@@ -65,7 +75,7 @@ public class MemberLoginController {
 	
 	@GetMapping("/test2")	// TEST oauth2
 	@ResponseBody
-	public String str2(
+	public String test2(
 			Authentication authentication,
 			@AuthenticationPrincipal OAuth2User oAuth2user) {
 		System.out.println("/test 2===================");
