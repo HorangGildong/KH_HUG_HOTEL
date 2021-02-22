@@ -17,7 +17,7 @@
         <header>
             <div class="header text-center">
                 <h2><a href="/"><strong>H.U.G HOTEL</strong></a></h2>
-                <h5><strong>JEJU  ${member.role} ${member.email} ${member.username}</strong></h5>
+                <h5><strong>JEJU ${member.username}</strong></h5>
             </div>
             <nav id='cssmenu'>
                 <div id="head-mobile"></div>
