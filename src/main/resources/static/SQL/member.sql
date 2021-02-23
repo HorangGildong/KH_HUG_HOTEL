@@ -90,3 +90,5 @@ memberName = '홍홍홍', memberEmail = '이메일'
 WHERE memberNumber = 1;
 
 SELECT memberNumber, memberId, memberName, memberNick, memberEmail, memberRole, memberKey FROM MEMBER;
+
+DELETE FROM MEMBER;

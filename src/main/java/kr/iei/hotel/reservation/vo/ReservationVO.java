@@ -2,7 +2,7 @@ package kr.iei.hotel.reservation.vo;
 
 public class ReservationVO {
 	String reservationNo;
-	int memberId = 1;
+	int memberNumber = 1;
 	String guestRoomName;
 	int guestRoomNo;
 	int checkIn;
@@ -29,11 +29,12 @@ public class ReservationVO {
 	public void setReservationNo(String reservationNo) {
 		this.reservationNo = reservationNo;
 	}
-	public int getMemberId() {
-		return memberId;
+
+	public int getMemberNumber() {
+		return memberNumber;
 	}
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
 	}
 	public String getGuestRoomName() {
 		return guestRoomName;

@@ -13,9 +13,6 @@ import kr.iei.hotel.member.service.MemberService;
 @Service
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
-//	@Autowired
-//	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
 	@Autowired
 	private MemberService memberService;
 	

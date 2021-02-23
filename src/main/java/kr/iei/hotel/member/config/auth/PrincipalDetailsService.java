@@ -29,7 +29,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 		*/
 		if(memberDto == null) {
 			return null;
-		}		
+		}
 		return new PrincipalDetails(memberDto);
 	}
 	
