@@ -20,7 +20,6 @@
             padding-top: 20px;
         }
 		.test {
-			border: 1px solid #193f6e;
 			background: #193f6e;
 			transition-duration: 10s;
 			width: 0px;
@@ -54,7 +53,7 @@
 		
 		.boxWrap input {
     		width: 20px;
-    		margin-left: 90px;
+    		margin-left: 64px;
     		
 		}
 		.boxWrap span {
@@ -195,6 +194,105 @@
 		
 		}
 		
+		
+		.standardPrice, .standardCount {
+			background: red;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		
+		.standardPriceAVG, .standardCountAVG {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+
+		
+		.superiorPrice, .superiorCount {
+			background: orange;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		
+		.superiorPriceAVG, .superiorCountAVG {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		
+		.deluxePrice, .deluxeCount {
+			background: goldenrod;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		
+		.deluxePriceAVG, .deluxeCountAVG {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		
+		.royalPrice, .royalCount {
+			background: green;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		
+		.royalPriceAVG, .royalCountAVG {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		
+		.totalPrice, .totalCount {
+			background: blue;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}	
+		.totalPriceAVG, .totalCountAVG {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		
+		.priceColorChange, .countColorChange {
+			background: white;
+			transition-duration: 5s;
+			width: 1px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
 
 
 
