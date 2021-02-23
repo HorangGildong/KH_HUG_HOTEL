@@ -56,7 +56,7 @@
             <form class="showBoxWrap" action="/reservationInsertProcess" method="post">
                 <div class="positionLeft">
                 <input style="display: none;" type="text" name="reservationNo" value="${reservationInfo.reservationNo}" />
-                <input style="display: none;" type="text" name="memberId" value="${reservationInfo.memberId}" />
+                <input style="display: none;" type="text" name="memberNumber" value="${reservationInfo.memberNumber}" />
                 <input style="display: none;" type="text" name="guestRoomName" value="${reservationInfo.guestRoomName}" />
                 <input style="display: none;" type="text" name="guestRoomNo" value="${reservationInfo.guestRoomNo}" />
                 <input style="display: none;" type="text" name="checkIn" value="${reservationInfo.checkIn}" />
