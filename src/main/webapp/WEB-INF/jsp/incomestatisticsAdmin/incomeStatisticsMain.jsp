@@ -285,13 +285,23 @@
 				<br />
 				
 				<div class ="totalBox">
-				<span>TOTAL COUNT = </span>
-				<span style="color: red; display: none;" id="standardPriceSUM">1200000000</span>
-				<span style="color: orange; display: none;" id="superiorPriceSUM">1200000000</span>
-				<span style="color: goldenrod; display: none;" id="deluxePriceSUM">1200000000</span>
-				<span style="color: green; display: none;" id="royalPriceSUM">1200000000</span>
-				<span style="color: blue; display: none;" id="totalPriceSUM">1200000000</span>
+				<span>TOTAL PRICE&nbsp;</span>
+				<span style="color: red; display: none;" id="standardPriceSUM">= 1200000000</span>
+				<span style="color: orange; display: none;" id="superiorPriceSUM">= 1200000000</span>
+				<span style="color: goldenrod; display: none;" id="deluxePriceSUM">= 1200000000</span>
+				<span style="color: green; display: none;" id="royalPriceSUM">= 1200000000</span>
+				<span style="color: blue; display: none;" id="totalPriceSUM">= 1200000000</span>
+								
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
+				<span>AVG PRICE&nbsp;</span>
+				<span style="color: red; display: none;" id="AVG2">= 1200000000</span>
+				<span style="color: orange; display: none;" id="AVG4">= 1200000000</span>
+				<span style="color: goldenrod; display: none;" id="AVG6">= 1200000000</span>
+				<span style="color: green; display: none;" id="AVG8">= 1200000000</span>
+				<span style="color: blue; display: none;" id="AVG10">= 1200000000</span>
 				</div>
+				
 
 
 			</div>
@@ -310,7 +320,6 @@
 				<input readonly class="totalCountAVG" type="text" value="2500000" />
 				<input readonly class="countColorChange" type="text" value="" />
 				<br />
-				
 				<input readonly class="standardCount" type="text" value="1250000" />
 				<input readonly class="superiorCount" type="text" value="1250000" />
 				<input readonly class="deluxeCount" type="text" value="1250000" />
@@ -464,12 +473,21 @@
 				<br />
 				
 				<div class ="totalBox">
-				<span>TOTAL COUNT = </span>
-				<span style="color: red; display: none;" id="standardCountSUM">1200000000</span>
-				<span style="color: orange; display: none;" id="superiorCountSUM">1200000000</span>
-				<span style="color: goldenrod; display: none;" id="deluxeCountSUM">1200000000</span>
-				<span style="color: green; display: none;" id="royalCountSUM">1200000000</span>
-				<span style="color: blue; display: none;" id="totalCountSUM">1200000000</span>
+				<span>TOTAL COUNT&nbsp;</span>
+				<span style="color: red; display: none;" id="standardCountSUM">= 1200000000</span>
+				<span style="color: orange; display: none;" id="superiorCountSUM">= 1200000000</span>
+				<span style="color: goldenrod; display: none;" id="deluxeCountSUM">= 1200000000</span>
+				<span style="color: green; display: none;" id="royalCountSUM">= 1200000000</span>
+				<span style="color: blue; display: none;" id="totalCountSUM">= 1200000000</span>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
+				<span>AVG COUNT&nbsp;</span>
+				<span style="color: red; display: none;" id="AVG1">= 1200000000</span>
+				<span style="color: orange; display: none;" id="AVG3">= 1200000000</span>
+				<span style="color: goldenrod; display: none;" id="AVG5">= 1200000000</span>
+				<span style="color: green; display: none;" id="AVG7">= 1200000000</span>
+				<span style="color: blue; display: none;" id="AVG9">= 1200000000</span>
 				</div>
 				
 			</div>
@@ -513,6 +531,17 @@
 				deluxeCountSUM = document.querySelector("#deluxeCountSUM"),
 				royalCountSUM = document.querySelector("#royalCountSUM"),
 				totalCountSUM = document.querySelector("#totalCountSUM"),
+				
+				AVG1 = document.querySelector("#AVG1"),
+				AVG2 = document.querySelector("#AVG2"),
+				AVG3 = document.querySelector("#AVG3"),
+				AVG4 = document.querySelector("#AVG4"),
+				AVG5 = document.querySelector("#AVG5"),
+				AVG6 = document.querySelector("#AVG6"),
+				AVG7 = document.querySelector("#AVG7"),
+				AVG8 = document.querySelector("#AVG8"),
+				AVG9 = document.querySelector("#AVG9"),
+				AVG10 = document.querySelector("#AVG10"),
 
 				standardPrice = document.querySelectorAll(".standardPrice"),
 				superiorPrice = document.querySelectorAll(".superiorPrice"),
@@ -544,6 +573,17 @@
 				
 				
 				deleteBtn.addEventListener("click", function(){
+				
+					AVG1.style.display = "none";
+					AVG2.style.display = "none";
+					AVG3.style.display = "none";
+					AVG4.style.display = "none";
+					AVG5.style.display = "none";
+					AVG6.style.display = "none";
+					AVG7.style.display = "none";
+					AVG8.style.display = "none";
+					AVG9.style.display = "none";
+					AVG10.style.display = "none";
 
 						totalPriceSUM.style.display = "none";
 						totalCountSUM.style.display = "none";
@@ -632,12 +672,12 @@
 	
 						totalPriceSUM.style.display = "none";
 						totalCountSUM.style.display = "none";
-						royalPriceSUM.style.display = "inline";
-						royalCountSUM.style.display = "inline";
+						royalPriceSUM.style.display = "none";
+						royalCountSUM.style.display = "none";
 						deluxePriceSUM.style.display = "none";
 						deluxeCountSUM.style.display = "none";
-						superiorPriceSUM.style.display = "none";
-						superiorCountSUM.style.display = "none";
+						superiorPriceSUM.style.display = "inline";
+						superiorCountSUM.style.display = "inline";
 						standardPriceSUM.style.display = "none";
 						standardCountSUM.style.display = "none";
 					
@@ -779,6 +819,18 @@
 				
 				
 				standardAVG.addEventListener("click", function(){
+				
+					AVG1.style.display = "inline";
+					AVG2.style.display = "inline";
+					AVG3.style.display = "none";
+					AVG4.style.display = "none";
+					AVG5.style.display = "none";
+					AVG6.style.display = "none";
+					AVG7.style.display = "none";
+					AVG8.style.display = "none";
+					AVG9.style.display = "none";
+					AVG10.style.display = "none";
+				
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
@@ -795,6 +847,18 @@
 					};
 				});
 				superiorAVG.addEventListener("click", function(){
+				
+					AVG1.style.display = "none";
+					AVG2.style.display = "none";
+					AVG3.style.display = "inline";
+					AVG4.style.display = "inline";
+					AVG5.style.display = "none";
+					AVG6.style.display = "none";
+					AVG7.style.display = "none";
+					AVG8.style.display = "none";
+					AVG9.style.display = "none";
+					AVG10.style.display = "none";
+				
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
@@ -811,6 +875,18 @@
 					};
 				});
 				deluxeAVG.addEventListener("click", function(){
+				
+					AVG1.style.display = "none";
+					AVG2.style.display = "none";
+					AVG3.style.display = "none";
+					AVG4.style.display = "none";
+					AVG5.style.display = "inline";
+					AVG6.style.display = "inline";
+					AVG7.style.display = "none";
+					AVG8.style.display = "none";
+					AVG9.style.display = "none";
+					AVG10.style.display = "none";
+				
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
@@ -827,6 +903,18 @@
 					};
 				});
 				royalAVG.addEventListener("click", function(){
+				
+					AVG1.style.display = "none";
+					AVG2.style.display = "none";
+					AVG3.style.display = "none";
+					AVG4.style.display = "none";
+					AVG5.style.display = "none";
+					AVG6.style.display = "none";
+					AVG7.style.display = "inline";
+					AVG8.style.display = "inline";
+					AVG9.style.display = "none";
+					AVG10.style.display = "none";
+				
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
@@ -843,6 +931,18 @@
 					};
 				});
 				totalAVG.addEventListener("click", function(){
+				
+					AVG1.style.display = "none";
+					AVG2.style.display = "none";
+					AVG3.style.display = "none";
+					AVG4.style.display = "none";
+					AVG5.style.display = "none";
+					AVG6.style.display = "none";
+					AVG7.style.display = "none";
+					AVG8.style.display = "none";
+					AVG9.style.display = "inline";
+					AVG10.style.display = "inline";
+				
 					for(var index = 0; index < standardPrice.length; index++){
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";

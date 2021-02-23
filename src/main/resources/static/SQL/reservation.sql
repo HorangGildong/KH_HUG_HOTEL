@@ -2,7 +2,7 @@ drop table reservation;
 
 create table reservation (
 reservationNo varchar2(2000) not null,
-memberId number not null,
+memberNumber number not null,
 guestRoomName varchar(200) not null,
 guestRoomNo number not null,
 checkIn number not null,
@@ -19,10 +19,8 @@ foreign key(memberId) references member(memberId),
 foreign key(guestRoomName) references guestRoom(guestRoomName)
 );
 
--- 이거 꼭 해제 부탁드림
 alter table reservation drop primary key;
+alter table reservation add primary key (resrvationNo);
+
 
 commit;
-
-
-

@@ -7,7 +7,7 @@
 	<!-- ─────────────────────────────────── 예약쿼리 ─────────────────────────────────── -->
 	<sql id="reservationColumns">
 		 reservationNo
-		,memberId
+		,memberNumber
 		,guestRoomName
 		,guestRoomNo
 		,checkIn
@@ -27,7 +27,7 @@
 			<include refid="reservationColumns"/>
 		) VALUES (
 			 #{reservationNo}
-			,#{memberId}
+			,#{memberNumber}
 			,#{guestRoomName}
 			,#{guestRoomNo}
 			,#{checkIn}
