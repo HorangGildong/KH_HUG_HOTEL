@@ -59,8 +59,8 @@
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
 							<div class="col-xs-8">
-								<input type="email" class="form-control" name="memberEmail"
-									id="inputEmail" value="${memberDto.memberEmail}" disabled>
+								<input type="email" class="form-control" name="email"
+									id="inputEmail" value="${email}" disabled>
 							</div>
 						</div>
 
@@ -189,6 +189,8 @@
 								<button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn" 
 									style="font-weight: bold;">회원가입</button>
 							</div>
+							<input type="hidden" name="memberEmail" value="${email}">
+							<input type="hidden" name="memberKey" value="${key}">
 						</div>
 
 					</form>
@@ -245,7 +247,7 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 
 	<script>
-	
+		
 	    $(function() {
 	    	$('#myModal').modal( {
 			})

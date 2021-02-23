@@ -1,12 +1,9 @@
 package kr.iei.hotel.member.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
@@ -43,35 +39,20 @@ public class MemberJoinController {
 		memberService.join(memberJoinFormDto);
 		return "/member/login";
 	}
-	
+
 	@GetMapping("/join/oAuth2")
-	public String oAuthJoinPage(HttpServletRequest req, HttpSession session, Model model) {
-		MemberDto memberDto = (MemberDto) session.getAttribute("memberDto");
-		model.addAttribute("memberDto", memberDto);
+	public String oAuthJoinPage(@RequestParam("email") String email, @RequestParam("key") String key, Model model) {
+		model.addAttribute("email", email);
+		model.addAttribute("key", key);
 		return "/member/oAuth2Join";
 	}
 	
 	@PostMapping("/Join/oAuth2")
-	public String oAuth2Join(HttpSession session, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
-		MemberDto memberDto = (MemberDto) session.getAttribute("memberDto");
-		session.invalidate();
-		memberOAuth2JoinFormDto = new MemberOAuth2JoinFormDto(
-				"user_" + memberDto.getMemberKey(),
-				memberDto.getMemberEmail(),
-				memberDto.getMemberKey()
-				);
+	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
+		memberOAuth2JoinFormDto.setMemberId("user_" + memberOAuth2JoinFormDto.getMemberKey());
 		memberService.oAuth2Join(memberOAuth2JoinFormDto);
 		return "redirect:/";
 	}
-	
-	
-//	@PostMapping("/oAuthJoin")
-//	public String oAuthJoin(MemberJoinFormDto memberJoinFormDto, @AuthenticationPrincipal OAuth2User oAuth2user) {
-//		memberJoinFormDto.setMemberPassword(passwordEncoder.encode("password"));
-//		memberJoinFormDto.setMemberEmail(oAuth2user.getAttribute("email"));
-//		memberService.join(memberJoinFormDto);
-//		return "/member/login";
-//	}
 		
 	@GetMapping("/join/idCheck")
 	@ResponseBody
