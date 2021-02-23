@@ -15,7 +15,7 @@ reservationDate Date not null,
 memberName varchar2(200) not null,
 memberGrade varchar2(200) not null,
 primary key(reservationNo),
-foreign key(memberId) references member(memberId),
+foreign key(memberNumber) references member(memberNumber),
 foreign key(guestRoomName) references guestRoom(guestRoomName)
 );
 
