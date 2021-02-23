@@ -283,6 +283,15 @@
 				<input readonly class="totalPriceAVG" type="text" value="2500000" />
 				<input readonly class="priceColorChange" type="text" value="" />
 				<br />
+				
+				<div class ="totalBox">
+				<span>TOTAL COUNT = </span>
+				<span style="color: red; display: none;" id="standardPriceSUM">1200000000</span>
+				<span style="color: orange; display: none;" id="superiorPriceSUM">1200000000</span>
+				<span style="color: goldenrod; display: none;" id="deluxePriceSUM">1200000000</span>
+				<span style="color: green; display: none;" id="royalPriceSUM">1200000000</span>
+				<span style="color: blue; display: none;" id="totalPriceSUM">1200000000</span>
+				</div>
 
 
 			</div>
@@ -453,6 +462,16 @@
 				<input readonly class="totalCountAVG" type="text" value="2500000" />
 				<input readonly class="countColorChange" type="text" value="" />
 				<br />
+				
+				<div class ="totalBox">
+				<span>TOTAL COUNT = </span>
+				<span style="color: red; display: none;" id="standardCountSUM">1200000000</span>
+				<span style="color: orange; display: none;" id="superiorCountSUM">1200000000</span>
+				<span style="color: goldenrod; display: none;" id="deluxeCountSUM">1200000000</span>
+				<span style="color: green; display: none;" id="royalCountSUM">1200000000</span>
+				<span style="color: blue; display: none;" id="totalCountSUM">1200000000</span>
+				</div>
+				
 			</div>
 			
 			
@@ -483,6 +502,17 @@
 				deluxeAVG = document.querySelector("#deluxeAVG"),
 				royalAVG = document.querySelector("#royalAVG"),
 				totalAVG = document.querySelector("#totalAVG"),
+				
+				standardPriceSUM = document.querySelector("#standardPriceSUM"),
+				superiorPriceSUM = document.querySelector("#superiorPriceSUM"),
+				deluxePriceSUM = document.querySelector("#deluxePriceSUM"),
+				royalPriceSUM = document.querySelector("#royalPriceSUM"),
+				totalPriceSUM = document.querySelector("#totalPriceSUM"),
+				standardCountSUM = document.querySelector("#standardCountSUM "),
+				superiorCountSUM = document.querySelector("#superiorCountSUM"),
+				deluxeCountSUM = document.querySelector("#deluxeCountSUM"),
+				royalCountSUM = document.querySelector("#royalCountSUM"),
+				totalCountSUM = document.querySelector("#totalCountSUM"),
 
 				standardPrice = document.querySelectorAll(".standardPrice"),
 				superiorPrice = document.querySelectorAll(".superiorPrice"),
@@ -514,6 +544,20 @@
 				
 				
 				deleteBtn.addEventListener("click", function(){
+
+						totalPriceSUM.style.display = "none";
+						totalCountSUM.style.display = "none";
+						royalPriceSUM.style.display = "none";
+						royalCountSUM.style.display = "none";
+						deluxePriceSUM.style.display = "none";
+						deluxeCountSUM.style.display = "none";
+						superiorPriceSUM.style.display = "none";
+						superiorCountSUM.style.display = "none";
+						standardPriceSUM.style.display = "none";
+						standardCountSUM.style.display = "none";
+					
+
+					
 					for(var index = 0; index < standardPrice.length; index++){
 						standardPrice[index].style.width = 0 + "px";
 						standardCount[index].style.width = 0 + "px";
@@ -547,6 +591,20 @@
 				});
 				
 				standardBtn.addEventListener("click", function(){
+
+						totalPriceSUM.style.display = "none";
+						totalCountSUM.style.display = "none";
+						royalPriceSUM.style.display = "none";
+						royalCountSUM.style.display = "none";
+						deluxePriceSUM.style.display = "none";
+						deluxeCountSUM.style.display = "none";
+						superiorPriceSUM.style.display = "none";
+						superiorCountSUM.style.display = "none";
+						standardPriceSUM.style.display = "inline";
+						standardCountSUM.style.display = "inline";
+					
+	
+					
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
@@ -571,6 +629,19 @@
 					};
 				});
 				superiorBtn.addEventListener("click", function(){
+	
+						totalPriceSUM.style.display = "none";
+						totalCountSUM.style.display = "none";
+						royalPriceSUM.style.display = "inline";
+						royalCountSUM.style.display = "inline";
+						deluxePriceSUM.style.display = "none";
+						deluxeCountSUM.style.display = "none";
+						superiorPriceSUM.style.display = "none";
+						superiorCountSUM.style.display = "none";
+						standardPriceSUM.style.display = "none";
+						standardCountSUM.style.display = "none";
+					
+
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
@@ -595,6 +666,19 @@
 					};
 				});
 				deluxeBtn.addEventListener("click", function(){
+
+		
+						totalPriceSUM.style.display = "none";
+						totalCountSUM.style.display = "none";
+						royalPriceSUM.style.display = "none";
+						royalCountSUM.style.display = "none";
+						deluxePriceSUM.style.display = "inline";
+						deluxeCountSUM.style.display = "inline";
+						superiorPriceSUM.style.display = "none";
+						superiorCountSUM.style.display = "none";
+						standardPriceSUM.style.display = "none";
+						standardCountSUM.style.display = "none";
+
 					for(var index = 0; index < standardPrice.length; index++){
 						royalPrice[index].style.width = 0 + "px";
 						royalCount[index].style.width = 0 + "px";
@@ -619,6 +703,20 @@
 					};
 				});
 				royalBtn.addEventListener("click", function(){
+		
+		
+						totalPriceSUM.style.display = "none";
+						totalCountSUM.style.display = "none";
+						royalPriceSUM.style.display = "inline";
+						royalCountSUM.style.display = "inline";
+						deluxePriceSUM.style.display = "none";
+						deluxeCountSUM.style.display = "none";
+						superiorPriceSUM.style.display = "none";
+						superiorCountSUM.style.display = "none";
+						standardPriceSUM.style.display = "none";
+						standardCountSUM.style.display = "none";
+					
+
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
@@ -643,6 +741,19 @@
 					};
 				});
 				totalBtn.addEventListener("click", function(){
+					
+	
+						totalPriceSUM.style.display = "inline";
+						totalCountSUM.style.display = "inline";
+						royalPriceSUM.style.display = "none";
+						royalCountSUM.style.display = "none";
+						deluxePriceSUM.style.display = "none";
+						deluxeCountSUM.style.display = "none";
+						superiorPriceSUM.style.display = "none";
+						superiorCountSUM.style.display = "none";
+						standardPriceSUM.style.display = "none";
+						standardCountSUM.style.display = "none";
+
 					for(var index = 0; index < standardPrice.length; index++){
 						standardPrice[index].style.width = 0 + "px";
 						standardCount[index].style.width = 0 + "px";
