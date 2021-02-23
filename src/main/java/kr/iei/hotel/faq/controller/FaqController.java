@@ -385,37 +385,14 @@ public class FaqController {
 	}
 	
 	// ────────────────────────────────────────────────── 관리자 ──────────────────────────────────────────────────
-	/*--------------------------------- faq 전체조회 ---------------------------------*/
-	@RequestMapping(value="/adminTotalFaq", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView adminTotalFaq(Page page) {
-		ModelAndView mv = new ModelAndView();
-		
-		Map<String, Object> map = service.select(page);
-		List<FaqVo> list = (List<FaqVo>) map.get("list");
-		page = (Page) map.get("page");				
-	
-		System.out.println("전체 메뉴 입니다");
-				
-		mv.addObject("list", list);
-		mv.addObject("page", page);
-		mv.setViewName("faqAdmin/adminTotalFaq");		
-		return mv;		
-	}
-	/*--------------------------------- faq 검색 조회 ---------------------------------*/
+	/*--------------------------------- faq 전체 조회, 검색 ---------------------------------*/
 	@RequestMapping(value="/adminFaqSearch", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView adminFaqSearch(Page page, FaqVo vo) {
+	public ModelAndView adminFaqSearch(Page page) {
 		ModelAndView mv = new ModelAndView();
-				
-		System.out.println("getCategory 전: "+vo.getCategory());
-		vo.setCategory("["+vo.getCategory()+"]");
-		System.out.println("getCategory 후: "+vo.getCategory());
 		
-		
-		Map<String, Object> map = service.search(page, vo.getCategory());
+		Map<String, Object> map = service.search(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
-	
-		System.out.println("전체 메뉴 입니다");
 				
 		mv.addObject("list", list);
 		mv.addObject("page", page);

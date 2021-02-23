@@ -73,7 +73,7 @@
                             <li><a href="#">고객지원관리</a>
                                 <ul>
                                     <li><a href="/adminNoticeMain">공지사항 관리</a></li>
-                                    <li><a href="/adminTotalFaq">FAQ 관리</a></li>
+                                    <li><a href="/adminFaqSearch">FAQ 관리</a></li>
                                     <li><a href="#">Q&A 관리</a></li>
                                 </ul>
                             </li>

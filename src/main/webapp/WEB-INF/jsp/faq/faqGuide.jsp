@@ -15,10 +15,10 @@
 	<form name='frm_faqmain' id='frm_faqmain' method='post' >
 		<div>
         	<span id='span'>Total: <span id='total'>${page.totListSize }</span></span>
-          	<input type='text' name='menu' value="${param.menu }">
-          	<input type='text' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
-        	<input type='text' name='totalPage' value='${param.totalPage }'>			
-			<input type='text' name='id' value="${param.id }">
+          	<input type='hidden' name='menu' value="${param.menu }">
+          	<input type='hidden' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
+        	<input type='hidden' name='totalPage' value='${param.totalPage }'>			
+			<input type='hidden' name='id' value="${param.id }">
       	</div>
       	<div>
 			<select class="form-control" name='selectBox' id='selectBox' >
@@ -42,7 +42,7 @@
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${vo.id }" class='arrowControl' id='faqQuestion'>			       							       
 			            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${vo.category }</span>
 							<span id='span2'>${vo.question }</span>
-					 	  	<input type='text' id='faqId' name='faqId' value="${vo.id }">
+					 	  	<input type='hidden' id='faqId' name='faqId' value="${vo.id }">
 							<span id='arrow'>
 								<span id='span3'><img name='before' src="img/kjh_img/allowTop.PNG"></span>
 								<span id='span4'><img name='after' src="img/kjh_img/allowBottom.PNG"></span>

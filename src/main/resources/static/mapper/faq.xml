@@ -390,16 +390,16 @@
 	</select>
 	
 	<select id="admin_tot_list" resultType="int" parameterType="String">
-		select count(id) from faq where category = #{catagory}
+		select count(id) from faq where category like '%${menu}%'		
 	</select>
 	
 	<select id="admin_search" resultType="kr.iei.hotel.faq.vo.FaqVo" parameterType='kr.iei.hotel.notice.vo.Page'>
 		select * from (
-			select rownum no, f.* from faq f
-			where f.category = #{category}
-			order by id desc
-			)
-		where no between #{page.startNo} and #{page.endNo}
+		    select rownum no, f.* from (
+		        select * from faq
+		        where category like '%${menu}%'
+		        order by id desc) f
+		) where no between #{startNo} and #{endNo}
 		order by id desc
 	</select>
 

@@ -119,8 +119,10 @@
 }
 #admin_faq_select #fCover{
 	display:flex;
-	position: relative;
-	left:77%;
+	justify-content: space-between;
+}
+#admin_faq_select #fCover #div2{
+	display:flex;
 }
 #admin_faq_select #fCover #category{
 	width:110px;

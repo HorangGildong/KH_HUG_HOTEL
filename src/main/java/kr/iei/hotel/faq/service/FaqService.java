@@ -39,6 +39,7 @@ public interface FaqService {
 	public FaqVo view(int id);
 	public void faqUpdate(FaqVo vo);
 	public void faqDelete(int id);
-	public Map<String, Object> search(Page page, String category);	
+	public Map<String, Object> search(Page page);
+	public Map<String, Object> pageSearch(Page page);	
 	
 }

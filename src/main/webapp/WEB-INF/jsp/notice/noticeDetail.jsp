@@ -102,7 +102,7 @@
 					var frm = document.frm_notice;
 					alert("왔니?");
 					if (frm.Rupdate.value === '수정') {
-						alert("수정왔음");						
+						alert("응 수정안되~");						
 						frm.Rcontent.disabled = false;
 						frm.Rupdate.value = '저장';
 						
@@ -276,15 +276,17 @@
                         </div>
                     </div>     
 	<%-- ─────────────────────────────────── 페이징  부분 ─────────────────────────────────── --%> 
-                    <ul class="pagination" id='user_pagination'>
-		                <li><a class="${(page.startPage > 1)? '' : 'btnHide' }" id="btnPrev" onclick="notice.goPage(${page.startPage-1})">«</a></li>
-		
-		              	<c:forEach var='i' begin='${page.startPage }' end='${page.endPage }'>
-		                	<li class="${(param.nowPage == i)? 'active':'' }"><a onclick="notice.goPage(${i})">${i }</a></li>
-		                </c:forEach>
-		    
-		               	<li><a class="${(page.endPage < page.totPage)? '' : 'btnHide' }" id="btnNect" onclick="notice.goPage(${page.endPage+1})">»</a></li>             
-		            </ul>
+                    <div id=pcover>
+	                    <ul class="pagination" id='user_pagination'>
+			                <li><a class="${(page.startPage > 1)? '' : 'btnHide' }" id="btnPrev" onclick="notice.goPage(${page.startPage-1})">«</a></li>
+			
+			              	<c:forEach var='i' begin='${page.startPage }' end='${page.endPage }'>
+			                	<li class="${(param.nowPage == i)? 'active':'' }"><a onclick="notice.goPage(${i})">${i }</a></li>
+			                </c:forEach>
+			    
+			               	<li><a class="${(page.endPage < page.totPage)? '' : 'btnHide' }" id="btnNect" onclick="notice.goPage(${page.endPage+1})">»</a></li>             
+			            </ul>
+		            </div>
                 </div>
                 
 	<%-- ─────────────────────────────────── 목록  부분 ─────────────────────────────────── --%> 

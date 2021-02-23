@@ -33,8 +33,8 @@
 			
     <!-- jQuery -->  	
   	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
-<title>Insert title here</title>
+	
+<title>faq관리자</title>
 </head>
 <body>
 <div class="wrap">
@@ -45,27 +45,31 @@
 	<!--section start-->
 	<section>
 		<div id='admin_faq_select'>
-			
+
 		   	<h3>FAQ</h3>
-		  	
-		  	<form name='frm_faqmain' id='frm_faqmain' method='post' >
-		    	<input type='hidden' name='menu' value="${param.menu }">
+
+		  	<form name='frm_faqmain' id='frm_faqmain' method='post'><%-- 카테고리 선택값 받는 애 --%>
+		    	<input type='hidden' name='menu' value="${param.menu }"><%-- page에 데이터 담음 --%>
 	          	<input type='hidden' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
-	        	<input type='hidden' name='totalPage' value='${param.totalPage }'>			
-				<input type='hidden' name='id' value="${param.id }">	
+	        	<input type='hidden' name='totalPage' value='${param.totalPage }'>
+				<input type='hidden' name='id' value="${param.id }">
+				<input type='text' name='selbox' id='selbox' value='${param.selbox }'>                 	
 				
-				<div></div>
-				<div id='fCover'>		                
-					<select class="form-control" name='category' id='category' >
-			           	<option>전체</option>
-			           	<option>이용안내</option>
-			           	<option>객실</option>
-			           	<option>다이닝</option>
-			           	<option>부대시설</option>
-			           	<option>결제</option>
-			           	<option>기타</option>           
-	     			</select>	     			
-	     			<input type="button" id='btnSearch' class="form-control" value='Search'><br>			     				     			
+				
+				<div id='fCover'>
+					<div id='div1'><span id='span'>Total: <span id='total'>${page.totListSize }</span></span></div>		                
+					<div id='div2'>
+						<select class="form-control" name='category' id='category'>
+				           	<option ${(page.menu == "전체")? "selected":"" } value='전체'>전체</option>
+				           	<option ${(page.menu == "이용안내")? "selected":"" } value='이용안내'>이용안내</option>
+				           	<option ${(page.menu == "객실")? "selected":"" } value='객실'>객실</option>
+				           	<option ${(page.menu == "다이닝")? "selected":"" } value='다이닝'>다이닝</option>
+				           	<option ${(page.menu == "부대시설")? "selected":"" } value='부대시설'>부대시설</option>
+				           	<option ${(page.menu == "결제")? "selected":"" } value='결제'>결제</option>
+				           	<option ${(page.menu == "기타")? "selected":"" } value='기타'>기타</option>           
+		     			</select>	     			
+		     			<input type="button" id='btnSearch' class="form-control" value='Search'><br>			     				     			
+		     		</div>	
      			</div>	     						     	
 		   	</form>
 		   			   
@@ -76,9 +80,10 @@
 			</div>
 			<div class='items'>   
 				<c:forEach var='vo' items="${list }"> <!-- servlet 에서 request에 담은 list를 뜻한다. -->
-					<div class='item' onclick="view('${vo.id }')">
-						<span class='id'>${vo.id }</span>
+					<div class='item' onclick="view('${vo.id }')">						
+						<span class='id'>${vo.no }</span>
 						<span class='category'>${vo.category }</span>
+						<input type='hidden' value='${vo.id }'>
 						<span class='question'>${vo.question }</span>
 					</div>      
 				</c:forEach>
@@ -88,7 +93,7 @@
 				<div></div>
 				<div><input type='button' id='faq_insert' value='등록'/></div>				
 			</div>
-		
+				
 		<%-- ─────────────────────────────────── 페이징 부분 ─────────────────────────────────── --%>
 			<ul class="pagination" id="user_pagination">
 				<li><a class="${(page.startPage > 1)? '' : 'btnHide' }" id="btnPrev" onclick="guideGoPage(${page.startPage-1})">«</a></li>

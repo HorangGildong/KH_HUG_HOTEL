@@ -501,10 +501,8 @@ public class FaqDao implements FaqService {
 
 	/*--------------------------------- 관리자 FAQ 상세보기 ---------------------------------*/
 	@Override
-	public FaqVo view(int id) {
-				
-		FaqVo vo = mapper.view(id);
-		
+	public FaqVo view(int id) {				
+		FaqVo vo = mapper.view(id);		
 		return vo;
 	}
 	
@@ -522,20 +520,43 @@ public class FaqDao implements FaqService {
 	
 	/*--------------------------------- 관리자 FAQ 검색하기 ---------------------------------*/
 	@Override
-	public Map<String, Object> search(Page page, String category) {
-
+	public Map<String, Object> search(Page page) {
+		
 		if (page == null) {
 			page = new Page();
 			page.setNowPage(1);
 		} else if (page.getNowPage() < 1) {
 			page.setNowPage(1);
 		}		
-		
-		int totListSize = mapper.admin_tot_list(category);		
+						
+		int totListSize = mapper.admin_tot_list(page);
+		System.out.println("전체totListSize: "+totListSize);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
 		
 		list = mapper.admin_search(page);
+
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
+	}
+	@Override
+	public Map<String, Object> pageSearch(Page page) {
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}				
+		
+		int totListSize = mapper.admin_tot_list(page);
+		System.out.println("페이징totListSize: "+totListSize);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.admin_search(page);	
 		
 		map.put("page", page);
 		map.put("list", list);		

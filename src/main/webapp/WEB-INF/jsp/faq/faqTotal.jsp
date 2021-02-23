@@ -15,10 +15,10 @@
 	<form name='frm_faqmain' id='frm_faqmain' method='post' >
 		<div>
         	<span id='span'>Total: <span id='total'>${page.totListSize }</span></span>
-          	<input type='text' name='menu' value="${param.menu }">
-          	<input type='text' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
-        	<input type='text' name='id' value="${param.id}">
-        	<input type='text' name='totalPage' value='${param.totalPage }'>
+          	<input type='hidden' name='menu' value="${param.menu }">
+          	<input type='hidden' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
+        	<input type='hidden' name='id' value="${param.id}">
+        	<input type='hidden' name='totalPage' value='${param.totalPage }'>
       	</div>
       	<div>
 			<select class="form-control" name='selectBox' id='selectBox' >

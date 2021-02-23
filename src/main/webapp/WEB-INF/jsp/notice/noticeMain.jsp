@@ -134,10 +134,11 @@
                         <input type='hidden' name='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
                       	<input type='hidden' name='nNo' value="${param.nNo}">
                       	<input type='hidden' name='totalPage' value='${param.totalPage }'>   
-                      	<input type='text' name='selbox' id='selbox' value='${param.selbox }'>                 	
+                      	<input type='hidden' name='selbox' id='selbox' value='${param.selbox }'>                 	
                     </div>
                     <div>
                         <select class="form-control" name='selectBox' id='selectBox' >
+                        	<%-- form전달시 클릭된 데이터값 받아서 전송하기위해 EL태그 작성함 --%>
 	                        <option ${(param.selectBox == "total")? "selected":"" } value='total'>전체</option>
 	                        <option ${(param.selectBox == "title")? "selected":"" } value='title'>제목</option>
 	                        <option ${(param.selectBox == "contents")? "selected":"" } value='contents'>내용</option>               

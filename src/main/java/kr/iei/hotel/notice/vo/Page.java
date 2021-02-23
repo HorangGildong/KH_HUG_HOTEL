@@ -11,7 +11,9 @@ public class Page {
 	int listSize=10;
 	int blockSize=5;
 
+
 	String findStr;
+	String menu;
 	
 	public Page() {}
 	public Page(int tot, int now) {
@@ -31,6 +33,14 @@ public class Page {
 		if(endPage>totPage) endPage = totPage;
 	}
 
+	public String getMenu() {
+		return menu;
+	}
+	
+	public void setMenu(String menu) {
+		this.menu = menu;
+	}
+	
 	public int getTotListSize() {
 		return totListSize;
 	}

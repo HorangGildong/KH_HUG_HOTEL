@@ -169,9 +169,13 @@
 }
 
 /*--------------------- 페이징 부분 ---------------------*/
+#notice_detail #pcover{	
+	width: 200px;
+	margin-left:467px;
+	text-align: center;
+}
+
 #notice_detail #user_pagination {
-    position:relative;
-    left: 41.3%;
     margin-top: 0px;
     margin-bottom: 25px;
     cursor: pointer;	    

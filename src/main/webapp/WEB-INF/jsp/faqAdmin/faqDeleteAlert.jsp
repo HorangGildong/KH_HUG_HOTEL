@@ -19,7 +19,7 @@ $(function(){
 	        button: "목록으로",
 	    }) .then((value) => {
 	       if(value) {
-	          location.href ='/adminTotalFaq'
+	          location.href ='/adminFaqSearch'
 	       }
 	    })                   
 	});

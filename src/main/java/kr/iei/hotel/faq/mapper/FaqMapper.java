@@ -66,8 +66,9 @@ public interface FaqMapper {
 	public FaqVo view(int id);
 	public int faqUpdate(FaqVo vo);
 	public int faqDelete(int id);
-	public int admin_tot_list(String category);
+	public int admin_tot_list(Page page);
 	public List<FaqVo> admin_search(Page page);
+
 	
 	
 	
