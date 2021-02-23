@@ -75,6 +75,13 @@ public class MainController {
 		mv.setViewName("Travel/foodView");		
 		return mv;		
 	}
+	//여행정보 맛집상세
+		@RequestMapping(value="/foodDetailView", method= {RequestMethod.GET, RequestMethod.POST})
+		public ModelAndView foodD() {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("Travel/foodDetailView");		
+			return mv;		
+		}
 	
 	// myPage
 	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
