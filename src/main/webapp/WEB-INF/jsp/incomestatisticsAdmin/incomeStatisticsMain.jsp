@@ -47,19 +47,169 @@
         <h1 class="buttonTitle">
             <p>수입 / 통계 관리</p>
         </h1>
-		<form action=""id="formTest">
-		<input  type="hidden" name="val" id="val" value="70000000" />
-		<input type="button" value="클릭" id="btnTest" />
-		
+		<form class="searchBox1" action="">
+		<select name="">
+			<option value="">DATE</option>
+			<option value="">2020년</option>
+			<option value="">2021년</option>
+			<option value="">2022년</option>
+			<option value="">2023년</option>
+		</select>
+		<span>MonthlyStastistics</span>
 		</form>
-		<div id="here">
+		<form class="searchBox2" action="">
+		<select name="">
+			<option value="">DATE</option>
+			<option value="">2020년</option>
+			<option value="">2021년</option>
+			<option value="">2022년</option>
+			<option value="">2023년</option>
+		</select>
+		<span>DailyStatistics</span>
+		</form>
+		
+		
+		
+	<div id="here">
+
+		<div class="boxWrap">
+		<form class="searchBox3" action="">
+		<select name="">
+			<option value="">DATE</option>
+			<option value="">1월</option>
+			<option value="">2월</option>
+			<option value="">3월</option>
+			<option value="">4월</option>
+			<option value="">5월</option>
+			<option value="">6월</option>
+			<option value="">7월</option>
+			<option value="">8월</option>
+			<option value="">9월</option>
+			<option value="">10월</option>
+			<option value="">11월</option>
+			<option value="">12월</option>
+		</select>
+		<span>SEARCH</span>
+		</form>
+		<input style="background: red;" readonly type="text" /><span class="standardBox" id="btnTest2">STANDARD</span>
+		<input style="background: orange;" readonly type="text" /><span class="superiorBox">SUPERIOR</span>
+		<input style="background: goldenrod;" readonly type="text" /><span class="deluxeBox" >DELUXE</span>
+		<input style="background: green;" readonly class="royalBox" type="text" /><span class="royalBox">ROYAL</span>
+		<input style="background: blue;" readonly type="text" /><span class="totalBox">TOTAL</span>
+		<input style="background: black;" readonly type="text" /><span class="deleteBox">DELETE</span>
+		</div>
+
+
+
 		<div class="incomeGraph">
- 		<input class="test" type="text" value="20000000" /><br /><br />
-		<input class="test" type="text" value="50000000" /><br /><br />
-		<input class="test" type="text" value="70000000" /><br /><br />
-		<input class="test" type="text" value="45000000" /><br /><br />
+			<div class="wrapLeft">
+				<p>1일</p><br />
+				<p>2일</p><br />
+				<p>3일</p><br />
+				<p>4일</p><br />
+				<p>5일</p><br />
+				<p>6일</p><br />
+				<p>7일</p><br />
+				<p>8일</p><br />
+				<p>9일</p><br />
+				<p>10일</p><br />
+				<p>11일</p><br />
+				<p>12일</p><br />
+				<p>13일</p><br />
+				<p>14일</p><br />
+				<p>15일</p><br />
+				<p>16일</p><br />
+				<p>17일</p><br />
+				<p>18일</p><br />
+				<p>19일</p><br />
+				<p>20일</p><br />
+				<p>21일</p><br />
+				<p>22일</p><br />
+				<p>23일</p><br />
+				<p>24일</p><br />
+				<p>25일</p><br />
+				<p>26일</p><br />
+				<p>27일</p><br />
+				<p>28일</p><br />
+				<p>29일</p><br />
+				<p>30일</p><br />
+				<p>31일</p><br />
+			</div>
+			<div class="wrapRight">
+				<h1>PRICE</h1>
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+
+
+			</div>
+			<div class="wrapRight2">
+				<h1>COUNT</h1>
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+				<input class="test" type="text" value="50000000" /><br /><br />
+			</div>
+			
+			
 		</div>
-		</div>
+	</div>
+		<h2>hide</h2>
     </section>
         <!--section end-->
         <!--footer start-->
@@ -81,25 +231,7 @@
 	
 	
 	
-	let	processTest = document.querySelector("#btnTest"),
-		processUrl = "/processTest";
 
-		processTest.addEventListener("click", function(){
-				param = $('#formTest').serialize();	
-			$.ajax({
-				url 	 : processUrl,
-				data 	 : param,
-				dataType : 'html', 
-				method 	 : 'POST',
-				success  : function(data){
-					$('#here').html(data);			
-				}		
-			});
-		
-		
-		});
-
-		let income = function(){
 		
 		let btnTest1 = document.querySelector("#btnTest2");
 		console.log(btnTest1);
@@ -115,7 +247,7 @@
 		test[index].style.width = testValue / 100000 + "px";
 		};
 		});
-		};
+
 		 
 </script>
 
