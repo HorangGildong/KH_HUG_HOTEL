@@ -58,6 +58,13 @@ public class MainController {
 	@RequestMapping(value="/tourismView", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView tourism() {
 		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Travel/tourismView");		
+		return mv;		
+	}
+	//여행정보 관광상세
+	@RequestMapping(value="/tourismDetailView", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView tourismD() {
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Travel/tourismDetailView");		
 		return mv;		
 	}

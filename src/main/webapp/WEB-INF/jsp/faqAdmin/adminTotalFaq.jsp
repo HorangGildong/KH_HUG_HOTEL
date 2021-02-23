@@ -55,9 +55,8 @@
 				<input type='hidden' name='id' value="${param.id }">	
 				
 				<div></div>
-				<div>
-	                <input type="text" readonly class="form-control" id='category' value='카테고리검색'>
-					<select class="form-control" name='selectBox' id='selectBox' >
+				<div id='fCover'>		                
+					<select class="form-control" name='category' id='category' >
 			           	<option>전체</option>
 			           	<option>이용안내</option>
 			           	<option>객실</option>
@@ -65,33 +64,31 @@
 			           	<option>부대시설</option>
 			           	<option>결제</option>
 			           	<option>기타</option>           
-	     			</select>
-	     			<input type="button" id='btnFind2' class="form-control" value='Search'><br>
-	     			
-     			</div>	
-     						     	
+	     			</select>	     			
+	     			<input type="button" id='btnSearch' class="form-control" value='Search'><br>			     				     			
+     			</div>	     						     	
 		   	</form>
 		   			   
-				<div class='title'>
-					<span class='no'>No</span>
-					<span class='category'>category</span>
-					<span class='question1'>question</span>
-				</div>
-				<div class='items'>   
-					<c:forEach var='vo' items="${list }"> <!-- servlet 에서 request에 담은 list를 뜻한다. -->
-						<div class='item' onclick="view('${vo.id }')">
-							<span class='no'>${vo.id }</span>
-							<span class='category'>${vo.category }</span>
-							<span class='question'>${vo.question }</span>
-						</div>      
-					</c:forEach>
-				</div>
-			
-				<div id='btn_back'>
-					<div></div>
-					<div><input type='button' id='faq_insert' value='등록'/></div>				
-				</div>
-			
+			<div class='title'>
+				<span class='id'>No</span>
+				<span class='category'>category</span>
+				<span class='question1'>question</span>
+			</div>
+			<div class='items'>   
+				<c:forEach var='vo' items="${list }"> <!-- servlet 에서 request에 담은 list를 뜻한다. -->
+					<div class='item' onclick="view('${vo.id }')">
+						<span class='id'>${vo.id }</span>
+						<span class='category'>${vo.category }</span>
+						<span class='question'>${vo.question }</span>
+					</div>      
+				</c:forEach>
+			</div>
+		
+			<div id='btn_back'>
+				<div></div>
+				<div><input type='button' id='faq_insert' value='등록'/></div>				
+			</div>
+		
 		<%-- ─────────────────────────────────── 페이징 부분 ─────────────────────────────────── --%>
 			<ul class="pagination" id="user_pagination">
 				<li><a class="${(page.startPage > 1)? '' : 'btnHide' }" id="btnPrev" onclick="guideGoPage(${page.startPage-1})">«</a></li>

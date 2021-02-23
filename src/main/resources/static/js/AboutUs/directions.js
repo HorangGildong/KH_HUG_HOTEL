@@ -68,7 +68,28 @@ function closeOverlay() {
     var b2 = $('#b2');
     var people = $('.people');
     var runner = $('#runner');
-    people.css({
+	
+	/*var mediasize = 1920;
+	if($(window).width() == mediasize) {
+		people.css({
+	        top: b2.position().top + 1505,
+	        left: b2.position().left + 1050
+	    });
+	    elevator.css({
+	        top: b2.position().top + 1505,
+	        left: b2.position().left + 624
+	    });
+	} else {
+		 people.css({
+	        top: b2.position().top + 1505,
+	        left: b2.position().left + 650
+	    });
+	    elevator.css({
+	        top: b2.position().top + 1505,
+	        left: b2.position().left + 324
+	    });
+	}*/
+   	people.css({
         top: b2.position().top + 1505,
         left: b2.position().left + 650
     });

@@ -53,7 +53,7 @@
                 <div class="innerBox">
                     <div class="facilityWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/facility/pool01.jpg" alt="이미지입니다">
                         </div>
                         <div class="facilityContent">
                             <p class="facilityTitle">
@@ -72,7 +72,7 @@
                 <div class="innerBox">
                     <div class="facilityWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/facility/sauna01.jpg" alt="이미지입니다">
                         </div>
                         <div class="facilityContent">
                             <p class="facilityTitle">
@@ -91,7 +91,7 @@
                 <div class="innerBox">
                     <div class="facilityWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/facility/pitness04.jpg" alt="이미지입니다">
                         </div>
                         <div class="facilityContent">
                             <p class="facilityTitle">
@@ -110,7 +110,7 @@
                 <div class="innerBox">
                     <div class="facilityWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/facility/spa01.jpg" alt="이미지입니다">
                         </div>
                         <div class="facilityContent">
                             <p class="facilityTitle">
@@ -129,7 +129,7 @@
                 <div class="innerBox">
                     <div class="facilityWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/facility/park01.jpg" alt="이미지입니다">
                         </div>
                         <div class="facilityContent">
                             <p class="facilityTitle">
@@ -148,7 +148,7 @@
                 <div class="innerBox">
                     <div class="facilityWrap">
                         <div class="imageBox">
-                            <img src="img/cjy_img/room1.jpg" alt="이미지입니다">
+                            <img src="img/hah_img/facility/kids02.jpg" alt="이미지입니다">
                         </div>
                         <div class="facilityContent">
                             <p class="facilityTitle">

@@ -9,6 +9,10 @@ section {
 section .control {
     margin: 100% 0 100% 0;
 }
+.carousel-inner img {
+	height: 100%;
+	width: 100%;
+}
 
 .item {
     position: relative;
@@ -78,6 +82,7 @@ section .control {
 
 .contents {
     margin: 0 5%;
+    
 }
 
 
@@ -125,6 +130,7 @@ section .control {
 .main-room .swiper-container .swiper-button-prev {
     color: white;
     margin: 0 2% 0 2%;
+    top: 46%;
 }
 
 .main-room .swiper-container>.swiper-pagination {
@@ -217,6 +223,7 @@ section .control {
 .main-dining .swiper-container .swiper-button-prev {
     color: white;
     margin: 0 2% 0 2%;
+    top: 46%;
 }
 
 .main-dining .swiper-container>.swiper-pagination {
@@ -249,10 +256,7 @@ section .control {
 /* 부대시설 start */
 
 
-/* .main-facility {
-    background-color: rgb(204, 243, 204);
-    height: 500px;
-} */
+
 
 .main-facility-title {
     display: flex;
@@ -373,13 +377,13 @@ section .control {
 .explain h3 {
     font-family: 'Playfair Display', serif;
     font-weight: bolder;
-    padding-top: 35px;
+    padding-top: 6%;
     color: #193f6e;
     font-size: 1.6vw;
 }
 
 .explain h5 {
-    padding-top: 10px;
+    padding-top: 2%;
     font-size: 1vw;
 }
 

@@ -3,6 +3,7 @@ package kr.iei.hotel.faq.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -400,8 +401,27 @@ public class FaqController {
 		mv.setViewName("faqAdmin/adminTotalFaq");		
 		return mv;		
 	}
+	/*--------------------------------- faq 검색 조회 ---------------------------------*/
+	@RequestMapping(value="/adminFaqSearch", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView adminFaqSearch(Page page, FaqVo vo) {
+		ModelAndView mv = new ModelAndView();
+				
+		System.out.println("getCategory 전: "+vo.getCategory());
+		vo.setCategory("["+vo.getCategory()+"]");
+		System.out.println("getCategory 후: "+vo.getCategory());
+		
+		
+		Map<String, Object> map = service.search(page, vo.getCategory());
+		List<FaqVo> list = (List<FaqVo>) map.get("list");
+		page = (Page) map.get("page");				
 	
-	
+		System.out.println("전체 메뉴 입니다");
+				
+		mv.addObject("list", list);
+		mv.addObject("page", page);
+		mv.setViewName("faqAdmin/adminTotalFaq");		
+		return mv;		
+	}
 	
 	/*--------------------------------- faq 등록 ---------------------------------*/
 	@RequestMapping(value="/adminFaqInsert", method= RequestMethod.POST)

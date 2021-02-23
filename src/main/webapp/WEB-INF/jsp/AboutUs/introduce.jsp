@@ -61,10 +61,10 @@
                     <!-- Swiper -->
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
-                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
-                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
-                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/H.U.G 호텔5.png">
+                            <img class="swiper-slide" src="img/hah_img/main/H.U.G 호텔5.png">
+                            <img class="swiper-slide" src="img/hah_img/main/H.U.G 호텔5.png">
+                            <img class="swiper-slide" src="img/hah_img/main/H.U.G 호텔5.png">
                         </div>
                         <!-- Add Pagination -->
                         <div class="swiper-pagination"></div>
@@ -72,6 +72,11 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
+                    <!-- <iframe width="1245" height="600"
+						src="https://www.youtube.com/embed/wphai3v-SXE?autoplay=1&mute=1" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen>
+					</iframe> -->
                 </div>
                 <div class="intro-explain">
 

@@ -226,6 +226,8 @@
 	margin: 0 auto;
     width: 1152px;
     height: 976px;
+    
+    
 }
 
 .floor-info h1 {
@@ -270,7 +272,9 @@
     font-size: 2em;
     font-weight: bold;
     cursor: default;
+    left: 0
 }
+
 .floor-detail-info {
     width: 360px;
     height: 890px;
@@ -316,3 +320,13 @@
     width: 70px;
     height: 100px;
 }
+
+/* @media screen and (max-width:1920px) {
+	.elevator {
+   
+    	margin: 6px 10px 10px 526px;
+	}	
+	.people {
+		margin: 6px 10px 10px 215px; 
+	}
+} */

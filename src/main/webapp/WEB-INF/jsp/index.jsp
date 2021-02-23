@@ -51,13 +51,11 @@
                     <li data-target="#carousel-generic" data-slide-to="1"></li>
                     <li data-target="#carousel-generic" data-slide-to="2"></li>
                     <li data-target="#carousel-generic" data-slide-to="3"></li>
-                    <li data-target="#carousel-generic" data-slide-to="4"></li>
-                    <li data-target="#carousel-generic" data-slide-to="5"></li>
                 </ol>
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="img/hah_img/H.U.G 호텔5.png" alt="First slide">
+                        <img src="img/hah_img/main/H.U.G 호텔5.png" alt="First slide">
                         <div class="weather-container">
                             <div class="weather-data">
                                 <h1 class="location">
@@ -75,23 +73,18 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="item">
-                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Second slide">
+                        <img src="img/hah_img/main/main02.png" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="img/hah_img/main/main03.png" alt="Third slide">
 
                     </div>
                     <div class="item">
-                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Third slide">
+                        <img src="img/hah_img/main/더뷔페03.jpg" alt="Third slide">
                     </div>
-                    <div class="item">
-                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Third slide">
-                    </div>
-                    <div class="item">
-                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Third slide">
-                    </div>
-                    <div class="item">
-                        <img src="img/hah_img/H.U.G 호텔5.png" alt="Third slide">
-                    </div>
-
+					
                 </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
@@ -108,10 +101,10 @@
                     <!-- Swiper -->
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <img class="swiper-slide" src="img/hah_img/room01.jpg">
-                            <img class="swiper-slide" src="img/hah_img/room01.jpg">
-                            <img class="swiper-slide" src="img/hah_img/room01.jpg">
-                            <img class="swiper-slide" src="img/hah_img/room01.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/room01.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/room02.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/room03.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/room04.jpg">
                         </div>
                         <!-- Add Pagination -->
                         <div class="swiper-pagination"></div>
@@ -130,10 +123,10 @@
                     <!-- Swiper -->
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
-                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
-                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
-                            <img class="swiper-slide" src="img/hah_img/dining02.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/dining02.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/더뷔페01.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/trattoria01.jpg">
+                            <img class="swiper-slide" src="img/hah_img/main/라운지02.jpg">
                         </div>
                         <!-- Add Pagination -->
                         <div class="swiper-pagination"></div>
@@ -144,7 +137,7 @@
                     <div class="main-dining-title">
                         <h1>DINING</h1>
                         <h4>다채로운 미식의 세계로의 초대</h4>
-                        <h5>게스토랑 / 라운지 & 바</h5>
+                        <h5>레스토랑 / 라운지 & 바</h5>
                         <button type="button" class="dining-button" onclick="location.href='/diningView';">▶</button>
                         <!-- <button class="dining-button"><a href="">▶</a></button> -->
                     </div>
@@ -158,22 +151,22 @@
                     <div class="halfGallery">
                         <ul class="halfCont">
                             <li class="on" style="width: 700px; transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/facility01.jpg" alt="">
+                                <img src="img/hah_img/main/pool02.jfif" alt="" style="width:700px; height:640px;">
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/facility02.jpg" alt="">
+                                <img src="img/hah_img/main/sauna01.jpg" alt="" style="width:700px; height:640px;">
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/facility03.jpg" alt="">
+                                <img src="img/hah_img/facility/pitness04.jpg" alt="" style="width:700px; height:640px;">
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/facility01.jpg" alt="">
+                                <img src="img/hah_img/main/spa02.jpg" alt="" style="width:700px; height:640px;"> 
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/facility02.jpg" alt="">
+                                <img src="img/hah_img/main/park01.jpg" alt="" style="width:700px; height:640px;">
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/facility03.jpg" alt="">
+                                <img src="img/hah_img/main/kids01.jpg" alt="" style="width:700px; height:640px;">
                             </li>
                         </ul>
                     </div>
@@ -199,17 +192,17 @@
                     <ul>
                         <li class="first">
                             <img src="img/hah_img/이벤트_1.png" alt="" >
-                            <h4><a href="">Floating Cinema</a></h4>
+                            <h4>Floating Cinema</h4>
                             <h5>2021.01.17 ~ 2021.03.17</h5>
                         </li>
                         <li class="second">
                             <img src="img/hah_img/이벤트_2.jpg" alt="">
-                            <h4><a href="">소(牛) 해피 뉴이어 2021 프로모션</a></h4>
+                            <h4>소(牛) 해피 뉴이어 2021 프로모션</h4>
                             <h5>2021.01.01 ~ 2021.03.05</h5>
                         </li>
                         <li class="last">
                             <img src="img/hah_img/이벤트_3.png" alt="">
-                            <h4><a href="">Lounge Giving Day</a></h4>
+                            <h4>Lounge Giving Day</h4>
                             <h5>2020.12.26 ~ 2021.02.10</h5>
                         </li>
                     </ul>

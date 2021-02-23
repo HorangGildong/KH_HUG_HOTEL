@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -506,13 +507,40 @@ public class FaqDao implements FaqService {
 		
 		return vo;
 	}
+	
+	/*--------------------------------- 관리자 FAQ 수정 ---------------------------------*/
 	@Override
 	public void faqUpdate(FaqVo vo) {
 		int cnt = mapper.faqUpdate(vo);
 	}
+	
+	/*--------------------------------- 관리자 FAQ 삭제 ---------------------------------*/
 	@Override
 	public void faqDelete(int id) {
 		int cnt = mapper.faqDelete(id);
+	}
+	
+	/*--------------------------------- 관리자 FAQ 검색하기 ---------------------------------*/
+	@Override
+	public Map<String, Object> search(Page page, String category) {
+
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);
+		}		
+		
+		int totListSize = mapper.admin_tot_list(category);		
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+		
+		list = mapper.admin_search(page);
+		
+		map.put("page", page);
+		map.put("list", list);		
+		
+		return map;
 	}	
 
 }

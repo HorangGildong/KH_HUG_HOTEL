@@ -117,12 +117,20 @@
 #admin_faq_select>h3{
    	text-align: center;   
 }
-#admin_faq_select #faq_insert{
-    position: relative;   
-    left: -42%;
+#admin_faq_select #fCover{
+	display:flex;
+	position: relative;
+	left:77%;
+}
+#admin_faq_select #fCover #category{
+	width:110px;
+}
+#admin_faq_select #fCover #btnSearch{
+	width:70px;
+}
+#admin_faq_select #btn_back #faq_insert{
     width: 100px;
     height: 30px;
-    text-decoration: none;
     color: #ffffff;
     border: 0;
     border-radius: 3px;
@@ -132,11 +140,10 @@
 	margin-top: 20px;
 	margin-bottom: 3px;
 }
-#admin_faq_select #faq_insert:hover {
+#admin_faq_select #btn_back #faq_insert:hover {
 	background-color: rgb(213, 223, 250);
 	cursor:pointer;
 }
-
 #admin_faq_select .title{
   	margin-top:6px;
    	background-color: rgb(154, 174, 228);
@@ -145,13 +152,12 @@
   	width: 800px;
   	font-size: 17px;  	
 }
-
 #admin_faq_select span{
    	display: inline-block;
    	text-align: center;      
 }
 
-#admin_faq_select .no{
+#admin_faq_select .id{
 	margin-right: 30px;
 	width:40px;
 }

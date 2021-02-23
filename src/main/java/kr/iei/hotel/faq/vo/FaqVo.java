@@ -2,17 +2,17 @@ package kr.iei.hotel.faq.vo;
 
 public class FaqVo {
 	
-	int id;
+	Integer id;
 	String category;
 	String question;
 	String answer;
 	int no;
 		
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public int getNo() {

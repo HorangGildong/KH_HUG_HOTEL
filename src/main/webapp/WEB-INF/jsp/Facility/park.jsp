@@ -57,10 +57,10 @@
             <div class="imageArea">
                 <ul class="slides">
                     <li>
-                        <img src="img/cjy_img/room1.jpg" alt=" "></li>
-                    <li><img src="img/cjy_img/room2.jpg " alt=" "></li>
-                    <li><img src="img/cjy_img/room3.jpg " alt=" "></li>
-                    <li><img src="img/cjy_img/room4.jpg " alt=" "></li>
+                        <img src="img/hah_img/facility/park01.jpg" alt=" "></li>
+                    <li><img src="img/hah_img/facility/park02.jpg " alt=" "></li>
+                    <li><img src="img/hah_img/facility/park03.jpg " alt=" "></li>
+                    <li><img src="img/hah_img/facility/park04.jpg" alt=" "></li>
                 </ul>
             </div>
             <p class="controls ">

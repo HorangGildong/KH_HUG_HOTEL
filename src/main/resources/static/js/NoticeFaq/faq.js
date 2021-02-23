@@ -33,6 +33,7 @@ var faq = function(){
 	var fBtnUpdate	= getID('fBtnUpdate');
 	var fBtnDelete	= getID('fBtnDelete');
 	var faqId		= getID('faqId');
+	var btnSearch	= getID('btnSearch');
 		
 	/*---------------- 메뉴 클릭 시 ----------------*/
 	if(btncago1 != null){
@@ -279,6 +280,15 @@ var faq = function(){
 			frm.submit();			
 		}
 	}	
+	/*---------------- 관리자 메인 검색 클릭 시 ----------------
+	if(btnSearch != null){
+		btnSearch.onclick = function(){
+			var frm = document.frm_faqmain;
+			frm.action = "/adminFaqSearch";
+			frm.submit();
+		}
+	}			
+	*/	
 		
 	/*---------------- 메뉴 클릭 시 색상변경 ----------------*/	
 	function clickMenuHandler() {
