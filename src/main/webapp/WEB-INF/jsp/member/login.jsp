@@ -60,8 +60,11 @@
 		<section>
 			<div style="margin: 100px 0px 100px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
+				
 					<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
+					
 					<form class="col-md-12 form-horizontal" action="/loginProc"	method="post">
+					
 						<div class="form-group">
 							<div class="input-group">
 								<span class="input-group-addon">
@@ -71,6 +74,7 @@
 									name="username" id="inputId" placeholder="ID" value="gildong">
 							</div>
 						</div>
+						
 						<div class="form-group">
 							<div class="input-group">
 								<span class="input-group-addon">
@@ -80,16 +84,21 @@
 									name="password" id="inputPassword" placeholder="Password" value="123">
 							</div>
 						</div>
+						
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-lg btn-block"
 								style="font-weight: bold;">로그인</button>
 						</div>
+						
 					</form>
+					
 					<div class="text-center">
-						<a href="/join">회원가입</a> | <a href="#">아이디 찾기</a> | <a href="#">비밀번호
+						<a href="/join">회원가입</a> | <a href="/searchIds">아이디 찾기</a> | <a href="#">비밀번호
 							찾기</a>
 					</div>
+					
 					<br>
+					
 					<!-- <button class="btn btn-primary btn-lg btn-block"
 						style="background-color: #1EC800; border: #1EC800; padding: 0; height: 45px;">
 						<div
@@ -98,6 +107,7 @@
 							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
 							네이버 아이디로 로그인</div>
 					</button> -->
+					
 					<button class="btn btn-primary btn-lg btn-block"
 						style="background-color: #4285F4; border: #4285F4; padding: 0; height: 45px; margin-top: 10px" onclick = "location.href = '/oauth2/authorization/google' ">
 						<div
@@ -106,6 +116,7 @@
 							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
 							구글 아이디로 로그인</div>
 					</button>
+					
 				</div>
 			</div>
 		</section>

@@ -89,6 +89,7 @@ UPDATE MEMBER SET
 memberName = '홍홍홍', memberEmail = '이메일'
 WHERE memberNumber = 1;
 
-SELECT memberNumber, memberId, memberName, memberNick, memberEmail, memberRole, memberKey FROM MEMBER;
-
 DELETE FROM MEMBER;
+
+SELECT memberNumber, memberId, memberName, memberNick, memberPhone, memberEmail, memberRole, memberKey FROM MEMBER;
+SELECT memberId FROM MEMBER WHERE memberName = '한만월' AND memberPhone = '777-7777-7777

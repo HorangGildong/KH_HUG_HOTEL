@@ -1,5 +1,7 @@
 package kr.iei.hotel.member.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,13 +32,18 @@ public class MemberServiceImp implements MemberService {
 	}
 	
 	@Override
-	public MemberDto findByKey(String memberKey) {
-		return memberDao.findByKey(memberKey);
+	public MemberDto searchByKey(String memberKey) {
+		return memberDao.searchByKey(memberKey);
 	}
 	
 	@Override
-	public MemberDto findById(String memberId) {
-		return memberDao.findById(memberId);
+	public MemberDto searchById(String memberId) {
+		return memberDao.searchById(memberId);
+	}
+	
+	@Override
+	public List<String> searchIds(String memberName, String memberPhone) {
+		return memberDao.searchIds(memberName, memberPhone);
 	}
 	
 	@Override

@@ -71,7 +71,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">비밀번호	확인</label>
+							<label for="inputPassword" class="col-xs-4 control-label">비밀번호 확인</label>
 							<div class="col-xs-8">
 								<input type="password" class="form-control"
 									id="inputPassword2"	placeholder="PasswordCheck" disabled required>
@@ -346,7 +346,7 @@
 					if (nick == "") {
 						$("#nickCheck").text("");
 					} else if (data) {
-						$("#nickCheck").text("사용중인 닉네임입니다. ㅠㅠ");
+						$("#nickCheck").text("사용중인 닉네임입니다.");
 						$("#nickCheck").css("color", "red");
 					} else {
 						$("#nickCheck").text("사용가능한 닉네임입니다.");
@@ -401,13 +401,13 @@
 				$("#passwordCheck2").css("color", "blue");
 				isPassword = true;
 			} else {
-				$("#passwordCheck2").text("비밀번호가 일치하지 않습니다. ㅠㅠ");
+				$("#passwordCheck2").text("비밀번호가 일치하지 않습니다.");
 				$("#passwordCheck2").css("color", "red");
 			}
 			$.fn.submitDisable();
 		});
 		
-		$.fn.submitDisable = function () {
+		$.fn.submitDisable = function() {
 			console.log(isId, isEmail, isNick, isPassword);
 			if(isId == true && isEmail == true && isNick == true && isPassword == true) {
 				$("#submitBtn").attr("disabled", false);

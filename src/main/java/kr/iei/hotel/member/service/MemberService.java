@@ -1,5 +1,7 @@
 package kr.iei.hotel.member.service;
 
+import java.util.List;
+
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
@@ -16,8 +18,10 @@ public interface MemberService {
 
 	int checkNick(String memberNick);
 	
-	MemberDto findByKey(String memberKey);
+	MemberDto searchByKey(String memberKey);
 	
-	MemberDto findById(String memberId);
+	MemberDto searchById(String memberId);
+
+	List<String> searchIds(String memberName, String memberPhone);
 
 }

@@ -1,9 +1,10 @@
 package kr.iei.hotel.member.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
@@ -12,12 +13,6 @@ import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 @Mapper
 public interface MemberDao {
 
-	@Select("SELECT * FROM MEMBER WHERE memberId = '${memberId}'")
-	MemberDto findById(String memberId);
-
-	@Select("SELECT * FROM MEMBER WHERE memberKey = '${memberKey}'")
-	MemberDto findByKey(String memberKey);
-	
 	@Insert("INSERT INTO MEMBER ("
 			+ " memberId, memberEmail, memberName, memberRegDate, memberPwChangeDate, memberNick,"
 			+ " memberPhone, memberGender, memberPassword, memberBirth, memberAgree)"
@@ -42,6 +37,15 @@ public interface MemberDao {
 			+ " '${memberPhone}', '${memberGender}', '${memberBirth}', '${memberAgree}', '${memberKey}'"
 			+ " )")
 	void oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto);
+	
+	@Select("SELECT * FROM MEMBER WHERE memberId = '${memberId}'")
+	MemberDto searchById(String memberId);
+
+	@Select("SELECT * FROM MEMBER WHERE memberKey = '${memberKey}'")
+	MemberDto searchByKey(String memberKey);
+	
+	@Select("SELECT memberId FROM MEMBER WHERE memberName = '${memberName}' AND memberPhone = '${memberPhone}'")
+	List<String> searchIds(String memberName, String memberPhone);
 	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberId = '${memberId}'")
 	int checkId(String memberId);
