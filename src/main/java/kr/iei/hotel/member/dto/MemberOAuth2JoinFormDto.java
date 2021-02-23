@@ -17,7 +17,8 @@ public class MemberOAuth2JoinFormDto {
 	
 	public MemberOAuth2JoinFormDto() {}
 
-	public MemberOAuth2JoinFormDto(String memberEmail, String memberKey) {
+	public MemberOAuth2JoinFormDto(String memberId, String memberEmail, String memberKey) {
+		this.memberId = memberId;
 		this.memberEmail = memberEmail;
 		this.memberKey = memberKey;
 	}

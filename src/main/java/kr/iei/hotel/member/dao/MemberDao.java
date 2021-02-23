@@ -45,9 +45,6 @@ public interface MemberDao {
 	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberId = '${memberId}'")
 	int checkId(String memberId);
-	
-	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberEmail = '${memberEmail}'")
-	int checkEmail(String memberEmail);
 
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberNick = '${memberNick}'")
 	int checkNick(String memberNick);

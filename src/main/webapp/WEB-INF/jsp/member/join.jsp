@@ -323,26 +323,17 @@
 			var email = $('#inputEmail').val();
 			var str = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 			isEmail = false;
-			$.ajax({
-				url : '${pageContext.request.contextPath}/join/emailCheck?email=' + email,
-				type : 'get',
-				success : function(data) {
-					if (!str.test(email) && email!="") {
-						$("#emailCheck").text("이메일 형식이 바르지 않습니다.");
-						$("#emailCheck").css("color", "red");
-					} else if (data) {
-						$("#emailCheck").text("사용중인 아이디입니다.");
-						$("#emailCheck").css("color", "red");
-					} else if (email!="") {
-						isEmail = true;
-						$("#emailCheck").text("사용가능한 아이디입니다.");
-						$("#emailCheck").css("color", "blue");
-					} else {
-						$("#emailCheck").text("");
-					}			
-					$.fn.submitDisable();
-				}
-			});
+			if (!str.test(email) && email!="") {
+				$("#emailCheck").text("이메일 형식이 바르지 않습니다.");
+				$("#emailCheck").css("color", "red");
+			} else if (email!="") {
+				isEmail = true;
+				$("#emailCheck").text("사용가능한 이메일입니다.");
+				$("#emailCheck").css("color", "blue");
+			} else {
+				$("#emailCheck").text("");
+			}			
+			$.fn.submitDisable();
 		});
 		
 		$("#inputNickname").blur(function() {

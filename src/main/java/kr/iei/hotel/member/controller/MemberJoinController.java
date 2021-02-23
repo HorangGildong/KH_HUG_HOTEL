@@ -55,9 +55,11 @@ public class MemberJoinController {
 	public String oAuth2Join(HttpSession session, MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
 		MemberDto memberDto = (MemberDto) session.getAttribute("memberDto");
 		session.invalidate();
-		memberOAuth2JoinFormDto.setMemberId("user_" + memberDto.getMemberKey());
-		memberOAuth2JoinFormDto.setMemberEmail(memberDto.getMemberEmail());
-		memberOAuth2JoinFormDto.setMemberKey(memberDto.getMemberKey());
+		memberOAuth2JoinFormDto = new MemberOAuth2JoinFormDto(
+				"user_" + memberDto.getMemberKey(),
+				memberDto.getMemberEmail(),
+				memberDto.getMemberKey()
+				);
 		memberService.oAuth2Join(memberOAuth2JoinFormDto);
 		return "redirect:/";
 	}
@@ -75,12 +77,6 @@ public class MemberJoinController {
 	@ResponseBody
 	public boolean isIdCheck(@RequestParam("id") String memberId) {
 		return !(memberService.checkId(memberId)==0);
-	}
-	
-	@GetMapping("/join/emailCheck")
-	@ResponseBody
-	public boolean isEmailCheck(@RequestParam("email") String memberEmail) {
-		return !(memberService.checkEmail(memberEmail)==0);
 	}
 	
 	@GetMapping("/join/nickCheck")
