@@ -84,7 +84,7 @@
 						<div class="form-group">
 							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" name="memberPhone"
+								<input type="text" class="form-control" name="memberPhone" maxlength="13"
 									id="inputPhone" placeholder="PhoneNumber" required>
 							</div>
 						</div>
