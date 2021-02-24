@@ -49,17 +49,10 @@ public class MemberLoginController {
 		return "/member/login";		
 	}
 	
-	// a
-	@GetMapping("/a")
-	@ResponseBody
-	public PrincipalDetails a(@AuthenticationPrincipal PrincipalDetails userDetails) {
-		return userDetails;
-	}
 	
 	@GetMapping("/pwChange")
-	@ResponseBody
 	public String pwChange() {
-		return "비밀번호 변경하는 페이지로 보낼거임";
+		return "/myPage/updateMember";
 	}
 	
 	@GetMapping("/noPwChange")
@@ -91,8 +84,16 @@ public class MemberLoginController {
 	}
 
 
-
-	@GetMapping("/test")	// TEST
+	
+	// TEST
+	
+	@GetMapping("/a")
+	@ResponseBody
+	public PrincipalDetails a(@AuthenticationPrincipal PrincipalDetails userDetails) {
+		return userDetails;
+	}
+	
+	@GetMapping("/test")
 	@ResponseBody
 	public String test(
 			Authentication authentication,
@@ -112,7 +113,7 @@ public class MemberLoginController {
 				);
 	}
 	
-	@GetMapping("/test1")	// TEST
+	@GetMapping("/test1")
 	@ResponseBody
 	public String test1(
 			Authentication authentication,
@@ -124,7 +125,7 @@ public class MemberLoginController {
 		return "세션 정보 확인하기";
 	}
 	
-	@GetMapping("/test2")	// TEST oauth2
+	@GetMapping("/test2")
 	@ResponseBody
 	public String test2(
 			Authentication authentication,

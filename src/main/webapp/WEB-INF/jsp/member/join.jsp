@@ -358,7 +358,7 @@
 			});
 		});
 		
-		$("#inputPassword").blur(function() {
+		$("#inputPassword").keyup(function() {
 			var pw = $("#inputPassword").val();
 			var num = pw.search(/[0-9]/g);
 			var eng = pw.search(/[a-z]/ig);
