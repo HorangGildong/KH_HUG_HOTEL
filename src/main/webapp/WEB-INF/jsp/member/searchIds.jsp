@@ -179,18 +179,23 @@
 				type : 'get',
 				success : function(data) {
 					console.log(data);
-					$.each(data, function (index, value) {
-						$('#search').append(objDiv.clone()
-							.attr('id', 'id-'+index));
-						$('#id-'+index+' #sId')
-							.text(value.memberId + '(가입일:' + value.memberRegDate + ')');
-						$('#id-'+index+' #sBtnId')
-							.attr('id', 'sBtnId-'+index)
-							.click(function() {
-								$('#sInputId').val(value.memberId);
-								console.log(value.memberId);
-							});
-					});
+					if(data.length > 0) {
+						$('#search').text('');
+						$.each(data, function (index, value) {
+							$('#search').append(objDiv.clone()
+								.attr('id', 'id-'+index));
+							$('#id-'+index+' #sId')
+								.text(value.memberId + '(가입일:' + value.memberRegDate + ')');
+							$('#id-'+index+' #sBtnId')
+								.attr('id', 'sBtnId-'+index)
+								.click(function() {
+									$('#sInputId').val(value.memberId);
+									console.log(value.memberId);
+								});
+						});
+					} else {
+						$('#search').text('입력하신 정보와 일치하는 아이디가 없습니다.');
+					}
 				}
 			})
 		};
