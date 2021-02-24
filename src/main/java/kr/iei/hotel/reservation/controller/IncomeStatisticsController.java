@@ -71,10 +71,20 @@ public class IncomeStatisticsController {
 	}
 	//일별통계2
 	@RequestMapping(value = "/dailyStatistics2", method= RequestMethod.POST)
-	public String dailyStatistics2(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+	public String dailyStatistics2(IncomeStatisticsVO incomeStatisticsVO, Model model)throws Exception {
+		
+		
+		
 		
 		logger.info("일별통계 처리2");
-
+		// Average를 구하기 위한 변수들
+		int totalCount = 0;
+		int standardCount = 0;
+		int superiorCount = 0;
+		int deluxeCount = 0;
+		int royalCount = 0;
+		
+		
 		//price
 		List<Long> monthlyTotalPriceList = new ArrayList<Long>();
 		List<Long> monthlyStandardPriceList = new ArrayList<Long>();
@@ -146,16 +156,17 @@ public class IncomeStatisticsController {
 		// totalPrice/Count 확인 및 합집함 처리
 		System.out.println("TotalPrice/Count");
 		for(int index = 0; index < monthlyTotalPriceList.size(); index++) {
-			System.out.println((index+1) + "월 통계 Price : " + monthlyTotalPriceList.get(index));
-			System.out.println((index+1) + "월 통계 Count : " + monthlyTotalCountList.get(index));
+			System.out.println((index+1) + "일 통계 Price : " + monthlyTotalPriceList.get(index));
+			System.out.println((index+1) + "일 통계 Count : " + monthlyTotalCountList.get(index));
 			if(monthlyTotalCountList.get(index) != 0) {
 			incomeStatisticsVO.setTotalSumPrice(incomeStatisticsVO.getTotalSumPrice()+monthlyTotalPriceList.get(index));
 			incomeStatisticsVO.setTotalSumCount(incomeStatisticsVO.getTotalSumCount()+monthlyTotalCountList.get(index));
+			totalCount++;
 			}
 		}
 		// totalPrice/Count 평균 구하고 합집합/평균 확인
- 		incomeStatisticsVO.setTotalAveragePrice(incomeStatisticsVO.getTotalSumPrice()/monthlyTotalPriceList.size());
- 		incomeStatisticsVO.setTotalAverageCount(incomeStatisticsVO.getTotalSumCount()/monthlyTotalPriceList.size());
+ 		incomeStatisticsVO.setTotalAveragePrice(incomeStatisticsVO.getTotalSumPrice()/totalCount);
+ 		incomeStatisticsVO.setTotalAverageCount(incomeStatisticsVO.getTotalSumCount()/totalCount);
  		System.out.println("TotalSumPrice : " + incomeStatisticsVO.getTotalSumPrice());
  		System.out.println("TotalSumCount : " + incomeStatisticsVO.getTotalSumCount());
  		System.out.println("TotalAveragePrice : " + incomeStatisticsVO.getTotalAveragePrice());
@@ -165,15 +176,16 @@ public class IncomeStatisticsController {
  		// 스탠다드
  		System.out.println("StandardPrice/Count");
  		for(int index = 0; index < monthlyStandardPriceList.size(); index++) {
- 			System.out.println((index+1) + "월 통계 Price : " + monthlyStandardPriceList.get(index));
-			System.out.println((index+1) + "월 통계 Count : " + monthlyStandardCountList.get(index));
+ 			System.out.println((index+1) + "일 통계 Price : " + monthlyStandardPriceList.get(index));
+			System.out.println((index+1) + "일 통계 Count : " + monthlyStandardCountList.get(index));
 			if(monthlyStandardCountList.get(index) != 0) {
  			incomeStatisticsVO.setStandardTotalPrice(incomeStatisticsVO.getStandardTotalPrice()+monthlyStandardPriceList.get(index));
  			incomeStatisticsVO.setStandardTotalCount(incomeStatisticsVO.getStandardTotalCount()+monthlyStandardCountList.get(index));
+			standardCount++;
 			}
  		}
- 		incomeStatisticsVO.setStandardAveragePrice(incomeStatisticsVO.getStandardTotalPrice()/monthlyStandardPriceList.size());
- 		incomeStatisticsVO.setStandardAverageCount(incomeStatisticsVO.getStandardTotalCount()/monthlyStandardPriceList.size());
+ 		incomeStatisticsVO.setStandardAveragePrice(incomeStatisticsVO.getStandardTotalPrice()/standardCount);
+ 		incomeStatisticsVO.setStandardAverageCount(incomeStatisticsVO.getStandardTotalCount()/standardCount);
  		System.out.println("StandardTotalPrice : " + incomeStatisticsVO.getStandardTotalPrice());
  		System.out.println("StandardTotalCount : " + incomeStatisticsVO.getStandardTotalCount());
  		System.out.println("StandardAveragePrice : " + incomeStatisticsVO.getStandardAveragePrice());
@@ -183,15 +195,16 @@ public class IncomeStatisticsController {
  		//슈페리어
  		System.out.println("SuperiorPrice/Count");
  		for(int index = 0; index < monthlySuperiorPriceList.size(); index++) {
- 			System.out.println((index+1) + "월 통계 Price : " + monthlySuperiorPriceList.get(index));
-			System.out.println((index+1) + "월 통계 Count : " + monthlySuperiorCountList.get(index));
+ 			System.out.println((index+1) + "일 통계 Price : " + monthlySuperiorPriceList.get(index));
+			System.out.println((index+1) + "일 통계 Count : " + monthlySuperiorCountList.get(index));
 			if(monthlySuperiorCountList.get(index) != 0) {
  			incomeStatisticsVO.setSuperiorTotalPrice(incomeStatisticsVO.getSuperiorTotalPrice()+monthlySuperiorPriceList.get(index));
  			incomeStatisticsVO.setSuperiorTotalCount(incomeStatisticsVO.getSuperiorTotalCount()+monthlySuperiorCountList.get(index));
+			superiorCount++;
 			}
  		}
- 		incomeStatisticsVO.setSuperiorAveragePrice(incomeStatisticsVO.getSuperiorTotalPrice()/monthlySuperiorPriceList.size());
- 		incomeStatisticsVO.setSuperiorAverageCount(incomeStatisticsVO.getSuperiorTotalCount()/monthlySuperiorPriceList.size());
+ 		incomeStatisticsVO.setSuperiorAveragePrice(incomeStatisticsVO.getSuperiorTotalPrice()/superiorCount);
+ 		incomeStatisticsVO.setSuperiorAverageCount(incomeStatisticsVO.getSuperiorTotalCount()/superiorCount);
  		System.out.println("SuperiorTotalPrice : " + incomeStatisticsVO.getSuperiorTotalPrice());
  		System.out.println("SuperiorTotalCount : " + incomeStatisticsVO.getSuperiorTotalCount());
  		System.out.println("SuperiorAveragePrice : " + incomeStatisticsVO.getSuperiorAveragePrice());
@@ -201,15 +214,16 @@ public class IncomeStatisticsController {
  		//디럭스
  		System.out.println("DeluxePrice/Count");
  		for(int index = 0; index < monthlyDeluxePriceList.size(); index++) {
- 			System.out.println((index+1) + "월 통계 Price : " + monthlyDeluxePriceList.get(index));
-			System.out.println((index+1) + "월 통계 Count : " + monthlyDeluxeCountList.get(index));
+ 			System.out.println((index+1) + "일 통계 Price : " + monthlyDeluxePriceList.get(index));
+			System.out.println((index+1) + "일 통계 Count : " + monthlyDeluxeCountList.get(index));
 			if(monthlyDeluxeCountList.get(index) != 0) {
  			incomeStatisticsVO.setDeluxeTotalPrice(incomeStatisticsVO.getDeluxeTotalPrice()+monthlyDeluxePriceList.get(index));
  			incomeStatisticsVO.setDeluxeTotalCount(incomeStatisticsVO.getDeluxeTotalCount()+monthlyDeluxeCountList.get(index));
+			deluxeCount++;
 			}
  		}
- 		incomeStatisticsVO.setDeluxeAveragePrice(incomeStatisticsVO.getDeluxeTotalPrice()/monthlyDeluxePriceList.size());
- 		incomeStatisticsVO.setDeluxeAverageCount(incomeStatisticsVO.getDeluxeTotalCount()/monthlyDeluxePriceList.size());
+ 		incomeStatisticsVO.setDeluxeAveragePrice(incomeStatisticsVO.getDeluxeTotalPrice()/deluxeCount);
+ 		incomeStatisticsVO.setDeluxeAverageCount(incomeStatisticsVO.getDeluxeTotalCount()/deluxeCount);
  		System.out.println("DeluxeTotalPrice : " + incomeStatisticsVO.getDeluxeTotalPrice());
  		System.out.println("DeluxeTotalCount : " + incomeStatisticsVO.getDeluxeTotalCount());
  		System.out.println("DeluxeAveragePrice : " + incomeStatisticsVO.getDeluxeAveragePrice());
@@ -219,23 +233,41 @@ public class IncomeStatisticsController {
  		//로얄
  		System.out.println("RoyalPrice/Count");
  		for(int index = 0; index < monthlyRoyalPriceList.size(); index++) {
- 			System.out.println((index+1) + "월 통계 Price : " + monthlyRoyalPriceList.get(index));
-			System.out.println((index+1) + "월 통계 Count : " + monthlyRoyalCountList.get(index));
+ 			System.out.println((index+1) + "일 통계 Price : " + monthlyRoyalPriceList.get(index));
+			System.out.println((index+1) + "일 통계 Count : " + monthlyRoyalCountList.get(index));
  			if(monthlyRoyalCountList.get(index) != 0) {
 			incomeStatisticsVO.setRoyalTotalPrice(incomeStatisticsVO.getRoyalTotalPrice()+monthlyRoyalPriceList.get(index));
  			incomeStatisticsVO.setRoyalTotalCount(incomeStatisticsVO.getRoyalTotalCount()+monthlyRoyalCountList.get(index));
+ 			royalCount++;
  			}
  		}
- 		incomeStatisticsVO.setRoyalAveragePrice(incomeStatisticsVO.getRoyalTotalPrice()/monthlyRoyalPriceList.size());
- 		incomeStatisticsVO.setRoyalAverageCount(incomeStatisticsVO.getRoyalTotalCount()/monthlyRoyalPriceList.size());
+ 		incomeStatisticsVO.setRoyalAveragePrice(incomeStatisticsVO.getRoyalTotalPrice()/royalCount);
+ 		incomeStatisticsVO.setRoyalAverageCount(incomeStatisticsVO.getRoyalTotalCount()/royalCount);
  		System.out.println("RoyalTotalPrice : " + incomeStatisticsVO.getRoyalTotalPrice());
  		System.out.println("RoyalTotalCount : " + incomeStatisticsVO.getRoyalTotalCount());
  		System.out.println("RoyalAveragePrice : " + incomeStatisticsVO.getRoyalAveragePrice());
  		System.out.println("RoyalAverageCount : " + incomeStatisticsVO.getRoyalAverageCount());
  		
+ 		//이제 데이터를 뿌려보자
+ 		model.addAttribute("incomeStatistics", incomeStatisticsVO);
+ 		model.addAttribute("totalPriceList", monthlyTotalPriceList);
+ 		model.addAttribute("totalCountList", monthlyTotalCountList);
+ 		model.addAttribute("standardPriceList", monthlyStandardPriceList);
+ 		model.addAttribute("standardCountList", monthlyStandardCountList);
+ 		model.addAttribute("superiorPriceList", monthlySuperiorPriceList);
+ 		model.addAttribute("superiorCountList", monthlySuperiorCountList);
+ 		model.addAttribute("deluxePriceList", monthlyDeluxePriceList);
+ 		model.addAttribute("deluxeCountList", monthlyDeluxeCountList);
+ 		model.addAttribute("royalPriceList", monthlyRoyalPriceList);
+ 		model.addAttribute("royalCountList", monthlyRoyalCountList);
+ 		model.addAttribute("date", incomeStatisticsVO);
 		
 		return "/incomestatisticsAdmin/incomeStatisticsMain";
 	}
+	
+	
+	
+	
 	//월별통계
 	@RequestMapping(value = "/monthlyStatistics", method = RequestMethod.POST)
 	public String monthlyStatistics(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
