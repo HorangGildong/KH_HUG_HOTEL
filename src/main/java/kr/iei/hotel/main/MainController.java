@@ -54,20 +54,8 @@ public class MainController {
 		mv.setViewName("Facility/facilityView");		
 		return mv;		
 	}
-	//여행정보 관광
-	@RequestMapping(value="/tourismView", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView tourism() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("Travel/tourismView");		
-		return mv;		
-	}
-	//여행정보 관광상세
-	@RequestMapping(value="/tourismDetailView", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView tourismD() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("Travel/tourismDetailView");		
-		return mv;		
-	}
+	
+	
 	//여행정보 맛집
 	@RequestMapping(value="/foodView", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView food() {
@@ -75,13 +63,7 @@ public class MainController {
 		mv.setViewName("Travel/foodView");		
 		return mv;		
 	}
-	//여행정보 맛집상세
-		@RequestMapping(value="/foodDetailView", method= {RequestMethod.GET, RequestMethod.POST})
-		public ModelAndView foodD() {
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("Travel/foodDetailView");		
-			return mv;		
-		}
+	
 	
 	// myPage
 	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
