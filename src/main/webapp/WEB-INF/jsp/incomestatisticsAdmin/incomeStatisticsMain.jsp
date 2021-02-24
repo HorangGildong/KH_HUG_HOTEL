@@ -188,9 +188,7 @@
 				<input readonly class="priceColorChange" type="text" value="" />
 				<br />
 				</c:forEach>
-				
-				
-				
+		
 				</div>
 				
 				
@@ -198,22 +196,6 @@
 				
 				
 				<div id="selectCount" style="display: none;">
-				<c:forEach var="index" begin="0" end="${fn:length(totalCountList)-1}">
-				<input readonly class="standardCount" type="text" value="${standardCountList[index] }" />
-				<input readonly class="superiorCount" type="text" value="${superiorCountList[index] }" />
-				<input readonly class="deluxeCount" type="text" value="${deluxeCountList[index] }" />
-				<input readonly class="royalCount" type="text" value="${royalCountList[index] }" />
-				<input readonly class="totalCount" type="text" value="${totalCountList[index] }" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="${incomeStatistics.standardAverageCount }" />
-				<input readonly class="superiorCountAVG" type="text" value="${incomeStatistics.superiorAverageCount }" />
-				<input readonly class="deluxeCountAVG" type="text" value="${incomeStatistics.deluxeAverageCount }" />
-				<input readonly class="royalCountAVG" type="text" value="${incomeStatistics.royalAverageCount }" />
-				<input readonly class="totalCountAVG" type="text" value="${incomeStatistics.totalAverageCount }" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
-				</c:forEach>
-				
 				
 				
 				<div class ="totalBox">
@@ -233,7 +215,26 @@
 				<span style="color: green; display: none;" id="AVG7">= ${incomeStatistics.royalAverageCount }</span>
 				<span style="color: blue; display: none;" id="AVG9">= ${incomeStatistics.totalAverageCount }</span>
 				</div>
+				
+				
+				<c:forEach var="index" begin="0" end="${fn:length(totalCountList)-1}">
+				<input readonly class="standardCount" type="text" value="${standardCountList[index] }" />
+				<input readonly class="superiorCount" type="text" value="${superiorCountList[index] }" />
+				<input readonly class="deluxeCount" type="text" value="${deluxeCountList[index] }" />
+				<input readonly class="royalCount" type="text" value="${royalCountList[index] }" />
+				<input readonly class="totalCount" type="text" value="${totalCountList[index] }" />
+				<br />
+				<input readonly class="standardCountAVG" type="text" value="${incomeStatistics.standardAverageCount }" />
+				<input readonly class="superiorCountAVG" type="text" value="${incomeStatistics.superiorAverageCount }" />
+				<input readonly class="deluxeCountAVG" type="text" value="${incomeStatistics.deluxeAverageCount }" />
+				<input readonly class="royalCountAVG" type="text" value="${incomeStatistics.royalAverageCount }" />
+				<input readonly class="totalCountAVG" type="text" value="${incomeStatistics.totalAverageCount }" />
+				<input readonly class="countColorChange" type="text" value="" />
+				<br />
+				</c:forEach>
 				</div>
+
+
 
 
 			</div>
@@ -562,6 +563,8 @@
 						royalCount[index].style.width = 0 + "px";
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
+						priceColorChange[index].style.background = "white";
+						countColorChange[index].style.background = "white";
 						totalPrice[index].style.width = totalPrice[index].value / 50000 + "px";
 						totalCount[index].style.width = totalCount[index].value / 30000 + "px";
 					};
