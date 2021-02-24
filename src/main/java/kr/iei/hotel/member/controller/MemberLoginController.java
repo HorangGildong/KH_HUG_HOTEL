@@ -86,7 +86,6 @@ public class MemberLoginController {
 	}
 
 
-
 	@GetMapping("/test")	// TEST
 	@ResponseBody
 	public String test(
