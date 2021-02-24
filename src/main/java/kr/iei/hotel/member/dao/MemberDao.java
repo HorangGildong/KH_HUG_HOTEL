@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import kr.iei.hotel.member.dto.MemberDto;
+import kr.iei.hotel.member.dto.MemberIdDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 
@@ -44,8 +45,8 @@ public interface MemberDao {
 	@Select("SELECT * FROM MEMBER WHERE memberKey = '${memberKey}'")
 	MemberDto searchByKey(String memberKey);
 	
-	@Select("SELECT memberId FROM MEMBER WHERE memberName = '${memberName}' AND memberPhone = '${memberPhone}'")
-	List<String> searchIds(String memberName, String memberPhone);
+	@Select("SELECT memberId, memberRegDate FROM MEMBER WHERE memberName = '${memberName}' AND memberPhone = '${memberPhone}'")
+	List<MemberIdDto> searchIds(String memberName, String memberPhone);
 	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberId = '${memberId}'")
 	int checkId(String memberId);

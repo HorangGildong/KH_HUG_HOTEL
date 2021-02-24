@@ -5,7 +5,9 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,6 +28,12 @@ public class MemberLoginController {
 		return "/member/login";		
 	}
 
+	@PostMapping("/login")
+	public String idLoginPage(String memberId, Model model) {
+		model.addAttribute("memberId", memberId);
+		return "/member/login";		
+	}
+	
 	@GetMapping("/login/oAuth2")
 	public String oauth2Login(RedirectAttributes redirect, @AuthenticationPrincipal PrincipalDetails userDetails) {
 		MemberDto memberDto = userDetails.getMemberDto();

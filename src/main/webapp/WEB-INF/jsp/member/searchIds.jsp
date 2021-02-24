@@ -60,7 +60,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" style="margin-bottom: 25px">
 							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" maxlength="13"
@@ -69,20 +69,20 @@
 						</div>
 						
 					</form>
-
-					<br>
 					<div id="search"></div>
-					<br>
-					
 					<div>
+					<br>
 						<div class="form-group">
 							<button class="btn btn-primary btn-lg btn-block" onClick="$(this).searchIds()"
-								id="searchBtn" style="font-weight: bold;">
+								id="searchBtn" style="font-weight: bold">
 								아이디 찾기
 							</button>
 						</div>
 					</div>
-
+					
+					<form id="loginId" action="/login" method="post">
+						<input type="hidden" class="form-control" name="memberId" id="sInputId">
+					</form>
 
 				</div>
 			</div>
@@ -146,32 +146,68 @@
 			}
 			return str;
 		}
-		var phoneNum = document.getElementById('inputPhone');
-		phoneNum.onkeyup = function() {
+		
+		$('#inputPhone')[0].onkeyup = function() {
 			this.value = autoHypenPhone(this.value);
 		}
 
 		$.fn.searchIds = function() {
-			console.log("test");
 			var name = $('#inputName').val();
 			var phone = $('#inputPhone').val();
+			var objDiv = $('<div>');
+			objDiv.append($("<div>")
+				.addClass('col-xs-1 glyphicon glyphicon-user')
+				.attr('aria-hidden', 'true')
+				.css('line-height', '220%')
+				);
+			objDiv.append($("<div>")
+				.attr('id', 'sId')
+				.addClass('col-xs-9')
+				.css('text-align', 'left')
+				.css('line-height', '220%')
+				);
+			objDiv.append($("<button>")
+				.attr('id', 'sBtnId')
+				.attr('type', 'submit')
+				.attr('form', 'loginId')
+				.addClass('col-xs-2 btn btn-info')
+				.css('margin-bottom', '15px')
+				.text('로그인')
+				);
 			$.ajax({
 				url : '${pageContext.request.contextPath}/searchIds/search?name=' + name + '&phone=' + phone,
 				type : 'get',
 				success : function(data) {
-					/* if (nick == "") {
-						$("#nickCheck").text("");
-					} else if (data) {
-						$("#nickCheck").text("사용중인 닉네임입니다.");
-						$("#nickCheck").css("color", "red");
-					} else {
-						$("#nickCheck").text("사용가능한 닉네임입니다.");
-						$("#nickCheck").css("color", "blue");
-						isNick = true;
-					} */
+					console.log(data);
+					$.each(data, function (index, value) {
+						$('#search').append(objDiv.clone()
+							.attr('id', 'id-'+index));
+						$('#id-'+index+' #sId')
+							.text(value.memberId + '(가입일:' + value.memberRegDate + ')');
+						$('#id-'+index+' #sBtnId')
+							.attr('id', 'sBtnId-'+index)
+							.click(function() {
+								$('#sInputId').val(value.memberId);
+								console.log(value.memberId);
+							});
+					});
 				}
 			})
 		};
+
+
+
+		
+		
+		$.fn.submit = function(id) {
+			console.log(id);
+			console.log('okok');
+		}
+		
+		
+		$('#other').click(function() {
+			$('#target').submit();
+		});
 
 		
 	</script>

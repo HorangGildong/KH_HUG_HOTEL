@@ -70,8 +70,30 @@ INSERT INTO MEMBER (
 )
 VALUES (
     'tiger',            SYSDATE,            SYSDATE,            TO_DATE('1998-01-01','YYYY-MM-DD'),
-    '한만월',            '관리자',            '010-7777-7777',    'tiger@hug.com',
-    'FEMALE',           'ROLE_ADMIN',      '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+    '한만월',            '관리자',             '010-7777-7777',    'tiger@hug.com',
+    'FEMALE',           'ROLE_ADMIN',       '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+);
+
+INSERT INTO MEMBER (
+    memberId,           memberRegDate,      memberPwChangeDate, memberBirth,
+    memberName,         memberNick,         memberPhone,        memberEmail,
+    memberGender,       memberRole,         memberPassword
+)
+VALUES (
+    'userId-1',         SYSDATE,            SYSDATE,            TO_DATE('1998-01-01','YYYY-MM-DD'),
+    '1',                'a1',               '1',                'tiger@hug.com',
+    'FEMALE',           'ROLE_ADMIN',       '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+);
+
+INSERT INTO MEMBER (
+    memberId,           memberRegDate,      memberPwChangeDate, memberBirth,
+    memberName,         memberNick,         memberPhone,        memberEmail,
+    memberGender,       memberRole,         memberPassword
+)
+VALUES (
+    'userId-2',         SYSDATE,            SYSDATE,            TO_DATE('1998-01-01','YYYY-MM-DD'),
+    '1',                'a2',               '1',                'tiger@hug.com',
+    'FEMALE',           'ROLE_ADMIN',       '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
 );
 
 COMMIT;
