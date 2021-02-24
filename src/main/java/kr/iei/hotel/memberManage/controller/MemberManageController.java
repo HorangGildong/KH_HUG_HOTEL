@@ -1,4 +1,4 @@
-package kr.iei.hotel.member.controller;
+package kr.iei.hotel.memberManage.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberDto;
-import kr.iei.hotel.member.service.MemberManageService;
+import kr.iei.hotel.memberManage.service.MemberManageService;
 
 @RestController
 public class MemberManageController {

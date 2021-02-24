@@ -1,10 +1,10 @@
-package kr.iei.hotel.member.service;
+package kr.iei.hotel.memberManage.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.iei.hotel.member.dao.MemberManageDao;
 import kr.iei.hotel.member.dto.MemberDto;
+import kr.iei.hotel.memberManage.dao.MemberManageDao;
 
 @Service
 public class MemberManageServiceImp implements MemberManageService {

@@ -1,4 +1,4 @@
-package kr.iei.hotel.member.dao;
+package kr.iei.hotel.memberManage.dao;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,4 +1,4 @@
-package kr.iei.hotel.member.service;
+package kr.iei.hotel.memberManage.service;
 
 import kr.iei.hotel.member.dto.MemberDto;
 
