@@ -26,4 +26,14 @@ public class TravelServiceImpl implements TravelService {
 		
 		return travelMapper.selectTourDetail(name);
 	}
+	
+	@Override
+	public List<TravelVO> selectFoodList()throws Exception {
+		return travelMapper.selectFoodList();
+	}
+	
+	@Override
+	public TravelVO selectFoodDetail(String name)throws Exception {
+		return travelMapper.selectFoodDetail(name);
+	}
 }

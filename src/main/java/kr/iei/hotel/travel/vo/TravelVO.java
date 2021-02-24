@@ -3,6 +3,8 @@ package kr.iei.hotel.travel.vo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class TravelVO {
+	
+	/*--------------------관광지 vo-------------------- */
 	private String tsName;
 	private String tsKeyword;
 	private String tsAddress;
@@ -140,6 +142,7 @@ public class TravelVO {
 		this.image4 = image4;
 	}
 	
+	/* */	
 	private String name1 = "협재해수욕장";
 	private String name2 = "애월해안도로";
 	private String name3 = "한라산국립공원";
@@ -282,6 +285,103 @@ public class TravelVO {
 	public void setName20(String name20) {
 		this.name20 = name20;
 	}
+	
+	/*--------------------맛집 vo-------------------- */
+	private String frName;
+	private String frAddress;
+	private String frPhone;
+	private String frIntroduce;
+	private String frInformation;
+	private String frUsetime;
+	private String frAmenities;
+	private String frContent1;
+	private String frContent2;
+	private String frImage1;
+	private String frImage2;
+	private String frImage3;
+	private String frImage4;
+
+
+
+	public String getFrName() {
+		return frName;
+	}
+	public void setFrName(String frName) {
+		this.frName = frName;
+	}
+	public String getFrAddress() {
+		return frAddress;
+	}
+	public void setFrAddress(String frAddress) {
+		this.frAddress = frAddress;
+	}
+	public String getFrPhone() {
+		return frPhone;
+	}
+	public void setFrPhone(String frPhone) {
+		this.frPhone = frPhone;
+	}
+	public String getFrIntroduce() {
+		return frIntroduce;
+	}
+	public void setFrIntroduce(String frIntroduce) {
+		this.frIntroduce = frIntroduce;
+	}
+	public String getFrInformation() {
+		return frInformation;
+	}
+	public void setFrInformation(String frInformation) {
+		this.frInformation = frInformation;
+	}
+	public String getFrUsetime() {
+		return frUsetime;
+	}
+	public void setFrUsetime(String frUsetime) {
+		this.frUsetime = frUsetime;
+	}
+	public String getFrAmenities() {
+		return frAmenities;
+	}
+	public void setFrAmenities(String frAmenities) {
+		this.frAmenities = frAmenities;
+	}
+	public String getFrContent1() {
+		return frContent1;
+	}
+	public void setFrContent1(String frContent1) {
+		this.frContent1 = frContent1;
+	}
+	public String getFrContent2() {
+		return frContent2;
+	}
+	public void setFrContent2(String frContent2) {
+		this.frContent2 = frContent2;
+	}
+	public String getFrImage1() {
+		return frImage1;
+	}
+	public void setFrImage1(String frImage1) {
+		this.frImage1 = frImage1;
+	}
+	public String getFrImage2() {
+		return frImage2;
+	}
+	public void setFrImage2(String frImage2) {
+		this.frImage2 = frImage2;
+	}
+	public String getFrImage3() {
+		return frImage3;
+	}
+	public void setFrImage3(String frImage3) {
+		this.frImage3 = frImage3;
+	}
+	public String getFrImage4() {
+		return frImage4;
+	}
+	public void setFrImage4(String frImage4) {
+		this.frImage4 = frImage4;
+	}
+	
 	
 	
 }

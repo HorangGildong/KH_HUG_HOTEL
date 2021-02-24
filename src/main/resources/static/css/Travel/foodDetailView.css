@@ -64,7 +64,7 @@ img {
 }
 
 .basic_information {
-	margin-top: 100px;
+	margin-top: 160px;
 	height: 100px;
 }
 
@@ -161,6 +161,7 @@ img {
 }
 .contents p {
 	font-size: 18px;
+	margin-bottom: 50px;
 }
 
 .viewer {
@@ -180,10 +181,4 @@ img {
 }
 .col img {
 	width: 100%;
-}
-.alert {
-	font-weight: bold;
-	color: #193f6e;
-	margin-bottom: 4%;
-	padding: 0;
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
 
@@ -43,6 +44,21 @@
 						제주도는 흑돼지, 말요리 그리고 해산물 등 다양한 음식문화를 접할 수 있습니다. <br>
 						제주도의 전통 음식부터 줄을 서서 기다리는 최고 인기의 음식까지 모두 안내해드립니다.
                     </p>
+                </div>
+                
+                <div class="foodwrap">
+                	<c:forEach var="vo" items="${food}">
+                	<div class="food1">
+                		<a href="/foodDetailView?frName=${vo.frName} ">
+	                		<img alt="" src="../../../img/${vo.frImage1}">
+	                		<div class="food-info">
+		                		<h3>${vo.frName }</h3>
+		                		<h5>${vo.frAddress }</h5>
+		                		<h5>${vo.frPhone }</h5>
+		                	</div>	
+	                	</a>
+                	</div>
+                	</c:forEach>
                 </div>
             </div>
         </section>

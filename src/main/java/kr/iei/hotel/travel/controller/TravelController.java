@@ -18,18 +18,18 @@ public class TravelController {
 	@Autowired
 	TravelService travelService;
 	//관리자 리스트 뷰
-	@RequestMapping(value="/tourismAdminView", method=RequestMethod.GET)
-	public String tourismAdminView(Model model)throws Exception{
-		List<TravelVO> travelVO = new ArrayList<TravelVO>();
-		travelVO = travelService.selectTourList();
-		for(int i=0; i< travelVO.size(); i++) {
-			System.out.println(travelVO.get(i).getTsName());
-		}
-		
-		model.addAttribute("list", travelVO);
-		return  "/TravelAdmin/tourismAdminView";
-	
-	}
+//	@RequestMapping(value="/tourismAdminView", method=RequestMethod.GET)
+//	public String tourismAdminView(Model model)throws Exception{
+//		List<TravelVO> travelVO = new ArrayList<TravelVO>();
+//		travelVO = travelService.selectTourList();
+//		for(int i=0; i< travelVO.size(); i++) {
+//			System.out.println(travelVO.get(i).getTsName());
+//		}
+//		
+//		model.addAttribute("list", travelVO);
+//		return  "/TravelAdmin/tourismAdminView";
+//	
+//	}
 	
 	//여행 관광뷰
 	@RequestMapping(value="/tourismView", method=RequestMethod.GET)
@@ -48,5 +48,28 @@ public class TravelController {
 		
 		model.addAttribute("tourDetail", travelVO);
 		return "/Travel/tourismDetailView";
+	}
+	
+	//여행 맛집뷰
+	@RequestMapping(value="/foodView", method=RequestMethod.GET)
+	public String foodView(Model model, TravelVO travelVO)throws Exception{
+		List<TravelVO> travelVoList = new ArrayList<TravelVO>();
+		travelVoList = travelService.selectFoodList();
+		for(int i=0; i<travelVoList.size(); i++) {
+			System.out.println(travelVoList.get(i).getFrName());
+		}
+		model.addAttribute("food", travelVoList);
+		return "/Travel/foodView";
+	}
+	
+	//여행 맛집 전체뷰
+	@RequestMapping(value="/foodDetailView", method=RequestMethod.GET)
+	public String foodDetailView(Model model, TravelVO travelVO)throws Exception{
+		
+		String name = travelVO.getFrName();
+		travelVO = travelService.selectFoodDetail(name);
+		System.out.println(travelVO.toString());
+		model.addAttribute("foodDetail", travelVO);
+		return "/Travel/foodDetailView";
 	}
 }

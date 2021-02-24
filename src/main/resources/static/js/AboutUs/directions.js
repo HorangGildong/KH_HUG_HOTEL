@@ -95,7 +95,7 @@ function closeOverlay() {
     });
     elevator.css({
         top: b2.position().top + 1505,
-        left: b2.position().left + 324
+        left: b2.position().left + 289
     });
     elevator.hover(function() {
         $(this).addClass('yellowgreen');
@@ -143,11 +143,110 @@ function closeOverlay() {
                 left: '+=300px'
             }, 500);
         });
-    });
-	
-	
-	
+    });	
 });
+
+/* */
+
+let 
+b2 = document.querySelector('#b2'),
+b1 = document.querySelector('#b1'),
+f1 = document.querySelector('#f1'),
+f2 = document.querySelector('#f2'),
+f4 = document.querySelector('#f4'),
+f6 = document.querySelector('#f6'),
+f7 = document.querySelector('#f7'),
+f9 = document.querySelector('#f9'),
+ib2 = document.querySelector('#info-b2'),
+ib1 = document.querySelector('#info-b1'),
+if1 = document.querySelector('#info-f1'),
+if2 = document.querySelector('#info-f2'),
+if4 = document.querySelector('#info-f4'),
+if6 = document.querySelector('#info-f6'),
+if7 = document.querySelector('#info-f7'),
+if9 = document.querySelector('#info-f9');
+
+b2.addEventListener("click", function(){
+	ib2.style.color = "black";
+	ib1.style.color = "white";
+	if1.style.color = "white";
+	if2.style.color = "white";
+	if4.style.color = "white";
+	if6.style.color = "white";
+	if7.style.color = "white";
+	if9.style.color = "white";
+});
+b1.addEventListener("click", function(){
+	ib2.style.color = "white";
+	ib1.style.color = "black";
+	if1.style.color = "white";
+	if2.style.color = "white";
+	if4.style.color = "white";
+	if6.style.color = "white";
+	if7.style.color = "white";
+	if9.style.color = "white";
+});
+f1.addEventListener("click", function(){
+	ib2.style.color = "white";
+	ib1.style.color = "white";
+	if1.style.color = "black";
+	if2.style.color = "white";
+	if4.style.color = "white";
+	if6.style.color = "white";
+	if7.style.color = "white";
+	if9.style.color = "white";
+});
+f2.addEventListener("click", function(){
+	ib2.style.color = "white";
+	ib1.style.color = "white";
+	if1.style.color = "white";
+	if2.style.color = "black";
+	if4.style.color = "white";
+	if6.style.color = "white";
+	if7.style.color = "white";
+	if9.style.color = "white";
+});
+f4.addEventListener("click", function(){
+	ib2.style.color = "white";
+	ib1.style.color = "white";
+	if1.style.color = "white";
+	if2.style.color = "white";
+	if4.style.color = "black";
+	if6.style.color = "white";
+	if7.style.color = "white";
+	if9.style.color = "white";
+});
+f6.addEventListener("click", function(){
+	ib2.style.color = "white";
+	ib1.style.color = "white";
+	if1.style.color = "white";
+	if2.style.color = "white";
+	if4.style.color = "white";
+	if6.style.color = "black";
+	if7.style.color = "white";
+	if9.style.color = "white";
+});
+f7.addEventListener("click", function(){
+	ib2.style.color = "white";
+	ib1.style.color = "white";
+	if1.style.color = "white";
+	if2.style.color = "white";
+	if4.style.color = "white";
+	if6.style.color = "white";
+	if7.style.color = "black";
+	if9.style.color = "white";
+});
+f9.addEventListener("click", function(){
+	ib2.style.color = "white";
+	ib1.style.color = "white";
+	if1.style.color = "white";
+	if2.style.color = "white";
+	if4.style.color = "white";
+	if6.style.color = "white";
+	if7.style.color = "white";
+	if9.style.color = "black";
+});
+
 /* } else {
 	$(document).ready(function() {
     var elevator = $('.elevator');

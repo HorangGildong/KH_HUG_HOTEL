@@ -9,4 +9,8 @@ public interface TravelService {
 	public List<TravelVO> selectTourList()throws Exception;
 
 	public TravelVO selectTourDetail(String name)throws Exception;
+	
+	public List<TravelVO> selectFoodList()throws Exception;
+	
+	public TravelVO selectFoodDetail(String name)throws Exception;
 }

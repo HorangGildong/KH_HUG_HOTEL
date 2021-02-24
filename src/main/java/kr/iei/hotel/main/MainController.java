@@ -55,16 +55,6 @@ public class MainController {
 		return mv;		
 	}
 	
-	
-	//여행정보 맛집
-	@RequestMapping(value="/foodView", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView food() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("Travel/foodView");		
-		return mv;		
-	}
-	
-	
 	// myPage
 	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView myPage() {

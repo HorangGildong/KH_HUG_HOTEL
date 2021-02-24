@@ -23,14 +23,14 @@ img {
 
 .sub_info_area {
 	position: relative;
-	width: 440px;
+	width: 450px;
 	height: 450px;
-	padding: 0 36px;
+	padding: 0 35px;
 	background: rgba(0,0,0,.5);
 }
 
 .sub_info_title {
-	width: 260px;
+	width: 335px;
 	min-height: 120px;
 	padding-top: 30px;
 	color: #fff;
@@ -131,7 +131,7 @@ img {
 }
 
 .info ul li {
-    width: 25%;
+    width: 33%;
     float: left;
     margin: 40px 0 25px 0;
 }
@@ -161,12 +161,14 @@ img {
 }
 .contents p {
 	font-size: 18px;
+	margin-bottom: 50px;
 }
 
 .viewer {
 	position: relative;
 	min-height: 100px;
 }
+
 .row {
 	margin: 30px 0;
 	width: 100%;
@@ -180,10 +182,4 @@ img {
 }
 .col img {
 	width: 100%;
-}
-.alert {
-	font-weight: bold;
-	color: #193f6e;
-	margin-bottom: 4%;
-	padding: 0;
 }
