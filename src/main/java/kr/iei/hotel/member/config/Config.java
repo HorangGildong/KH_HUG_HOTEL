@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -42,7 +43,7 @@ public class Config extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
         	.csrf().disable()								// cors 비활성화 -> 몰라
-        	.cors().disable()								// csrf 비활성화 -> 몰라
+//        	.cors().disable()								// csrf 비활성화 -> 몰라
         	.formLogin().disable()							// 몰라
         	.headers().frameOptions().disable()				// 몰라
         	;

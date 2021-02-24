@@ -70,4 +70,23 @@ public class ReservationService {
 	public List<Integer> selectMonthlyGuestRoomCount(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
 		return reservationMapper.selectMonthlyGuestRoomCount(incomeStatisticsVO);
 	}
+	
+	
+	
+	//월별통계 totalPrice
+	public List<Long> selectDailyTotalPrice(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+		return reservationMapper.selectDailyTotalPrice(incomeStatisticsVO);
+	}
+	//월별통계 totalCount
+	public List<Integer> selectDailyTotalCount(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+		return reservationMapper.selectDailyTotalCount(incomeStatisticsVO);
+	}
+	//월별통계 객실Price
+	public List<Long> selectDailyGuestRoomPrice(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+		return reservationMapper.selectDailyGuestRoomPrice(incomeStatisticsVO);
+	}
+	//월별통계 객실Count
+	public List<Integer> selectDailyGuestRoomCount(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+		return reservationMapper.selectDailyGuestRoomCount(incomeStatisticsVO);
+	}
 }

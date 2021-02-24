@@ -1,9 +1,12 @@
 package kr.iei.hotel.member.config.auth;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -96,6 +99,19 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 		return memberDto.getMemberPhone();
 	}
 
+	// 변경 권장 기간 내 비밀번호 변경 여부
+	public boolean getIsPwChanged() {
+		boolean result = true;
+		if (memberDto.getMemberPwChangeDate() != null) {
+			Date pwChangeDate = memberDto.getMemberPwChangeDate();
+			Calendar baseDate = Calendar.getInstance();
+			baseDate.setTime(new Date());
+			baseDate.add(Calendar.DATE, -90);
+			result =  pwChangeDate.after(baseDate.getTime());
+		}
+		return result;	// true : 변경 불필요, false : 변경 필요
+	}
+	
 	// 계정 만료(false) 여부
 	@Override
 	public boolean isAccountNonExpired() {
@@ -108,7 +124,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 		return true;
 	}
 
-	// 계정 신용(false) 여부 (예 : 비밀번호 변경기간 경과 여부)
+	// 계정 신용(false) 여부
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;

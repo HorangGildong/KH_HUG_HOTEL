@@ -58,14 +58,15 @@
 		<input type="submit" form="monthlyStatistics" value="test" />
 		<span>MonthlyStastistics</span>
 		</form>
-		<form class="searchBox2" action="">
-		<select name="">
-			<option value="">DATE</option>
-			<option value="">2020년</option>
-			<option value="">2021년</option>
-			<option value="">2022년</option>
-			<option value="">2023년</option>
+		<form class="searchBox2" action="/dailyStatistics1" method="post" id="dailyStatistics1">
+		<select name="choiceDate">
+			<option value="0">DATE</option>
+			<option value="20200000">2020년</option>
+			<option value="20210000">2021년</option>
+			<option value="20220000">2022년</option>
+			<option value="20230000">2023년</option>
 		</select>
+		<input type="submit" form="dailyStatistics1" value="test" />
 		<span>DailyStatistics</span>
 		</form>
 		
@@ -74,22 +75,23 @@
 	<div id="here">
 
 		<div class="boxWrap">
-		<form class="searchBox3" action="">
-		<select name="">
-			<option value="">DATE</option>
-			<option value="">1월</option>
-			<option value="">2월</option>
-			<option value="">3월</option>
-			<option value="">4월</option>
-			<option value="">5월</option>
-			<option value="">6월</option>
-			<option value="">7월</option>
-			<option value="">8월</option>
-			<option value="">9월</option>
-			<option value="">10월</option>
-			<option value="">11월</option>
-			<option value="">12월</option>
+		<form class="searchBox3" action="/dailyStatistics2" method="post" id="dailyStatistics2">
+		<select name="choiceDate">
+			<option value="0">DATE</option>
+			<option value="${date.january }">1월</option>
+			<option value="${date.february }">2월</option>
+			<option value="${date.march }">3월</option>
+			<option value="${date.april }">4월</option>
+			<option value="${date.may }">5월</option>
+			<option value="${date.june }">6월</option>
+			<option value="${date.july }">7월</option>
+			<option value="${date.august }">8월</option>
+			<option value="${date.september }">9월</option>
+			<option value="${date.october }">10월</option>
+			<option value="${date.november }">11월</option>
+			<option value="${date.december }">12월</option>
 		</select>
+		<input type="submit" form="dailyStatistics2" value="test" />
 		<span>SEARCH</span>
 		</form>
 		<input style="background: red;" readonly type="text" /><span class="standardBox" id="standardBtn">STANDARD</span>|<span class="standardBox" id="standardAVG">AVG</span>
@@ -103,400 +105,144 @@
 
 
 		<div class="incomeGraph">
+		<c:if test="${!empty totalPriceList }">
 			<div class="wrapLeft">
-				<p>1월</p><br />
-				<p>2월</p><br />
-				<p>3월</p><br />
-				<p>4월</p><br />
-				<p>5월</p><br />
-				<p>6월</p><br />
-				<p>7월</p><br />
-				<p>8월</p><br />
-				<p>9월</p><br />
-				<p>10월</p><br />
-				<p>11월</p><br />
-				<p>12월</p><br />
+			<div class ="totalBox">
+			<span style="color: white;">hide</span>
+			</div>
+				<p>1일</p><br />
+				<p>2일</p><br />
+				<p>3일</p><br />
+				<p>4일</p><br />
+				<p>5일</p><br />
+				<p>6일</p><br />
+				<p>7일</p><br />
+				<p>8일</p><br />
+				<p>9일</p><br />
+				<p>10일</p><br />
+				<p>11일</p><br />
+				<p>12일</p><br />
+				<p>13일</p><br />
+				<p>14일</p><br />
+				<p>15일</p><br />
+				<p>16일</p><br />
+				<p>17일</p><br />
+				<p>18일</p><br />
+				<p>19일</p><br />
+				<p>20일</p><br />
+				<p>21일</p><br />
+				<p>22일</p><br />
+				<p>23일</p><br />
+				<p>24일</p><br />
+				<p>25일</p><br />
+				<p>26일</p><br />
+				<p>27일</p><br />
+				<p>28일</p><br />
+				<p>29일</p><br />
+				<p>30일</p><br />
+				<p>31일</p><br />
 			</div>
 			<div class="wrapRight">
-				<h1>PRICE</h1>
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
+				<select id="priceAndCount">
+					<option value="price">PRICE</option>
+					<option value="count">COUNT</option>
+				</select>
+				<span id="changeBtn">CHANGE</span>
 				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
 				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
 				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
 				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
-				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
-				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
-				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
-				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
-				
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
-				<input readonly class="standardPrice" type="text" value="1250000" />
-				<input readonly class="superiorPrice" type="text" value="1250000" />
-				<input readonly class="deluxePrice" type="text" value="1250000" />
-				<input readonly class="royalPrice" type="text" value="1250000" />
-				<input readonly class="totalPrice" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardPriceAVG" type="text" value="2500000" />
-				<input readonly class="superiorPriceAVG" type="text" value="2500000" />
-				<input readonly class="deluxePriceAVG" type="text" value="2500000" />
-				<input readonly class="royalPriceAVG" type="text" value="2500000" />
-				<input readonly class="totalPriceAVG" type="text" value="2500000" />
-				<input readonly class="priceColorChange" type="text" value="" />
-				<br />
+				<div id="selectPrice">
 				
 				<div class ="totalBox">
 				<span>TOTAL PRICE&nbsp;</span>
-				<span style="color: red; display: none;" id="standardPriceSUM">= 1200000000</span>
-				<span style="color: orange; display: none;" id="superiorPriceSUM">= 1200000000</span>
-				<span style="color: goldenrod; display: none;" id="deluxePriceSUM">= 1200000000</span>
-				<span style="color: green; display: none;" id="royalPriceSUM">= 1200000000</span>
-				<span style="color: blue; display: none;" id="totalPriceSUM">= 1200000000</span>
+				<span style="color: red; display: none;" id="standardPriceSUM">= ${incomeStatistics.standardTotalPrice }</span>
+				<span style="color: orange; display: none;" id="superiorPriceSUM">= ${incomeStatistics.superiorTotalPrice }</span>
+				<span style="color: goldenrod; display: none;" id="deluxePriceSUM">= ${incomeStatistics.deluxeTotalPrice }</span>
+				<span style="color: green; display: none;" id="royalPriceSUM">= ${incomeStatistics.royalTotalPrice }</span>
+				<span style="color: blue; display: none;" id="totalPriceSUM">= ${incomeStatistics.totalSumPrice }</span>
 								
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<span>AVG PRICE&nbsp;</span>
-				<span style="color: red; display: none;" id="AVG2">= 1200000000</span>
-				<span style="color: orange; display: none;" id="AVG4">= 1200000000</span>
-				<span style="color: goldenrod; display: none;" id="AVG6">= 1200000000</span>
-				<span style="color: green; display: none;" id="AVG8">= 1200000000</span>
-				<span style="color: blue; display: none;" id="AVG10">= 1200000000</span>
+				<span style="color: red; display: none;" id="AVG2">= ${incomeStatistics.standardAveragePrice }</span>
+				<span style="color: orange; display: none;" id="AVG4">= ${incomeStatistics.superiorAveragePrice }</span>
+				<span style="color: goldenrod; display: none;" id="AVG6">= ${incomeStatistics.deluxeAveragePrice }</span>
+				<span style="color: green; display: none;" id="AVG8">= ${incomeStatistics.royalAveragePrice }</span>
+				<span style="color: blue; display: none;" id="AVG10">= ${incomeStatistics.totalAveragePrice }</span>
 				</div>
 				
-
-
-			</div>
-			<div class="wrapRight2">
-				<h1>COUNT</h1>
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
 				
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
+				<c:forEach var="index" begin="0" end="${fn:length(totalPriceList)-1}">
+				<input readonly class="standardPrice" type="text" value="${standardPriceList[index] }" />
+				<input readonly class="superiorPrice" type="text" value="${superiorPriceList[index] }" />
+				<input readonly class="deluxePrice" type="text" value="${deluxePriceList[index] }" />
+				<input readonly class="royalPrice" type="text" value="${royalPriceList[index] }" />
+				<input readonly class="totalPrice" type="text" value="${totalPriceList[index] }" />
 				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
+				<input readonly class="standardPriceAVG" type="text" value="${incomeStatistics.standardAveragePrice }" />
+				<input readonly class="superiorPriceAVG" type="text" value="${incomeStatistics.superiorAveragePrice }" />
+				<input readonly class="deluxePriceAVG" type="text" value="${incomeStatistics.deluxeAveragePrice }" />
+				<input readonly class="royalPriceAVG" type="text" value="${incomeStatistics.royalAveragePrice }" />
+				<input readonly class="totalPriceAVG" type="text" value="${incomeStatistics.totalAveragePrice }" />
+				<input readonly class="priceColorChange" type="text" value="" />
 				<br />
+				</c:forEach>
+		
+				</div>
 				
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
 				
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
 				
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
 				
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
 				
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
+				<div id="selectCount" style="display: none;">
 				
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
-				
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
-				<input readonly class="standardCount" type="text" value="1250000" />
-				<input readonly class="superiorCount" type="text" value="1250000" />
-				<input readonly class="deluxeCount" type="text" value="1250000" />
-				<input readonly class="royalCount" type="text" value="1250000" />
-				<input readonly class="totalCount" type="text" value="5000000" />
-				<br />
-				<input readonly class="standardCountAVG" type="text" value="2500000" />
-				<input readonly class="superiorCountAVG" type="text" value="2500000" />
-				<input readonly class="deluxeCountAVG" type="text" value="2500000" />
-				<input readonly class="royalCountAVG" type="text" value="2500000" />
-				<input readonly class="totalCountAVG" type="text" value="2500000" />
-				<input readonly class="countColorChange" type="text" value="" />
-				<br />
 				
 				<div class ="totalBox">
 				<span>TOTAL COUNT&nbsp;</span>
-				<span style="color: red; display: none;" id="standardCountSUM">= 1200000000</span>
-				<span style="color: orange; display: none;" id="superiorCountSUM">= 1200000000</span>
-				<span style="color: goldenrod; display: none;" id="deluxeCountSUM">= 1200000000</span>
-				<span style="color: green; display: none;" id="royalCountSUM">= 1200000000</span>
-				<span style="color: blue; display: none;" id="totalCountSUM">= 1200000000</span>
+				<span style="color: red; display: none;" id="standardCountSUM">= ${incomeStatistics.standardTotalCount }</span>
+				<span style="color: orange; display: none;" id="superiorCountSUM">= ${incomeStatistics.superiorTotalCount }</span>
+				<span style="color: goldenrod; display: none;" id="deluxeCountSUM">= ${incomeStatistics.deluxeTotalCount }</span>
+				<span style="color: green; display: none;" id="royalCountSUM">= ${incomeStatistics.royalTotalCount }</span>
+				<span style="color: blue; display: none;" id="totalCountSUM">= ${incomeStatistics.totalSumCount }</span>
 				
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<span>AVG COUNT&nbsp;</span>
-				<span style="color: red; display: none;" id="AVG1">= 1200000000</span>
-				<span style="color: orange; display: none;" id="AVG3">= 1200000000</span>
-				<span style="color: goldenrod; display: none;" id="AVG5">= 1200000000</span>
-				<span style="color: green; display: none;" id="AVG7">= 1200000000</span>
-				<span style="color: blue; display: none;" id="AVG9">= 1200000000</span>
+				<span style="color: red; display: none;" id="AVG1">= ${incomeStatistics.standardAverageCount }</span>
+				<span style="color: orange; display: none;" id="AVG3">= ${incomeStatistics.superiorAverageCount }</span>
+				<span style="color: goldenrod; display: none;" id="AVG5">= ${incomeStatistics.deluxeAverageCount }</span>
+				<span style="color: green; display: none;" id="AVG7">= ${incomeStatistics.royalAverageCount }</span>
+				<span style="color: blue; display: none;" id="AVG9">= ${incomeStatistics.totalAverageCount }</span>
 				</div>
 				
+				
+				<c:forEach var="index" begin="0" end="${fn:length(totalCountList)-1}">
+				<input readonly class="standardCount" type="text" value="${standardCountList[index] }" />
+				<input readonly class="superiorCount" type="text" value="${superiorCountList[index] }" />
+				<input readonly class="deluxeCount" type="text" value="${deluxeCountList[index] }" />
+				<input readonly class="royalCount" type="text" value="${royalCountList[index] }" />
+				<input readonly class="totalCount" type="text" value="${totalCountList[index] }" />
+				<br />
+				<input readonly class="standardCountAVG" type="text" value="${incomeStatistics.standardAverageCount }" />
+				<input readonly class="superiorCountAVG" type="text" value="${incomeStatistics.superiorAverageCount }" />
+				<input readonly class="deluxeCountAVG" type="text" value="${incomeStatistics.deluxeAverageCount }" />
+				<input readonly class="royalCountAVG" type="text" value="${incomeStatistics.royalAverageCount }" />
+				<input readonly class="totalCountAVG" type="text" value="${incomeStatistics.totalAverageCount }" />
+				<input readonly class="countColorChange" type="text" value="" />
+				<br />
+				</c:forEach>
+				</div>
+
+
+
+
 			</div>
-			
-			
+		</c:if>	
 		</div>
+		
 	</div>
-		<h2>hide</h2>
+		
     </section>
         <!--section end-->
         <!--footer start-->
@@ -569,7 +315,24 @@
 				priceColorChange = document.querySelectorAll(".priceColorChange"),
 				countColorChange = document.querySelectorAll(".countColorChange"),
 				
-				deleteBtn = document.querySelector("#deleteBtn");
+				deleteBtn = document.querySelector("#deleteBtn"),
+				priceAndCount = document.querySelector("#priceAndCount"),
+				changeBtn = document.querySelector("#changeBtn"),
+				selectPrice = document.querySelector("#selectPrice"),
+				selectCount = document.querySelector("#selectCount");
+				
+				
+				changeBtn.addEventListener("click",function(){
+					if(priceAndCount.value == "price"){
+						selectPrice.style.display = "block";
+						selectCount.style.display = "none";
+					}
+					if(priceAndCount.value == "count") {
+						selectPrice.style.display = "none";
+						selectCount.style.display = "block";
+					}
+					
+				});
 	
 				
 				
@@ -651,22 +414,19 @@
 						totalCount[index].style.width = 0 + "px";
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
-						royalPrice[index].style.width = 0 + "px";
-						royalCount[index].style.width = 0 + "px";
+			
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
-						deluxePrice[index].style.width = 0 + "px";
-						deluxeCount[index].style.width = 0 + "px";
+		
 						deluxePriceAVG[index].style.width = 0 + "px";
 						deluxeCountAVG[index].style.width = 0 + "px";
-						superiorPrice[index].style.width = 0 + "px";
-						superiorCount[index].style.width = 0 + "px";
+			
 						superiorPriceAVG[index].style.width = 0 + "px";
 						superiorCountAVG[index].style.width = 0 + "px";
 						priceColorChange[index].style.background = "white";
 						countColorChange[index].style.background = "white";
-						standardPrice[index].style.width = standardPrice[index].value / 15000 + "px";
-						standardCount[index].style.width = standardPrice[index].value / 15000 + "px";
+						standardPrice[index].style.width = standardPrice[index].value / 50000 + "px";
+						standardCount[index].style.width = standardCount[index].value / 30000 + "px";
 					};
 				});
 				superiorBtn.addEventListener("click", function(){
@@ -688,22 +448,19 @@
 						totalCount[index].style.width = 0 + "px";
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
-						deluxePrice[index].style.width = 0 + "px";
-						deluxeCount[index].style.width = 0 + "px";
+				
 						deluxePriceAVG[index].style.width = 0 + "px";
 						deluxeCountAVG[index].style.width = 0 + "px";
-						standardPrice[index].style.width = 0 + "px";
-						standardCount[index].style.width = 0 + "px";
+				
 						standardPriceAVG[index].style.width = 0 + "px";
 						standardCountAVG[index].style.width = 0 + "px";
-						royalPrice[index].style.width = 0 + "px";
-						royalCount[index].style.width = 0 + "px";
+				
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
 						priceColorChange[index].style.background = "white";
 						countColorChange[index].style.background = "white";
-						superiorPrice[index].style.width = superiorPrice[index].value / 15000 + "px";
-						superiorCount[index].style.width = superiorPrice[index].value / 15000 + "px";
+						superiorPrice[index].style.width = superiorPrice[index].value / 50000 + "px";
+						superiorCount[index].style.width = superiorCount[index].value / 30000 + "px";
 					};
 				});
 				deluxeBtn.addEventListener("click", function(){
@@ -721,16 +478,13 @@
 						standardCountSUM.style.display = "none";
 
 					for(var index = 0; index < standardPrice.length; index++){
-						royalPrice[index].style.width = 0 + "px";
-						royalCount[index].style.width = 0 + "px";
+		
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
-						standardPrice[index].style.width = 0 + "px";
-						standardCount[index].style.width = 0 + "px";
+			
 						standardPriceAVG[index].style.width = 0 + "px";
 						standardCountAVG[index].style.width = 0 + "px";
-						superiorPrice[index].style.width = 0 + "px";
-						superiorCount[index].style.width = 0 + "px";
+			
 						superiorPriceAVG[index].style.width = 0 + "px";
 						superiorCountAVG[index].style.width = 0 + "px";
 						totalPrice[index].style.width = 0 + "px";
@@ -739,8 +493,8 @@
 						totalCountAVG[index].style.width = 0 + "px";
 						priceColorChange[index].style.background = "white";
 						countColorChange[index].style.background = "white";
-						deluxePrice[index].style.width = deluxePrice[index].value / 15000 + "px";
-						deluxeCount[index].style.width = deluxePrice[index].value / 15000 + "px";
+						deluxePrice[index].style.width = deluxePrice[index].value / 50000 + "px";
+						deluxeCount[index].style.width = deluxeCount[index].value / 30000 + "px";
 					};
 				});
 				royalBtn.addEventListener("click", function(){
@@ -763,22 +517,19 @@
 						totalCount[index].style.width = 0 + "px";
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
-						standardPrice[index].style.width = 0 + "px";
-						standardCount[index].style.width = 0 + "px";
+				
 						standardPriceAVG[index].style.width = 0 + "px";
 						standardCountAVG[index].style.width = 0 + "px";
-						superiorPrice[index].style.width = 0 + "px";
-						superiorCount[index].style.width = 0 + "px";
+			
 						superiorPriceAVG[index].style.width = 0 + "px";
 						superiorCountAVG[index].style.width = 0 + "px";
-						deluxePrice[index].style.width = 0 + "px";
-						deluxeCount[index].style.width = 0 + "px";
+				
 						deluxePriceAVG[index].style.width = 0 + "px";
 						deluxeCountAVG[index].style.width = 0 + "px";
 						priceColorChange[index].style.background = "white";
 						countColorChange[index].style.background = "white";
-						royalPrice[index].style.width = royalPrice[index].value / 15000 + "px";
-						royalCount[index].style.width = royalPrice[index].value / 15000 + "px";
+						royalPrice[index].style.width = royalPrice[index].value / 50000 + "px";
+						royalCount[index].style.width = royalCount[index].value / 30000 + "px";
 					};
 				});
 				totalBtn.addEventListener("click", function(){
@@ -812,8 +563,10 @@
 						royalCount[index].style.width = 0 + "px";
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
-						totalPrice[index].style.width = totalPrice[index].value / 15000 + "px";
-						totalCount[index].style.width = totalPrice[index].value / 15000 + "px";
+						priceColorChange[index].style.background = "white";
+						countColorChange[index].style.background = "white";
+						totalPrice[index].style.width = totalPrice[index].value / 50000 + "px";
+						totalCount[index].style.width = totalCount[index].value / 30000 + "px";
 					};
 				
 				});
@@ -841,8 +594,8 @@
 						deluxeCountAVG[index].style.width = 0 + "px";
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
-						standardPriceAVG[index].style.width = standardPrice[index].value / 15000 + "px";
-						standardCountAVG[index].style.width = standardPrice[index].value / 15000 + "px";
+						standardPriceAVG[index].style.width = standardPriceAVG[index].value / 50000 + "px";
+						standardCountAVG[index].style.width = standardCountAVG[index].value / 30000 + "px";
 						priceColorChange[index].style.background = "red";
 						countColorChange[index].style.background = "red";
 					};
@@ -869,8 +622,8 @@
 						deluxeCountAVG[index].style.width = 0 + "px";
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
-						superiorPriceAVG[index].style.width = standardPrice[index].value / 15000 + "px";
-						superiorCountAVG[index].style.width = standardPrice[index].value / 15000 + "px";
+						superiorPriceAVG[index].style.width = superiorPriceAVG[index].value / 50000 + "px";
+						superiorCountAVG[index].style.width = superiorCountAVG[index].value / 30000 + "px";
 						priceColorChange[index].style.background = "orange";
 						countColorChange[index].style.background = "orange";
 					};
@@ -897,8 +650,8 @@
 						superiorCountAVG[index].style.width = 0 + "px";
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
-						deluxePriceAVG[index].style.width = standardPrice[index].value / 15000 + "px";
-						deluxeCountAVG[index].style.width = standardPrice[index].value / 15000 + "px";
+						deluxePriceAVG[index].style.width = deluxePriceAVG[index].value / 50000 + "px";
+						deluxeCountAVG[index].style.width = deluxeCountAVG[index].value / 30000 + "px";
 						priceColorChange[index].style.background = "goldenrod";
 						countColorChange[index].style.background = "goldenrod";
 					};
@@ -925,8 +678,8 @@
 						superiorCountAVG[index].style.width = 0 + "px";
 						deluxePriceAVG[index].style.width = 0 + "px";
 						deluxeCountAVG[index].style.width = 0 + "px";
-						royalPriceAVG[index].style.width = standardPrice[index].value / 15000 + "px";
-						royalCountAVG[index].style.width = standardPrice[index].value / 15000 + "px";
+						royalPriceAVG[index].style.width = royalPriceAVG[index].value / 50000 + "px";
+						royalCountAVG[index].style.width = royalCountAVG[index].value / 30000 + "px";
 						priceColorChange[index].style.background = "green";
 						countColorChange[index].style.background = "green";
 					};
@@ -953,8 +706,8 @@
 						superiorCountAVG[index].style.width = 0 + "px";
 						deluxePriceAVG[index].style.width = 0 + "px";
 						deluxeCountAVG[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = standardPrice[index].value / 15000 + "px";
-						totalCountAVG[index].style.width = standardPrice[index].value / 15000 + "px";
+						totalPriceAVG[index].style.width = totalPriceAVG[index].value / 50000 + "px";
+						totalCountAVG[index].style.width = totalCountAVG[index].value / 30000 + "px";
 						priceColorChange[index].style.background = "blue";
 						countColorChange[index].style.background = "blue";
 					};

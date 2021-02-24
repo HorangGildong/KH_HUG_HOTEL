@@ -113,5 +113,15 @@ WHERE memberNumber = 1;
 
 DELETE FROM MEMBER;
 
-SELECT memberNumber, memberId, memberName, memberNick, memberPhone, memberEmail, memberRole, memberKey FROM MEMBER;
-SELECT memberId FROM MEMBER WHERE memberName = '한만월' AND memberPhone = '777-7777-7777
+SELECT memberPwChangeDate, memberNumber, memberId, memberName, memberNick, memberPhone, memberEmail, memberRole, memberKey FROM MEMBER;
+SELECT memberId FROM MEMBER WHERE memberName = '한만월' AND memberPhone = '777-7777-7777;
+/
+UPDATE MEMBER SET 
+    memberPwChangeDate = ADD_MONTHS(SYSDATE, -2)
+WHERE memberNumber = 33;
+/
+UPDATE MEMBER SET 
+    memberPwChangeDate = TO_DATE('2020-08-20','YYYY-MM-DD')
+WHERE memberNumber = 34;
+/
+COMMIT;

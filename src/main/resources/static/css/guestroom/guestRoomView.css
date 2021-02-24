@@ -1,11 +1,14 @@
 @charset "UTF-8";
 .hotelHugWrap {
-    font-family: 'Noto Sans', sans-serif;
+    /* font-family: 'Noto Sans', sans-serif;
     padding-top: 50px;
-    font-size: 14px;
-    width: 1280px;
+    font-size: 14px; */
+    /* width: 1280px;
     padding: 0 80px;
-    margin: 0 auto;
+    margin: 0 auto; */
+    width: 1245px;
+	margin: 0 auto;
+	padding: 4% 0;
 }
 
 .hotelHugWrap>.innerBox {
@@ -14,7 +17,7 @@
             margin: 0 auto; */
 }
 
-.hotelHugWrap .contTitle {
+/* .hotelHugWrap .contTitle {
     padding: 110px 0 110px;
     font-weight: 100;
     font-size: 30px;
@@ -22,14 +25,28 @@
     color: #193f6e;
     text-align: center;
 }
-
-.hotelHugWrap .contTitle>span {
+ */
+/* .hotelHugWrap .contTitle>span {
     display: block;
     padding-bottom: 13px;
     font-size: 16px;
     color: #193f6e;
     font-weight: bold;
+} */
+.hotelHugWrap .contTitle {
+	width: 100%;
 }
+.hotelHugWrap .contTitle .name {
+	font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+}
+.hotelHugWrap .contTitle p {
+	font-size: 20px;
+    text-align: left;
+    margin: 15px 0 80PX 20px;
+}
+
 
 .hotelHugWrap>.innerBox>.roomWrap {
     border: 0.5px solid #193f6e;

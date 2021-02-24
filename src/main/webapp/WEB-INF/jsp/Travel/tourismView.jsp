@@ -57,83 +57,83 @@
 						<area shape="circle" coords="189,572,8" target="_self"
 							onmouseover="changePopupText2('협재해수욕장','제주시 한림읍 한림로 329-10 ',330,800);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name1}">
 						<area shape="circle" coords="242,500,8" target="_self"
 							onmouseover="changePopupText2('애월해안도로','제주시 애월읍 애월해안로',400,730);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name2}">
 						<area shape="circle" coords="537,407,8" target="_self"
 							onmouseover="changePopupText2('용두암','제주시 용두암길 15',630,630);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name5}">
 						<area shape="circle" coords="661,367,8" target="_self"
 							onmouseover="changePopupText2('제주레포츠랜드','제주시 조천읍 와흘상서2길 47',740,600);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name13}">
 						<area shape="circle" coords="721,427,8" target="_self"
-							onmouseover="changePopupText2('제주 4.3평화공원','제주시 명림로 430',930,680);" 
+							onmouseover="changePopupText2('제주4.3평화공원','제주시 명림로 430',930,680);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name4}">
 						<area shape="circle" coords="765,329,8" target="_self"
 							onmouseover="changePopupText2('김녕해수욕장','제주시 구좌읍 구좌해안로 237', 850,560);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name8}">
 						<area shape="circle" coords="856,324,8" target="_self"
 							onmouseover="changePopupText2('월정리해변','제주시 구좌읍 해맞이해안로 480-1',1000,550);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name7}">
 						<area shape="circle" coords="340,671,8" target="_self"
 							onmouseover="changePopupText2('카멜리아힐','서귀포시 안덕면 병악로 166',410,900);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name16}">
 						<area shape="circle" coords="428,643,8" target="_self"
 							onmouseover="changePopupText2('뽀로로&타요 테마파크 제주','서귀포시 안덕면 병악로 269',470,870);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name18}">
 						<area shape="circle" coords="601,600,8" target="_self"
 							onmouseover="changePopupText2('한라산국립공원','제주시 1100로 2070-61',750,825);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name3}">
 						<area shape="circle" coords="752,506,8" target="_self"
-							onmouseover="changePopupText2('사려니숲길','제주시 조천읍 교래리 산 137-1',400,730);" 
+							onmouseover="changePopupText2('사려니숲길','제주시 조천읍 교래리 산 137-1',860,730);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name6}">
 						<area shape="circle" coords="889,476,8" target="_self"
-							onmouseover="changePopupText2('비자림','제주시 구좌읍 비자숲길 55',400,730);" 
+							onmouseover="changePopupText2('비자림','제주시 구좌읍 비자숲길 55',1020,700);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name9}">
 						<area shape="circle" coords="1064,375,8" target="_self"
-							onmouseover="changePopupText2('우도','제주시 우도면 삼양고수물길 1',400,730);" 
+							onmouseover="changePopupText2('우도','제주시 우도면 삼양고수물길 1',1200,600);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">	
+							alt="" href="/tourismDetailView?tsName=${tourism.name10}">	
 						<area shape="circle" coords="1044,458,8" target="_self"
-							onmouseover="changePopupText2('성산일출봉','서귀포시 성산읍 일출로 284-12',400,730);" 
+							onmouseover="changePopupText2('성산일출봉','서귀포시 성산읍 일출로 284-12',1200,680);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name12}">
 						<area shape="circle" coords="1029,504,8" target="_self"
-							onmouseover="changePopupText2('섭지코지','서귀포시 성산읍 고성리',400,730);" 
+							onmouseover="changePopupText2('섭지코지','서귀포시 성산읍 고성리',1180,830);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name11}">
 						<area shape="circle" coords="699,706,8" target="_self"
-							onmouseover="changePopupText2('정방폭포','서귀포시 칠십리로214번길 37',400,730);" 
+							onmouseover="changePopupText2('정방폭포','서귀포시 칠십리로214번길 37',810,930);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name14}">
 						<area shape="circle" coords="666,745,8" target="_self"
-							onmouseover="changePopupText2('천지연폭포','서귀포시 남성중로 2-15',400,730);" 
+							onmouseover="changePopupText2('천지연폭포','서귀포시 남성중로 2-15',720,970);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name15}">
 						<area shape="circle" coords="441,775,8" target="_self"
-							onmouseover="changePopupText2('주상절리대','서귀포시 이어도로 36-30',400,730);" 
+							onmouseover="changePopupText2('주상절리대','서귀포시 이어도로 36-30',550,1000);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name17}">
 						<area shape="circle" coords="259,818,8" target="_self"
-							onmouseover="changePopupText2('송악산','서귀포시 대정읍 송악관광로 421-1',400,730);" 
+							onmouseover="changePopupText2('송악산','서귀포시 대정읍 송악관광로 421-1',370,1040);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name20}">
 						<area shape="circle" coords="243,883,8" target="_self"
-							onmouseover="changePopupText2('마라도','서귀포시 대정읍 마라로101번길 46',400,730);" 
+							onmouseover="changePopupText2('마라도','서귀포시 대정읍 마라로101번길 46',230,1140);" 
 							onmouseout="hidePopup();"
-							alt="" href="/tourismDetailView">
+							alt="" href="/tourismDetailView?tsName=${tourism.name19}">
 					</map>
 					<!-- 마우스오버 상자 -->
 				    <div id="popup" style="background-color:#193f6e;position:absolute;opacity:0;border:1px solid black;border-radius:8%;padding:5px 12px;"
@@ -224,7 +224,6 @@ function showPopup() {
 }
 $(function(){
 	$('img[usemap]').rwdImageMaps();
-	$("#img").width("100%");
 });
 </script>
 </body>

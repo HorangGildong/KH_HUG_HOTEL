@@ -1,8 +1,11 @@
 package kr.iei.hotel.member.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
+import kr.iei.hotel.member.config.auth.PrincipalDetailsService;
 import kr.iei.hotel.member.dto.MemberDto;
+import kr.iei.hotel.member.service.MemberService;
 
 @Controller
 public class MemberLoginController {
@@ -21,6 +26,12 @@ public class MemberLoginController {
 	 * 1순위 : 관련 컨트롤러에 맵핑된 주소
 	 * 2순위 : resource/static
 	 */
+	
+	@Autowired
+	MemberService memberService;
+	
+	@Autowired
+	PrincipalDetailsService principalDetailsService;
 	
 	// loginPage
 	@GetMapping("/login")
@@ -34,6 +45,34 @@ public class MemberLoginController {
 		return "/member/login";		
 	}
 	
+	// a
+	@GetMapping("/a")
+	@ResponseBody
+	public PrincipalDetails a(@AuthenticationPrincipal PrincipalDetails userDetails) {
+		return userDetails;
+	}
+	
+	@GetMapping("/pwChange")
+	@ResponseBody
+	public String pwChange() {
+		return "비밀번호 변경하는 페이지로 보낼거임";
+	}
+	
+	@GetMapping("/noPwChange")
+	public String noPwChange(Authentication authentication) {
+		System.out.println();
+		String memberId = authentication.getName();
+		memberService.updatePwChangeDate(memberId);
+		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberId);
+		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(
+				userDetails,
+				authentication.getCredentials(),
+				authentication.getAuthorities()
+				);
+		SecurityContextHolder.getContext().setAuthentication(newAuthentication);	
+		return "redirect:/";
+	}
+	
 	@GetMapping("/login/oAuth2")
 	public String oauth2Login(RedirectAttributes redirect, @AuthenticationPrincipal PrincipalDetails userDetails) {
 		MemberDto memberDto = userDetails.getMemberDto();
@@ -45,10 +84,10 @@ public class MemberLoginController {
 		}
 		return "redirect:/";
 	}
-	
-	
 
-	
+
+
+
 	@GetMapping("/test")	// TEST
 	@ResponseBody
 	public String test(
