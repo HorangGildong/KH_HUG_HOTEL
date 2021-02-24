@@ -11,7 +11,7 @@ import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.service.MemberService;
 
 @Service
-public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
+public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 
 	@Autowired
 	private MemberService memberService;

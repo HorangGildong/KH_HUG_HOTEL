@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetailsService;
-import kr.iei.hotel.member.config.auth.PrincipalOauth2UserService;
+import kr.iei.hotel.member.config.auth.PrincipalOAuth2UserService;
 
 @Configuration
 @EnableWebSecurity	// 시큐리티 활성화
@@ -24,7 +24,7 @@ public class Config extends WebSecurityConfigurerAdapter {
 	private PrincipalDetailsService principalDetailsService;
 
 	@Autowired
-	private PrincipalOauth2UserService principalOauth2UserService;
+	private PrincipalOAuth2UserService principalOAuth2UserService;
 //	private final CustomOAuth2UserService customOAuth2UserService;
 
     @Bean
@@ -69,7 +69,7 @@ public class Config extends WebSecurityConfigurerAdapter {
         		.failureUrl("/login")
         		.loginPage("/login")
         		.userInfoEndpoint()
-        		.userService(principalOauth2UserService)	// 구글 로그인 후 토큰 & 프로필을 받아서 처리하는 함수
+        		.userService(principalOAuth2UserService)	// 구글 로그인 후 토큰 & 프로필을 받아서 처리하는 함수
     		;
     }
     
