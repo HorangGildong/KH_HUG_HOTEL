@@ -127,6 +127,6 @@ WHERE memberNumber = 33;
 /
 UPDATE MEMBER SET 
     memberPwChangeDate = TO_DATE('2020-08-20','YYYY-MM-DD')
-WHERE memberNumber = 34;
+WHERE memberNumber = 46;
 /
 COMMIT;

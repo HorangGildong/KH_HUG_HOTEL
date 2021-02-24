@@ -91,7 +91,7 @@
 							<label for="inputNick" class="col-xs-4 control-label">닉네임</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control"
-									name="memberNick" id="inputNickname" placeholder="Nick" required>
+									name="memberNick" id="inputNickname" placeholder="Nickname" required>
 								<div class="check_font" id="nickCheck"></div>
 							</div>
 						</div>
