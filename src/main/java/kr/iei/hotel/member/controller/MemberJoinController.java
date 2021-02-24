@@ -1,7 +1,10 @@
 package kr.iei.hotel.member.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 import kr.iei.hotel.member.service.MemberService;
@@ -38,7 +42,10 @@ public class MemberJoinController {
 		String rawPassword = memberJoinFormDto.getMemberPassword();
 		memberJoinFormDto.setMemberPassword(passwordEncoder.encode(rawPassword));
 		memberService.join(memberJoinFormDto);
-		memberLoginController.autoLogin(memberJoinFormDto.getMemberId(), "ROLE_REGURAL");
+		MemberDto memberDto = memberService.searchById(memberJoinFormDto.getMemberId());
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
+		authorities.add(() -> memberDto.getMemberRole());
+		memberLoginController.autoLogin(memberJoinFormDto.getMemberId(), authorities);
 		return "redirect:/";
 	}
 

@@ -58,16 +58,15 @@ public class MemberLoginController {
 	@GetMapping("/noPwChange")
 	public String noPwChange(Authentication authentication) {
 		String memberId = authentication.getName();
+		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		memberService.updatePwChangeDate(memberId);
-		autoLogin(memberId, "ROLE_REGURAL");
+		autoLogin(memberId, authorities);
 		return "redirect:/";
 	}
 	
-	public void autoLogin(String memberId, String memberRole) {
+	public void autoLogin(String memberId, Collection<? extends GrantedAuthority> authorities) {
 		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberId);
-		Collection<GrantedAuthority> collect = new ArrayList<>();
-		collect.add(() -> memberRole);
-		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, collect);
+		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, authorities);
 		SecurityContextHolder.getContext().setAuthentication(newAuthentication);	
 	}
 	

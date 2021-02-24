@@ -40,15 +40,15 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	// 권한 (원래 권한이 여러개 있을 수 있으므로 Collection 루프 돌려야 함)
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		Collection<GrantedAuthority> collect = new ArrayList<>();
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
 //		collect.add(new GrantedAuthority() {
 //			@Override
 //			public String getAuthority() {
 //				return memberDto.getMemberRole();	// "ROLE_" + @가 되어야 함
 //			}
 //		});
-		collect.add( () -> { return memberDto.getMemberRole();});
-		return collect;
+		authorities.add( () -> { return memberDto.getMemberRole();});
+		return authorities;
 	}
 
 	// 권한 (String)
