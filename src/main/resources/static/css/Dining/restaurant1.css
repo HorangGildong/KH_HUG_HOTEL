@@ -36,6 +36,11 @@
     height: 496px;
     /* width: 300px; */
     /* height: 300px; */
+    transition: transform 1s linear;
+}
+
+.hotelHugDetailWrap>.imageArea>.slides img:hover {
+	transform: scale(1.1);
 }
 
 .imageArea {

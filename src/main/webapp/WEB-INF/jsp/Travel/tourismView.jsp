@@ -95,43 +95,43 @@
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="752,506,8" target="_self"
-							onmouseover="changePopupText2('사려니숲길','제주시 조천읍 교래리 산 137-1',400,730);" 
+							onmouseover="changePopupText2('사려니숲길','제주시 조천읍 교래리 산 137-1',860,730);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="889,476,8" target="_self"
-							onmouseover="changePopupText2('비자림','제주시 구좌읍 비자숲길 55',400,730);" 
+							onmouseover="changePopupText2('비자림','제주시 구좌읍 비자숲길 55',1020,700);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="1064,375,8" target="_self"
-							onmouseover="changePopupText2('우도','제주시 우도면 삼양고수물길 1',400,730);" 
+							onmouseover="changePopupText2('우도','제주시 우도면 삼양고수물길 1',1200,600);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">	
 						<area shape="circle" coords="1044,458,8" target="_self"
-							onmouseover="changePopupText2('성산일출봉','서귀포시 성산읍 일출로 284-12',400,730);" 
+							onmouseover="changePopupText2('성산일출봉','서귀포시 성산읍 일출로 284-12',1200,680);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="1029,504,8" target="_self"
-							onmouseover="changePopupText2('섭지코지','서귀포시 성산읍 고성리',400,730);" 
+							onmouseover="changePopupText2('섭지코지','서귀포시 성산읍 고성리',1180,830);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="699,706,8" target="_self"
-							onmouseover="changePopupText2('정방폭포','서귀포시 칠십리로214번길 37',400,730);" 
+							onmouseover="changePopupText2('정방폭포','서귀포시 칠십리로214번길 37',810,930);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="666,745,8" target="_self"
-							onmouseover="changePopupText2('천지연폭포','서귀포시 남성중로 2-15',400,730);" 
+							onmouseover="changePopupText2('천지연폭포','서귀포시 남성중로 2-15',720,970);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="441,775,8" target="_self"
-							onmouseover="changePopupText2('주상절리대','서귀포시 이어도로 36-30',400,730);" 
+							onmouseover="changePopupText2('주상절리대','서귀포시 이어도로 36-30',550,1000);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="259,818,8" target="_self"
-							onmouseover="changePopupText2('송악산','서귀포시 대정읍 송악관광로 421-1',400,730);" 
+							onmouseover="changePopupText2('송악산','서귀포시 대정읍 송악관광로 421-1',370,1040);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 						<area shape="circle" coords="243,883,8" target="_self"
-							onmouseover="changePopupText2('마라도','서귀포시 대정읍 마라로101번길 46',400,730);" 
+							onmouseover="changePopupText2('마라도','서귀포시 대정읍 마라로101번길 46',230,1140);" 
 							onmouseout="hidePopup();"
 							alt="" href="/tourismDetailView">
 					</map>
@@ -224,7 +224,6 @@ function showPopup() {
 }
 $(function(){
 	$('img[usemap]').rwdImageMaps();
-	$("#img").width("100%");
 });
 </script>
 </body>

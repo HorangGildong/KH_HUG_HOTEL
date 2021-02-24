@@ -151,22 +151,22 @@
                     <div class="halfGallery">
                         <ul class="halfCont">
                             <li class="on" style="width: 700px; transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/main/pool02.jfif" alt="" style="width:700px; height:640px;">
+                                <img src="img/hah_img/main/pool02.jpg" alt="">
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/main/sauna01.jpg" alt="" style="width:700px; height:640px;">
+                                <img src="img/hah_img/main/sauna01.jpg" alt="">
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/facility/pitness04.jpg" alt="" style="width:700px; height:640px;">
+                                <img src="img/hah_img/main/pitness01.jpg" alt="">
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/main/spa02.jpg" alt="" style="width:700px; height:640px;"> 
+                                <img src="img/hah_img/main/spa02.jpg" alt=""> 
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/main/park01.jpg" alt="" style="width:700px; height:640px;">
+                                <img src="img/hah_img/main/park02.jpg" alt="">
                             </li>
                             <li style="transition: width 0.7s ease 0s;">
-                                <img src="img/hah_img/main/kids01.jpg" alt="" style="width:700px; height:640px;">
+                                <img src="img/hah_img/main/kids01.jpg" alt="">
                             </li>
                         </ul>
                     </div>

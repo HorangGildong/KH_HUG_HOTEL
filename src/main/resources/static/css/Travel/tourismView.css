@@ -28,4 +28,10 @@
 	margin: 57.5px;
 }
 
+img[usemap] {
+	boder:none;
+	height: auto;
+	max-width: 100%;
+	width: auto;
+}
 
