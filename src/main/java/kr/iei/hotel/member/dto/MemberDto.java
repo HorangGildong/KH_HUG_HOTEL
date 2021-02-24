@@ -1,6 +1,6 @@
 package kr.iei.hotel.member.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class MemberDto {
 

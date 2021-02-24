@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberIdDto;
@@ -54,4 +55,8 @@ public interface MemberDao {
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberNick = '${memberNick}'")
 	int checkNick(String memberNick);
 
+	@Update("UPDATE MEMBER SET"
+			+ " memberPwChangeDate = ADD_MONTHS(SYSDATE, -2)"
+			+ " WHERE memberId = '${memberId}'")
+	void updatePwChangeDate(String memberId);
 }

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="member"/>
+</sec:authorize>
+
 <!doctype html>
 <html lang="en">
 
@@ -41,6 +47,13 @@
         <!--header-->
         <jsp:include page="common/header.jsp"/>
         <!--header end-->
+        
+        <!--비밀번호 변경 권고(조건부)-->
+        <c:if test="${member.isPwChanged eq false}">
+        	<jsp:include page="member/pwChange.jsp"/>
+        </c:if>
+        <!--비밀번호 변경 권고(조건부)-->
+        
         <!--section start-->
         <section>
             <!-- 캐러셀 부분 시작 -->

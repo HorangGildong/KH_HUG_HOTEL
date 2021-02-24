@@ -200,15 +200,15 @@
 			</div>
 			
 			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
-			   aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
+			<div class="modal fade" id="modal" tabindex="-1" role="dialog" 
+			   aria-labelledby="modalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
 			   <div class="modal-dialog">
 			      <div class="modal-content">
 			         <div class="modal-header">
 			            <button type="button" class="close" data-dismiss="modal" 
 			               aria-hidden="true">×
 			            </button>
-			            <h4 class="modal-title" id="myModalLabel">
+			            <h4 class="modal-title" id="modalLabel">
 			              	 회원가입
 			            </h4>
 			         </div>
@@ -250,7 +250,7 @@
 	<script>
 		
 	    $(function() {
-	    	$('#myModal').modal( {
+	    	$('#modal').modal( {
 			})
 		});
 	

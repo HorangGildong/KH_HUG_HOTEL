@@ -92,6 +92,7 @@
 						
 					</form>
 					
+					
 					<div class="text-center">
 						<a href="/join">회원가입</a> | <a href="/searchIds">아이디 찾기</a> | <a href="searchPassword">비밀번호 찾기</a>
 					</div>

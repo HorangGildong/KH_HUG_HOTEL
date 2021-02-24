@@ -56,4 +56,9 @@ public class MemberServiceImp implements MemberService {
 	public int checkNick(String memberNick) {
 		return memberDao.checkNick(memberNick);
 	}
+	
+	@Override
+	public void updatePwChangeDate(String memberId) {
+		memberDao.updatePwChangeDate(memberId);
+	}
 }
