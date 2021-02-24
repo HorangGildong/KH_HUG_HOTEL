@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -17,6 +16,7 @@ import kr.iei.hotel.member.dto.MemberDto;
 // 로그인 완료시 시큐리티 세션 생성(Security ContextHolder)
 // Authentication 타입 객체(세션에 저장될 오브젝트) -> Member정보
 
+@SuppressWarnings("serial")	// 원래 SerialVersionUID를 선언해서 warnings를 없애야 함
 public class PrincipalDetails implements UserDetails, OAuth2User {
 
 	private MemberDto memberDto;

@@ -31,7 +31,6 @@ public class memberSearchController {
 	@GetMapping("/searchIds/search")
 	@ResponseBody
 	public List<MemberIdDto> searchIds(@RequestParam("name") String memberName, @RequestParam("phone") String memberPhone) {
-		List<MemberIdDto> list = memberService.searchIds(memberName, memberPhone);
 		return memberService.searchIds(memberName, memberPhone);
 	}
 	

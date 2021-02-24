@@ -45,7 +45,7 @@ public class MemberJoinController {
 		MemberDto memberDto = memberService.searchById(memberJoinFormDto.getMemberId());
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(() -> memberDto.getMemberRole());
-		memberLoginController.autoLogin(memberJoinFormDto.getMemberId(), authorities);
+		memberLoginController.autoLogin(memberDto.getMemberId(), authorities);
 		return "redirect:/";
 	}
 
@@ -60,7 +60,10 @@ public class MemberJoinController {
 	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
 		memberOAuth2JoinFormDto.setMemberId("user_" + memberOAuth2JoinFormDto.getMemberKey());
 		memberService.oAuth2Join(memberOAuth2JoinFormDto);
-		memberLoginController.autoLogin(memberOAuth2JoinFormDto.getMemberId(), "ROLE_REGURAL");
+		MemberDto memberDto = memberService.searchByKey(memberOAuth2JoinFormDto.getMemberKey());
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
+		authorities.add(() -> memberDto.getMemberRole());
+		memberLoginController.autoLogin(memberDto.getMemberId(), authorities);
 		return "redirect:/";
 	}
 		

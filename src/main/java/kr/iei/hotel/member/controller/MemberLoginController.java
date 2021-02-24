@@ -1,6 +1,5 @@
 package kr.iei.hotel.member.controller;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
