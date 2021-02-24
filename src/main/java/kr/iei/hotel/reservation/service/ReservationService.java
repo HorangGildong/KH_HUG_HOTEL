@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.iei.hotel.guestroom.vo.GuestRoomVO;
 import kr.iei.hotel.reservation.mapper.ReservationMapper;
+import kr.iei.hotel.reservation.vo.IncomeStatisticsVO;
 import kr.iei.hotel.reservation.vo.ReservationVO;
 
 @Service
@@ -53,6 +54,20 @@ public class ReservationService {
 	
 	//-------------------------------------수입통계--------------------------------------------
 	
-	
-	
+	//월별통계 totalPrice
+	public List<Long> selectMonthlyTotalPrice(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+		return reservationMapper.selectMonthlyTotalPrice(incomeStatisticsVO);
+	}
+	//월별통계 totalCount
+	public List<Integer> selectMonthlyTotalCount(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+		return reservationMapper.selectMonthlyTotalCount(incomeStatisticsVO);
+	}
+	//월별통계 객실Price
+	public List<Long> selectMonthlyGuestRoomPrice(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+		return reservationMapper.selectMonthlyGuestRoomPrice(incomeStatisticsVO);
+	}
+	//월별통계 객실Count
+	public List<Integer> selectMonthlyGuestRoomCount(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+		return reservationMapper.selectMonthlyGuestRoomCount(incomeStatisticsVO);
+	}
 }
