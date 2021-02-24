@@ -15,7 +15,7 @@ import kr.iei.hotel.member.service.MemberService;
 public class memberSearchController {
 
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
 	
 	@GetMapping("/searchIds")
 	public String searchId() {

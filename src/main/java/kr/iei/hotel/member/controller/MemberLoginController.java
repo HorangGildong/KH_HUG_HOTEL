@@ -1,8 +1,12 @@
 package kr.iei.hotel.member.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,10 +32,10 @@ public class MemberLoginController {
 	 */
 	
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
 	
 	@Autowired
-	PrincipalDetailsService principalDetailsService;
+	private PrincipalDetailsService principalDetailsService;
 	
 	// loginPage
 	@GetMapping("/login")
@@ -60,17 +64,18 @@ public class MemberLoginController {
 	
 	@GetMapping("/noPwChange")
 	public String noPwChange(Authentication authentication) {
-		System.out.println();
 		String memberId = authentication.getName();
 		memberService.updatePwChangeDate(memberId);
-		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberId);
-		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(
-				userDetails,
-				authentication.getCredentials(),
-				authentication.getAuthorities()
-				);
-		SecurityContextHolder.getContext().setAuthentication(newAuthentication);	
+		autoLogin(memberId, "ROLE_REGURAL");
 		return "redirect:/";
+	}
+	
+	public void autoLogin(String memberId, String memberRole) {
+		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberId);
+		Collection<GrantedAuthority> collect = new ArrayList<>();
+		collect.add(() -> memberRole);
+		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, collect);
+		SecurityContextHolder.getContext().setAuthentication(newAuthentication);	
 	}
 	
 	@GetMapping("/login/oAuth2")

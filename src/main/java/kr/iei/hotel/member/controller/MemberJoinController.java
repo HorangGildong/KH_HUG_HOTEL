@@ -1,6 +1,7 @@
 package kr.iei.hotel.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,9 @@ public class MemberJoinController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
+	@Autowired
+	private MemberLoginController memberLoginController;
+	
 	// joinPage
 	@GetMapping("/join")
 	public String joinPage() {		
@@ -34,7 +38,8 @@ public class MemberJoinController {
 		String rawPassword = memberJoinFormDto.getMemberPassword();
 		memberJoinFormDto.setMemberPassword(passwordEncoder.encode(rawPassword));
 		memberService.join(memberJoinFormDto);
-		return "/member/login";
+		memberLoginController.autoLogin(memberJoinFormDto.getMemberId(), "ROLE_REGURAL");
+		return "redirect:/";
 	}
 
 	@GetMapping("/join/oAuth2")
@@ -48,6 +53,7 @@ public class MemberJoinController {
 	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
 		memberOAuth2JoinFormDto.setMemberId("user_" + memberOAuth2JoinFormDto.getMemberKey());
 		memberService.oAuth2Join(memberOAuth2JoinFormDto);
+		memberLoginController.autoLogin(memberOAuth2JoinFormDto.getMemberId(), "ROLE_REGURAL");
 		return "redirect:/";
 	}
 		

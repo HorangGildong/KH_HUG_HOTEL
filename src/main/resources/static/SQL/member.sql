@@ -52,6 +52,9 @@ INSERT INTO GRADE (memberGrade, discountRate) VALUES('GRADE_MEMBERSHIP',0.3);
 COMMIT;
 
 
+---------- SAMPLE ----------
+
+
 INSERT INTO MEMBER (
     memberId,           memberRegDate,      memberPwChangeDate, memberBirth,
     memberName,         memberNick,         memberPhone,        memberEmail,
@@ -98,7 +101,9 @@ VALUES (
 
 COMMIT;
 
+
 ---------- EXAMPLE : TEST ----------
+
 
 SELECT * FROM GRADE;
 SELECT * FROM MEMBER;
