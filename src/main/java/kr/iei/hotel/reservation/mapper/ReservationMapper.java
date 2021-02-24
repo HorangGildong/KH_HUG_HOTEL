@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import kr.iei.hotel.guestroom.vo.GuestRoomVO;
+import kr.iei.hotel.reservation.vo.IncomeStatisticsVO;
 import kr.iei.hotel.reservation.vo.ReservationVO;
 
 @Mapper
@@ -31,4 +32,14 @@ public interface ReservationMapper {
 	public List<ReservationVO> reservationAdminSearch(String reservationNo)throws Exception;
 	
 	//-------------------------------------수입통계--------------------------------------------
+
+
+	//월별통계 totalPrice
+	public List<Long> selectMonthlyTotalPrice(IncomeStatisticsVO incomeStatisticsVO)throws Exception;
+	//월별통계 totalCount
+	public List<Integer> selectMonthlyTotalCount(IncomeStatisticsVO incomeStatisticsVO)throws Exception;
+	//월별통계 객실Price
+	public List<Long> selectMonthlyGuestRoomPrice(IncomeStatisticsVO incomeStatisticsVO)throws Exception;
+	//월별통계 객실Count
+	public List<Integer> selectMonthlyGuestRoomCount(IncomeStatisticsVO incomeStatisticsVO)throws Exception;
 }

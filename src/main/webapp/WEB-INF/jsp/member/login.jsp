@@ -71,7 +71,7 @@
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
 								<input type="text" class="form-control input-lg"
-									name="username" id="inputId" placeholder="ID" value="gildong">
+									name="username" id="inputId" placeholder="ID" value="${memberId}">
 							</div>
 						</div>
 						
@@ -81,7 +81,7 @@
 								<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 								</span>
 								<input type="password" class="form-control input-lg"
-									name="password" id="inputPassword" placeholder="Password" value="123">
+									name="password" id="inputPassword" placeholder="Password">
 							</div>
 						</div>
 						
@@ -93,8 +93,7 @@
 					</form>
 					
 					<div class="text-center">
-						<a href="/join">회원가입</a> | <a href="/searchIds">아이디 찾기</a> | <a href="#">비밀번호
-							찾기</a>
+						<a href="/join">회원가입</a> | <a href="/searchIds">아이디 찾기</a> | <a href="searchPassword">비밀번호 찾기</a>
 					</div>
 					
 					<br>

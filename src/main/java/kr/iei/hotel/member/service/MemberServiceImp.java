@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.iei.hotel.member.dao.MemberDao;
 import kr.iei.hotel.member.dto.MemberDto;
+import kr.iei.hotel.member.dto.MemberIdDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 
@@ -42,7 +43,7 @@ public class MemberServiceImp implements MemberService {
 	}
 	
 	@Override
-	public List<String> searchIds(String memberName, String memberPhone) {
+	public List<MemberIdDto> searchIds(String memberName, String memberPhone) {
 		return memberDao.searchIds(memberName, memberPhone);
 	}
 	

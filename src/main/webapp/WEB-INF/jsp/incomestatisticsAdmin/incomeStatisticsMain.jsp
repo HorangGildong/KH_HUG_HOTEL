@@ -47,14 +47,15 @@
         <h1 class="buttonTitle">
             <p>수입 / 통계 관리</p>
         </h1>
-		<form class="searchBox1" action="">
-		<select name="">
-			<option value="">DATE</option>
-			<option value="">2020년</option>
-			<option value="">2021년</option>
-			<option value="">2022년</option>
-			<option value="">2023년</option>
+		<form class="searchBox1" action="/monthlyStatistics" method="post" id="monthlyStatistics">
+		<select name="choiceDate">
+			<option value="0">DATE</option>
+			<option value="202000">2020년</option>
+			<option value="202100">2021년</option>
+			<option value="202200">2022년</option>
+			<option value="202300">2023년</option>
 		</select>
+		<input type="submit" form="monthlyStatistics" value="test" />
 		<span>MonthlyStastistics</span>
 		</form>
 		<form class="searchBox2" action="">

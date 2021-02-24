@@ -3,6 +3,7 @@ package kr.iei.hotel.member.service;
 import java.util.List;
 
 import kr.iei.hotel.member.dto.MemberDto;
+import kr.iei.hotel.member.dto.MemberIdDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 
@@ -22,6 +23,6 @@ public interface MemberService {
 	
 	MemberDto searchById(String memberId);
 
-	List<String> searchIds(String memberName, String memberPhone);
+	List<MemberIdDto> searchIds(String memberName, String memberPhone);
 
 }

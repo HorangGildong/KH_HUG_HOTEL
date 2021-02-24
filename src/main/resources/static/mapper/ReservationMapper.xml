@@ -103,4 +103,286 @@
 	</select>
 	
 	<!-- ─────────────────────────────────── 수입통계 쿼리 ─────────────────────────────────── -->
+	
+	<!-- 월별통계 totalPrice -->
+	<select id="selectMonthlyTotalPrice" parameterType="kr.iei.hotel.reservation.vo.IncomeStatisticsVO" resultType="long">
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day1} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day2} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day3} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day4} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day5} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day6} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day7} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day8} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day9} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day10} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day11} || '%'
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day12} || '%'
+	</select>
+	<!-- 월별통계 totalCount -->
+	<select id="selectMonthlyTotalCount" parameterType="kr.iei.hotel.reservation.vo.IncomeStatisticsVO" resultType="int">
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day1} || '%'
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day2} || '%'
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day3} || '%'
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day4} || '%'
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day5} || '%'
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day6} || '%'
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day7} || '%'
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day8} || '%'
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day9} || '%'
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day10} || '%'
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day11} || '%'
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day12} || '%'
+	</select>
+	<!-- 월별통계 객실price -->
+	<select id="selectMonthlyGuestRoomPrice" parameterType="kr.iei.hotel.reservation.vo.IncomeStatisticsVO" resultType="long">
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day1} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day2} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day3} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day4} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day5} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day6} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day7} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day8} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day9} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day10} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day11} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+sum(totalPrice)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day12} || '%'
+and guestRoomName = #{guestRoomName}	
+	</select>
+	<!-- 월별통계 객실count -->
+	<select id="selectMonthlyGuestRoomCount" parameterType="kr.iei.hotel.reservation.vo.IncomeStatisticsVO" resultType="int">
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day1} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day2} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day3} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day4} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day5} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day6} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day7} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)    
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day8} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day9} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day10} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day11} || '%'
+and guestRoomName = #{guestRoomName}
+union all
+select 
+count(*)   
+from reservation
+where to_char(reservationDate,'YYYYMMDD') like '%' || #{day12} || '%'
+and guestRoomName = #{guestRoomName}
+	</select>
+	
+	
+	
+	<!-- 일별통계 totalPrice -->
+	<!-- 일별통계 totalCount -->
+	<!-- 일별통계 객실price -->
+	<!-- 일별통계 객실count -->
+	
+	
 </mapper>

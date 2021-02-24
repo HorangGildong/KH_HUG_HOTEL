@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.iei.hotel.member.dto.MemberIdDto;
 import kr.iei.hotel.member.service.MemberService;
 
 @Controller
@@ -21,13 +22,16 @@ public class memberSearchController {
 		return "/member/searchIds";
 	}
 	
+	@GetMapping("/searchPassword")
+	@ResponseBody
+	public String searchPassword() {
+		return "아직안함";
+	}
+	
 	@GetMapping("/searchIds/search")
 	@ResponseBody
-	public List<String> searchIds(@RequestParam("name") String memberName, @RequestParam("phone") String memberPhone) {
-		List<String> list = memberService.searchIds(memberName, memberPhone);
-		for(String s : list) {
-			System.out.println(s);
-		}
+	public List<MemberIdDto> searchIds(@RequestParam("name") String memberName, @RequestParam("phone") String memberPhone) {
+		List<MemberIdDto> list = memberService.searchIds(memberName, memberPhone);
 		return memberService.searchIds(memberName, memberPhone);
 	}
 	
