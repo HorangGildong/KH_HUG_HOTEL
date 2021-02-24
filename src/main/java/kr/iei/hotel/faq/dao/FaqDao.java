@@ -50,14 +50,7 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 전체 질문 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> total_question_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else {
-			page.setNowPage(1);
-		}
-		
+				
 		int totListSize = mapper.total_question_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -72,13 +65,6 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 전체 답변 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> total_answer_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else {
-			page.setNowPage(1);
-		}
 		
 		int totListSize = mapper.total_answer_size(page);
 		page.setTotListSize(totListSize);
@@ -117,14 +103,7 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 이용안내 질문 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> guide_question_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
+	
 		int totListSize = mapper.guide_question_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -139,14 +118,7 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 이용안내 답변 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> guide_answer_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
+	
 		int totListSize = mapper.guide_answer_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -184,14 +156,7 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 객식 질문 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> room_question_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
+	
 		int totListSize = mapper.room_question_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -206,14 +171,7 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 객식 답변 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> room_answer_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
+	
 		int totListSize = mapper.room_answer_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -252,13 +210,6 @@ public class FaqDao implements FaqService {
 	@Override
 	public Map<String, Object> dining_question_select(Page page) {
 		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
 		int totListSize = mapper.dining_question_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -273,14 +224,7 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 다이닝 답변 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> dining_answer_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
+	
 		int totListSize = mapper.dining_answer_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -319,13 +263,6 @@ public class FaqDao implements FaqService {
 	@Override
 	public Map<String, Object> facility_question_select(Page page) {
 		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
 		int totListSize = mapper.facility_question_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -339,13 +276,6 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 부대시설 답변 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> facility_answer_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
 		
 		int totListSize = mapper.facility_answer_size(page);
 		page.setTotListSize(totListSize);
@@ -385,13 +315,6 @@ public class FaqDao implements FaqService {
 	@Override
 	public Map<String, Object> payment_question_select(Page page) {
 		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
 		int totListSize = mapper.payment_question_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -406,13 +329,6 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 결제 답변 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> payment_answer_select(Page page) {
-		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
 		
 		int totListSize = mapper.payment_answer_size(page);
 		page.setTotListSize(totListSize);
@@ -452,13 +368,6 @@ public class FaqDao implements FaqService {
 	@Override
 	public Map<String, Object> etc_question_select(Page page) {
 		
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
-		
 		int totListSize = mapper.etc_question_size(page);
 		page.setTotListSize(totListSize);
 		page.pageCompute();
@@ -473,13 +382,6 @@ public class FaqDao implements FaqService {
 	/*--------------------------------- 기타 답변 검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> etc_answer_select(Page page) {
-			
-		if (page == null) {
-			page = new Page();
-			page.setNowPage(1);
-		} else if (page.getNowPage() < 1) {
-			page.setNowPage(1);
-		}		
 		
 		int totListSize = mapper.etc_answer_size(page);
 		page.setTotListSize(totListSize);

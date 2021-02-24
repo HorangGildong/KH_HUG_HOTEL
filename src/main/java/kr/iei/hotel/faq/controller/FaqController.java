@@ -42,9 +42,11 @@ public class FaqController {
 		Map<String, Object> map = service.select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
-	
+		
 		System.out.println("전체 메뉴 입니다");
-				
+		System.out.println("getMenu: "+page.getMenu());
+		System.out.println("getSelectBox: "+page.getSelectBox());
+		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqTotal");		
@@ -60,7 +62,9 @@ public class FaqController {
 		page = (Page) map.get("page");				
 	
 		System.out.println("전체 메뉴 질문 검색 ");
-				
+		System.out.println("getMenu: "+page.getMenu());
+		System.out.println("getSelectBox: "+page.getSelectBox());
+		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqTotal");		
@@ -76,7 +80,9 @@ public class FaqController {
 		page = (Page) map.get("page");				
 	
 		System.out.println("전체 메뉴  답변 검색");
-				
+		System.out.println("getMenu: "+page.getMenu());
+		System.out.println("getSelectBox: "+page.getSelectBox());
+		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqTotal");		
@@ -94,6 +100,8 @@ public class FaqController {
 		page = (Page) map.get("page");
 				
 		System.out.println("이용안내 메뉴 입니다");
+		System.out.println("getMenu: "+page.getMenu());
+		System.out.println("getSelectBox: "+page.getSelectBox());
 		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
@@ -110,7 +118,9 @@ public class FaqController {
 		page = (Page) map.get("page");				
 	
 		System.out.println("이용안내 메뉴 질문 검색 ");
-				
+		System.out.println("getMenu: "+page.getMenu());
+		System.out.println("getSelectBox: "+page.getSelectBox());
+			
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqGuide");		
@@ -126,7 +136,9 @@ public class FaqController {
 		page = (Page) map.get("page");				
 	
 		System.out.println("이용안내 메뉴 답변 검색");
-				
+		System.out.println("getMenu: "+page.getMenu());
+		System.out.println("getSelectBox: "+page.getSelectBox());
+		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqGuide");		
@@ -145,6 +157,8 @@ public class FaqController {
 		page = (Page) map.get("page");
 				
 		System.out.println("객실 메뉴 입니다");
+		System.out.println("getMenu: "+page.getMenu());
+		System.out.println("getSelectBox: "+page.getSelectBox());
 		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
