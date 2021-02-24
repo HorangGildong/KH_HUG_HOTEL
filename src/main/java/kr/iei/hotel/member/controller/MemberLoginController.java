@@ -46,6 +46,7 @@ public class MemberLoginController {
 		return "redirect:/";
 	}
 	
+	
 
 	
 	@GetMapping("/test")	// TEST

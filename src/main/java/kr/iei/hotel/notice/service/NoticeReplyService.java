@@ -4,14 +4,15 @@ import java.util.Map;
 
 import kr.iei.hotel.notice.vo.NoticeReplyVo;
 import kr.iei.hotel.notice.vo.Page;
-import kr.iei.hotel.notice.vo.ReplyJoinVo;
 
 public interface NoticeReplyService {
 
 	Map<String, Object> Rselect(Page page, int nNo);
 	public String Rinsert(NoticeReplyVo vo2);
-	public ReplyJoinVo Rselect2(String memberNick);
-	NoticeReplyVo Rview(int getrNo);
+	public NoticeReplyVo Rselect2(String memberNick);
+	String Rupdate(NoticeReplyVo vo2);
+	String Rdelete(NoticeReplyVo vo2);
+	String adminRdelete(NoticeReplyVo vo2);
 
 
 
