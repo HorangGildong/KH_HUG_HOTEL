@@ -22,9 +22,9 @@
       	</div>
       	<div>
 			<select class="form-control" name='selectBox' id='selectBox' >
-	           	<option ${(param.selectBox == "total")? "selected":"" } value='total'>전체</option>
-	           	<option ${(param.selectBox == "question")? "selected":"" } value='question'>질문</option>
-	           	<option ${(param.selectBox == "answer")? "selected":"" } value='answer'>답변</option>               
+	           	<option ${(page.selectBox == "total")? "selected":"" } value='total'>전체</option>
+	           	<option ${(page.selectBox == "question")? "selected":"" } value='question'>질문</option>
+	           	<option ${(page.selectBox == "answer")? "selected":"" } value='answer'>답변</option>               
      		</select>
   
         	<input type="text" id='text'class="form-control" name='findStr' value="${param.findStr }">            
@@ -52,11 +52,7 @@
 				</div>			                     	 
 				<div id='collapseOne${vo.id }' class="panel-collapse collapse ">
 					<div class="panel-body" id='faqAnswer'>
-		           		${vo.answer }
-		           		<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<div id='btnupdel'>
-			                	</div>
-						</sec:authorize>
+		           		${vo.answer }		           	
 					</div>
 				</div>								
 			</c:forEach>					                       

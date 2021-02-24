@@ -18,13 +18,13 @@
           	<input type='hidden' name='menu' value="${param.menu }">
           	<input type='hidden' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
         	<input type='hidden' name='id' value="${param.id}">
-        	<input type='hidden' name='totalPage' value='${param.totalPage }'>
+        	<input type='hidden' name='totalPage' value='${param.totalPage }'>        	
       	</div>
       	<div>
 			<select class="form-control" name='selectBox' id='selectBox' >
-	           	<option ${(param.selectBox == "total")? "selected":"" } value='total'>전체</option>
-	           	<option ${(param.selectBox == "question")? "selected":"" } value='question'>질문</option>
-	           	<option ${(param.selectBox == "answer")? "selected":"" } value='answer'>답변</option>               
+	           	<option ${(page.selectBox == "total")? "selected":"" } value='total'>전체</option>
+	           	<option ${(page.selectBox == "question")? "selected":"" } value='question'>질문</option>
+	           	<option ${(page.selectBox == "answer")? "selected":"" } value='answer'>답변</option>               
      		</select>
   
         	<input type="text" id='text'class="form-control" name='findStr' value="${param.findStr }">            
@@ -51,27 +51,11 @@
 				<div id='collapseOne${vo.id }' class="panel-collapse collapse ">
 					<div class="panel-body" id='faqAnswer'>
 		           		${vo.answer }
-		           		<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<div id='btnupdel'>
-			                	<span id='span5'><input type="button" value="수정"></span>
-			                    <span id='span6'><input type="button" value="삭제"></span>
-							</div>
-						</sec:authorize>
 					</div>
 				</div>								
 			</c:forEach>					                       
 		</div>	
 	</div>
-
-	<%-- ─────────────────────────────────── 글쓰기 부분 ─────────────────────────────────── --%>
- 	<sec:authorize access="hasRole('ROLE_ADMIN')">
-       	<div id='writer'>
-        	<div></div>
-			<div>
-				<input type="button" class="form-control" id='faq_insert' value='글쓰기'>            
-			</div>
-		</div>
-	</sec:authorize>
 	
 	<%-- ─────────────────────────────────── 페이징 부분 ─────────────────────────────────── --%>
 	<ul class="pagination" id="user_pagination">

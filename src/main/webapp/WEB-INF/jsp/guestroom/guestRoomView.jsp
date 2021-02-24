@@ -42,12 +42,14 @@
         <!--header end-->
         <!--section start-->
     <section class="hotelHugWrap">
-        <h1 class="contTitle">
-            <span></span>
-            호텔 H.U.G만의 예술적 품격을 갖춘 객실에서
-            <br>
-            격이 다른 휴식과 여유를 경험해 보세요.
-        </h1>
+        <div class="contTitle">
+            <span class="name">ROOM</span>
+            <p>
+	            호텔 H.U.G만의 예술적 품격을 갖춘 객실에서
+	            <br>
+	            격이 다른 휴식과 여유를 경험해 보세요.
+            </p>
+        </div>
         <c:forEach var="list" items="${list }">
         <div class="innerBox">
             <div class="roomWrap">

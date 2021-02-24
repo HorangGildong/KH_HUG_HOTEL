@@ -28,28 +28,31 @@
 		.incomeGraph {
 			position: relative;
     		width: 100%;
-			border: 1px solid #193f6e;
+			
 			margin-bottom: 180px;
-			float: left;
+			
+    padding-left: 60px;
+    padding-right: 130px;
+			
+			
 		}
 		.wrapLeft {
 
-			left: 0;
-		    margin-top: 68px;
-		    float: left;
+			border-top: 1px solid #193f6e;
+    border-left: 1px solid #193f6e;
+    border-bottom: 1px solid #193f6e;
+    	
+			    padding-right: 9px;
+		    margin-top: 69px;
+		    position:absolute;
 		}
 		.wrapRight {
 			position: relative;
-			left: 10px;
-			float: left;
+			left: 40px;
+			
 			margin-top: 0px;
 		}
-		.wrapRight2 {
-			margin-left: 570px;
-    		border-left: 1px solid;
-    		padding-left: 24px;
-    		margin-top: 10px;
-		}
+		
 		
 		.boxWrap input {
     		width: 20px;
@@ -118,7 +121,8 @@
 
 		.wrapLeft p {
 		    margin: 0;
-    		font-size: 15px;
+    		font-size: 14px;
+    		padding-left: 60px;
 		}
 
 
@@ -186,9 +190,7 @@
 
 		    cursor: pointer;	
 		}
-		h2 {
-		color: white;
-		}
+
 		.boxWrap {
 		    margin-bottom: 10px;
 		
@@ -297,12 +299,42 @@
 
 		.totalBox {
 			margin-top: 20px;
-    		margin-bottom: 20px;
+    		
+    		    margin-bottom: 30px;
+    text-align: center;
 		}
 		
-		.wrapRight2 p {
-		
+		#changeBtn {
+		    font-size: 40px;
+
+   		 margin-left: -5px;
+   		 transition-duration: 1s;
 		}
+		#priceAndCount {
+	    background: #193f6e;
+    	color: white;
+    	font-size: 40px;
+    	
+    	margin-bottom: 15px;
+    	margin-left: -3px;
+    	
+		}
+		#changeBtn:hover {
+		color: white;
+		background: #193f6e;
+		cursor: pointer;
+		}
+		
+
+		#selectPrice, #selectCount{
+		    
+		    border-top: 1px solid #193f6e;
+    border-bottom: 1px solid #193f6e;
+    border-right: 1px solid #193f6e;
+    padding-left: 64px;
+		}
+		
+	
 
 
 

@@ -87,17 +87,20 @@
 				
 				if (selectBox.value == "total") {	
 					var selected = 'total';
-					frm.menu.value = selected;						
+					frm.menu.value = selected;
+					$('#nowPage').val('1');											
 					totalAjax('faqTotal');
 					
 				}else if (selectBox.value == "question") {
 					var selected = 'question';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqTotalQt');				
 				}	
 				else if (selectBox.value == "answer") {
 					var selected = 'answer';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqTotalAw');
 					
 				};
@@ -110,17 +113,20 @@
 				
 				if (selectBox.value == "total") {	
 					var selected = 'total';
-					frm.menu.value = selected;						
+					frm.menu.value = selected;
+					$('#nowPage').val('1');						
 					totalAjax('faqGuide');
 					
 				}else if (selectBox.value == "question") {
 					var selected = 'question';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqGuideQt');				
 				}
 				else if (selectBox.value == "answer") {
 					var selected = 'answer';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqGuideAw');
 					
 				};
@@ -133,17 +139,20 @@
 				
 				if (selectBox.value == "total") {	
 					var selected = 'total';
-					frm.menu.value = selected;						
+					frm.menu.value = selected;
+					$('#nowPage').val('1');						
 					totalAjax('faqRoom');
 					
 				}else if (selectBox.value == "question") {
 					var selected = 'question';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqRoomQt');				
 				}
 				else if (selectBox.value == "answer") {
 					var selected = 'answer';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqRoomAw');
 					
 				};
@@ -156,17 +165,20 @@
 				
 				if (selectBox.value == "total") {	
 					var selected = 'total';
-					frm.menu.value = selected;						
+					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqDining');
 					
 				}else if (selectBox.value == "question") {
 					var selected = 'question';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqDiningQt');				
 				}
 				else if (selectBox.value == "answer") {
 					var selected = 'answer';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqDiningAw');
 					
 				};
@@ -179,17 +191,20 @@
 				
 				if (selectBox.value == "total") {	
 					var selected = 'total';
-					frm.menu.value = selected;						
+					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqFacility');
 					
 				}else if (selectBox.value == "question") {
 					var selected = 'question';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqFacilityQt');				
 				}
 				else if (selectBox.value == "answer") {
 					var selected = 'answer';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqFacilityAw');
 					
 				};
@@ -202,17 +217,20 @@
 				
 				if (selectBox.value == "total") {	
 					var selected = 'total';
-					frm.menu.value = selected;						
+					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqPayment');
 					
 				}else if (selectBox.value == "question") {
 					var selected = 'question';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqPaymentQt');				
 				}
 				else if (selectBox.value == "answer") {
 					var selected = 'answer';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqPaymentAw');
 					
 				};
@@ -225,17 +243,20 @@
 				
 				if (selectBox.value == "total") {	
 					var selected = 'total';
-					frm.menu.value = selected;						
+					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqEtc');
 					
 				}else if (selectBox.value == "question") {
 					var selected = 'question';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqEtcQt');				
 				}
 				else if (selectBox.value == "answer") {
 					var selected = 'answer';
 					frm.menu.value = selected;
+					$('#nowPage').val('1');
 					totalAjax('faqEtcAw');
 					
 				};
@@ -277,8 +298,15 @@
 		if (fBtnDelete != null){
 			fBtnDelete.onclick = function(){
 				var frm = document.frm_faqmain;
-				frm.action = "/adminFaqDelete";
-				frm.submit();			
+				var result = confirm("정말 삭제 하시겠습니까?");
+				if(result){
+					frm.action = "/adminFaqDelete";
+					frm.submit();	
+				}else {
+					frm.action = "/adminFaqSearch";
+					frm.submit();
+				}
+							
 			}
 		}	
 		/*---------------- 관리자 메인 검색 클릭 시 ----------------*/
@@ -315,7 +343,7 @@
 	} 
 
 	/*────────────────────────────────── ajax ──────────────────────────────────*/ 
-
+	/*--------------------- ajax 리셋 함수 ---------------------*/  	
 	function fnReset(){
 		$('#selectBox').val('total');
 		$('#text').val('');
@@ -344,41 +372,89 @@
 		frm.action = "/adminFaqSearch";
 		frm.submit();
 	}
-
 	guideGoPage1 = function(page){			
 		var frm = document.frm_faqmain;
 		frm.nowPage.value = page;
-		totalAjax('faqTotal');
-	}
+		
+		if (frm.menu.value == 'question') {
+			totalAjax('faqTotalQt');
+		} else if (frm.menu.value == 'answer') {
+			totalAjax('faqTotalAw');
+		} else {
+			totalAjax('faqTotal');
+		}
+	}	
 	guideGoPage2 = function(page){			
 		var frm = document.frm_faqmain;
 		frm.nowPage.value = page;
-		totalAjax('faqGuide');
-	}  
+		
+		if (frm.menu.value == 'question') {
+			totalAjax('faqGuideQt');
+		} else if (frm.menu.value == 'answer') {
+			totalAjax('faqGuideAw');
+		} else {
+			totalAjax('faqGuide');
+		}				
+	}	
 	guideGoPage3 = function(page){			
 		var frm = document.frm_faqmain;
 		frm.nowPage.value = page;
-		totalAjax('faqRoom');
+		
+		if (frm.menu.value == 'question') {
+			totalAjax('faqRoomQt');
+		} else if (frm.menu.value == 'answer') {
+			totalAjax('faqRoomAw');
+		} else {
+			totalAjax('faqRoom');
+		}		
 	}
 	guideGoPage4 = function(page){			
 		var frm = document.frm_faqmain;
 		frm.nowPage.value = page;
-		totalAjax('faqDining');
+		
+		if (frm.menu.value == 'question') {
+			totalAjax('faqDiningQt');
+		} else if (frm.menu.value == 'answer') {
+			totalAjax('faqDiningAw');
+		} else {
+			totalAjax('faqDining');
+		}		
 	}
 	guideGoPage5 = function(page){			
 		var frm = document.frm_faqmain;
 		frm.nowPage.value = page;
-		totalAjax('faqFacility');
+		
+		if (frm.menu.value == 'question') {
+			totalAjax('faqFacilityQt');
+		} else if (frm.menu.value == 'answer') {
+			totalAjax('faqFacilityAw');
+		} else {
+			totalAjax('faqFacility');
+		}		
 	}
 	guideGoPage6 = function(page){			
 		var frm = document.frm_faqmain;
 		frm.nowPage.value = page;
-		totalAjax('faqPayment');
+		
+		if (frm.menu.value == 'question') {
+			totalAjax('faqPaymentQt');
+		} else if (frm.menu.value == 'answer') {
+			totalAjax('faqPaymentAw');
+		} else {
+			totalAjax('faqPayment');
+		}		
 	}
 	guideGoPage7 = function(page){			
 		var frm = document.frm_faqmain;
 		frm.nowPage.value = page;
-		totalAjax('faqEtc');
+		
+		if (frm.menu.value == 'question') {
+			totalAjax('faqEtcQt');
+		} else if (frm.menu.value == 'answer') {
+			totalAjax('faqEtcAw');
+		} else {
+			totalAjax('faqEtc');
+		}		
 	}
 
 	/*────────────────────────────────── 관리자 게시글 상세보기  ──────────────────────────────────*/  	
