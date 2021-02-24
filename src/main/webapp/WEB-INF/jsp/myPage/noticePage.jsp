@@ -18,7 +18,7 @@
     <title> H.U.G HOTEL 제주</title>
 <style>
         .content{
-            background-color:white;
+            background-color:#72a5d3;
             width:80%;
             /* height:600px; */
             margin:auto;
@@ -37,6 +37,25 @@
             
             background:#72a5d3;
         }
+        .noticePage{
+            background-color: white;
+        	position : relative;
+        }
+        .noticePageInnerBox{
+            position: relative;
+            padding: 27px 30px;
+            margin-top : 56px;
+            
+            background: white;
+        }
+        .noticeContTitle{
+            background-color: white;
+            width:80%;
+            /* height:600px; */
+            margin:auto;
+        }
+        
+
       
 
     </style>
@@ -55,18 +74,35 @@
                 <br><br>
                 <div class="innerBox">
                     <h1 class="contTitle">
-                        <sapn>이용문의</sapn>
+                        <sapn>이용문의</sapn><br>
                         회원님께서 문의 하신 내역을
                         확인하실 수 있습니다.
                     </h1>
-                    <p class-"#">
-                         <a href="#" class="btn btn-defaul btn-lg">1:1문의 하기</a>
-                         
+                    <p class="#">
+                        
+                        <button type="button" class="btn btn-default btn-lg" onClick="location.href='#문의하기'">1:1문의하기</button>
                     </p>
                     </div>
-        
-            
         </section>
+        <br>
+        <div class="wrap">
+        
+            <section>
+                <div class="noticePage">
+                    <br><br>
+                    <div class="noticePageInnerBox">
+                        <h1 class="noticeContTitle">
+                            <sapn>이용문의</sapn>
+                            <br>
+                            <ul>
+								asdasd
+                            </ul>
+                        </h1>
+                        
+                        </div>
+                 </div>       
+            </section>
+    </div>
         <!--section end-->
         
         <!--footer start-->

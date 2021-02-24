@@ -55,15 +55,16 @@
                 <br><br>
                 <div class="innerBox">
                     <h1 class="contTitle">
-                        <sapn>이용문의</sapn>
-                        회원님께서 문의 하신 내역을
-                        확인하실 수 있습니다.
+                        <sapn>예약내역</sapn>
+                        H.U.G 에서 예약한 내역을 확인하실 수 있습니다.
+                        
+                        	예약 변경을 원하실 경우
+                        	취소 후 다시 예약 해주시길 바랍니다.
+                        	
+                        	기타 문의는 프론트 데스크로 연락주시길 바랍니다.
                     </h1>
-                    <p class-"#">
-                         <a href="#" class="btn btn-defaul btn-lg">1:1문의 하기</a>
-                         
-                    </p>
-                    </div>
+                    
+                </div>
         
             
         </section>
