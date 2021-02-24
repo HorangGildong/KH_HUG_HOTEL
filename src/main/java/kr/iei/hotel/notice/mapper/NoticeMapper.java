@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import kr.iei.hotel.notice.vo.NoticeReplyVo;
 import kr.iei.hotel.notice.vo.NoticeVo;
 import kr.iei.hotel.notice.vo.Page;
-import kr.iei.hotel.notice.vo.ReplyJoinVo;
 
 @Repository
 @Mapper
@@ -33,7 +32,11 @@ public interface NoticeMapper {
 	public int tot_reply_list_size(int nNo);
 	public List<NoticeReplyVo> reply_select(int startNo, int endNo, int nNo);
 	public int Rinsert(NoticeReplyVo vo2);
-	public ReplyJoinVo Rselect2(String memberNick);
+	public NoticeReplyVo Rselect2(String memberNick);
+	public int Rupdate(NoticeReplyVo vo2);
+	public int Rdelete(NoticeReplyVo vo2);
+	public int adminRdelete(NoticeReplyVo vo2);
+	
 	
 	
 	

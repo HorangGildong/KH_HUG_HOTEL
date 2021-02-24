@@ -156,7 +156,7 @@
 		order by rNo desc
 	</select>
 
-	<select id='Rselect2' resultType='kr.iei.hotel.notice.vo.ReplyJoinVo' parameterType='String'>
+	<select id='Rselect2' resultType='kr.iei.hotel.notice.vo.NoticeReplyVo' parameterType='String'>
 		select m.memberNumber id , m.membernick nick FROM REPLY rp
 		right JOIN MEMBER M ON RP.memberNumber = M.memberNumber
 		where memberNick = #{param1}
@@ -176,9 +176,6 @@
 	</insert>
 	
 	
-	
-	
-	
 	<!-- ─────────────────────────────────── update ─────────────────────────────────── -->
 	<update id='update' parameterType='kr.iei.hotel.notice.vo.NoticeVo'>
 		update notice set title=#{title}, contents=#{contents}, pub=#{pub} where nNo=#{nNo}	
@@ -188,7 +185,9 @@
 		update notice set hit = hit + 1 where nNo=#{nNo}	
 	</update>
 	
-	
+	<update id='Rupdate' parameterType='kr.iei.hotel.notice.vo.NoticeReplyVo'>
+		update reply set content=#{content}  where rNo=#{rNo} and password=#{password}	
+	</update>	
 	
 	
 	
@@ -197,6 +196,13 @@
 		delete from notice where nNo=#{nNo}
 	</delete>
 	
+	<delete id="Rdelete" parameterType="kr.iei.hotel.notice.vo.NoticeReplyVo">
+		delete from reply where rNo=#{rNo} and password=#{password}
+	</delete>
+	
+	<delete id="adminRdelete" parameterType="kr.iei.hotel.notice.vo.NoticeReplyVo">
+		delete from reply where rNo=#{rNo}
+	</delete>
 	
 	
 	

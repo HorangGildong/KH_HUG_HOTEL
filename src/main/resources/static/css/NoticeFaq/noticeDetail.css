@@ -71,7 +71,6 @@
 #notice_detail #detail_Middle1 td{
     padding-right: 10px;
 }
-
 #notice_detail #detail_Middle1 #input1{
     width:68px; 
     text-align: center; 
@@ -119,13 +118,15 @@
     width: 100px;
     height: 80px;
     line-height: 80px;    
+    
 }
 #notice_detail #detail_Middle2 #input7{    
     border: 0;
     background-color: white;
     width: 100px; 
     height: 80px;
-    font-size: 23px;        
+    font-size: 23px;   
+         
 }
 #notice_detail #detail_Middle2 #input8{
     margin-left:40px; 
@@ -146,10 +147,11 @@
 }
 #notice_detail #detail_Middle2 #btnupdel{
     display: flex;
-    left:-50px;  
+    position: relative;
+    left: -20px;  
 }
 #notice_detail #detail_Middle2 #btnupdel #span2{
-    padding-left: 5px;    
+    padding-right: 3px;    
 }
 #notice_detail #detail_Middle2 #btnupdel input{
     background-color: rgb(238, 236, 236);
@@ -170,8 +172,8 @@
 
 /*--------------------- 페이징 부분 ---------------------*/
 #notice_detail #pcover{	
-	width: 200px;
-	margin-left:467px;
+	width: 300px;
+	margin-left:420px;
 	text-align: center;
 }
 

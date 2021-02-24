@@ -22,7 +22,6 @@ import kr.iei.hotel.notice.service.NoticeService;
 import kr.iei.hotel.notice.vo.NoticeReplyVo;
 import kr.iei.hotel.notice.vo.NoticeVo;
 import kr.iei.hotel.notice.vo.Page;
-import kr.iei.hotel.notice.vo.ReplyJoinVo;
 
 @RestController
 public class NoticeReplyController {
@@ -35,65 +34,61 @@ public class NoticeReplyController {
    
    /*--------------------------------- 댓글 입력 ---------------------------------*/
 	 @RequestMapping(value="/noticeDetail_Rinsert", method=RequestMethod.POST)
-	   public ModelAndView noticeRinsert_result(NoticeVo vo, Page page, NoticeReplyVo vo2, ReplyJoinVo vo3,
-			   @RequestParam(value="menu", required=false, defaultValue="total") String str,
-				@RequestParam(value="findStr", required=false, defaultValue="") String findStr) {
+	   public ModelAndView noticeRinsert_result(NoticeVo vo, Page page, NoticeReplyVo vo2) {
 			
 			ModelAndView mv = new ModelAndView();
 			
 			if (vo2.getMemberNick() != null) {
-				System.out.println("---댓글 작성 시작---");			
-				vo3.setNick(vo2.getMemberNick());
+				vo2.setNick(vo2.getMemberNick());
 				
-				ReplyJoinVo list2 = Rservice.Rselect2(vo3.getNick());
-				vo2.setMemberNumber(list2.getId());
-						
-				System.out.println("---댓글 작성 끝---");
+				NoticeReplyVo list2 = Rservice.Rselect2(vo2.getNick());
+				vo2.setMemberNumber(list2.getId());						
 							
 				String msg = Rservice.Rinsert(vo2);
 			}
 			
-			mv.addObject("vo2", vo2);
+			mv.addObject("vo2", vo2);			
 			
-			
-			return control.noticeDetail(vo, page, vo2, str, findStr);	      
+			return control.noticeDetail(vo, page, vo2);
 	   }
 	   
 	   /*--------------------------------- 댓글 수정 ---------------------------------*/
 	   @RequestMapping(value="/Rupdate", method= RequestMethod.POST)
-	   public ModelAndView Rupdate(NoticeVo vo, Page page, NoticeReplyVo vo2, ReplyJoinVo vo3,
-			   @RequestParam(value="menu", required=false, defaultValue="total") String str,
-			   @RequestParam(value="findStr", required=false, defaultValue="") String findStr,
-			   @RequestParam(value="Rcontent", required=false, defaultValue="") String Rcontent) {
+	   public ModelAndView Rupdate(NoticeVo vo, Page page, NoticeReplyVo vo2,
+			   @RequestParam(value="Rcontent", required=false, defaultValue="") String Rcontent,
+			   @RequestParam(value="pwd", required=false, defaultValue="") String pwd) {
 		   ModelAndView mv = new ModelAndView();
-		   
-		   System.out.println("---댓글 수정 시작---");
-		   		   
-		   System.out.println("getrNo: "+vo2.getrNo());
 		   
 		   vo2.setContent(Rcontent);
-		   System.out.println("getContent: "+vo2.getContent());
+		   vo2.setPassword(pwd);
 		  
-		  // vo2 = Rservice.Rview(vo2.getrNo());		      
-		      
-		      
-		   System.out.println("---댓글 수정 끝---");		   
-		   
-		   return control.noticeDetail(vo, page, vo2, str, findStr);
+		   String msg = Rservice.Rupdate(vo2);		      
+		   	   
+		   return control.noticeDetail(vo, page, vo2);
 	   }
 	   
-	   /*--------------------------------- 댓글 삭제 ---------------------------------*/
+	   /*--------------------------------- 사용자 댓글 삭제 ---------------------------------*/
 	   @RequestMapping(value="/Rdelete", method= RequestMethod.POST)
 	   public ModelAndView Rdelete(NoticeVo vo, Page page, NoticeReplyVo vo2,
-			   @RequestParam(value="menu", required=false, defaultValue="total") String str,
-			   @RequestParam(value="findStr", required=false, defaultValue="") String findStr) {
-		   ModelAndView mv = new ModelAndView();
+			   @RequestParam(value="pwd", required=false, defaultValue="") String pwd) {
+		   ModelAndView mv = new ModelAndView();	
 		   
+		   vo2.setPassword(pwd);		  
 		   
+		   String msg = Rservice.Rdelete(vo2);
 		   
-		   return control.noticeDetail(vo, page, vo2, str, findStr);
+		   return control.noticeDetail(vo, page, vo2);
 	   }
 	   
+	   /*--------------------------------- 관리자 댓글 삭제 ---------------------------------*/
+	   @RequestMapping(value="/adminRdelete", method= RequestMethod.POST)
+	   public ModelAndView adminRdelete(NoticeVo vo, Page page, NoticeReplyVo vo2) {
+		   ModelAndView mv = new ModelAndView();	
+		   
+		   String msg = Rservice.adminRdelete(vo2);		
+		   
+		   return control.noticeDetail(vo, page, vo2);
+	   }
 	   
 	   
 	   

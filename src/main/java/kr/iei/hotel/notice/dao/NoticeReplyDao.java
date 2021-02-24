@@ -12,7 +12,6 @@ import kr.iei.hotel.notice.mapper.NoticeMapper;
 import kr.iei.hotel.notice.service.NoticeReplyService;
 import kr.iei.hotel.notice.vo.NoticeReplyVo;
 import kr.iei.hotel.notice.vo.Page;
-import kr.iei.hotel.notice.vo.ReplyJoinVo;
 
 @Service
 @Transactional
@@ -80,18 +79,46 @@ public class NoticeReplyDao implements NoticeReplyService{
 	}
 
 	@Override
-	public ReplyJoinVo Rselect2(String memberNick) {
-		ReplyJoinVo vo = mapper.Rselect2(memberNick); 
+	public NoticeReplyVo Rselect2(String memberNick) {
+		NoticeReplyVo vo = mapper.Rselect2(memberNick); 
 		return vo;
 	}
 	
 	/*--------------------------------- 댓글 수정 ---------------------------------*/
 	@Override
-	public NoticeReplyVo Rview(int getrNo) {
+	public String Rupdate(NoticeReplyVo vo2) {
+		String msg = "댓글이 성공적으로 수정 되었습니다.";
+		System.out.println("dao 댓글 수정 들어옴");
+		int cnt = mapper.Rupdate(vo2);
+		if (cnt < 1) {
+			msg ="댓글 수정 중 오류가 발생하였습니다.";
+		}		
+		System.out.println("dao 댓글 수정 나감");
+		return msg;
+	}
+
+	@Override
+	public String Rdelete(NoticeReplyVo vo2) {
+		String msg = "댓글이 성공적으로 삭제 되었습니다.";
+		int cnt = mapper.Rdelete(vo2);
 		
+		if (cnt < 1) {
+			msg ="댓글 삭제 중 오류가 발생하였습니다.";
+		}
 		
+		return msg;
+	}
+
+	@Override
+	public String adminRdelete(NoticeReplyVo vo2) {
+		String msg = "댓글이 성공적으로 삭제 되었습니다.";
+		int cnt = mapper.adminRdelete(vo2);
 		
-		return null;
+		if (cnt < 1) {
+			msg ="댓글 삭제 중 오류가 발생하였습니다.";
+		}
+		
+		return msg;
 	}
    
    

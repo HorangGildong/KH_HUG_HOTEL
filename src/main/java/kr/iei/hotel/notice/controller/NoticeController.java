@@ -81,29 +81,26 @@ public class NoticeController {
 	
 	/*--------------------------------- 뷰 상세보기 ---------------------------------*/
 	@RequestMapping(value="/noticeDetail", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView noticeDetail(NoticeVo vo, Page page, NoticeReplyVo vo2, 
-			@RequestParam(value="menu", required=false, defaultValue="total") String str,
-			@RequestParam(value="findStr", required=false, defaultValue="") String findStr) {
+	public ModelAndView noticeDetail(NoticeVo vo, Page page, NoticeReplyVo vo2) {
 		
 		ModelAndView mv = new ModelAndView();
 		NoticeVo vo1 = null;		
 		System.out.println("---상세보기 시작---");
 		System.out.println("vo2.getMemberNick(): "+vo2.getMemberNick());
-		System.out.println("1.menu: "+str);
+		System.out.println("1.menu: "+page.getMenu());
 		System.out.println("2.vo.getnNo(): "+vo.getnNo());
-		System.out.println("3.findStr : "+ findStr);
-		System.out.println("vo2nNo: " + vo2.getnNo());
+		System.out.println("3.findStr : "+ page.getFindStr());
+		System.out.println("vo2nNo: " + vo2.getnNo());		
+	
+		vo = service.view(vo.getnNo());				
 		
-		vo = service.view(vo.getnNo());
-
-		if (str.equals("total")) {
-			vo1 = service.total_article(vo.getnNo(),findStr);
+		if (page.getMenu().equals("title")) {
+			vo1 = service.title_article(vo.getnNo(),page.getFindStr());
 		}
-		else if (str.equals("title")) {
-			vo1 = service.title_article(vo.getnNo(),findStr);
-		}
-		else if (str.equals("contents")) {
-			vo1 = service.content_article(vo.getnNo(),findStr);
+		else if (page.getMenu().equals("contents")) {
+			vo1 = service.content_article(vo.getnNo(),page.getFindStr());
+		}else  {
+			vo1 = service.total_article(vo.getnNo(),page.getFindStr());
 		}
 		
 		Map<String, Object> map = Rservice.Rselect(page, vo2.getnNo());						
@@ -128,6 +125,7 @@ public class NoticeController {
 		mv.setViewName("notice/noticeDetail");
 		return mv;
 	}
+	
 	
 	// ────────────────────────────────────────────────── 관리자 ──────────────────────────────────────────────────
 	/*--------------------------------- 전체조회, 검색 ---------------------------------*/

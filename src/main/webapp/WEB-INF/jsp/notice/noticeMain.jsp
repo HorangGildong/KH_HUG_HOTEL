@@ -139,9 +139,9 @@
                     <div>
                         <select class="form-control" name='selectBox' id='selectBox' >
                         	<%-- form전달시 클릭된 데이터값 받아서 전송하기위해 EL태그 작성함 --%>
-	                        <option ${(param.menu == "total")? "selected":"" } value='total'>전체</option>
-	                        <option ${(param.menu == "title")? "selected":"" } value='title'>제목</option>
-	                        <option ${(param.menu == "contents")? "selected":"" } value='contents'>내용</option>               
+	                        <option ${(page.menu == "total")? "selected":"" } value='total'>전체</option>
+	                        <option ${(page.menu == "title")? "selected":"" } value='title'>제목</option>
+	                        <option ${(page.menu == "contents")? "selected":"" } value='contents'>내용</option>               
                         </select>
                 
                         <input type="text" id='text'class="form-control" name='findStr' value="${param.findStr }">            
@@ -162,15 +162,12 @@
                </thead>               
                <c:forEach var='vo' items='${list }'>
 	               <tr class='view' onclick="notice.btnView(${vo.nNo },${page.totListSize })">
-	                 <td>${vo.nNo }</td>
-	                 <c:if test="${vo.pub eq 1 }">
-	                 	<td><span id='secret'>[★비밀글]&ensp;</span>${vo.title }</td>
-	                 </c:if>
 	                 <c:if test="${vo.pub eq 0 }">
+	                 <td>${vo.nNo }</td>	                 
 	                 	<td>${vo.title }</td>
-	                 </c:if>
 	                 <td>${vo.regdate }</td>
 	                 <td>${vo.hit }</td>
+	                 </c:if>
 	               </tr>
 	           </c:forEach>
                
