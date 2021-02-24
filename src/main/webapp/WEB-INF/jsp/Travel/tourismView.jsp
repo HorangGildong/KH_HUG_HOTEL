@@ -222,6 +222,10 @@ function hidePopup() {
 function showPopup() {
   document.getElementById('popup').style.opacity = 1;
 }
+$(function(){
+	$('img[usemap]').rwdImageMaps();
+	$("#img").width("100%");
+});
 </script>
 </body>
 
