@@ -56,6 +56,10 @@
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
+		<c:if test="${loginFailure == true}">
+		<jsp:include page="loginFailureModal.jsp" />
+		</c:if>
+
 		<!--section start-->
 		<section>
 			<div style="margin: 100px 0px 100px 0px">

@@ -48,6 +48,11 @@ public class MemberLoginController {
 		return "/member/login";		
 	}
 	
+	@GetMapping("/loginFailure")
+	public String loginFailure(Model model) {
+		model.addAttribute("loginFailure", true);
+		return "/member/login";		
+	}
 	
 	@GetMapping("/pwChange")
 	public String pwChange() {

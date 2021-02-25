@@ -215,9 +215,9 @@
 			         <div class="modal-body">
 			            	방문을 환영합니다. -HUG HOTEL-
 			         </div>
-			         <div class="modal-footer">
-			            <button type="button" class="btn btn-default" 
-			               data-dismiss="modal">닫기
+			         <div class="modal-footer" style="text-align: center;">
+			            <button type="button" class="btn btn-default" data-dismiss="modal">
+			            	닫기
 			            </button>
 			         </div>
 			      </div>
