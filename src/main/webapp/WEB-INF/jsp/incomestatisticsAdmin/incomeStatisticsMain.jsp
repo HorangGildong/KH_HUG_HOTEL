@@ -131,7 +131,21 @@
 
 let monthly = function() {
 
-	 	let = 	standardBtn = document.querySelector("#standardBtn"),
+	 	let = 	standardPriceAVG2 = document.querySelectorAll(".standardPriceAVG2"),
+				superiorPriceAVG2 = document.querySelectorAll(".superiorPriceAVG2"),
+				deluxePriceAVG2 = document.querySelectorAll(".deluxePriceAVG2"),
+				royalPriceAVG2 = document.querySelectorAll(".royalPriceAVG2"),
+				totalPriceAVG2 = document.querySelectorAll(".totalPriceAVG2"),
+				standardCountAVG2 = document.querySelectorAll(".standardCountAVG2"),
+				superiorCountAVG2 = document.querySelectorAll(".superiorCountAVG2"),
+				deluxeCountAVG2 = document.querySelectorAll(".deluxeCountAVG2"),
+				royalCountAVG2 = document.querySelectorAll(".royalCountAVG2"),
+				totalCountAVG2 = document.querySelectorAll(".totalCountAVG2"),
+				priceColorChange2 = document.querySelectorAll(".priceColorChange2"),
+				countColorChange2 = document.querySelectorAll(".countColorChange2"),
+	 			
+	 			
+	 			standardBtn = document.querySelector("#standardBtn"),
 				superiorBtn = document.querySelector("#superiorBtn"),
 				deluxeBtn = document.querySelector("#deluxeBtn"),
 				royalBtn = document.querySelector("#royalBtn"),
@@ -241,29 +255,41 @@ let monthly = function() {
 						standardCount[index].style.width = 0 + "px";
 						standardPriceAVG[index].style.width = 0 + "px";
 						standardCountAVG[index].style.width = 0 + "px";
+						standardPriceAVG2[index].style.width = 0 + "px";
+						standardCountAVG2[index].style.width = 0 + "px";
 						
 						superiorPrice[index].style.width = 0 + "px";
 						superiorCount[index].style.width = 0 + "px";
 						superiorPriceAVG[index].style.width = 0 + "px";
 						superiorCountAVG[index].style.width = 0 + "px";
+						superiorPriceAVG2[index].style.width = 0 + "px";
+						superiorCountAVG2[index].style.width = 0 + "px";
 						
 						deluxePrice[index].style.width = 0 + "px";
 						deluxeCount[index].style.width = 0 + "px";
 						deluxePriceAVG[index].style.width = 0 + "px";
 						deluxeCountAVG[index].style.width = 0 + "px";
+						deluxePriceAVG2[index].style.width = 0 + "px";
+						deluxeCountAVG2[index].style.width = 0 + "px";
 						
 						royalPrice[index].style.width = 0 + "px";
 						royalCount[index].style.width = 0 + "px";
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
+						royalPriceAVG2[index].style.width = 0 + "px";
+						royalCountAVG2[index].style.width = 0 + "px";
 						
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
+						totalPriceAVG2[index].style.width = 0 + "px";
+						totalCountAVG2[index].style.width = 0 + "px";
 						
 						priceColorChange[index].style.background = "white";
 						countColorChange[index].style.background = "white";
+						priceColorChange2[index].style.background = "white";
+						countColorChange2[index].style.background = "white";
 						
 					};
 				});
@@ -286,19 +312,7 @@ let monthly = function() {
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = 0 + "px";
-						totalCountAVG[index].style.width = 0 + "px";
-			
-						royalPriceAVG[index].style.width = 0 + "px";
-						royalCountAVG[index].style.width = 0 + "px";
 		
-						deluxePriceAVG[index].style.width = 0 + "px";
-						deluxeCountAVG[index].style.width = 0 + "px";
-			
-						superiorPriceAVG[index].style.width = 0 + "px";
-						superiorCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
 						standardPrice[index].style.width = standardPrice[index].value / 800000 + "px";
 						standardCount[index].style.width = standardCount[index].value + "px";
 					};
@@ -320,19 +334,7 @@ let monthly = function() {
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = 0 + "px";
-						totalCountAVG[index].style.width = 0 + "px";
-				
-						deluxePriceAVG[index].style.width = 0 + "px";
-						deluxeCountAVG[index].style.width = 0 + "px";
-				
-						standardPriceAVG[index].style.width = 0 + "px";
-						standardCountAVG[index].style.width = 0 + "px";
-				
-						royalPriceAVG[index].style.width = 0 + "px";
-						royalCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
+	
 						superiorPrice[index].style.width = superiorPrice[index].value / 800000 + "px";
 						superiorCount[index].style.width = superiorCount[index].value + "px";
 					};
@@ -353,20 +355,10 @@ let monthly = function() {
 
 					for(var index = 0; index < standardPrice.length; index++){
 		
-						royalPriceAVG[index].style.width = 0 + "px";
-						royalCountAVG[index].style.width = 0 + "px";
-			
-						standardPriceAVG[index].style.width = 0 + "px";
-						standardCountAVG[index].style.width = 0 + "px";
-			
-						superiorPriceAVG[index].style.width = 0 + "px";
-						superiorCountAVG[index].style.width = 0 + "px";
+
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = 0 + "px";
-						totalCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
+	
 						deluxePrice[index].style.width = deluxePrice[index].value / 800000 + "px";
 						deluxeCount[index].style.width = deluxeCount[index].value + "px";
 					};
@@ -389,19 +381,7 @@ let monthly = function() {
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = 0 + "px";
-						totalCountAVG[index].style.width = 0 + "px";
-				
-						standardPriceAVG[index].style.width = 0 + "px";
-						standardCountAVG[index].style.width = 0 + "px";
 			
-						superiorPriceAVG[index].style.width = 0 + "px";
-						superiorCountAVG[index].style.width = 0 + "px";
-				
-						deluxePriceAVG[index].style.width = 0 + "px";
-						deluxeCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
 						royalPrice[index].style.width = royalPrice[index].value / 800000 + "px";
 						royalCount[index].style.width = royalCount[index].value + "px";
 					};
@@ -423,22 +403,16 @@ let monthly = function() {
 					for(var index = 0; index < standardPrice.length; index++){
 						standardPrice[index].style.width = 0 + "px";
 						standardCount[index].style.width = 0 + "px";
-						standardPriceAVG[index].style.width = 0 + "px";
-						standardCountAVG[index].style.width = 0 + "px";
+	
 						superiorPrice[index].style.width = 0 + "px";
 						superiorCount[index].style.width = 0 + "px";
-						superiorPriceAVG[index].style.width = 0 + "px";
-						superiorCountAVG[index].style.width = 0 + "px";
+			
 						deluxePrice[index].style.width = 0 + "px";
 						deluxeCount[index].style.width = 0 + "px";
-						deluxePriceAVG[index].style.width = 0 + "px";
-						deluxeCountAVG[index].style.width = 0 + "px";
+			
 						royalPrice[index].style.width = 0 + "px";
 						royalCount[index].style.width = 0 + "px";
-						royalPriceAVG[index].style.width = 0 + "px";
-						royalCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
+			
 						totalPrice[index].style.width = totalPrice[index].value / 800000 + "px";
 						totalCount[index].style.width = totalCount[index].value + "px";
 					};
@@ -460,6 +434,7 @@ let monthly = function() {
 					AVG10.style.display = "none";
 				
 					for(var index = 0; index < standardPrice.length; index++){
+						
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
 						superiorPriceAVG[index].style.width = 0 + "px";
@@ -468,6 +443,7 @@ let monthly = function() {
 						deluxeCountAVG[index].style.width = 0 + "px";
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
+						
 						standardPriceAVG[index].style.width = standardPriceAVG[index].value / 800000 + "px";
 						standardCountAVG[index].style.width = standardCountAVG[index].value + "px";
 						priceColorChange[index].style.background = "red";
@@ -619,7 +595,21 @@ let monthly = function() {
 
 
 
-	 	let = 	standardBtn = document.querySelector("#standardBtn"),
+	 	let = 	standardPriceAVG2 = document.querySelectorAll(".standardPriceAVG2"),
+				superiorPriceAVG2 = document.querySelectorAll(".superiorPriceAVG2"),
+				deluxePriceAVG2 = document.querySelectorAll(".deluxePriceAVG2"),
+				royalPriceAVG2 = document.querySelectorAll(".royalPriceAVG2"),
+				totalPriceAVG2 = document.querySelectorAll(".totalPriceAVG2"),
+				standardCountAVG2 = document.querySelectorAll(".standardCountAVG2"),
+				superiorCountAVG2 = document.querySelectorAll(".superiorCountAVG2"),
+				deluxeCountAVG2 = document.querySelectorAll(".deluxeCountAVG2"),
+				royalCountAVG2 = document.querySelectorAll(".royalCountAVG2"),
+				totalCountAVG2 = document.querySelectorAll(".totalCountAVG2"),
+				priceColorChange2 = document.querySelectorAll(".priceColorChange2"),
+				countColorChange2 = document.querySelectorAll(".countColorChange2"),
+	 	
+	 	
+	 			standardBtn = document.querySelector("#standardBtn"),
 				superiorBtn = document.querySelector("#superiorBtn"),
 				deluxeBtn = document.querySelector("#deluxeBtn"),
 				royalBtn = document.querySelector("#royalBtn"),
@@ -729,29 +719,41 @@ let monthly = function() {
 						standardCount[index].style.width = 0 + "px";
 						standardPriceAVG[index].style.width = 0 + "px";
 						standardCountAVG[index].style.width = 0 + "px";
+						standardPriceAVG2[index].style.width = 0 + "px";
+						standardCountAVG2[index].style.width = 0 + "px";
 						
 						superiorPrice[index].style.width = 0 + "px";
 						superiorCount[index].style.width = 0 + "px";
 						superiorPriceAVG[index].style.width = 0 + "px";
 						superiorCountAVG[index].style.width = 0 + "px";
+						superiorPriceAVG2[index].style.width = 0 + "px";
+						superiorCountAVG2[index].style.width = 0 + "px";
 						
 						deluxePrice[index].style.width = 0 + "px";
 						deluxeCount[index].style.width = 0 + "px";
 						deluxePriceAVG[index].style.width = 0 + "px";
 						deluxeCountAVG[index].style.width = 0 + "px";
+						deluxePriceAVG2[index].style.width = 0 + "px";
+						deluxeCountAVG2[index].style.width = 0 + "px";
 						
 						royalPrice[index].style.width = 0 + "px";
 						royalCount[index].style.width = 0 + "px";
 						royalPriceAVG[index].style.width = 0 + "px";
 						royalCountAVG[index].style.width = 0 + "px";
+						royalPriceAVG2[index].style.width = 0 + "px";
+						royalCountAVG2[index].style.width = 0 + "px";
 						
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
+						totalPriceAVG2[index].style.width = 0 + "px";
+						totalCountAVG2[index].style.width = 0 + "px";
 						
 						priceColorChange[index].style.background = "white";
 						countColorChange[index].style.background = "white";
+						priceColorChange2[index].style.background = "white";
+						countColorChange2[index].style.background = "white";
 						
 					};
 				});
@@ -774,19 +776,7 @@ let monthly = function() {
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = 0 + "px";
-						totalCountAVG[index].style.width = 0 + "px";
-			
-						royalPriceAVG[index].style.width = 0 + "px";
-						royalCountAVG[index].style.width = 0 + "px";
 		
-						deluxePriceAVG[index].style.width = 0 + "px";
-						deluxeCountAVG[index].style.width = 0 + "px";
-			
-						superiorPriceAVG[index].style.width = 0 + "px";
-						superiorCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
 						standardPrice[index].style.width = standardPrice[index].value / 40000 + "px";
 						standardCount[index].style.width = standardCount[index].value * 20 + "px";
 					};
@@ -808,19 +798,7 @@ let monthly = function() {
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = 0 + "px";
-						totalCountAVG[index].style.width = 0 + "px";
-				
-						deluxePriceAVG[index].style.width = 0 + "px";
-						deluxeCountAVG[index].style.width = 0 + "px";
-				
-						standardPriceAVG[index].style.width = 0 + "px";
-						standardCountAVG[index].style.width = 0 + "px";
-				
-						royalPriceAVG[index].style.width = 0 + "px";
-						royalCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
+			
 						superiorPrice[index].style.width = superiorPrice[index].value / 40000 + "px";
 						superiorCount[index].style.width = superiorCount[index].value * 20 + "px";
 					};
@@ -841,20 +819,10 @@ let monthly = function() {
 
 					for(var index = 0; index < standardPrice.length; index++){
 		
-						royalPriceAVG[index].style.width = 0 + "px";
-						royalCountAVG[index].style.width = 0 + "px";
 			
-						standardPriceAVG[index].style.width = 0 + "px";
-						standardCountAVG[index].style.width = 0 + "px";
-			
-						superiorPriceAVG[index].style.width = 0 + "px";
-						superiorCountAVG[index].style.width = 0 + "px";
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = 0 + "px";
-						totalCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
+		
 						deluxePrice[index].style.width = deluxePrice[index].value / 40000 + "px";
 						deluxeCount[index].style.width = deluxeCount[index].value * 20 + "px";
 					};
@@ -877,19 +845,7 @@ let monthly = function() {
 					for(var index = 0; index < standardPrice.length; index++){
 						totalPrice[index].style.width = 0 + "px";
 						totalCount[index].style.width = 0 + "px";
-						totalPriceAVG[index].style.width = 0 + "px";
-						totalCountAVG[index].style.width = 0 + "px";
-				
-						standardPriceAVG[index].style.width = 0 + "px";
-						standardCountAVG[index].style.width = 0 + "px";
-			
-						superiorPriceAVG[index].style.width = 0 + "px";
-						superiorCountAVG[index].style.width = 0 + "px";
-				
-						deluxePriceAVG[index].style.width = 0 + "px";
-						deluxeCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
+		
 						royalPrice[index].style.width = royalPrice[index].value / 40000 + "px";
 						royalCount[index].style.width = royalCount[index].value * 20 + "px";
 					};
@@ -911,22 +867,17 @@ let monthly = function() {
 					for(var index = 0; index < standardPrice.length; index++){
 						standardPrice[index].style.width = 0 + "px";
 						standardCount[index].style.width = 0 + "px";
-						standardPriceAVG[index].style.width = 0 + "px";
-						standardCountAVG[index].style.width = 0 + "px";
+		
 						superiorPrice[index].style.width = 0 + "px";
 						superiorCount[index].style.width = 0 + "px";
-						superiorPriceAVG[index].style.width = 0 + "px";
-						superiorCountAVG[index].style.width = 0 + "px";
+				
 						deluxePrice[index].style.width = 0 + "px";
 						deluxeCount[index].style.width = 0 + "px";
-						deluxePriceAVG[index].style.width = 0 + "px";
-						deluxeCountAVG[index].style.width = 0 + "px";
+				
 						royalPrice[index].style.width = 0 + "px";
 						royalCount[index].style.width = 0 + "px";
-						royalPriceAVG[index].style.width = 0 + "px";
-						royalCountAVG[index].style.width = 0 + "px";
-						priceColorChange[index].style.background = "white";
-						countColorChange[index].style.background = "white";
+				
+				
 						totalPrice[index].style.width = totalPrice[index].value / 40000 + "px";
 						totalCount[index].style.width = totalCount[index].value * 20 + "px";
 					};
@@ -948,6 +899,7 @@ let monthly = function() {
 					AVG10.style.display = "none";
 				
 					for(var index = 0; index < standardPrice.length; index++){
+
 						totalPriceAVG[index].style.width = 0 + "px";
 						totalCountAVG[index].style.width = 0 + "px";
 						superiorPriceAVG[index].style.width = 0 + "px";

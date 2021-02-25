@@ -217,6 +217,14 @@
 			margin-left: -5px;
 			overflow: hidden;
 		}
+		.standardPriceAVG2, .standardCountAVG2 {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
 
 		
 		.superiorPrice, .superiorCount {
@@ -229,6 +237,14 @@
 		}
 		
 		.superiorPriceAVG, .superiorCountAVG {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		.superiorPriceAVG2, .superiorCountAVG2 {
 			background: white;
 			transition-duration: 5s;
 			width: 0px;
@@ -254,6 +270,14 @@
 			margin-left: -5px;
 			overflow: hidden;
 		}
+		.deluxePriceAVG2, .deluxeCountAVG2 {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
 		
 		.royalPrice, .royalCount {
 			background: green;
@@ -265,6 +289,14 @@
 		}
 		
 		.royalPriceAVG, .royalCountAVG {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
+		.royalPriceAVG2, .royalCountAVG2 {
 			background: white;
 			transition-duration: 5s;
 			width: 0px;
@@ -289,6 +321,14 @@
 			margin-left: -5px;
 			overflow: hidden;
 		}
+		.totalPriceAVG2, .totalCountAVG2 {
+			background: white;
+			transition-duration: 5s;
+			width: 0px;
+			color: white;
+			margin-left: -5px;
+			overflow: hidden;
+		}
 		
 		.priceColorChange, .countColorChange {
 			background: white;
@@ -298,6 +338,15 @@
 			margin-left: -5px;
 			overflow: hidden;
 		}
+		.priceColorChange2, .countColorChange2 {
+			background: white;
+			transition-duration: 5s;
+			width: 1px;
+			color: white;
+			margin-left: -4px;
+			overflow: hidden;
+		}
+
 
 
 		.totalBox {

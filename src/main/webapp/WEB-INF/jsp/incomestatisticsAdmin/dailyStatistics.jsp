@@ -120,7 +120,15 @@
 				<input readonly class="deluxePrice" type="text" value="${deluxePriceList[index] }" />
 				<input readonly class="royalPrice" type="text" value="${royalPriceList[index] }" />
 				<input readonly class="totalPrice" type="text" value="${totalPriceList[index] }" />
+				
+				<input readonly class="standardPriceAVG2" type="text" value="${incomeStatistics.standardAveragePrice }" />
+				<input readonly class="superiorPriceAVG2" type="text" value="${incomeStatistics.superiorAveragePrice }" />
+				<input readonly class="deluxePriceAVG2" type="text" value="${incomeStatistics.deluxeAveragePrice }" />
+				<input readonly class="royalPriceAVG2" type="text" value="${incomeStatistics.royalAveragePrice }" />
+				<input readonly class="totalPriceAVG2" type="text" value="${incomeStatistics.totalAveragePrice }" />
+				<input readonly class="priceColorChange2" type="text" value="" />
 				<br />
+				
 				<input readonly class="standardPriceAVG" type="text" value="${incomeStatistics.standardAveragePrice }" />
 				<input readonly class="superiorPriceAVG" type="text" value="${incomeStatistics.superiorAveragePrice }" />
 				<input readonly class="deluxePriceAVG" type="text" value="${incomeStatistics.deluxeAveragePrice }" />
@@ -164,7 +172,15 @@
 				<input readonly class="deluxeCount" type="text" value="${deluxeCountList[index] }" />
 				<input readonly class="royalCount" type="text" value="${royalCountList[index] }" />
 				<input readonly class="totalCount" type="text" value="${totalCountList[index] }" />
+				
+				<input readonly class="standardCountAVG2" type="text" value="${incomeStatistics.standardAverageCount }" />
+				<input readonly class="superiorCountAVG2" type="text" value="${incomeStatistics.superiorAverageCount }" />
+				<input readonly class="deluxeCountAVG2" type="text" value="${incomeStatistics.deluxeAverageCount }" />
+				<input readonly class="royalCountAVG2" type="text" value="${incomeStatistics.royalAverageCount }" />
+				<input readonly class="totalCountAVG2" type="text" value="${incomeStatistics.totalAverageCount }" />
+				<input readonly class="countColorChange2" type="text" value="" />
 				<br />
+				
 				<input readonly class="standardCountAVG" type="text" value="${incomeStatistics.standardAverageCount }" />
 				<input readonly class="superiorCountAVG" type="text" value="${incomeStatistics.superiorAverageCount }" />
 				<input readonly class="deluxeCountAVG" type="text" value="${incomeStatistics.deluxeAverageCount }" />
