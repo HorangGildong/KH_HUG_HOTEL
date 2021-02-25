@@ -58,20 +58,21 @@
                     <P>
                         'H.U.G 호텔 제주'는 고전적인 우아함을 현대적인 감각으로 재해석한 5성급 럭셔리 호텔입니다. <br> 코로나19로 인해 전 국민적 피로와 우울감이 그 어느 때보다도 극심해진 만큼 편안한 휴식과 힐링이 더욱 간절하기에 <br> 저희 H.U.G 호텔에 오셔서 안전하고 편안하게 힐링하시고 가시길 바랍니다.<br>
                     </P>
+                    <img src="img/hah_img/main/H.U.G 호텔5.png">
                     <!-- Swiper -->
-                    <div class="swiper-container">
+                    <!-- <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <img class="swiper-slide" src="img/hah_img/main/H.U.G 호텔5.png">
                             <img class="swiper-slide" src="img/hah_img/main/H.U.G 호텔5.png">
                             <img class="swiper-slide" src="img/hah_img/main/H.U.G 호텔5.png">
                             <img class="swiper-slide" src="img/hah_img/main/H.U.G 호텔5.png">
                         </div>
-                        <!-- Add Pagination -->
+                        Add Pagination
                         <div class="swiper-pagination"></div>
-                        <!-- Add Arrows -->
+                        Add Arrows
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
-                    </div>
+                    </div> -->
                     <!-- <iframe width="1245" height="600"
 						src="https://www.youtube.com/embed/wphai3v-SXE?autoplay=1&mute=1" frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -112,30 +113,49 @@
                 <div class="team-member" id="team-member">
                     <h1>TEAM MEMBER</h1>
                     <h4>H.U.G 호텔의 직원들을 소개합니다.</h4>
-                    <ul>
-                        <li style="margin-left: 100px;">
-                            <img src="img/hah_img/theme_color01.png" alt="">
-                            <h4>곽재훈</h4>
+                   	<ul>
+                        <li style="margin-left: 60px; height:242.89px;" class="snip">
+                            <img src="img/hah_img/team/김유찬.png" alt="">
+                            <figcaption>
+                            	<h3>KIM<br>YU<br>CHAN<br><br>💻</h3>
+                            	<h4>PM</h4>
+                            </figcaption>
                         </li>
-                        <li>
-                            <img src="img/hah_img/theme_color02.png" alt="">
-                            <h4>김법규</h4>
+                    
+                        <li class="snip">
+                            <img src="img/hah_img/team/곽재훈.jpg" style="height:190.89px;" alt="">
+                            <figcaption>
+                            	<h3>KWAK<br>JAE<br>HOON<br><br>💻</h3>
+                            	<h4>Developer</h4>
+                            </figcaption>
                         </li>
-                        <li>
-                            <img src="img/hah_img/theme_color02.png" alt="">
-                            <h4>김유찬</h4>
+                        <li class="snip">
+                            <img src="img/hah_img/team/김법규.png" alt="">
+                            <figcaption>	
+                            	<h3>KIM<br>BEOP<br>GYU<br><br>💻</h3>
+                            	<h4>Developer</h4>
+                            </figcaption>
                         </li>
-                        <li>
-                            <img src="img/hah_img/theme_color02.png" alt="">
-                            <h4>최주영</h4>
+                        <li class="snip">
+                            <img src="img/hah_img/team/최주영.jpg" alt="">
+                            <figcaption>
+                            	<h3>CHOI<br>JOO<br>YOUNG<br><br>💻</h3>
+                            	<h4>Developer</h4>
+                            </figcaption>
                         </li>
-                        <li>
-                            <img src="img/hah_img/theme_color02.png" alt="">
-                            <h4>한아현</h4>
+                        <li class="snip">
+                            <img src="img/hah_img/team/한아현.png" alt="">
+                            <figcaption>
+                            	<h3>HAN<br>A<br>HYEON<br><br>💻</h3>
+                            	<h4>Developer</h4>
+                            </figcaption>
                         </li>
-                        <li style="margin-right: 100px;">
-                            <img src="img/hah_img/theme_color04.png" alt="">
-                            <h4>함승우</h4>
+                        <li style="margin-right: 60px; height:242.89px;" class="snip">
+                            <img src="img/hah_img/team/함승우.png"  alt="">
+                            <figcaption>
+                            	<h3>HAM<br>SEUNG<br>WOO<br><br>💻</h3>
+                            	<h4>Developer</h4>
+                            </figcaption>
                         </li>
                     </ul>
                 </div>
