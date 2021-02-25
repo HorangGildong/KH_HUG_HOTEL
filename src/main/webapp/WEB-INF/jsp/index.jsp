@@ -50,7 +50,7 @@
         
         <!--비밀번호 변경 권고(조건부)-->
         <c:if test="${member.isPwChanged eq false}">
-        	<jsp:include page="member/pwChangeModal.jsp"/>
+        	<jsp:include page="member/modalPwChange.jsp"/>
         </c:if>
         <!--비밀번호 변경 권고(조건부)-->
         

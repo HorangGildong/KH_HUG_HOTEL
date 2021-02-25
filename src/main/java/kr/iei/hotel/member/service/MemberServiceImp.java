@@ -61,4 +61,5 @@ public class MemberServiceImp implements MemberService {
 	public void updatePwChangeDate(String memberId) {
 		memberDao.updatePwChangeDate(memberId);
 	}
+	
 }

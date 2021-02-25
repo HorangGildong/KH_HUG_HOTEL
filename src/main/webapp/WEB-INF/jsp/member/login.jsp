@@ -57,7 +57,7 @@
 		<!--header end-->
 
 		<c:if test="${loginFailure == true}">
-		<jsp:include page="loginFailureModal.jsp" />
+		<jsp:include page="modalLoginFailure.jsp" />
 		</c:if>
 
 		<!--section start-->
