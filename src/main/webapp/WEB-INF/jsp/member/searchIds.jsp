@@ -45,7 +45,7 @@
 
 		<!--section start-->
 		<section>
-			<div style="margin: 50px 0px 50px 0px">
+			<div style="margin: 100px 0px 0px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">아이디 찾기</h1>

@@ -45,26 +45,26 @@
 
 		<!--section start-->
 		<section>
-			<div style="margin: 50px 0px 50px 0px">
+			<div style="margin: 100px 0px 0px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 
-					<h1 style="font-weight: 900; margin-bottom: 50px">아이디 찾기</h1>
+					<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 찾기</h1>
 
 					<form class="form-horizontal">
 
 						<div class="form-group">
-							<label for="inputName" class="col-xs-4 control-label">이름</label>
+							<label for="inputId" class="col-xs-4 control-label">아이디</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control"
-									name="memberName" id="inputName" placeholder="Name" required>
+									name="memberId" id="inputId" placeholder="ID" required>
 							</div>
 						</div>
 
 						<div class="form-group" style="margin-bottom: 25px">
-							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
+							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" maxlength="13"
-									name="memberPhone" id="inputPhone" placeholder="PhoneNumber" required>
+									name="memberEmail" id="inputEmail" placeholder="PhoneNumber" required>
 							</div>
 						</div>
 						
@@ -75,7 +75,7 @@
 						<div class="form-group">
 							<button class="btn btn-primary btn-lg btn-block" onClick="$(this).searchIds()"
 								id="searchBtn" style="font-weight: bold">
-								아이디 찾기
+								비밀번호 찾기
 							</button>
 						</div>
 					</div>

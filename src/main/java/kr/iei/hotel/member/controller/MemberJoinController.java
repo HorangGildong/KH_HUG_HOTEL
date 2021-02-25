@@ -38,7 +38,7 @@ public class MemberJoinController {
 	
 	// join
 	@PostMapping("/join")
-	public String join(MemberJoinFormDto memberJoinFormDto) {
+	public String join(MemberJoinFormDto memberJoinFormDto, Model model) {
 		String rawPassword = memberJoinFormDto.getMemberPassword();
 		memberJoinFormDto.setMemberPassword(passwordEncoder.encode(rawPassword));
 		memberService.join(memberJoinFormDto);
@@ -46,6 +46,7 @@ public class MemberJoinController {
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(() -> memberDto.getMemberRole());
 		memberLoginController.autoLogin(memberDto.getMemberId(), authorities);
+		model.addAttribute("isFirstLogin", true);
 		return "redirect:/";
 	}
 
@@ -53,17 +54,18 @@ public class MemberJoinController {
 	public String oAuthJoinPage(@RequestParam("email") String email, @RequestParam("key") String key, Model model) {
 		model.addAttribute("email", email);
 		model.addAttribute("key", key);
-		return "/member/oAuth2Join";
+		return "/member/joinOAuth2";
 	}
 	
 	@PostMapping("/Join/oAuth2")
-	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto) {
+	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {
 		memberOAuth2JoinFormDto.setMemberId("user_" + memberOAuth2JoinFormDto.getMemberKey());
 		memberService.oAuth2Join(memberOAuth2JoinFormDto);
 		MemberDto memberDto = memberService.searchByKey(memberOAuth2JoinFormDto.getMemberKey());
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(() -> memberDto.getMemberRole());
 		memberLoginController.autoLogin(memberDto.getMemberId(), authorities);
+		model.addAttribute("isFirstLogin", true);
 		return "redirect:/";
 	}
 		

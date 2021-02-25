@@ -23,9 +23,8 @@ public class memberSearchController {
 	}
 	
 	@GetMapping("/searchPassword")
-	@ResponseBody
 	public String searchPassword() {
-		return "아직안함";
+		return "/member/searchPassword";
 	}
 	
 	@GetMapping("/searchIds/search")
