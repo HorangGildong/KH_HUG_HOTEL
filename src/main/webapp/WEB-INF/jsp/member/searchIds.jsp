@@ -69,15 +69,16 @@
 						</div>
 						
 					</form>
+
 					<div id="search"></div>
-					<div>
+
 					<br>
-						<div class="form-group">
-							<button class="btn btn-primary btn-lg btn-block" onClick="$(this).searchIds()"
-								id="searchBtn" style="font-weight: bold">
-								아이디 찾기
-							</button>
-						</div>
+
+					<div class="form-group">
+						<button class="btn btn-primary btn-lg btn-block"
+							id="searchBtn" style="font-weight: bold">
+							아이디 찾기
+						</button>
 					</div>
 					
 					<form id="loginId" action="/login" method="post">
@@ -151,7 +152,7 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
-		$.fn.searchIds = function() {
+		$('#searchBtn').click(function() {
 			var name = $('#inputName').val();
 			var phone = $('#inputPhone').val();
 			var objDiv = $('<div>');
@@ -175,10 +176,9 @@
 				.text('로그인')
 				);
 			$.ajax({
-				url : '${pageContext.request.contextPath}/searchIds/search?name=' + name + '&phone=' + phone,
+				url : '${pageContext.request.contextPath}/searchIds/searchIds?name=' + name + '&phone=' + phone,
 				type : 'get',
 				success : function(data) {
-					console.log(data);
 					if(data.length > 0) {
 						$('#search').text('');
 						$.each(data, function (index, value) {
@@ -190,7 +190,6 @@
 								.attr('id', 'sBtnId-'+index)
 								.click(function() {
 									$('#sInputId').val(value.memberId);
-									console.log(value.memberId);
 								});
 						});
 					} else {
@@ -198,22 +197,7 @@
 					}
 				}
 			})
-		};
-
-
-
-		
-		
-		$.fn.submit = function(id) {
-			console.log(id);
-			console.log('okok');
-		}
-		
-		
-		$('#other').click(function() {
-			$('#target').submit();
-		});
-
+		})
 		
 	</script>
 

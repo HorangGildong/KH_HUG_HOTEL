@@ -48,6 +48,11 @@ public class MemberServiceImp implements MemberService {
 	}
 	
 	@Override
+	public int searchId(String memberId, String memberEmail) {
+		return memberDao.searchId(memberId, memberEmail);
+	}
+	
+	@Override
 	public int checkId(String memberId) {
 		return memberDao.checkId(memberId);
 	}

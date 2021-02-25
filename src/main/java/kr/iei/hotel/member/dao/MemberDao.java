@@ -49,6 +49,9 @@ public interface MemberDao {
 	@Select("SELECT memberId, memberRegDate FROM MEMBER WHERE memberName = '${memberName}' AND memberPhone = '${memberPhone}'")
 	List<MemberIdDto> searchIds(String memberName, String memberPhone);
 	
+	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberId = '${memberId}' AND memberEmail = '${memberEmail}'")
+	int searchId(String memberId, String memberEmail);
+	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberId = '${memberId}'")
 	int checkId(String memberId);
 
@@ -59,4 +62,5 @@ public interface MemberDao {
 			+ " memberPwChangeDate = ADD_MONTHS(SYSDATE, -2)"
 			+ " WHERE memberId = '${memberId}'")
 	void updatePwChangeDate(String memberId);
+
 }

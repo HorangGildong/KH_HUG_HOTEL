@@ -50,7 +50,7 @@
         
         <!--비밀번호 변경 권고(조건부)-->
         <c:if test="${member.isPwChanged eq false}">
-        	<jsp:include page="member/modalPwChange.jsp"/>
+        	<jsp:include page="member/modalChangePw.jsp"/>
         </c:if>
         <c:if test="${isFirstLogin eq true}">
         	<jsp:include page="member/modalFirstLogin.jsp"/>

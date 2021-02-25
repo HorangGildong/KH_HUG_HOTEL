@@ -23,6 +23,7 @@ public class Test {
 //	public String a() {
 //		return address;
 //	}
+	
 	@GetMapping("/test")
 	@ResponseBody
 	public String test(Authentication authentication) {

@@ -28,8 +28,8 @@ public class MemberEmailController {
 	private String Message = "finalProjectJavaMailTestMessage";
 	
 	
-    @GetMapping("/sendRandomNumber")
     @ResponseBody
+    @GetMapping("/sendRandomNumber")
     public String sendEmail(HttpSession verifiSession, Random random, MemberEmailDto memberEmailDto,
     		@AuthenticationPrincipal PrincipalDetails userDetails) {
     	verifiSession.setMaxInactiveInterval(3*60);
@@ -40,8 +40,8 @@ public class MemberEmailController {
     	return userDetails.getEmail();
     }
     
-    @GetMapping("/sendPassword")
     @ResponseBody
+    @GetMapping("/sendPassword")
     public void sendPassword() {
     	
     }

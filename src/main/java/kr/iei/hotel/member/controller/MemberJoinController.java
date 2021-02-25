@@ -69,15 +69,16 @@ public class MemberJoinController {
 		return "/index";
 	}
 		
-	@GetMapping("/join/idCheck")
 	@ResponseBody
+	@GetMapping("/join/idCheck")
 	public boolean isIdCheck(@RequestParam("id") String memberId) {
 		return !(memberService.checkId(memberId)==0);
 	}
 	
-	@GetMapping("/join/nickCheck")
 	@ResponseBody
+	@GetMapping("/join/nickCheck")
 	public boolean isNickCheck(@RequestParam("nick") String memberNick) {
 		return !(memberService.checkNick(memberNick)==0);
 	}
+	
 }

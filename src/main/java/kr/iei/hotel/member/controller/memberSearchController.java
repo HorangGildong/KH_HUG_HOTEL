@@ -27,10 +27,16 @@ public class memberSearchController {
 		return "/member/searchPassword";
 	}
 	
-	@GetMapping("/searchIds/search")
 	@ResponseBody
+	@GetMapping("/searchIds/searchIds")
 	public List<MemberIdDto> searchIds(@RequestParam("name") String memberName, @RequestParam("phone") String memberPhone) {
 		return memberService.searchIds(memberName, memberPhone);
 	}
 	
+	@ResponseBody
+	@GetMapping("/searchPassword/searchId")
+	public boolean searchId(@RequestParam("id") String memberId, @RequestParam("email") String memberEmail) {
+		return !(memberService.searchId(memberId, memberEmail) == 0);
+	}
+
 }

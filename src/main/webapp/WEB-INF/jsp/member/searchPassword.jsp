@@ -50,36 +50,40 @@
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 찾기</h1>
 
-					<form class="form-horizontal">
+					<form id="searchPassword" class="form-horizontal">
 
 						<div class="form-group">
-							<label for="inputId" class="col-xs-4 control-label">아이디</label>
-							<div class="col-xs-8">
+							<label for="inputId" class="col-xs-3 control-label">아이디</label>
+							<div class="col-xs-9">
 								<input type="text" class="form-control"
 									name="memberId" id="inputId" placeholder="ID" required>
 							</div>
 						</div>
 
-						<div class="form-group" style="margin-bottom: 25px">
-							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
-							<div class="col-xs-8">
-								<input type="text" class="form-control" maxlength="13"
-									name="memberEmail" id="inputEmail" placeholder="PhoneNumber" required>
+						<div class="form-group">
+							<label for="inputEmail" class="col-xs-3 control-label">이메일</label>
+							<div class="col-xs-9">
+								<input type="email" class="form-control"
+									name="memberEmail" id="inputEmail" placeholder="E-mail" required>
 							</div>
 						</div>
 						
-					</form>
-					<div id="search"></div>
-					<div>
-					<br>
-						<div class="form-group">
-							<button class="btn btn-primary btn-lg btn-block" onClick="$(this).searchIds()"
-								id="searchBtn" style="font-weight: bold">
-								비밀번호 찾기
-							</button>
+						<div class="form-group" style="margin-bottom: 25px">
+							<label for="inputRandomNumber" class="col-xs-3 control-label">인증번호</label>
+							<div class="col-xs-9">
+								<input type="text" class="form-control" 
+									name="randomNumber" id="inputRandomNumber" disabled>
 						</div>
-					</div>
-					
+							</div>
+					</form>
+							
+					<br>
+
+					<button class="btn btn-primary btn-lg btn-block" onClick="$(this).searchIds()" 
+						id="searchBtn" form="searchPassword" style="font-weight: bold;" disabled>
+						인증번호 받기
+					</button>
+
 					<form id="loginId" action="/login" method="post">
 						<input type="hidden" class="form-control" name="memberId" id="sInputId">
 					</form>
@@ -109,110 +113,23 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 
 	<script>
-		$(function() {
-			$('#terms1').collapse({
-				toggle : false
-			})
-		});
-		$(function() {
-			$('#terms2').collapse({
-				toggle : false
-			})
-		});
-		var autoHypenPhone = function(str) {
-			str = str.replace(/[^0-9]/g, '');
-			var tmp = '';
-			if (str.length < 4) {
-				return str;
-			} else if (str.length < 7) {
-				tmp += str.substr(0, 3);
-				tmp += '-';
-				tmp += str.substr(3);
-				return tmp;
-			} else if (str.length < 11) {
-				tmp += str.substr(0, 3);
-				tmp += '-';
-				tmp += str.substr(3, 3);
-				tmp += '-';
-				tmp += str.substr(6);
-				return tmp;
-			} else {
-				tmp += str.substr(0, 3);
-				tmp += '-';
-				tmp += str.substr(3, 4);
-				tmp += '-';
-				tmp += str.substr(7);
-				return tmp;
-			}
-			return str;
-		}
-		
-		$('#inputPhone')[0].onkeyup = function() {
-			this.value = autoHypenPhone(this.value);
-		}
 
-		$.fn.searchIds = function() {
-			var name = $('#inputName').val();
-			var phone = $('#inputPhone').val();
-			var objDiv = $('<div>');
-			objDiv.append($("<div>")
-				.addClass('col-xs-1 glyphicon glyphicon-user')
-				.attr('aria-hidden', 'true')
-				.css('line-height', '220%')
-				);
-			objDiv.append($("<div>")
-				.attr('id', 'sId')
-				.addClass('col-xs-9')
-				.css('text-align', 'left')
-				.css('line-height', '220%')
-				);
-			objDiv.append($("<button>")
-				.attr('id', 'sBtnId')
-				.attr('type', 'submit')
-				.attr('form', 'loginId')
-				.addClass('col-xs-2 btn btn-info')
-				.css('margin-bottom', '15px')
-				.text('로그인')
-				);
+		$('#createRandomNumber').click(function() {
+			var id = $('#inputId').val();
+			var email = $('#inputEmail').val();
 			$.ajax({
-				url : '${pageContext.request.contextPath}/searchIds/search?name=' + name + '&phone=' + phone,
+				url : '${pageContext.request.contextPath}/searchPassword/searchId?id=' + id + '&email=' + email,
 				type : 'get',
 				success : function(data) {
-					console.log(data);
-					if(data.length > 0) {
-						$('#search').text('');
-						$.each(data, function (index, value) {
-							$('#search').append(objDiv.clone()
-								.attr('id', 'id-'+index));
-							$('#id-'+index+' #sId')
-								.text(value.memberId + '(가입일:' + value.memberRegDate + ')');
-							$('#id-'+index+' #sBtnId')
-								.attr('id', 'sBtnId-'+index)
-								.click(function() {
-									$('#sInputId').val(value.memberId);
-									console.log(value.memberId);
-								});
-						});
+					if(data) {
+
 					} else {
-						$('#search').text('입력하신 정보와 일치하는 아이디가 없습니다.');
+
 					}
 				}
 			})
-		};
-
-
-
-		
-		
-		$.fn.submit = function(id) {
-			console.log(id);
-			console.log('okok');
-		}
-		
-		
-		$('#other').click(function() {
-			$('#target').submit();
 		});
+
 
 		
 	</script>

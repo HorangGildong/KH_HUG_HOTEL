@@ -24,6 +24,8 @@ public interface MemberService {
 	MemberDto searchById(String memberId);
 
 	List<MemberIdDto> searchIds(String memberName, String memberPhone);
+	
+	int searchId(String memberId, String memberEmail);
 
 	void updatePwChangeDate(String memberId);
 	
