@@ -38,18 +38,21 @@ public class IncomeStatisticsController {
 		logger.info("일별통계 처리1");
 		
 		//요청해온 년도 SET
-		incomeStatisticsVO.setJanuary(incomeStatisticsVO.getJanuary()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setFebruary(incomeStatisticsVO.getFebruary()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setMarch(incomeStatisticsVO.getMarch()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setApril(incomeStatisticsVO.getApril()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setMay(incomeStatisticsVO.getMay()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setJune(incomeStatisticsVO.getJune()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setJuly(incomeStatisticsVO.getJuly()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setAugust(incomeStatisticsVO.getAugust()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setSeptember(incomeStatisticsVO.getSeptember()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setOctober(incomeStatisticsVO.getOctober()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setNovember(incomeStatisticsVO.getNovember()+incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDecember(incomeStatisticsVO.getDecember()+incomeStatisticsVO.getChoiceDate());
+		incomeStatisticsVO.setJanuary(incomeStatisticsVO.getJanuary()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setFebruary(incomeStatisticsVO.getFebruary()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setMarch(incomeStatisticsVO.getMarch()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setApril(incomeStatisticsVO.getApril()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setMay(incomeStatisticsVO.getMay()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setJune(incomeStatisticsVO.getJune()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setJuly(incomeStatisticsVO.getJuly()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setAugust(incomeStatisticsVO.getAugust()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setSeptember(incomeStatisticsVO.getSeptember()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setOctober(incomeStatisticsVO.getOctober()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setNovember(incomeStatisticsVO.getNovember()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDecember(incomeStatisticsVO.getDecember()+incomeStatisticsVO.getChoiceYear());
+		
+		incomeStatisticsVO.setSelectDate(incomeStatisticsVO.getChoiceYear());
+		
 		//확인
 		System.out.println("1월 : "+incomeStatisticsVO.getJanuary());
 		System.out.println("2월 : "+incomeStatisticsVO.getFebruary());
@@ -66,25 +69,39 @@ public class IncomeStatisticsController {
 		//응답
 		model.addAttribute("date", incomeStatisticsVO);
 		
-		return "/incomestatisticsAdmin/incomeStatisticsMain";
+		return "/incomestatisticsAdmin/dailyStatistics";
 		
 	}
 	//일별통계2
 	@RequestMapping(value = "/dailyStatistics2", method= RequestMethod.POST)
 	public String dailyStatistics2(IncomeStatisticsVO incomeStatisticsVO, Model model)throws Exception {
 		
-		
+		System.out.println(incomeStatisticsVO.getChoiceDate());
 		
 		
 		logger.info("일별통계 처리2");
 		// Average를 구하기 위한 변수들
 		int totalCount = 0;
-		int standardCount = 0;
-		int superiorCount = 0;
-		int deluxeCount = 0;
-		int royalCount = 0;
+		
+		//요청해온 년도 SET
+		incomeStatisticsVO.setJanuary(incomeStatisticsVO.getJanuary()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setFebruary(incomeStatisticsVO.getFebruary()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setMarch(incomeStatisticsVO.getMarch()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setApril(incomeStatisticsVO.getApril()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setMay(incomeStatisticsVO.getMay()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setJune(incomeStatisticsVO.getJune()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setJuly(incomeStatisticsVO.getJuly()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setAugust(incomeStatisticsVO.getAugust()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setSeptember(incomeStatisticsVO.getSeptember()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setOctober(incomeStatisticsVO.getOctober()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setNovember(incomeStatisticsVO.getNovember()+incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDecember(incomeStatisticsVO.getDecember()+incomeStatisticsVO.getChoiceYear());
 		
 		
+		
+		
+		
+//		List<IncomeStatisticsVO> incomeList = new ArrayList<IncomeStatisticsVO>();
 		//price
 		List<Long> monthlyTotalPriceList = new ArrayList<Long>();
 		List<Long> monthlyStandardPriceList = new ArrayList<Long>();
@@ -132,7 +149,7 @@ public class IncomeStatisticsController {
 		incomeStatisticsVO.setDay30(incomeStatisticsVO.getDay30()+incomeStatisticsVO.getChoiceDate());
 		incomeStatisticsVO.setDay31(incomeStatisticsVO.getDay31()+incomeStatisticsVO.getChoiceDate());
 		
-		
+		incomeStatisticsVO.setSelectDate(incomeStatisticsVO.getChoiceDate());
 
 		//service
 		monthlyTotalPriceList = reservationService.selectDailyTotalPrice(incomeStatisticsVO);
@@ -181,11 +198,11 @@ public class IncomeStatisticsController {
 			if(monthlyStandardCountList.get(index) != 0) {
  			incomeStatisticsVO.setStandardTotalPrice(incomeStatisticsVO.getStandardTotalPrice()+monthlyStandardPriceList.get(index));
  			incomeStatisticsVO.setStandardTotalCount(incomeStatisticsVO.getStandardTotalCount()+monthlyStandardCountList.get(index));
-			standardCount++;
+
 			}
  		}
- 		incomeStatisticsVO.setStandardAveragePrice(incomeStatisticsVO.getStandardTotalPrice()/standardCount);
- 		incomeStatisticsVO.setStandardAverageCount(incomeStatisticsVO.getStandardTotalCount()/standardCount);
+ 		incomeStatisticsVO.setStandardAveragePrice(incomeStatisticsVO.getStandardTotalPrice()/totalCount);
+ 		incomeStatisticsVO.setStandardAverageCount(incomeStatisticsVO.getStandardTotalCount()/totalCount);
  		System.out.println("StandardTotalPrice : " + incomeStatisticsVO.getStandardTotalPrice());
  		System.out.println("StandardTotalCount : " + incomeStatisticsVO.getStandardTotalCount());
  		System.out.println("StandardAveragePrice : " + incomeStatisticsVO.getStandardAveragePrice());
@@ -200,11 +217,11 @@ public class IncomeStatisticsController {
 			if(monthlySuperiorCountList.get(index) != 0) {
  			incomeStatisticsVO.setSuperiorTotalPrice(incomeStatisticsVO.getSuperiorTotalPrice()+monthlySuperiorPriceList.get(index));
  			incomeStatisticsVO.setSuperiorTotalCount(incomeStatisticsVO.getSuperiorTotalCount()+monthlySuperiorCountList.get(index));
-			superiorCount++;
+	
 			}
  		}
- 		incomeStatisticsVO.setSuperiorAveragePrice(incomeStatisticsVO.getSuperiorTotalPrice()/superiorCount);
- 		incomeStatisticsVO.setSuperiorAverageCount(incomeStatisticsVO.getSuperiorTotalCount()/superiorCount);
+ 		incomeStatisticsVO.setSuperiorAveragePrice(incomeStatisticsVO.getSuperiorTotalPrice()/totalCount);
+ 		incomeStatisticsVO.setSuperiorAverageCount(incomeStatisticsVO.getSuperiorTotalCount()/totalCount);
  		System.out.println("SuperiorTotalPrice : " + incomeStatisticsVO.getSuperiorTotalPrice());
  		System.out.println("SuperiorTotalCount : " + incomeStatisticsVO.getSuperiorTotalCount());
  		System.out.println("SuperiorAveragePrice : " + incomeStatisticsVO.getSuperiorAveragePrice());
@@ -219,11 +236,11 @@ public class IncomeStatisticsController {
 			if(monthlyDeluxeCountList.get(index) != 0) {
  			incomeStatisticsVO.setDeluxeTotalPrice(incomeStatisticsVO.getDeluxeTotalPrice()+monthlyDeluxePriceList.get(index));
  			incomeStatisticsVO.setDeluxeTotalCount(incomeStatisticsVO.getDeluxeTotalCount()+monthlyDeluxeCountList.get(index));
-			deluxeCount++;
+	
 			}
  		}
- 		incomeStatisticsVO.setDeluxeAveragePrice(incomeStatisticsVO.getDeluxeTotalPrice()/deluxeCount);
- 		incomeStatisticsVO.setDeluxeAverageCount(incomeStatisticsVO.getDeluxeTotalCount()/deluxeCount);
+ 		incomeStatisticsVO.setDeluxeAveragePrice(incomeStatisticsVO.getDeluxeTotalPrice()/totalCount);
+ 		incomeStatisticsVO.setDeluxeAverageCount(incomeStatisticsVO.getDeluxeTotalCount()/totalCount);
  		System.out.println("DeluxeTotalPrice : " + incomeStatisticsVO.getDeluxeTotalPrice());
  		System.out.println("DeluxeTotalCount : " + incomeStatisticsVO.getDeluxeTotalCount());
  		System.out.println("DeluxeAveragePrice : " + incomeStatisticsVO.getDeluxeAveragePrice());
@@ -238,17 +255,25 @@ public class IncomeStatisticsController {
  			if(monthlyRoyalCountList.get(index) != 0) {
 			incomeStatisticsVO.setRoyalTotalPrice(incomeStatisticsVO.getRoyalTotalPrice()+monthlyRoyalPriceList.get(index));
  			incomeStatisticsVO.setRoyalTotalCount(incomeStatisticsVO.getRoyalTotalCount()+monthlyRoyalCountList.get(index));
- 			royalCount++;
+ 	
  			}
  		}
- 		incomeStatisticsVO.setRoyalAveragePrice(incomeStatisticsVO.getRoyalTotalPrice()/royalCount);
- 		incomeStatisticsVO.setRoyalAverageCount(incomeStatisticsVO.getRoyalTotalCount()/royalCount);
+ 		incomeStatisticsVO.setRoyalAveragePrice(incomeStatisticsVO.getRoyalTotalPrice()/totalCount);
+ 		incomeStatisticsVO.setRoyalAverageCount(incomeStatisticsVO.getRoyalTotalCount()/totalCount);
  		System.out.println("RoyalTotalPrice : " + incomeStatisticsVO.getRoyalTotalPrice());
  		System.out.println("RoyalTotalCount : " + incomeStatisticsVO.getRoyalTotalCount());
  		System.out.println("RoyalAveragePrice : " + incomeStatisticsVO.getRoyalAveragePrice());
  		System.out.println("RoyalAverageCount : " + incomeStatisticsVO.getRoyalAverageCount());
  		
+ 		
+// 		for(int index = 0; index < totalCount; index++) {
+// 			incomeList.add(index, incomeStatisticsVO);
+// 		}
+ 		
+ 		
+ 		
  		//이제 데이터를 뿌려보자
+// 		model.addAttribute("incomeList", incomeList);
  		model.addAttribute("incomeStatistics", incomeStatisticsVO);
  		model.addAttribute("totalPriceList", monthlyTotalPriceList);
  		model.addAttribute("totalCountList", monthlyTotalCountList);
@@ -262,7 +287,7 @@ public class IncomeStatisticsController {
  		model.addAttribute("royalCountList", monthlyRoyalCountList);
  		model.addAttribute("date", incomeStatisticsVO);
 		
-		return "/incomestatisticsAdmin/incomeStatisticsMain";
+		return "/incomestatisticsAdmin/dailyStatistics";
 	}
 	
 	
@@ -270,7 +295,7 @@ public class IncomeStatisticsController {
 	
 	//월별통계
 	@RequestMapping(value = "/monthlyStatistics", method = RequestMethod.POST)
-	public String monthlyStatistics(IncomeStatisticsVO incomeStatisticsVO)throws Exception {
+	public String monthlyStatistics(IncomeStatisticsVO incomeStatisticsVO, Model model)throws Exception {
 		
 		logger.info("월별통계 처리");
 		//price
@@ -287,18 +312,20 @@ public class IncomeStatisticsController {
 		List<Integer> monthlyRoyalCountList = new ArrayList<Integer>();
 		
 		//요청해온 년도SET
-		incomeStatisticsVO.setDay1(incomeStatisticsVO.getDay1() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay2(incomeStatisticsVO.getDay2() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay3(incomeStatisticsVO.getDay3() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay4(incomeStatisticsVO.getDay4() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay5(incomeStatisticsVO.getDay5() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay6(incomeStatisticsVO.getDay6() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay7(incomeStatisticsVO.getDay7() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay8(incomeStatisticsVO.getDay8() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay9(incomeStatisticsVO.getDay9() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay10(incomeStatisticsVO.getDay10() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay11(incomeStatisticsVO.getDay11() + incomeStatisticsVO.getChoiceDate());
-		incomeStatisticsVO.setDay12(incomeStatisticsVO.getDay12() + incomeStatisticsVO.getChoiceDate());
+		incomeStatisticsVO.setDay1(incomeStatisticsVO.getDay1() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay2(incomeStatisticsVO.getDay2() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay3(incomeStatisticsVO.getDay3() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay4(incomeStatisticsVO.getDay4() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay5(incomeStatisticsVO.getDay5() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay6(incomeStatisticsVO.getDay6() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay7(incomeStatisticsVO.getDay7() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay8(incomeStatisticsVO.getDay8() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay9(incomeStatisticsVO.getDay9() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay10(incomeStatisticsVO.getDay10() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay11(incomeStatisticsVO.getDay11() + incomeStatisticsVO.getChoiceYear());
+		incomeStatisticsVO.setDay12(incomeStatisticsVO.getDay12() + incomeStatisticsVO.getChoiceYear());
+		
+		incomeStatisticsVO.setSelectDate(incomeStatisticsVO.getChoiceYear());
 		
 		//service
 		monthlyTotalPriceList = reservationService.selectMonthlyTotalPrice(incomeStatisticsVO);
@@ -397,9 +424,20 @@ public class IncomeStatisticsController {
  		System.out.println("RoyalAveragePrice : " + incomeStatisticsVO.getRoyalAveragePrice());
  		System.out.println("RoyalAverageCount : " + incomeStatisticsVO.getRoyalAverageCount());
  		
+ 		model.addAttribute("incomeStatistics", incomeStatisticsVO);
+ 		model.addAttribute("totalPriceList", monthlyTotalPriceList);
+ 		model.addAttribute("totalCountList", monthlyTotalCountList);
+ 		model.addAttribute("standardPriceList", monthlyStandardPriceList);
+ 		model.addAttribute("standardCountList", monthlyStandardCountList);
+ 		model.addAttribute("superiorPriceList", monthlySuperiorPriceList);
+ 		model.addAttribute("superiorCountList", monthlySuperiorCountList);
+ 		model.addAttribute("deluxePriceList", monthlyDeluxePriceList);
+ 		model.addAttribute("deluxeCountList", monthlyDeluxeCountList);
+ 		model.addAttribute("royalPriceList", monthlyRoyalPriceList);
+ 		model.addAttribute("royalCountList", monthlyRoyalCountList);
+ 		model.addAttribute("date", incomeStatisticsVO);
 		
-		
-		return "/incomestatisticsAdmin/incomeStatisticsMain";
+		return "/incomestatisticsAdmin/monthlyStatistics";
 	
 	}
 	

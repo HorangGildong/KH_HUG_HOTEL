@@ -162,6 +162,9 @@
 		.searchBox2 > select {
 			color: white;
 			background: #193f6e;
+			
+    margin-right: 1px;
+			
 		}
 		.searchBox2 > span {
 			color: #193f6e;

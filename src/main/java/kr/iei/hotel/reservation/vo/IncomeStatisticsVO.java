@@ -94,10 +94,28 @@ public class IncomeStatisticsVO {
 	private int december = 1200;
 	
 	private int choiceDate;
+	private int choiceYear;
+	private int selectDate;
 
 	
 	
 	
+	public int getSelectDate() {
+		return selectDate;
+	}
+
+	public void setSelectDate(int selectDate) {
+		this.selectDate = selectDate;
+	}
+
+	public int getChoiceYear() {
+		return choiceYear;
+	}
+
+	public void setChoiceYear(int choiceYear) {
+		this.choiceYear = choiceYear;
+	}
+
 	public String getGuestRoomName() {
 		return guestRoomName;
 	}
