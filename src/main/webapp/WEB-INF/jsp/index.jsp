@@ -164,7 +164,27 @@
                         <h5>POOL / SAUNA / PITNESS / SPA / PARK / KIDS</h5>
                         <button type="button" class="facility-button" onclick="location.href='/facilityView';">▶</button>
                     </div>
-                    <div class="halfGallery">
+					<div class="container">
+						<div class="box">
+							<img src="img/hah_img/main/pool02.jpg"> <span>POOL</span>
+						</div>
+						<div class="box">
+							<img src="img/hah_img/main/sauna01.jpg"> <span>SAUNA</span>
+						</div>
+						<div class="box">
+							<img src="img/hah_img/main/pitness01.jpg"> <span>PITNESS</span>
+						</div>
+						<div class="box">
+							<img src="img/hah_img/main/spa02.jpg"> <span>SPA</span>
+						</div>
+						<div class="box">
+							<img src="img/hah_img/main/park02.jpg"> <span>PARK</span>
+						</div>
+						<div class="box">
+							<img src="img/hah_img/main/kids01.jpg"> <span>KIDS</span>
+						</div>
+					</div>
+					<!-- <div class="halfGallery">
                         <ul class="halfCont">
                             <li class="on" style="width: 700px; transition: width 0.7s ease 0s;">
                                 <img src="img/hah_img/main/pool02.jpg" alt="">
@@ -185,7 +205,7 @@
                                 <img src="img/hah_img/main/kids01.jpg" alt="">
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="main-membership">
                     <h1>MEMBERSHIP</h1>

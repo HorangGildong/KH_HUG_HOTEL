@@ -15,3 +15,9 @@ var swiper = new Swiper('.swiper-container', {
     },
 });
 
+$(".hover").mouseleave(
+  function() {
+    $(this).removeClass("hover");
+  }
+);
+
