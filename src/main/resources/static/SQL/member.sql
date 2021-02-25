@@ -56,47 +56,55 @@ COMMIT;
 
 
 INSERT INTO MEMBER (
-    memberId,           memberRegDate,      memberPwChangeDate, memberBirth,
-    memberName,         memberNick,         memberPhone,        memberEmail,
-    memberGender,       memberRole,         memberPassword
+    memberId,           memberRegDate,      memberPwChangeDate,
+    memberName,         memberNick,         memberBirth,
+    memberPhone,        memberGender,       memberEmail,
+    memberRole,         memberPassword
 )
 VALUES (
-    'gildong',          SYSDATE,            SYSDATE,            TO_DATE('1986-01-01','YYYY-MM-DD'),
-    '홍길동',            '길동미디어',          '010-1234-5678',    'gildong@hwalbin.com',
-    'MALE',             'ROLE_REGURAL',     '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke' -- 'password : 123'
+    'gildong',          SYSDATE,            SYSDATE,
+    '홍길동',            '길동미디어',          TO_DATE('1986-01-01','YYYY-MM-DD'),
+    '010-1234-5678',    'MALE',             'gildong@hwalbin.com',
+    'ROLE_REGURAL',     '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke' -- 'password : 123'
 );
 
 INSERT INTO MEMBER (
-    memberId,           memberRegDate,      memberPwChangeDate, memberBirth,
-    memberName,         memberNick,         memberPhone,        memberEmail,
-    memberGender,       memberRole,         memberPassword
+    memberId,           memberRegDate,      memberPwChangeDate,
+    memberName,         memberNick,         memberBirth,
+    memberPhone,        memberGender,       memberEmail,
+    memberRole,         memberPassword
 )
 VALUES (
-    'tiger',            SYSDATE,            SYSDATE,            TO_DATE('1998-01-01','YYYY-MM-DD'),
-    '한만월',            '관리자',             '010-7777-7777',    'tiger@hug.com',
-    'FEMALE',           'ROLE_ADMIN',       '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+    'tiger',            SYSDATE,            TO_DATE('2020-08-20','YYYY-MM-DD'),
+    '한만월',            '관리자',             TO_DATE('1998-01-01','YYYY-MM-DD'),
+    '010-7777-7777',    'FEMALE',           'tiger@hug.com',
+    'ROLE_ADMIN',       '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
 );
 
 INSERT INTO MEMBER (
-    memberId,           memberRegDate,      memberPwChangeDate, memberBirth,
-    memberName,         memberNick,         memberPhone,        memberEmail,
-    memberGender,       memberRole,         memberPassword
+    memberId,           memberRegDate,      memberPwChangeDate,
+    memberName,         memberNick,         memberBirth,
+    memberPhone,        memberGender,       memberEmail,
+    memberRole,         memberPassword
 )
 VALUES (
-    'userId-1',         SYSDATE,            SYSDATE,            TO_DATE('1998-01-01','YYYY-MM-DD'),
-    '1',                'a1',               '1',                'tiger@hug.com',
-    'FEMALE',           'ROLE_ADMIN',       '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+    'olduser',          SYSDATE,            TO_DATE('2020-08-20','YYYY-MM-DD'),
+    '아무개',            '늙은이',             TO_DATE('1995-01-01','YYYY-MM-DD'),
+    '010-1111-1111',    'MALE',             'old@what.co.kr',
+    'ROLE_REGURAL',     '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
 );
 
 INSERT INTO MEMBER (
-    memberId,           memberRegDate,      memberPwChangeDate, memberBirth,
-    memberName,         memberNick,         memberPhone,        memberEmail,
-    memberGender,       memberRole,         memberPassword
+    memberId,           memberRegDate,      memberPwChangeDate,
+    memberName,         memberNick,         memberBirth,
+    memberPhone,        memberGender,       memberEmail,
+    memberRole,         memberPassword
 )
 VALUES (
-    'userId-2',         SYSDATE,            SYSDATE,            TO_DATE('1998-01-01','YYYY-MM-DD'),
-    '1',                'a2',               '1',                'tiger@hug.com',
-    'FEMALE',           'ROLE_ADMIN',       '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+    'whoami',           SYSDATE,            SYSDATE,
+    '아무개',            '난누군가또여긴어딘가',  TO_DATE('1995-01-01','YYYY-MM-DD'),
+    '010-1111-1111',    'MALE',             'old@what.co.kr',
+    'ROLE_REGURAL',     '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
 );
 
 COMMIT;
