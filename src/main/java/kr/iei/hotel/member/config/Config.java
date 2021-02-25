@@ -56,7 +56,7 @@ public class Config extends WebSecurityConfigurerAdapter {
 //        		.usernameParameter("memberEmail")
         		.loginProcessingUrl("/loginProc")			// '/loginProc'호출시 시큐리티가 진행 -> controller 불필요
         		.defaultSuccessUrl("/")						// 로그인 성공시 이동할 경로
-        		.failureUrl("/login")						// 로그인 실패시 이동할 경로
+        		.failureUrl("/loginFailure")				// 로그인 실패시 이동할 경로
         		.and()
         	.logout()
             	.clearAuthentication(true)					// default : true
