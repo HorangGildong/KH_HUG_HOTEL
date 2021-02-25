@@ -126,7 +126,7 @@ WHERE memberNumber = 1;
 
 DELETE FROM MEMBER;
 
-SELECT memberPwChangeDate, memberNumber, memberId, memberName, memberNick, memberPhone, memberEmail, memberRole, memberKey FROM MEMBER;
+SELECT memberPwChangeDate, memberNumber, memberId, memberName, memberNick, memberPassword, memberPhone, memberEmail, memberRole, memberKey FROM MEMBER;
 SELECT memberId FROM MEMBER WHERE memberName = '한만월' AND memberPhone = '777-7777-7777;
 /
 UPDATE MEMBER SET 
@@ -137,4 +137,7 @@ UPDATE MEMBER SET
     memberPwChangeDate = TO_DATE('2020-08-20','YYYY-MM-DD')
 WHERE memberNumber = 46;
 /
+UPDATE MEMBER SET 
+    memberPassword = '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke'
+WHERE memberNumber = 9;
 COMMIT;
