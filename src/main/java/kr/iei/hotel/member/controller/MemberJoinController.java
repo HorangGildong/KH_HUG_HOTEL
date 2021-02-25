@@ -47,7 +47,7 @@ public class MemberJoinController {
 		authorities.add(() -> memberDto.getMemberRole());
 		memberLoginController.autoLogin(memberDto.getMemberId(), authorities);
 		model.addAttribute("isFirstLogin", true);
-		return "redirect:/";
+		return "/index";
 	}
 
 	@GetMapping("/join/oAuth2")
@@ -66,7 +66,7 @@ public class MemberJoinController {
 		authorities.add(() -> memberDto.getMemberRole());
 		memberLoginController.autoLogin(memberDto.getMemberId(), authorities);
 		model.addAttribute("isFirstLogin", true);
-		return "redirect:/";
+		return "/index";
 	}
 		
 	@GetMapping("/join/idCheck")
