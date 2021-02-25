@@ -62,13 +62,12 @@
 	               aria-hidden="true">×
 	            </button>
 	            <h4 class="modal-title" id="modalLabel">
-	              	 회원가입에 성공하였습니다.
+	              	 회원가입에 성공
 	            </h4>
 	         </div>
 	         <div class="modal-body">
-	            	진심으로 감사드립니다. <br>
+	            	${member.nick}님의 회원가입을 축하드립니다. <br>
 	            	항상 최선을 다하는 HUG HOTEL이 되겠습니다. <br>
-	            	-HUG HOTEL-
 	         </div>
 	         <div class="modal-footer" style="text-align: center;">
 	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px">

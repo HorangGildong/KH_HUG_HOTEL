@@ -68,7 +68,6 @@
 	         <div class="modal-body">
 	            	입력하신 아이디 또는 비밀번호가 바르지 않습니다.<br>
 	            	다시 시도해주시기 바랍니다.<br>
-	            	-HUG HOTEL-
 	         </div>
 	         <div class="modal-footer" style="text-align: center;">
 	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px">
