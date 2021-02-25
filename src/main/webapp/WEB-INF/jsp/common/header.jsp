@@ -71,9 +71,9 @@
                         <ul>
                             <li><a href="#">서비스 관리</a>
                             	<ul>
-                                    <li><a href="#">객실 관리</a></li>
-                                    <li><a href="#">예약 관리</a></li>
-                                    <li><a href="#">수입통계 관리</a></li>
+                                    <li><a href="/guestRoomAdminView">객실 관리</a></li>
+                                    <li><a href="/reservationAdminListView">예약 관리</a></li>
+                                    <li><a href="/incomeStatisticsMain">수입통계 관리</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">고객지원관리</a>
