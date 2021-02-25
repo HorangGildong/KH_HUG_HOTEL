@@ -28,5 +28,7 @@ public interface MemberService {
 	int searchId(String memberId, String memberEmail);
 
 	void updatePwChangeDate(String memberId);
+
+	void changePassword(String password, String memberId);
 	
 }

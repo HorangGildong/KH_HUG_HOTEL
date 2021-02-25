@@ -156,18 +156,18 @@
 			var name = $('#inputName').val();
 			var phone = $('#inputPhone').val();
 			var objDiv = $('<div>');
-			objDiv.append($("<div>")
+			objDiv.append($('<div>')
 				.addClass('col-xs-1 glyphicon glyphicon-user')
 				.attr('aria-hidden', 'true')
 				.css('line-height', '220%')
 				);
-			objDiv.append($("<div>")
+			objDiv.append($('<div>')
 				.attr('id', 'sId')
 				.addClass('col-xs-9')
 				.css('text-align', 'left')
 				.css('line-height', '220%')
 				);
-			objDiv.append($("<button>")
+			objDiv.append($('<button>')
 				.attr('id', 'sBtnId')
 				.attr('type', 'submit')
 				.attr('form', 'loginId')

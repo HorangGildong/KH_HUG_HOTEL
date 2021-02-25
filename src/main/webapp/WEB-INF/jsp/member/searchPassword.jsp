@@ -45,6 +45,7 @@
 
 		<!--section start-->
 		<section>
+		<jsp:include page="modalSearchPw.jsp" />
 			<div style="margin: 100px 0px 0px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 
@@ -70,17 +71,20 @@
 						
 						<div class="form-group" style="margin-bottom: 25px">
 							<label for="inputRandomNumber" class="col-xs-3 control-label">인증번호</label>
-							<div class="col-xs-9">
-								<input type="text" class="form-control" 
+							<div class="col-xs-4" >
+								<input type="text" class="form-control"
 									name="randomNumber" id="inputRandomNumber" disabled>
-						</div>
 							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" style="text-align: center;"
+									name="time" id="time" disabled>
+							</div>
+						</div>
 					</form>
 							
 					<br>
 
-					<button class="btn btn-primary btn-lg btn-block" onClick="$(this).searchIds()" 
-						id="searchBtn" form="searchPassword" style="font-weight: bold;" disabled>
+					<button class="btn btn-primary btn-lg btn-block" id="searchBtn" style="font-weight: bold;">
 						인증번호 받기
 					</button>
 
@@ -114,22 +118,94 @@
 
 	<script>
 
-		$('#createRandomNumber').click(function() {
-			var id = $('#inputId').val();
-			var email = $('#inputEmail').val();
-			$.ajax({
-				url : '${pageContext.request.contextPath}/searchPassword/searchId?id=' + id + '&email=' + email,
-				type : 'get',
-				success : function(data) {
-					if(data) {
-
-					} else {
-
+		var btnAction = 0;
+	
+		$('#searchBtn').click(function() {
+			$('#searchBtn').attr('disabled', true);
+			if(btnAction == 0) {
+				btnAction = 2;
+				var id = $('#inputId').val();
+				var email = $('#inputEmail').val();
+				$.ajax({
+					url : '${pageContext.request.contextPath}/searchPassword/searchId?id=' + id + '&email=' + email,
+					type : 'get',
+					success : function(data1) {
+						if(data1) {
+							$('.modal-body').multiline('입력하신 이메일로 인증번호를 전송하였습니다. \n 전송받은 인증번호를 3분 이내에 입력해주세요.');
+							$.fn.showModal();
+							$('#searchBtn').text('확인');
+							$('#inputId').attr('disabled', true);
+							$('#inputEmail').attr('disabled', true);
+							$('#inputRandomNumber').attr('disabled', false);
+							$('#searchBtn').attr('id', 'newSearchBtn');
+							$.fn.countdown();
+							btnAction = 1;
+						} else {
+							$('.modal-body').multiline('입력하신 아이디 또는 이메일이 바르지 않습니다. \n 다시 입력해주세요.');
+							$.fn.showModal();
+							btnAction = 0;
+						}
 					}
-				}
-			})
+				})
+			} else if(btnAction == 1) {
+				btnAction = 2;
+				$('#searchBtn').attr('disabled', true);
+				var id = $('#inputId').val();
+				var email = $('#inputEmail').val();
+				var randomNumber = $('#inputRandomNumber').val();
+				$.ajax({
+					url : '${pageContext.request.contextPath}/searchPassword/compareRandomNumber?randomNumber=' + randomNumber
+							+ '&id=' + id + '&email=' + email,
+					type : 'get',
+					success : function(data2) {
+						if(data2) {
+							$('.modal-body').multiline('입력하신 이메일로 임시비밀번호를 전송하였습니다. \n 임시 비밀번호는 꼭 변경 후 사용하시기 바랍니다.');
+							$('#goLoginPage').attr('onclick', "location.href = '/login'");
+							$.fn.showModal();
+						} else {
+							$('.modal-body').multiline('인증번호가 일치하지 않습니다. \n 다시 입력해주세요.');
+							$.fn.showModal();
+							btnAction = 1;
+						}
+					}
+				})
+			}
+			$('#searchBtn').attr('disabled', false);
 		});
 
+		$.fn.showModal = function() {
+			$('#modal').modal({
+				backdrop: 'static',
+				keyboard: false
+			});
+		}
+		
+		$.fn.multiline = function(text) {
+		    this.text(text);
+		    this.html(this.html().replace(/\n/g,'<br/>'));
+		    return this;
+		}
+
+		$.fn.countdown = function() {
+			var start = new Date();
+			var now;
+			var remaining;
+			var submit = setInterval(function(){
+				now = new Date();
+				remaining = 180 - Math.round((now.getTime() - start) / 1000);
+				remainingMinutes = $.fn.numberPad(parseInt(remaining / 60));
+				remainingSeconds = $.fn.numberPad(remaining % 60);
+				$('#time').val("남은시간 " + remainingMinutes + ":" + remainingSeconds);
+				if(remaining == 0) {
+					clearInterval(submit);
+				}
+			}, 1000);
+		}
+		
+		$.fn.numberPad = function(n) {
+		    n = n + '';
+		    return n.length >= 2 ? n : '0' + n;
+		}
 
 		
 	</script>

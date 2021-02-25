@@ -37,7 +37,7 @@ public class MemberLoginController {
 	// loginPage
 	@GetMapping("/login")
 	public String loginPage() {
-		return "/member/login";		
+		return "/member/login";	
 	}
 
 	@PostMapping("/login")
@@ -69,7 +69,7 @@ public class MemberLoginController {
 	public void autoLogin(String memberId, Collection<? extends GrantedAuthority> authorities) {
 		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberId);
 		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, authorities);
-		SecurityContextHolder.getContext().setAuthentication(newAuthentication);	
+		SecurityContextHolder.getContext().setAuthentication(newAuthentication);
 	}
 	
 	@GetMapping("/login/oAuth2")

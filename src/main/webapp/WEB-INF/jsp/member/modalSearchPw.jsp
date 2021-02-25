@@ -62,21 +62,15 @@
 	               aria-hidden="true">×
 	            </button>
 	            <h4 class="modal-title" id="modalLabel">
-	              	 비밀번호 변경
+	              	 비밀번호 찾기
 	            </h4>
 	         </div>
 	         <div class="modal-body">
-	            	${member.nick}님의 개인정보를 안전하게 보호하고, <br>
-	            	개인정보 도용으로 인한 피해를 예방하기 위해 <br>
-	            	90일 이상 비밀번호를 변경하지 않은 경우 <br>
-	            	비밀번호 변경을 권장해드립니다.<br>
+	            	텍스트
 	         </div>
 	         <div class="modal-footer" style="text-align: center;">
-	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px" onclick="location.href='/pwChange'">
-	            	비밀번호 변경하기
-	            </button>
-	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left: 15px" onclick="location.href='/noPwChange'" >
-	            	1개월 후에 변경하기
+	            <button id="goLoginPage" type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px">
+	            	확인
 	            </button>
 	         </div>
 	      </div>
@@ -93,13 +87,6 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="/js/bootstrapjs/bootstrap.min.js"></script>
-
-	<script>
-	    $(function() {
-	    	$('#modal').modal( {
-			})
-		});    
-	</script>
 
 </body>
 

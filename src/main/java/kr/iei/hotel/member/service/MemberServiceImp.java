@@ -67,4 +67,10 @@ public class MemberServiceImp implements MemberService {
 		memberDao.updatePwChangeDate(memberId);
 	}
 	
+	@Override
+	public void changePassword(String password, String memberId) {
+		memberDao.changePassword(password, memberId);
+		
+	}
+	
 }

@@ -90,10 +90,7 @@
 	<script src="/js/bootstrapjs/bootstrap.min.js"></script>
 
 	<script>
-	    $(function() {
-	    	$('#modal').modal( {
-			})
-		});    
+		$('#modal').modal({backdrop: 'static', keyboard: false}); 
 	</script>
 
 </body>

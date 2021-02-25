@@ -62,5 +62,10 @@ public interface MemberDao {
 			+ " memberPwChangeDate = ADD_MONTHS(SYSDATE, -2)"
 			+ " WHERE memberId = '${memberId}'")
 	void updatePwChangeDate(String memberId);
+	
+	@Update("UPDATE MEMBER SET"
+			+ " memberPassword = '${password}'"
+			+ " WHERE memberId = '${memberId}'")
+	void changePassword(String password, String memberId);
 
 }

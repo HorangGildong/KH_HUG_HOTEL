@@ -296,22 +296,22 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
-		$("#inputNickname").blur(function() {
+		$('#inputNickname').blur(function() {
 			var nick = $('#inputNickname').val();
-			$("#submitBtn").attr("disabled", false);
+			$('#submitBtn').attr('disabled', false);
 			$.ajax({
 				url : '${pageContext.request.contextPath}/join/nickCheck?nick=' + nick,
 				type : 'get',
 				success : function(data) {
-					if (nick == "") {
-						$("#nickCheck").text("");
+					if (nick == '') {
+						$('#nickCheck').text('');
 					} else if (data) {
-						$("#nickCheck").text("사용중인 닉네임입니다.");
-						$("#nickCheck").css("color",	"red");
-						$("#submitBtn").attr("disabled", true);
+						$('#nickCheck').text('사용중인 닉네임입니다.');
+						$('#nickCheck').css('color', 'red');
+						$('#submitBtn').attr('disabled', true);
 					} else {
-						$("#nickCheck").text("사용가능한 닉네임입니다.");
-						$("#nickCheck").css("color",	"blue");
+						$('#nickCheck').text('사용가능한 닉네임입니다.');
+						$('#nickCheck').css('color', 'blue');
 						isNick = true;
 					}	
 				}

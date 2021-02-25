@@ -291,66 +291,66 @@
 		var isNick;
 		var isPassword;
 		
-		$("#inputId").blur(function() {
-			var id = $("#inputId").val();
+		$('#inputId').blur(function() {
+			var id = $('#inputId').val();
 			isId = false;
 			$.ajax({
 				url : '${pageContext.request.contextPath}/join/idCheck?id=' + id,
 				type : 'get',
 				success : function(data) {
 					if (data) {
-						$("#idCheck").text("사용중인 아이디입니다.");
-						$("#idCheck").css("color", "red");
+						$('#idCheck').text('사용중인 아이디입니다.');
+						$('#idCheck').css('color', 'red');
 					} else if((id.length > 0 && id.length < 8) || id.length > 20) {
-						$("#idCheck").text("8~20자리로 입력해주세요.");
-						$("#idCheck").css("color", "red");
+						$('#idCheck').text('8~20자리로 입력해주세요.');
+						$('#idCheck').css('color', 'red');
 					} else if(id.search(/\s/) != -1) {
-						$("#idCheck").text("공백 없이 입력해주세요.");
-						$("#idCheck").css("color", "red");
-					} else if (id!="") {
+						$('#idCheck').text('공백 없이 입력해주세요.');
+						$('#idCheck').css('color', 'red');
+					} else if (id!='') {
 						isId = true;
-						$("#idCheck").text("사용가능한 아이디입니다.");
-						$("#idCheck").css("color", "blue");
+						$('#idCheck').text('사용가능한 아이디입니다.');
+						$('#idCheck').css('color', 'blue');
 					} else {
-						$("#idCheck").text("");
+						$('#idCheck').text('');
 					}			
 					$.fn.submitDisable();
 				}
 			});
 		});
 		
-		$("#inputEmail").blur(function() {
+		$('#inputEmail').blur(function() {
 			var email = $('#inputEmail').val();
 			var str = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 			isEmail = false;
-			if (!str.test(email) && email!="") {
-				$("#emailCheck").text("이메일 형식이 바르지 않습니다.");
-				$("#emailCheck").css("color", "red");
-			} else if (email!="") {
+			if (!str.test(email) && email!='') {
+				$('#emailCheck').text('이메일 형식이 바르지 않습니다.');
+				$('#emailCheck').css('color', 'red');
+			} else if (email!='') {
 				isEmail = true;
-				$("#emailCheck").text("사용가능한 이메일입니다.");
-				$("#emailCheck").css("color", "blue");
+				$('#emailCheck').text('사용가능한 이메일입니다.');
+				$('#emailCheck').css('color', 'blue');
 			} else {
-				$("#emailCheck").text("");
+				$('#emailCheck').text('');
 			}			
 			$.fn.submitDisable();
 		});
 		
-		$("#inputNickname").blur(function() {
+		$('#inputNickname').blur(function() {
 			var nick = $('#inputNickname').val();
 			isNick = false;
 			$.ajax({
 				url : '${pageContext.request.contextPath}/join/nickCheck?nick=' + nick,
 				type : 'get',
 				success : function(data) {
-					if (nick == "") {
-						$("#nickCheck").text("");
+					if (nick == '') {
+						$('#nickCheck').text('');
 					} else if (data) {
-						$("#nickCheck").text("사용중인 닉네임입니다.");
-						$("#nickCheck").css("color", "red");
+						$('#nickCheck').text('사용중인 닉네임입니다.');
+						$('#nickCheck').css('color', 'red');
 					} else {
-						$("#nickCheck").text("사용가능한 닉네임입니다.");
-						$("#nickCheck").css("color", "blue");
+						$('#nickCheck').text('사용가능한 닉네임입니다.');
+						$('#nickCheck').css('color', 'blue');
 						isNick = true;
 					}
 					$.fn.submitDisable();
@@ -358,51 +358,51 @@
 			});
 		});
 		
-		$("#inputPassword").keyup(function() {
-			var pw = $("#inputPassword").val();
+		$('#inputPassword').keyup(function() {
+			var pw = $('#inputPassword').val();
 			var num = pw.search(/[0-9]/g);
 			var eng = pw.search(/[a-z]/ig);
-			var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+			var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩';:₩/?]/gi);
 			isPassword = false;
-			if(pw == "") {
-				$("#passwordCheck").text("");
-				$("#inputPassword2").attr("disabled", true);
+			if(pw == '') {
+				$('#passwordCheck').text('');
+				$('#inputPassword2').attr('disabled', true);
 			} else if(pw.length < 8) {
-				$("#passwordCheck").text("8자리 이상으로 입력해주세요.");
-				$("#passwordCheck").css("color", "red");
-				$("#inputPassword2").attr("disabled", true);
+				$('#passwordCheck').text('8자리 이상으로 입력해주세요.');
+				$('#passwordCheck').css('color', 'red');
+				$('#inputPassword2').attr('disabled', true);
 			} else if(pw.search(/\s/) != -1) {
-				$("#passwordCheck").text("비밀번호는 공백 없이 입력해주세요.");
-				$("#passwordCheck").css("color", "red");
-				$("#inputPassword2").attr("disabled", true);
+				$('#passwordCheck').text('비밀번호는 공백 없이 입력해주세요.');
+				$('#passwordCheck').css('color', 'red');
+				$('#inputPassword2').attr('disabled', true);
 			} else if(num < 0 || eng < 0 || spe < 0 ) {
-				$("#passwordCheck").text("영문/숫자/특수문자를 혼합해주세요.");
-				$("#passwordCheck").css("color", "red");
-				$("#inputPassword2").attr("disabled", true);
+				$('#passwordCheck').text('영문/숫자/특수문자를 혼합해주세요.');
+				$('#passwordCheck').css('color', 'red');
+				$('#inputPassword2').attr('disabled', true);
 			} else {
-				$("#passwordCheck").text("사용가능한 비밀번호입니다.");
-				$("#passwordCheck").css("color", "blue");
-				$("#inputPassword2").attr("disabled", false);
+				$('#passwordCheck').text('사용가능한 비밀번호입니다.');
+				$('#passwordCheck').css('color', 'blue');
+				$('#inputPassword2').attr('disabled', false);
 			}
 			$.fn.submitDisable();
 		});
 		
-		/* $("#inputPassword2").attr("disabled") == undefined */
+		/* $('#inputPassword2').attr('disabled') == undefined */
 		
-		$("#inputPassword, #inputPassword2").blur(function() { 
-			var pw1=$("#inputPassword").val();
-			var pw2=$("#inputPassword2").val();
+		$('#inputPassword, #inputPassword2').blur(function() { 
+			var pw1=$('#inputPassword').val();
+			var pw2=$('#inputPassword2').val();
 			isPassword = false;
-			if($("#inputPassword2").attr("disabled") != undefined  || pw2 == "")
+			if($('#inputPassword2').attr('disabled') != undefined  || pw2 == '')
 			{
-				$("#passwordCheck2").text("");
+				$('#passwordCheck2').text('');
 			} else if(pw1 == pw2) { 
-				$("#passwordCheck2").text("비밀번호가 일치합니다.");
-				$("#passwordCheck2").css("color", "blue");
+				$('#passwordCheck2').text('비밀번호가 일치합니다.');
+				$('#passwordCheck2').css('color', 'blue');
 				isPassword = true;
 			} else {
-				$("#passwordCheck2").text("비밀번호가 일치하지 않습니다.");
-				$("#passwordCheck2").css("color", "red");
+				$('#passwordCheck2').text('비밀번호가 일치하지 않습니다.');
+				$('#passwordCheck2').css('color', 'red');
 			}
 			$.fn.submitDisable();
 		});
@@ -410,9 +410,9 @@
 		$.fn.submitDisable = function() {
 			console.log(isId, isEmail, isNick, isPassword);
 			if(isId == true && isEmail == true && isNick == true && isPassword == true) {
-				$("#submitBtn").attr("disabled", false);
+				$('#submitBtn').attr('disabled', false);
 			} else {
-				$("#submitBtn").attr("disabled", true);
+				$('#submitBtn').attr('disabled', true);
 			}
 		}
 		
