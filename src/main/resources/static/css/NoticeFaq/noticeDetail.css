@@ -96,7 +96,7 @@
 }
 #notice_detail #detail_Middle1 #input4{
     text-indent: 4px;
-    width:120px;
+    width:130px;
     height: 30px; 
 }
 #notice_detail #detail_Middle1 #input5{
@@ -150,7 +150,7 @@
 #notice_detail #detail_Middle2 #btnupdel #span2{
     padding-right: 3px;    
 }
-#notice_detail #detail_Middle2 #btnupdel input{
+#notice_detail #detail_Middle2 #btnupdel input,button{
     background-color: rgb(238, 236, 236);
     border: 1px solid rgb(175, 158, 158);
     border-radius: 10px;

@@ -3,6 +3,7 @@ package kr.iei.hotel.notice.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,9 +37,9 @@ public class NoticeReplyController {
    /*--------------------------------- 일반 공지사항 댓글 입력 ---------------------------------*/
 	 @RequestMapping(value="/noticeDetail_Rinsert", method=RequestMethod.POST)
 	   public ModelAndView noticeRinsert_result(NoticeVo vo, Page page, NoticeReplyVo vo2) {
-			
+			 
 			ModelAndView mv = new ModelAndView();
-			
+						
 			if (vo2.getMemberNick() != null) {
 				vo2.setNick(vo2.getMemberNick());
 				
@@ -74,21 +75,29 @@ public class NoticeReplyController {
 			   @RequestParam(value="pwd", required=false, defaultValue="") String pwd) {
 		   ModelAndView mv = new ModelAndView();	
 		   
-		   vo2.setPassword(pwd);		  
-		   
+		   vo2.setPassword(pwd);	
+		   System.out.println("사용자 댓글삭제 시작");
+		   System.out.println(vo2.getPassword());
+		   System.out.println(vo2.getrNo());
+		   		   
 		   String msg = Rservice.Rdelete(vo2);
+				   
+		   System.out.println("사용자 댓글삭제 끝");
 		   
+
 		   return control.noticeDetail(vo, page, vo2);
 	   }
 	   
 	   /*--------------------------------- 관리자 댓글 삭제 ---------------------------------*/
 	   @RequestMapping(value="/adminRdelete", method= RequestMethod.POST)
 	   public ModelAndView adminRdelete(NoticeVo vo, Page page, NoticeReplyVo vo2) {
+		   
 		   ModelAndView mv = new ModelAndView();	
 		   
-		   System.out.println("getrNo: "+ vo2.getrNo());
 		   
+		   System.out.println("사용자뷰 댓글삭제 출발");
 		   String msg = Rservice.adminRdelete(vo2);		
+		   System.out.println("사용자뷰 댓글삭제 도착");
 		   
 		   return control.noticeDetail(vo, page, vo2);
 	   }
@@ -142,7 +151,7 @@ public class NoticeReplyController {
 		   
 		   return control.adminNoticeDetail(vo, page, vo2);
 	   }
-	   
+	      
 	   /*--------------------------------- 관리자 공지사항 댓글 삭제 ---------------------------------*/
 	   @RequestMapping(value="/admin_notice_Rdelete", method= RequestMethod.POST)
 	   public ModelAndView admin_notice_Rdelete(NoticeVo vo, Page page, NoticeReplyVo vo2) {
@@ -152,15 +161,5 @@ public class NoticeReplyController {
 		   
 		   return control.adminNoticeDetail(vo, page, vo2);
 	   }
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
 	   
 	}

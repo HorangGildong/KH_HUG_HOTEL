@@ -97,6 +97,7 @@ public class NoticeReplyDao implements NoticeReplyService{
 		return msg;
 	}
 
+	/*--------------------------------- 사용자 댓글 삭제 ---------------------------------*/
 	@Override
 	public String Rdelete(NoticeReplyVo vo2) {
 		String msg = "댓글이 성공적으로 삭제 되었습니다.";
@@ -109,14 +110,18 @@ public class NoticeReplyDao implements NoticeReplyService{
 		return msg;
 	}
 
+	/*--------------------------------- 관리자 댓글 삭제 ---------------------------------*/
 	@Override
 	public String adminRdelete(NoticeReplyVo vo2) {
 		String msg = "댓글이 성공적으로 삭제 되었습니다.";
+		System.out.println("Dao 출발");
 		int cnt = mapper.adminRdelete(vo2);
-		
+		System.out.println("cnt: "+cnt);
 		if (cnt < 1) {
 			msg ="댓글 삭제 중 오류가 발생하였습니다.";
 		}
+		
+		System.out.println("Dao 도착");
 		
 		return msg;
 	}

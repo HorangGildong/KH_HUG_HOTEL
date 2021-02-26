@@ -115,7 +115,11 @@
    	margin: 40px 0;
 }
 #admin_faq_select>h3{
-   	text-align: center;   
+   	text-align: center; 
+   	font-size: 30px;  
+   	font-weight: bold;  
+       
+    color: #567dac;  
 }
 #admin_faq_select #fCover{
 	display:flex;

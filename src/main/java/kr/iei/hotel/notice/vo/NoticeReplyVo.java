@@ -1,7 +1,7 @@
 package kr.iei.hotel.notice.vo;
 
 public class NoticeReplyVo {
-	int rNo;
+	Integer rNo;
 	int nNo;
 	int memberNumber; 
 	String content;
@@ -41,10 +41,10 @@ public class NoticeReplyVo {
 	public void setMemberNick(String memberNick) {
 		this.memberNick = memberNick;
 	}
-	public int getrNo() {
+	public Integer getrNo() {
 		return rNo;
 	}
-	public void setrNo(int rNo) {
+	public void setrNo(Integer rNo) {
 		this.rNo = rNo;
 	}
 	public int getnNo() {

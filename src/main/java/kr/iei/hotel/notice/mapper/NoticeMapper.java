@@ -35,7 +35,7 @@ public interface NoticeMapper {
 	public List<NoticeVo> admin_select(Page page);
 	public List<NoticeVo> admin_title_select(Page page);
 	public List<NoticeVo> admin_contents_select(Page page);
-	public NoticeVo admin_total_article(int nNo, String findStr);
+	public NoticeVo admin_total_article(int nNo, String findStr); 
 	public NoticeVo admin_title_article(int nNo, String findStr);
 	public NoticeVo admin_content_article(int nNo, String findStr);
 	

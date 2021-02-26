@@ -5,7 +5,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -108,7 +111,7 @@ public class NoticeController {
 	      
 	    List<NoticeReplyVo> list = (List<NoticeReplyVo>) map.get("list");
 	    page = (Page) map.get("page");
-		
+			
 	   	Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		vo2.setRegdate(dateFormat.format(date));

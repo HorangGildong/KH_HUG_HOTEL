@@ -59,10 +59,11 @@
 	   		var adminBtnUpdate = getID("adminBtnUpdate");
 	   		var adminBtnDelete = getID("adminBtnDelete");
 	   		var input7   = getID('input7');
+	   		var input4   = getID('input4');
 	   		var textarea = getID('textarea');
 	   		var Rupdate  = getID('Rupdate');
-			var Rdelete  = getID('Rdelete');
 			var Rcontent = getID('Rcontent'); <%--frm으로 안불러와짐ㅡㅡ --%>
+			var rNo 	 = getID('rNo');
 	   		
 			/*--------------------------- 목록 클릭 시  ---------------------------*/
 	   		if (adminBtnBack != null) {
@@ -108,7 +109,7 @@
 					var frm = document.frm_notice;
 					var len1 = input4.value.length;	
 					var len2 = textarea.value.length;
-					if (len1 < 1 || len2 < 1) {
+					if (len1 < 1 || len2 < 1 || len1 != 4) {
 						alert('암호와 text를 입력하세요.');
 						
 					} else {
@@ -136,34 +137,21 @@
 				};
 			};
 			
-			/*--------------------------- 댓글 삭제 클릭 시  ---------------------------*/
-			if (Rdelete != null) {
-				Rdelete.onclick = function(){
-					
-	                <c:if test="${member.role == 'ROLE_REGURAL'}">
-						var frm = document.frm_notice;
-						alert("사용자버전");
-						let pwd = prompt("삭제하시려면 작성한 암호를 입력해주세요.");					
-						frm.pwd.value = pwd;
-						frm.action = "/admin_Rdelete";
-						frm.submit();
-					</c:if>
-					
-					<c:if test="${member.role == 'ROLE_ADMIN'}">
-						var frm = document.frm_notice;
-						alert("관리자버전");
-						frm.action = "/admin_notice_Rdelete";
-						frm.submit();
-					</c:if>
-
-				};
-			};
-			
-			
-			
 			
 	   	};
-
+	   	
+	   	/*--------------------------- 댓글 삭제 클릭 시  ---------------------------*/
+    	RbtnDelete = function(num){
+    		var rno = num;
+    					
+			<c:if test="${member.role == 'ROLE_ADMIN'}">
+				var frm = document.frm_notice;
+				rNo.value = rno;
+				frm.action = "/admin_notice_Rdelete";
+				frm.submit();
+			</c:if>
+    	};
+	   	
 	   	
 		/*--------------------------- 이전글 클릭 시  ---------------------------*/	
 	   	notice.adminPreArticle = function(num){
@@ -239,18 +227,20 @@
                     <div id='div_2'>
                         <div id='div_3'>
                         	<form id='frm_notice' name='frm_notice' method='post'>
-	                        	<input type='hidden' name='menu' value="${param.menu }">
-				                <input type='hidden' name='nowPage' value="${param.nowPage }">
-				                <input type='hidden' name='nNo' value="${param.nNo}">
-				                <input type="hidden" name='findStr' value="${param.findStr }">
-				                <input type='hidden' name='totalPage' value='${param.totalPage }'>
-				                <input type='hidden' name='pwd' value='${param.pwd }'>
+	                        	<input type='hidden' name='menu'      	 value="${param.menu }">
+								<input type='hidden' name='nowPage'   	 value="${param.nowPage }">
+								<input type='hidden' name='nNo' 	  	 value="${param.nNo}">
+			                    <input type="hidden" name='findStr'   	 value="${param.findStr }"> 
+			                    <input type='hidden' name='totalPage' 	 value='${param.totalPage }'>
+			                    <input type='hidden' name='pwd'          value='${param.pwd }'>	
+			                    <input type='hidden' name='rNo' id='rNo' value='${param.rNo }'>
+			                    
 	                            <table id='detail_Middle1'>
 	                                <tr>                                    
 	                                    <td width='10px'><input type="text" id='input1' value='작성자' readonly class="form-control"></td>
 	                                    <td><input type="text" id='input2' value='${member.nick }' name='memberNick' readonly class="form-control"></td>
 	                                    <td><input id='input3' type="text" value="암호" readonly class="form-control"/></td>
-	                                    <td><input id='input4' type="password" name='password' class="form-control"/></td>
+	                                    <td><input id='input4' type="password" maxlength='4' onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="4자리 숫자입력" class="form-control"/></td>
 	                                    <td width="430px"></td>
 	                                    <td><input id='input5' type="text" value="작성일" readonly class="form-control"/></td>
 	                                    <td><input id='input6' type="text" name='regdate' value="${vo2.regdate }" readonly class="form-control"/></td>
@@ -281,10 +271,14 @@
 		                                    <td><input id='input9' type="text" readonly value="${reply.regdate }"></td>
 		                                    <td>
 		                                        <span id='btnupdel'>
-		                                            <span id='span2'><input type="button" id='Rdelete' name='Rdelete' value='삭제'></span>
-		                                            	<c:if test="${reply.memberNick == member.nick }">
-		                                            		<span id='span1'><input type="button" id='Rupdate' name='Rupdate' value='수정'></span>
-														</c:if>
+		                                        
+		                                            <span id='span2'>
+		                                            	<input type="button" id='Rdelete' onclick="RbtnDelete(${reply.rNo})" value='삭제'>
+		                                            </span>
+		                                           	<c:if test="${reply.memberNick == member.nick }">
+		                                           		<input type="button" id='Rupdate' onclick="RbtnUpdate(${reply.rNo})" value='수정'>
+													</c:if>
+														
 		                                        </span>
 		                                    </td>
 		                                </tr>                            

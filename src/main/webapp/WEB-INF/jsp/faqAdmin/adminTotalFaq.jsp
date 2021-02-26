@@ -46,7 +46,7 @@
 	<section>
 		<div id='admin_faq_select'>
 
-		   	<h3>FAQ</h3>
+		   	<h3>관리자 FAQ</h3>
 
 		  	<form name='frm_faqmain' id='frm_faqmain' method='post'><%-- 카테고리 선택값 받는 애 --%>
 		    	<input type='hidden' name='menu' value="${param.menu }"><%-- page에 데이터 담음 --%>

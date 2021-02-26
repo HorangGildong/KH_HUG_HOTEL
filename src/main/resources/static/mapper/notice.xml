@@ -305,7 +305,7 @@
 	<select id='reply_select' resultType='kr.iei.hotel.notice.vo.NoticeReplyVo' parameterType='kr.iei.hotel.notice.vo.Page'>
 		select * from (
 		    select rownum no, r.* from (
-		        SELECT rp.rNo, rp.nNo, rp.memberNumber, rp.content, rp.regdate, M.memberNick
+		        SELECT rp.rNo, rp.nNo, rp.memberNumber, rp.content, rp.regdate, rp.password, M.memberNick
 		        FROM REPLY rp
 		        LEFT JOIN MEMBER M ON rp.memberNumber = M.memberNumber
 		        where nNo = #{param3}
