@@ -13,17 +13,6 @@ import kr.iei.hotel.member.dto.MemberDto;
 
 @Controller
 public class Test {
-
-	// TEST
-	
-//	@Value("${spring.mail.username}")
-//	private String address;
-//	
-//	@GetMapping("/a")
-//	@ResponseBody
-//	public String a() {
-//		return address;
-//	}
 	
 	@GetMapping("/test")
 	@ResponseBody
