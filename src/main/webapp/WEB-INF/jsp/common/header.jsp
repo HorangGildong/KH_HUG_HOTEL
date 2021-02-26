@@ -32,14 +32,14 @@
                             <li><a href="/directions">오시는길</a></li>
                         </ul>
                     </li>
-                    <li><a href='#'>HOTELS</a>
+                    <li><a href='/guestRoomView'>HOTELS</a>
                         <ul>
                             <li><a href="/guestRoomView">객실</a></li>
                             <li><a href="/diningView">다이닝</a></li>
                             <li><a href="/facilityView">부대시설</a></li>
                         </ul>
                     </li>
-                    <li><a href='#'>여행정보</a>
+                    <li><a href='/tourismView'>여행</a>
                         <ul>
                             <li><a href="/tourismView">관광</a></li>
                             <li><a href="/foodView">맛집</a></li>
