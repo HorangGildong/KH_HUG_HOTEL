@@ -45,6 +45,7 @@
 
 		<!--section start-->
 		<section>
+			<jsp:include page="modalSearch.jsp" />
 			<div style="margin: 100px 0px 0px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 
@@ -69,8 +70,6 @@
 						</div>
 						
 					</form>
-
-					<div id="search"></div>
 
 					<br>
 
@@ -193,11 +192,26 @@
 								});
 						});
 					} else {
-						$('#search').text('입력하신 정보와 일치하는 아이디가 없습니다.');
+						$('.modal-title').text('아이디 찾기');
+						$('.modal-body').multiline('입력하신 정보와 일치하는 아이디가 없습니다. \n 다시 입력해주세요.');
+						$.fn.showModal();
 					}
 				}
 			})
 		})
+		
+		$.fn.showModal = function() {
+			$('#modal').modal({
+				backdrop: 'static',
+				keyboard: false
+			});
+		}
+		
+		$.fn.multiline = function(text) {
+		    this.text(text);
+		    this.html(this.html().replace(/\n/g,'<br/>'));
+		    return this;
+		}
 		
 	</script>
 

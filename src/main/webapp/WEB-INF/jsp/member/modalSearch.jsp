@@ -69,12 +69,21 @@
 	            	텍스트
 	         </div>
 	         <div class="modal-footer" style="text-align: center;">
-	            <button id="goLoginPage" type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px">
+	            <button id="okBtn" type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px">
 	            	확인
 	            </button>
+	            <button id="goLoginPage" type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px; display: none;">
+	            	확인
+	            </button>	            
 	         </div>
 	      </div>
 	   </div>
+	</div>
+	<!-- Modal -->
+	
+		<!-- Modal -->
+	<div class="modal fade" id="baseModal" tabindex="-1" role="dialog" 
+	   aria-labelledby="modalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
 	</div>
 	<!-- Modal -->
 

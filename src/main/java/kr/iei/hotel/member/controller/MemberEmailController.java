@@ -6,11 +6,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 
-import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberEmailDto;
 import kr.iei.hotel.member.service.MemberEmailService;
 import kr.iei.hotel.member.service.MemberService;

@@ -45,7 +45,7 @@
 
 		<!--section start-->
 		<section>
-		<jsp:include page="modalSearchPw.jsp" />
+		<jsp:include page="modalSearch.jsp" />
 			<div style="margin: 100px 0px 0px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 
@@ -119,20 +119,24 @@
 	<script>
 
 		var btnAction = 0;
-	
+		var id;
+		var email;
+		var randomNumber;
+		
 		$('#searchBtn').click(function() {
+			$('#baseModal').modal({ backdrop: 'static', keyboard: false });
 			$('#searchBtn').attr('disabled', true);
 			if(btnAction == 0) {
 				btnAction = 2;
-				var id = $('#inputId').val();
-				var email = $('#inputEmail').val();
+				id = $('#inputId').val();
+				email = $('#inputEmail').val();
 				$.ajax({
 					url : '${pageContext.request.contextPath}/searchPassword/searchId?id=' + id + '&email=' + email,
 					type : 'get',
 					success : function(data1) {
 						if(data1) {
 							$('.modal-body').multiline('입력하신 이메일로 인증번호를 전송하였습니다. \n 전송받은 인증번호를 3분 이내에 입력해주세요.');
-							$.fn.showModal();
+							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							$('#searchBtn').text('확인');
 							$('#inputId').attr('disabled', true);
 							$('#inputEmail').attr('disabled', true);
@@ -140,44 +144,46 @@
 							$('#searchBtn').attr('id', 'newSearchBtn');
 							$.fn.countdown();
 							btnAction = 1;
+							$('#baseModal').modal("hide");
 						} else {
 							$('.modal-body').multiline('입력하신 아이디 또는 이메일이 바르지 않습니다. \n 다시 입력해주세요.');
-							$.fn.showModal();
+							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							btnAction = 0;
+							$('#baseModal').modal("hide");
 						}
 					}
 				})
 			} else if(btnAction == 1) {
 				btnAction = 2;
 				$('#searchBtn').attr('disabled', true);
-				var id = $('#inputId').val();
-				var email = $('#inputEmail').val();
-				var randomNumber = $('#inputRandomNumber').val();
+				id = $('#inputId').val();
+				email = $('#inputEmail').val();
+				randomNumber = $('#inputRandomNumber').val();
 				$.ajax({
 					url : '${pageContext.request.contextPath}/searchPassword/compareRandomNumber?randomNumber=' + randomNumber
 							+ '&id=' + id + '&email=' + email,
 					type : 'get',
 					success : function(data2) {
 						if(data2) {
+							$('#okBtn').attr('style', 'display: none;');
+							$('#goLoginPage').attr('style', 'display: inline;');
 							$('.modal-body').multiline('입력하신 이메일로 임시비밀번호를 전송하였습니다. \n 임시 비밀번호는 꼭 변경 후 사용하시기 바랍니다.');
-							$('#goLoginPage').attr('onclick', "location.href = '/login'");
-							$.fn.showModal();
+							$('#modal').modal({ backdrop: 'static', keyboard: false });
+							$('#baseModal').modal("hide");
 						} else {
 							$('.modal-body').multiline('인증번호가 일치하지 않습니다. \n 다시 입력해주세요.');
-							$.fn.showModal();
+							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							btnAction = 1;
+							$('#baseModal').modal("hide");
 						}
 					}
 				})
 			}
 			$('#searchBtn').attr('disabled', false);
 		});
-
+		
 		$.fn.showModal = function() {
-			$('#modal').modal({
-				backdrop: 'static',
-				keyboard: false
-			});
+			$('#modal').modal({	backdrop: 'static',	keyboard: false	});
 		}
 		
 		$.fn.multiline = function(text) {
@@ -207,6 +213,22 @@
 		    return n.length >= 2 ? n : '0' + n;
 		}
 
+		$('#goLoginPage').on('click', function() {
+			$.fn.post();
+		})
+		
+		$.fn.post = function() {
+			var form = $('<form></form>');
+			form.attr('method', 'post')
+				.attr('action', '/login');
+			var field = $('<input></input>');
+			field.attr('type', 'hidden')
+				.attr('name', 'memberId')
+				.attr("value", id);
+			form.append(field);
+			$(document.body).append(form);
+			form.submit();
+		}
 		
 	</script>
 

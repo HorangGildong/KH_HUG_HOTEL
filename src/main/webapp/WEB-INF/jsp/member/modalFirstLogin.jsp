@@ -62,7 +62,7 @@
 	               aria-hidden="true">×
 	            </button>
 	            <h4 class="modal-title" id="modalLabel">
-	              	 회원가입에 성공
+	              	 회원가입 성공
 	            </h4>
 	         </div>
 	         <div class="modal-body">
