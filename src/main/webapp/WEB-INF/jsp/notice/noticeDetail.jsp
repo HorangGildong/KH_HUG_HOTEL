@@ -53,7 +53,7 @@
 		 } 
 		 
 		var notice = function(){
-    		
+			
 			var btnBack  = getID('btnBack');  		
 			var input7   = getID('input7');
 			var input4   = getID('input4');
@@ -61,6 +61,7 @@
 			var Rupdate  = getID('Rupdate');
 			var Rdelete  = getID('Rdelete');
 			var Rcontent = getID('Rcontent'); <%--frm으로 안불러와짐ㅡㅡ --%>
+			
     		    		
 			/*--------------------------- 목록 클릭 시  ---------------------------*/
 			if (btnBack != null) {
@@ -117,9 +118,10 @@
 			}
 			
 			/*--------------------------- 댓글 삭제 클릭 시  ---------------------------*/
+			
 			if (Rdelete != null) {
 				Rdelete.onclick = function(){
-					
+							
 	                <c:if test="${member.role == 'ROLE_REGURAL'}">
 						var frm = document.frm_notice;
 						alert("사용자버전");
@@ -153,21 +155,17 @@
 		}
 		/*--------------------------- 다음글 클릭 시  ---------------------------*/		
     	notice.nextArticle = function(num){
-			var totpage = "<c:out value='${param.totalPage }'/>"; 
-			
-			var frm = document.frm_notice;
-			frm.nNo.value = num;
-			frm.action = "/noticeDetail";
-			frm.submit();
-			
-			<%--
-			if (num <= totpage) {
+			var totpage = "<c:out value='${param.totalPage }'/>";
+			if (num != 0) {
 				var frm = document.frm_notice;
 				frm.nNo.value = num;
 				frm.action = "/noticeDetail";
-				frm.submit();
+				frm.submit();				
+			} else if (num == 0) {				
+				$(this).css('pointer-events','none');
+				$(this).css('cursor','default');
 			}
-			--%>		
+			
 		};
 		/*--------------------------- 페이징  ---------------------------*/
 		notice.goPage = function(page){			
@@ -226,7 +224,8 @@
 								<input type='hidden' name='nNo' value="${param.nNo}">
 			                    <input type="hidden" name='findStr' value="${param.findStr }"> 
 			                    <input type='hidden' name='totalPage' value='${param.totalPage }'>
-			                    <input type='hidden' name='pwd' value='${param.pwd }'>
+			                    <input type='hidden' name='pwd' value='${param.pwd }'>			              
+			                    
 	                            <table id='detail_Middle1'>				                    
 	                                <tr>                                    
 	                                    <td width='10px'><input type="text" id='input1' value='작성자' readonly class="form-control"></td>
@@ -238,10 +237,9 @@
 	                                    <td><input id='input6' type="text" name='regdate' value="${vo2.regdate }" readonly class="form-control"/></td>
 	                                </tr> 
 	                            </table>
-	
+							
 	                            <table id='detail_Middle2'>
-	                                <tr>
-	                                	
+	                                <tr>	                                	
 	                                	<c:if test="${empty member.nick }">
 		                                    <td><textarea id='textarea' rows="5" cols="128" readOnly style="resize: none;" placeholder="로그인시 댓글 작성 가능합니다."></textarea></td>                                                
 		                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' disabled type="button" value='등록'></div></td>
@@ -249,14 +247,14 @@
 		                                 
 		                                <c:if test="${not empty member.nick }">    
 		                                    <td><textarea id='textarea' name='content' rows="5" cols="128" style="resize: none;" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea></td>		                                                                               
-		                                    <td width='100px' style="background-color: white;"><div id='div1'><input id='input7' type="button" value='등록'></div></td>
+		                                    <td width='100px'><div id='div1'><input id='input7' type="button" value='등록'></div></td>
 		                                </c:if>
 	                                </tr>
 	                                <tr>                        
 	                                    <td colspan="2"><div><br><hr class='style-six'></div></td>
 	                                </tr>        
 	                                	                                	                                	                                            
-		<%-- ──────────────────── 댓글 등록시 반복 ──────────────────── --%> 
+		<%-- ──────────────────── 댓글 등록시 반복 ──────────────────── --%>									
 	                                <c:forEach var='reply' items='${list }'>
 	                               	<c:if test="${vo.nNo == reply.nNo }">
 	                               		<input type='hidden' name='rNo' value='${reply.rNo }'>
@@ -265,7 +263,7 @@
 		                                    <td colspan='2'><input id='input8' type="text" readonly value="${reply.memberNick }"></td>
 		                                </tr>
 		                                <tr> 
-		                                    <td colspan="2"><textarea id='Rcontent' name='Rcontent' rows="2" cols="128"  disabled style="resize: none; margin-left: 70px; margin-right: 70px;">${reply.content }</textarea></td>
+		                                    <td colspan="2"><textarea id='Rcontent' name='Rcontent' rows="2" cols="125" disabled style="resize: none; margin-left: 70px; margin-right: 70px;">${reply.content }</textarea></td>
 		                               </tr>
 		                                <tr>
 		                                    <td><input id='input9' type="text" readonly value="${reply.regdate }"></td>
@@ -273,22 +271,28 @@
 			                                    <td>		            
 			                                    	<c:if test="${member.role == 'ROLE_ADMIN' or member.role == 'ROLE_REGURAL' }">                        	
 				                                        <span id='btnupdel'>
-				                                            <span id='span2'><input type="button" id='Rdelete' name='Rdelete' value='삭제'></span>
-				                                            	<c:if test="${member.role == 'ROLE_REGURAL' }">	
-				                                            		<span id='span1'><input type="button" id='Rupdate' name='Rupdate' value='수정'></span>
-																</c:if>					                                            		
+				                                        	
+				                                            <span id='span2'>				                                            
+				                                            	<input type="button" id='Rdelete' name='Rdelete' value='삭제'>				                                            	
+				                                            </span>				                                            
+				                                            <c:if test="${member.role == 'ROLE_REGURAL' || reply.memberNick == member.nick }">	
+				                                            	<span id='span1'>
+				                                            		<input type="button" id='Rupdate' name='Rupdate' value='수정'>				                                            			
+				                                            	</span>				                                            		
+															</c:if>
+															<c:set var='i' value='${i+1 }'/>						                                            		
 				                                        </span>
 			                                       </c:if>
 			                                    </td>
-		                                    </c:if>		                                   
+		                                    </c:if>                                   
 		                                </tr>                                
 		                                <tr>                        
 		                                    <td colspan="2"><div><hr class='style-six'></div></td>
 		                                </tr>                                   
 									</c:if>									
 									</c:forEach>
-	                            </table> 
-                            </form>                            
+	                            </table>
+							</form>    
                         </div>
                     </div>     
 	<%-- ─────────────────────────────────── 페이징  부분 ─────────────────────────────────── --%> 
@@ -309,8 +313,7 @@
             
 	                <span id='back'>
 	                    <input type="button" id='btnBack' value='목록' class="form-control">	                  	                                     
-	                </span>
-             
+	                </span>             
                 
 	<%-- ─────────────────────────────────── 이전글 다음글  부분 ─────────────────────────────────── --%> 
                 <table class='table table-bordered' id='detail_Footer'>
@@ -321,7 +324,7 @@
                     </tr>
                     <tr class='footer_tr' height='40' onclick="notice.nextArticle(${vo1.nextNo})">
                         <th class='cursor'>다음글</th>                        
-                        <td class='footer_td'><input class='sContent' type="button" value='${vo1.nextNo }&emsp;&emsp;${vo1.nextTitle }'></td>
+                        <td class='footer_td'><input class='sContent' id='nextend' type="button" value='${vo1.nextNo }&emsp;&emsp;${vo1.nextTitle }'></td>
                         <td class='cursor'>${vo1.nextDate }</td>
                     </tr>                  
                 </table>

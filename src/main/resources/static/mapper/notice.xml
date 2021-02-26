@@ -5,33 +5,41 @@
 	
 <mapper namespace="kr.iei.hotel.notice.mapper.NoticeMapper">
 
-	<!-- ─────────────────────────────────── select ─────────────────────────────────── -->
+	<!-- ─────────────────────────────────── 사용자 select ─────────────────────────────────── -->
 	<select id='tot_list_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
-		select count(nNo) from notice
-		where title    like '%${findStr}%' 
+		select count(nNo) from (
+		    select * from notice 
+		    where pub = 0)
+		where title    like '%${findStr}%'
 		or 	  contents like '%${findStr}%'
 	</select>
 	
 	<select id='select' resultType='kr.iei.hotel.notice.vo.NoticeVo' parameterType='kr.iei.hotel.notice.vo.Page'>
 		select * from (
         	select rownum no, n.* from (
-				select * from notice 
+				select * from (
+                    select * from notice 
+                    where pub = 0)
             	where title    like '%${findStr}%' 
-            	or	  contents like '%${findStr}%'			 
+            	or	  contents like '%${findStr}%'
 				order by regdate desc) n
-		) where no between #{startNo} and #{endNo} 
+		) where no between #{startNo} and #{endNo}
 		order by nNo desc
 	</select>
 	
 	<select id='tot_title_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
-		select count(nNo) from notice
+		select count(nNo) from (
+		    select * from notice 
+		    where pub = 0)
 		where title like '%${findStr}%'
 	</select>
 	
 	<select id='title_select' resultType='kr.iei.hotel.notice.vo.NoticeVo' parameterType='kr.iei.hotel.notice.vo.Page'>
 		select * from (
         	select rownum no, n.* from (
-				select * from notice 
+				select * from (
+                    select * from notice 
+                    where pub = 0) 
             	where title like '%${findStr}%'            				 
 				order by regdate desc) n
 		) where no between #{startNo} and #{endNo} 
@@ -39,14 +47,18 @@
 	</select>
 	
 	<select id='tot_contents_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
-		select count(nNo) from notice
+		select count(nNo) from (
+		    select * from notice 
+		    where pub = 0)
 		where contents like '%${findStr}%'
 	</select>
 	
 	<select id='contents_select' resultType='kr.iei.hotel.notice.vo.NoticeVo' parameterType='kr.iei.hotel.notice.vo.Page'>
 		select * from (
         	select rownum no, n.* from (
-				select * from notice 
+				select * from (
+				    select * from notice 
+				    where pub = 0) 
             	where contents like '%${findStr}%'            				 
 				order by regdate desc) n
 		) where no between #{startNo} and #{endNo} 
@@ -71,7 +83,9 @@
 		    	from (
 	        		select rownum no, n.* 
 	        		from (
-						select * from notice 
+						select * from (
+						    select * from notice 
+						    where pub = 0) 
 		            	where title    like '%${param2}%' 
 		            	or	  contents like '%${param2}%'			 
 						order by regdate desc
@@ -99,7 +113,9 @@
 		    	from (
 		        	select rownum no, n.* 
 		        	from (
-						select * from notice 
+						select * from (
+						    select * from notice 
+						    where pub = 0) 
 		            	where title like '%${param2}%'            				 
 						order by regdate desc
 						) n
@@ -126,7 +142,9 @@
                 from (
                     select rownum no, n.* 
                     from (
-                        select * from notice 
+                        select * from (
+						    select * from notice 
+						    where pub = 0) 
                         where contents like '%${param2}%'            				 
                         order by regdate desc
                     ) n
@@ -137,8 +155,149 @@
 	    )
 		WHERE nNo = #{param1}
 	</select>	
+	
+	<!-- ─────────────────────────────────── 관리자 select ─────────────────────────────────── -->
+	<select id='admin_tot_list_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select count(nNo) from notice
+		where title    like '%${findStr}%'
+		or 	  contents like '%${findStr}%'
+	</select>
+	
+	<select id='admin_select' resultType='kr.iei.hotel.notice.vo.NoticeVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, n.* from (
+				select * from notice
+            	where title    like '%${findStr}%' 
+            	or	  contents like '%${findStr}%'
+				order by regdate desc) n
+		) where no between #{startNo} and #{endNo}
+		order by nNo desc
+	</select>
+	
+	<select id='admin_tot_title_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select count(nNo) from notice
+		where title like '%${findStr}%'
+	</select>
+	
+	<select id='admin_title_select' resultType='kr.iei.hotel.notice.vo.NoticeVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, n.* from (
+				select * from notice 
+            	where title like '%${findStr}%'            				 
+				order by regdate desc) n
+		) where no between #{startNo} and #{endNo} 
+		order by nNo desc
+	</select>
+	
+	<select id='admin_tot_contents_size' resultType='int' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select count(nNo) from notice
+		where contents like '%${findStr}%'
+	</select>
+	
+	<select id='admin_contents_select' resultType='kr.iei.hotel.notice.vo.NoticeVo' parameterType='kr.iei.hotel.notice.vo.Page'>
+		select * from (
+        	select rownum no, n.* from (
+				select * from notice 
+            	where contents like '%${findStr}%'            				 
+				order by regdate desc) n
+		) where no between #{startNo} and #{endNo} 
+		order by nNo desc
+	</select>
+	
+	<select id='admin_view' resultType='kr.iei.hotel.notice.vo.NoticeVo' parameterType='int'>
+		select * from notice where nNo=#{_parameter}
+	</select>
+	
+	<select id='admin_total_article' resultType='kr.iei.hotel.notice.vo.NoticeVo'>
+		SELECT * 
+		FROM(
+		    SELECT  nNo, rownum num,
+		            lag(nNo) over(order by nNo) preNo,
+		            lag(title) over(order by nNo) preTitle,
+		            lag(regdate) over(order by nNo) preDate,
+		            lag(pub) over(order by nNo) prePub,		            
+		            lead(nNo) over(order by nNo) nextNo,
+		            lead(title) over(order by nNo) nextTitle,
+		            lead(regdate) over(order by nNo) nextDate,
+		            lead(pub) over(order by nNo) nextPub
+		    FROM(select * 
+		    	from (
+	        		select rownum no, n.* 
+	        		from (
+						select * from notice 
+		            	where title    like '%${param2}%' 
+		            	or	  contents like '%${param2}%'			 
+						order by regdate desc
+					) n
+           		)
+			order by nNo desc	    
+	    	)
+	    ORDER BY nNo desc
+	    )
+		WHERE nNo = #{param1}
+		
+	</select>
+	
+	<select id='admin_title_article' resultType='kr.iei.hotel.notice.vo.NoticeVo'>
+		SELECT * 
+		FROM(
+		    SELECT  nNo, rownum num,
+		            lag(nNo) over(order by nNo) preNo,
+		            lag(title) over(order by nNo) preTitle,
+		            lag(regdate) over(order by nNo) preDate,
+		            lag(pub) over(order by nNo) prePub,
+		            lead(nNo) over(order by nNo) nextNo,
+		            lead(title) over(order by nNo) nextTitle,
+		            lead(regdate) over(order by nNo) nextDate,
+		            lead(pub) over(order by nNo) nextPub
+		    FROM(select * 
+		    	from (
+		        	select rownum no, n.* 
+		        	from (
+						select * from notice 
+		            	where title like '%${param2}%'            				 
+						order by regdate desc
+						) n
+				)  
+			order by nNo desc	    
+	    	)
+	    ORDER BY nNo desc
+	    )
+		WHERE nNo = #{param1}
+	</select>
+	
+	<select id='admin_content_article' resultType='kr.iei.hotel.notice.vo.NoticeVo'>
+		SELECT * 
+		FROM(
+		    SELECT  nNo, rownum num,
+		            lag(nNo) over(order by nNo) preNo,
+		            lag(title) over(order by nNo) preTitle,
+		            lag(regdate) over(order by nNo) preDate,
+		            lag(pub) over(order by nNo) prePub,
+		            lead(nNo) over(order by nNo) nextNo,
+		            lead(title) over(order by nNo) nextTitle,
+		            lead(regdate) over(order by nNo) nextDate,
+		            lead(pub) over(order by nNo) nextPub
+		    FROM(
+                select * 
+                from (
+                    select rownum no, n.* 
+                    from (
+                        select * from notice
+                        where contents like '%${param2}%'            				 
+                        order by regdate desc
+                    ) n
+                ) 
+                order by nNo desc
+	    	)
+	    ORDER BY nNo desc
+	    )
+		WHERE nNo = #{param1}
+	</select>
+	
+	
 
-	<!-- ──────────────────────── 댓글 ──────────────────────── -->
+	<!-- ─────────────── 댓글 ─────────────────────── 댓글 ─────────────────────── 댓글 ─────────────── -->
 	<select id='tot_reply_list_size' resultType='int' parameterType='int'>
 		select count(rNo) from reply where nNo = #{nNo}		
 	</select>

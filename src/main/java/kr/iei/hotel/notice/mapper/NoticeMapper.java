@@ -12,7 +12,7 @@ import kr.iei.hotel.notice.vo.Page;
 @Mapper
 public interface NoticeMapper {
 	
-	/*---------- 공지사항 ----------*/
+	/*---------- 공지사항 사용자----------*/
 	public int tot_list_size(Page page);
 	public int tot_title_size(Page page);
 	public int tot_contents_size(Page page);
@@ -28,6 +28,17 @@ public interface NoticeMapper {
 	public NoticeVo title_article(int nNo, String findStr);
 	public NoticeVo content_article(int nNo, String findStr);
 
+	/*---------- 공지사항 관리자 ----------*/
+	public int admin_tot_list_size(Page page);
+	public int admin_tot_title_size(Page page);
+	public int admin_tot_contents_size(Page page);
+	public List<NoticeVo> admin_select(Page page);
+	public List<NoticeVo> admin_title_select(Page page);
+	public List<NoticeVo> admin_contents_select(Page page);
+	public NoticeVo admin_total_article(int nNo, String findStr);
+	public NoticeVo admin_title_article(int nNo, String findStr);
+	public NoticeVo admin_content_article(int nNo, String findStr);
+	
 	/*---------- 댓글 ----------*/	
 	public int tot_reply_list_size(int nNo);
 	public List<NoticeReplyVo> reply_select(int startNo, int endNo, int nNo);

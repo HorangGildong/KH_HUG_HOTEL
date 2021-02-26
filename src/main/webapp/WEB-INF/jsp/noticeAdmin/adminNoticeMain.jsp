@@ -131,8 +131,8 @@
             <div class="container">
 	<%-- ─────────────────────────────────── 공지사항 설명 부분 ─────────────────────────────────── --%> 
                 <dl class="dl-horizontal non"> 
-                   <dt>공지사항</dt><br><br>
-                   <dd>HUG호텔의 다양한 소식을 전해드립니다.</dd>   
+                   <dt id='admindt'>관리자 공지사항</dt><br><br>
+                   <dd id='admindd'>HUG호텔의 다양한 소식을 전해드립니다.</dd>   
                 </dl>        
                 
 	<%-- ─────────────────────────────────── form태그 부분 ─────────────────────────────────── --%> 
@@ -146,9 +146,9 @@
                     </div>
                     <div>
                         <select class="form-control" name='adminSelectBox' id='adminSelectBox' >
-	                        <option ${(param.adminSelectBox == "total")? "selected":"" } value='total'>전체</option>
-	                        <option ${(param.adminSelectBox == "title")? "selected":"" } value='title'>제목</option>
-	                        <option ${(param.adminSelectBox == "contents")? "selected":"" } value='contents'>내용</option>               
+	                        <option ${(page.menu == "total")? "selected":"" } value='total'>전체</option>
+	                        <option ${(page.menu == "title")? "selected":"" } value='title'>제목</option>
+	                        <option ${(page.menu == "contents")? "selected":"" } value='contents'>내용</option>               
                         </select>
                 
                         <input type="text" id='text'class="form-control" name='findStr' value="${param.findStr }">            

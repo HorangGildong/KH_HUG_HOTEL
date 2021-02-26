@@ -95,10 +95,11 @@ public class NoticeController {
 		vo = service.view(vo.getnNo());				
 		
 		if (page.getMenu().equals("title")) {
-			vo1 = service.title_article(vo.getnNo(),page.getFindStr());
+			vo1 = service.title_article(vo.getnNo(),page.getFindStr());			
 		}
 		else if (page.getMenu().equals("contents")) {
 			vo1 = service.content_article(vo.getnNo(),page.getFindStr());
+
 		}else  {
 			vo1 = service.total_article(vo.getnNo(),page.getFindStr());
 		}
@@ -133,7 +134,7 @@ public class NoticeController {
 	public ModelAndView adminNoticeMain(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.select(page);		
+		Map<String, Object> map = service.admin_select(page);		
 		List<NoticeVo> list = (List<NoticeVo>) map.get("list");
 		page = (Page) map.get("page");
 
@@ -150,7 +151,7 @@ public class NoticeController {
 	public ModelAndView adminNoticeTitle(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.title_select(page);		
+		Map<String, Object> map = service.admin_title_select(page);		
 		List<NoticeVo> list = (List<NoticeVo>) map.get("list");
 		page = (Page) map.get("page");
 
@@ -167,7 +168,7 @@ public class NoticeController {
 	public ModelAndView adminNoticeContents(Page page) {
 		ModelAndView mv = new ModelAndView();
 		
-		Map<String, Object> map = service.contents_select(page);		
+		Map<String, Object> map = service.admin_contents_select(page);		
 		List<NoticeVo> list = (List<NoticeVo>) map.get("list");
 		page = (Page) map.get("page");
 
@@ -181,29 +182,47 @@ public class NoticeController {
 	
 	/*--------------------------------- 뷰 상세보기 ---------------------------------*/
 	@RequestMapping(value="/adminNoticeDetail", method= RequestMethod.POST)
-	public ModelAndView adminNoticeDetail(NoticeVo vo, 
-			@RequestParam(value="menu", required=false, defaultValue="total") String str,
-			@RequestParam(value="findStr", required=false, defaultValue="") String findStr) {
+public ModelAndView adminNoticeDetail(NoticeVo vo, Page page, NoticeReplyVo vo2) {
 		
 		ModelAndView mv = new ModelAndView();
 		NoticeVo vo1 = null;		
+		System.out.println("---상세보기 시작---");
+		System.out.println("vo2.getMemberNick(): "+vo2.getMemberNick());
+		System.out.println("1.menu: "+page.getMenu());
+		System.out.println("2.vo.getnNo(): "+vo.getnNo());
+		System.out.println("3.findStr : "+ page.getFindStr());
+		System.out.println("vo2nNo: " + vo2.getnNo());		
+	
+		vo = service.view(vo.getnNo());				
 		
-		System.out.println(str);
-		
-		vo = service.view(vo.getnNo());	
-			
-		if (str.equals("total")) {
-			vo1 = service.total_article(vo.getnNo(),findStr);			
+		if (page.getMenu().equals("title")) {
+			vo1 = service.admin_title_article(vo.getnNo(),page.getFindStr());
 		}
-		else if (str.equals("title")) {
-			vo1 = service.title_article(vo.getnNo(),findStr);
+		else if (page.getMenu().equals("contents")) {
+			vo1 = service.admin_content_article(vo.getnNo(),page.getFindStr());
+		}else  {
+			vo1 = service.admin_total_article(vo.getnNo(),page.getFindStr());
 		}
-		else if (str.equals("contents")) {
-			vo1 = service.content_article(vo.getnNo(),findStr);
-		}	
 		
+		Map<String, Object> map = Rservice.Rselect(page, vo2.getnNo());						
+	      
+	    List<NoticeReplyVo> list = (List<NoticeReplyVo>) map.get("list");
+	    page = (Page) map.get("page");
+		
+	   	Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		vo2.setRegdate(dateFormat.format(date));
+		
+		System.out.println("4.reply_data: "+ vo2.getRegdate());		
+		System.out.println("5.vo.getnNo(): "+vo.getnNo());
+		
+		System.out.println("---상세보기 끝---");
+		
+		mv.addObject("vo2", vo2);
+		mv.addObject("list", list);
+		mv.addObject("page", page);  
 		mv.addObject("vo", vo);
-		mv.addObject("vo1", vo1);
+		mv.addObject("vo1", vo1);		
 		mv.setViewName("noticeAdmin/adminNoticeDetail");
 		return mv;
 	}

@@ -31,8 +31,9 @@ public class NoticeReplyController {
 	NoticeReplyService Rservice;
 	@Autowired
 	NoticeController control;
-   
-   /*--------------------------------- 댓글 입력 ---------------------------------*/
+   /* 일반 사용자 공지사항 */
+	
+   /*--------------------------------- 일반 공지사항 댓글 입력 ---------------------------------*/
 	 @RequestMapping(value="/noticeDetail_Rinsert", method=RequestMethod.POST)
 	   public ModelAndView noticeRinsert_result(NoticeVo vo, Page page, NoticeReplyVo vo2) {
 			
@@ -50,7 +51,7 @@ public class NoticeReplyController {
 			mv.addObject("vo2", vo2);			
 			
 			return control.noticeDetail(vo, page, vo2);
-	   }
+	   }		
 	   
 	   /*--------------------------------- 댓글 수정 ---------------------------------*/
 	   @RequestMapping(value="/Rupdate", method= RequestMethod.POST)
@@ -85,54 +86,81 @@ public class NoticeReplyController {
 	   public ModelAndView adminRdelete(NoticeVo vo, Page page, NoticeReplyVo vo2) {
 		   ModelAndView mv = new ModelAndView();	
 		   
+		   System.out.println("getrNo: "+ vo2.getrNo());
+		   
 		   String msg = Rservice.adminRdelete(vo2);		
 		   
 		   return control.noticeDetail(vo, page, vo2);
 	   }
 	   
+	   /* 관리자 공지사항 */ 
 	   
-	   
-	   /*
-	   //--------------------------------- 댓글 수정 ---------------------------------
-	   @RequestMapping(value="/adminNoticeUpdate", method= RequestMethod.POST)
-	   public ModelAndView adminNoticeUpdate(NoticeReplyVo vo) {
-	      ModelAndView mv = new ModelAndView();
-	      
-	      vo = service.view(vo.getnNo());
-	      
-	      mv.addObject("vo", vo);
-	      mv.setViewName("noticeAdmin/adminNoticeUpdate");
-	      return mv;
-	   }   
-	   
-	   //--------------------------------- 댓글수정 시 모달창 ---------------------------------
-	   @RequestMapping(value="/adminNoticeModify", method= RequestMethod.POST)
-	   public ModelAndView adminNoticeModify(NoticeReplyVo vo) {
-	      ModelAndView mv = new ModelAndView();
-	      System.out.println(vo.getnNo());
-	      System.out.println(vo.getTitle());
-	      System.out.println(vo.getContents());
-	      System.out.println(vo.getPub());
-	      
-	      String msg = service.update(vo);      
-	      
-	      mv.addObject("msg", msg);
-	      mv.setViewName("noticeAdmin/modifyAlert");
-	      return mv;
+	   /*--------------------------------- 관리자 공지사항 댓글 입력 ---------------------------------*/
+	   @RequestMapping(value="/admin_noticeDetail_Rinsert", method=RequestMethod.POST)
+	   public ModelAndView admin_noticeDetail_Rinsert(NoticeVo vo, Page page, NoticeReplyVo vo2) {
+				
+		   ModelAndView mv = new ModelAndView();
+			   
+		   if (vo2.getMemberNick() != null) {
+			   vo2.setNick(vo2.getMemberNick());
+				
+			   NoticeReplyVo list2 = Rservice.Rselect2(vo2.getNick());
+			   vo2.setMemberNumber(list2.getId());						
+							
+			   String msg = Rservice.Rinsert(vo2);
+		   }
+			
+		   mv.addObject("vo2", vo2);			
+			
+		   return control.adminNoticeDetail(vo, page, vo2);
 	   }
 	   
-	   //--------------------------------- 댓글 삭제 ---------------------------------//
-	   @RequestMapping(value="/adminNoticeDelete", method= RequestMethod.POST)
-	   public ModelAndView adminNoticeDelete(NoticeReplyVo vo) {
-	      ModelAndView mv = new ModelAndView();
-	      System.out.println("삭제할번호는 " +vo.getnNo());
-	      
-	      String msg = service.delete(vo.getnNo());
-	      
-	      mv.addObject("msg", msg);
-	      mv.setViewName("noticeAdmin/deleteAlert");
-	      return mv;
+	   /*--------------------------------- 관리자 공지사항 댓글 수정 ---------------------------------*/
+	   @RequestMapping(value="/admin_Rupdate", method= RequestMethod.POST)
+	   public ModelAndView admin_Rupdate(NoticeVo vo, Page page, NoticeReplyVo vo2,
+			   @RequestParam(value="Rcontent", required=false, defaultValue="") String Rcontent,
+			   @RequestParam(value="pwd", required=false, defaultValue="") String pwd) {
+		   ModelAndView mv = new ModelAndView();
+		   
+		   vo2.setContent(Rcontent);
+		   vo2.setPassword(pwd);
+		  
+		   String msg = Rservice.Rupdate(vo2);		      
+		   	   
+		   return control.adminNoticeDetail(vo, page, vo2);
 	   }
-	   */
+	   
+	   /*--------------------------------- 관리자 공지사항  사용자 댓글 삭제 ---------------------------------*/
+	   @RequestMapping(value="/admin_Rdelete", method= RequestMethod.POST)
+	   public ModelAndView admin_Rdelete(NoticeVo vo, Page page, NoticeReplyVo vo2,
+			   @RequestParam(value="pwd", required=false, defaultValue="") String pwd) {
+		   ModelAndView mv = new ModelAndView();	
+		   
+		   vo2.setPassword(pwd);		  
+		   
+		   String msg = Rservice.Rdelete(vo2);
+		   
+		   return control.adminNoticeDetail(vo, page, vo2);
+	   }
+	   
+	   /*--------------------------------- 관리자 공지사항 댓글 삭제 ---------------------------------*/
+	   @RequestMapping(value="/admin_notice_Rdelete", method= RequestMethod.POST)
+	   public ModelAndView admin_notice_Rdelete(NoticeVo vo, Page page, NoticeReplyVo vo2) {
+		   ModelAndView mv = new ModelAndView();	
+		   
+		   String msg = Rservice.adminRdelete(vo2);		
+		   
+		   return control.adminNoticeDetail(vo, page, vo2);
+	   }
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 	   
 	}

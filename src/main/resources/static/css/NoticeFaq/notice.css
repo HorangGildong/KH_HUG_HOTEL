@@ -15,6 +15,17 @@
     margin-left: -150px;
     margin-top: 10px;
 }
+#notice dl #admindt{  
+    font-size: 30px;
+    text-align: left;
+    color: #567dac;
+    width: 230px;
+}
+#notice dl #admindd{
+    display: inline-block;
+    margin-left: -220px;
+    margin-top: 10px;
+}
 
 /*--------------------- form태그 부분 ---------------------*/
 #notice #frm_notice{

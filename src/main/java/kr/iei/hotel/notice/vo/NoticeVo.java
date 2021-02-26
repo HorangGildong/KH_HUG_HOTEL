@@ -8,14 +8,30 @@ public class NoticeVo {
 	String hit;
 	String regdate;
 	int pub;
+		
 	int preNo;
 	String preTitle;
 	String preDate;
+	int prePub;
+	
 	int nextNo;
 	String nextTitle;
 	String nextDate;
+	int nextPub;
 	
-
+	
+	public int getPrePub() {
+		return prePub;
+	}
+	public void setPrePub(int prePub) {
+		this.prePub = prePub;
+	}
+	public int getNextPub() {
+		return nextPub;
+	}
+	public void setNextPub(int nextPub) {
+		this.nextPub = nextPub;
+	}
 	public String getPreDate() {
 		return preDate;
 	}

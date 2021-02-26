@@ -19,6 +19,8 @@ public class NoticeDao implements NoticeService {
 	@Autowired
 	NoticeMapper mapper;
 	
+	/*사용자*/
+	
 	/*--------------------------------- 전체 조회,검색 ---------------------------------*/
 	@Override
 	public Map<String, Object> select(Page page){
@@ -100,6 +102,156 @@ public class NoticeDao implements NoticeService {
 		return map;
 	}	
 	
+	/*--------------------------------- 전체검색 시 이전글, 다음글 ---------------------------------*/
+	@Override
+	public NoticeVo total_article(int nNo, String findStr) {		
+		
+		NoticeVo vo = mapper.total_article(nNo, findStr);
+		System.out.println("전체 검색 이전글,다음글");
+		
+		return vo;
+	}
+	
+	/*--------------------------------- 제목검색 시 이전글, 다음글 ---------------------------------*/
+	@Override
+	public NoticeVo title_article(int nNo, String findStr) {
+
+		NoticeVo vo = mapper.title_article(nNo, findStr);
+		System.out.println("제목 검색 이전글,다음글");
+
+		return vo;		
+	}
+	
+	/*--------------------------------- 내용검색 시 이전글, 다음글 ---------------------------------*/
+	@Override
+	public NoticeVo content_article(int nNo, String findStr) {		
+
+		NoticeVo vo = mapper.content_article(nNo, findStr);
+		System.out.println("내용 검색 이전글,다음글");
+
+		
+		return vo;		
+	}
+	
+	/*--------------------------------- 공지 상세보기 ---------------------------------*/
+	@Override
+	public NoticeVo view(int nNo) {
+		mapper.hit(nNo);	
+		NoticeVo vo = mapper.view(nNo);	
+				
+		return vo;		
+	}
+	
+	/*관리자*/
+	
+	/*--------------------------------- 관리자 전체 조회,검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> admin_select(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<NoticeVo> list = null;
+				
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);			
+		}		
+		
+		int totListSize = mapper.admin_tot_list_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+				
+		list = mapper.admin_select(page);
+		
+		System.out.println("Dao_전체");
+		
+		map.put("page", page);
+		map.put("list", list);
+		
+		return map;
+	}
+	
+	/*--------------------------------- 관리자 제목 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> admin_title_select(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<NoticeVo> list = null;		
+		
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);			
+		}		
+		
+		int totListSize = mapper.admin_tot_title_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+				
+		list = mapper.admin_title_select(page);
+		
+		System.out.println("Dao_제목");
+				
+		map.put("page", page);
+		map.put("list", list);
+		
+		return map;
+	}
+
+	/*--------------------------------- 관리자 내용 검색 ---------------------------------*/
+	@Override
+	public Map<String, Object> admin_contents_select(Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<NoticeVo> list = null;
+				
+		if (page == null) {
+			page = new Page();
+			page.setNowPage(1);
+		} else if (page.getNowPage() < 1) {
+			page.setNowPage(1);			
+		}		
+		
+		int totListSize = mapper.admin_tot_contents_size(page);
+		page.setTotListSize(totListSize);
+		page.pageCompute();
+				
+		list = mapper.admin_contents_select(page);
+		
+		System.out.println("Dao_내용");
+		
+		map.put("page", page);
+		map.put("list", list);
+		
+		return map;
+	}
+
+	/*--------------------------------- 관리자 전체검색 시 이전글, 다음글 ---------------------------------*/
+	@Override
+	public NoticeVo admin_total_article(int nNo, String findStr) {
+		NoticeVo vo = mapper.admin_total_article(nNo, findStr);
+		System.out.println("전체 검색 이전글,다음글");
+		
+		return vo;
+	}
+	
+	/*--------------------------------- 관리자 제목검색 시 이전글, 다음글 ---------------------------------*/
+	@Override
+	public NoticeVo admin_title_article(int nNo, String findStr) {
+		NoticeVo vo = mapper.admin_title_article(nNo, findStr);
+		System.out.println("제목 검색 이전글,다음글");
+
+		return vo;
+	}
+
+	/*--------------------------------- 관리자 내용검색 시 이전글, 다음글 ---------------------------------*/
+	@Override
+	public NoticeVo admin_content_article(int nNo, String findStr) {
+		NoticeVo vo = mapper.admin_content_article(nNo, findStr);
+		System.out.println("내용 검색 이전글,다음글");
+		
+		return vo;
+	}
+	
 	/*--------------------------------- 공지 등록 ---------------------------------*/
 	@Override
 	public String insert(NoticeVo vo) {
@@ -139,43 +291,4 @@ public class NoticeDao implements NoticeService {
 		return msg;
 	}
 	
-	/*--------------------------------- 공지 상세보기 ---------------------------------*/
-	@Override
-	public NoticeVo view(int nNo) {
-		mapper.hit(nNo);	
-		NoticeVo vo = mapper.view(nNo);	
-				
-		return vo;		
-	}
-
-	/*--------------------------------- 전체검색 시 이전글, 다음글 ---------------------------------*/
-	@Override
-	public NoticeVo total_article(int nNo, String findStr) {
-		System.out.println("전체 전");
-		System.out.println(nNo);
-
-		NoticeVo vo = mapper.total_article(nNo, findStr);
-		System.out.println("전체 후");
-		return vo;
-	}
-	
-	/*--------------------------------- 제목검색 시 이전글, 다음글 ---------------------------------*/
-	@Override
-	public NoticeVo title_article(int nNo, String findStr) {
-		System.out.println("제목 전");
-		System.out.println(nNo);
-		NoticeVo vo = mapper.title_article(nNo, findStr);
-		System.out.println("제목 후");
-		return vo;		
-	}
-	
-	/*--------------------------------- 내용검색 시 이전글, 다음글 ---------------------------------*/
-	@Override
-	public NoticeVo content_article(int nNo, String findStr) {
-		System.out.println("내용 전");
-		System.out.println(nNo);
-		NoticeVo vo = mapper.content_article(nNo, findStr);
-		System.out.println("내용 후");
-		return vo;		
-	}
 }

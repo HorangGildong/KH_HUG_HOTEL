@@ -18,12 +18,13 @@
     font-size: 30px;
     text-align: left;
     color: #567dac;
+    width: 230px;
 }
 #notice_detail dl dd{
-    display: inline-block;    
-    margin-left: -150px;
+    display: inline-block;
+    margin-left: -220px;
     margin-top: 10px;
-    margin-bottom: 85px;   
+    margin-bottom: 85px;
 }
 
 
@@ -63,7 +64,8 @@
 }
 #notice_detail #div_3{          
     display: inline-block;     
-    margin: 20px;                  
+    margin: 20px;    
+                 
 }
 #notice_detail #detail_Middle1{
     margin-bottom: 10px;    
@@ -111,20 +113,15 @@
     font-size: 14px;
     background-color: rgb(240, 240, 240); 
 }
-
 #notice_detail #detail_Middle2 #div1{    
     display: inline-block;    
-    text-align: center;
-    width: 100px;
-    height: 80px;
-    line-height: 80px;    
-    
+    text-align: center;        
 }
 #notice_detail #detail_Middle2 #input7{    
     border: 0;
     background-color: white;
     width: 100px; 
-    height: 80px;
+    height: 98px;
     font-size: 23px;   
          
 }
@@ -244,3 +241,14 @@
 	pointer-events: none; 
 	cursor: default;
 }
+#detail_Footer #detail_Footer .rowEnd{
+	pointer-events: none; 
+	cursor: default;
+}
+	
+
+
+	
+	
+	
+	
