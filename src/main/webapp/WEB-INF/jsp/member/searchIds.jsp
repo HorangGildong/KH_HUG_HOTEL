@@ -71,7 +71,7 @@
 						
 					</form>
 
-					<br>
+					<div id="search"></div>
 
 					<div class="form-group">
 						<button class="btn btn-primary btn-lg btn-block"
@@ -151,10 +151,14 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
+		var name;
+		var phone;
+		var objDiv;
+		
 		$('#searchBtn').click(function() {
-			var name = $('#inputName').val();
-			var phone = $('#inputPhone').val();
-			var objDiv = $('<div>');
+			name = $('#inputName').val();
+			phone = $('#inputPhone').val();
+			objDiv = $('<div>');
 			objDiv.append($('<div>')
 				.addClass('col-xs-1 glyphicon glyphicon-user')
 				.attr('aria-hidden', 'true')
@@ -173,7 +177,7 @@
 				.addClass('col-xs-2 btn btn-info')
 				.css('margin-bottom', '15px')
 				.text('로그인')
-				);
+			);
 			$.ajax({
 				url : '${pageContext.request.contextPath}/searchIds/searchIds?name=' + name + '&phone=' + phone,
 				type : 'get',

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
+import kr.iei.hotel.member.dto.MemberDto;
 
 @Controller
 public class Test {
@@ -26,8 +27,11 @@ public class Test {
 	
 	@GetMapping("/test")
 	@ResponseBody
-	public String test(Authentication authentication) {
-		return null;
+	public MemberDto test(
+			Authentication authentication,
+			@AuthenticationPrincipal PrincipalDetails userDetails,
+			@AuthenticationPrincipal OAuth2User oAuth2user) {
+		return userDetails.getMemberDto();
 	}
 	
 	@GetMapping("/test0")
@@ -38,7 +42,7 @@ public class Test {
 			@AuthenticationPrincipal OAuth2User oAuth2user) {
 		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
 		OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
-		SecurityContextHolder.clearContext();
+//		SecurityContextHolder.clearContext();
 		return ("authentication : <br>" + authentication + "<br><br>"
 				+ "authentication.getPrincipal() : <br>" + authentication.getPrincipal() + "<br><br>"
 				+ "userDetails : <br>" + userDetails + "<br><br>"
