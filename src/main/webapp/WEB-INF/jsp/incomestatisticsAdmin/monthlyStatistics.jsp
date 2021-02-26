@@ -59,20 +59,20 @@
 				
 				<div class ="totalBox">
 				<span>TOTAL PRICE&nbsp;</span>
-				<span style="color: red; display: none;" id="standardPriceSUM">= ${incomeStatistics.standardTotalPrice }</span>
-				<span style="color: orange; display: none;" id="superiorPriceSUM">= ${incomeStatistics.superiorTotalPrice }</span>
-				<span style="color: goldenrod; display: none;" id="deluxePriceSUM">= ${incomeStatistics.deluxeTotalPrice }</span>
-				<span style="color: green; display: none;" id="royalPriceSUM">= ${incomeStatistics.royalTotalPrice }</span>
-				<span style="color: blue; display: none;" id="totalPriceSUM">= ${incomeStatistics.totalSumPrice }</span>
+				<span style="color: red; display: none;" id="standardPriceSUM">= <fmt:formatNumber value="${incomeStatistics.standardTotalPrice }" pattern="#,###"/></span>
+				<span style="color: orange; display: none;" id="superiorPriceSUM">= <fmt:formatNumber value="${incomeStatistics.superiorTotalPrice }" pattern="#,###"/></span>
+				<span style="color: goldenrod; display: none;" id="deluxePriceSUM">= <fmt:formatNumber value="${incomeStatistics.deluxeTotalPrice }" pattern="#,###"/></span>
+				<span style="color: green; display: none;" id="royalPriceSUM">= <fmt:formatNumber value="${incomeStatistics.royalTotalPrice }" pattern="#,###"/></span>
+				<span style="color: blue; display: none;" id="totalPriceSUM">= <fmt:formatNumber value="${incomeStatistics.totalSumPrice }" pattern="#,###"/></span>
 								
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<span>AVG PRICE&nbsp;</span>
-				<span style="color: red; display: none;" id="AVG2">= ${incomeStatistics.standardAveragePrice }</span>
-				<span style="color: orange; display: none;" id="AVG4">= ${incomeStatistics.superiorAveragePrice }</span>
-				<span style="color: goldenrod; display: none;" id="AVG6">= ${incomeStatistics.deluxeAveragePrice }</span>
-				<span style="color: green; display: none;" id="AVG8">= ${incomeStatistics.royalAveragePrice }</span>
-				<span style="color: blue; display: none;" id="AVG10">= ${incomeStatistics.totalAveragePrice }</span>
+				<span style="color: red; display: none;" id="AVG2">= <fmt:formatNumber value="${incomeStatistics.standardAveragePrice }" pattern="#,###"/></span>
+				<span style="color: orange; display: none;" id="AVG4">= <fmt:formatNumber value="${incomeStatistics.superiorAveragePrice }" pattern="#,###"/></span>
+				<span style="color: goldenrod; display: none;" id="AVG6">= <fmt:formatNumber value="${incomeStatistics.deluxeAveragePrice }" pattern="#,###"/></span>
+				<span style="color: green; display: none;" id="AVG8">= <fmt:formatNumber value="${incomeStatistics.royalAveragePrice }" pattern="#,###"/></span>
+				<span style="color: blue; display: none;" id="AVG10">= <fmt:formatNumber value="${incomeStatistics.totalAveragePrice }" pattern="#,###"/></span>
 				</div>
 				
 				

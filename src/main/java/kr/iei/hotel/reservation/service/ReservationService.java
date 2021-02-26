@@ -39,8 +39,8 @@ public class ReservationService {
 		reservationMapper.reservationInsertProcess(reservationVO);
 	}
 	//예약 관리 리스트
-	public List<ReservationVO> reservationAdminList()throws Exception {
-		return reservationMapper.reservationAdminList();
+	public List<ReservationVO> reservationAdminList(int number1)throws Exception {
+		return reservationMapper.reservationAdminList(number1);
 	}
 	//예약 관리 삭제
 	public void reservationAdminDelete(String reservationNo)throws Exception {

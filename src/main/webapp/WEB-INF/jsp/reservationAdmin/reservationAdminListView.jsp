@@ -68,7 +68,7 @@
                     <th class="lengthSort">예약날짜</th>
                     <th class="lengthSort">룸</th>
                     <th class="lengthSort">성인/어린이</th>
-                    <th class="lengthSort">회원등급</th>
+                    <th class="lengthUp">회원등급</th>
                     <th class="lengthSort">가격</th>
                 </tr>
                 <tr>
@@ -77,8 +77,8 @@
                     <td class="lengthSort">${list.checkIn } - ${list.checkOut }</td>
                     <td class="lengthSort">${list.guestRoomName }${list.guestRoomNo }호</td>
                     <td class="lengthSort">${list.adult }명/${list.child }명</td>
-                    <td class="lengthSort">${list.memberGrade }</td>
-                    <td class="lengthSort">${list.totalPrice }원</td>
+                    <td class="lengthUp">${list.memberGrade }</td>
+                    <td class="lengthSort"><fmt:formatNumber value="${list.totalPrice }" pattern="#,###"/>원</td>
                 </tr>
             </table>
             <div class="buttonWrap">

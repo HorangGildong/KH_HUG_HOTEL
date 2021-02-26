@@ -95,7 +95,7 @@
                 </ul>
                 </div>
                 <p>가격</p>
-                <p class="angryJYP">${reservationInfo.totalPrice }</p>
+                <p class="angryJYP"> <fmt:formatNumber value="${reservationInfo.totalPrice }" pattern="#,###"/> </p>
 
 
                 <div class="guideBox">

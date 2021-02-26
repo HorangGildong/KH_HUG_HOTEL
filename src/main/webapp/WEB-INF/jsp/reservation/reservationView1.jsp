@@ -125,7 +125,7 @@
                     </div>
                     <div class="roomPrice">
                         <p>1박</p>
-                        <span>${guestRoom.guestRoomPrice } 원 ~</span>
+                        <span><fmt:formatNumber value="${guestRoom.guestRoomPrice }" pattern="#,###"/> 원 ~</span>
                         <button type="submit" form="jypRequest"> 예약하기</button>
                     </div>
                 </div>
@@ -151,23 +151,24 @@
                     <ul><h1>숙박기간에 대한 추가금<span> 선택한 날짜 : <input name="checkIn" readonly class="ipButtonType" type="text" value="${reservationInfo.checkIn }">-<input name="checkOut" readonly class="ipButtonType" type="text" value="${reservationInfo.checkOut }"></span></h1>
                         <li><input style="width: 22px;" name="lodgmentPeriod" readonly type="text" value="${reservationInfo.lodgmentPeriod }" />박</li> 
                         <c:forEach begin="1" end="${reservationInfo.lodgmentPeriod }">
-                        <li>+ ${guestRoom.guestRoomPrice }</li>
+                        <li>+ <fmt:formatNumber value="${guestRoom.guestRoomPrice }" pattern="#,###"/></li>
                         </c:forEach>
                     </ul>
                     <ul><h1>기준인원을 넘어선 추가금<span> 선택한 인원 : 성인 <input name="adult" readonly class="ipButtonType1" type="text" value="${reservationInfo.adult }">, 어린이 <input name="child" readonly class="ipButtonType1" type="text" value="${reservationInfo.child }"></span></h1>
       					<li>기준인원 ${guestRoom.standardPersonnel }  명</li>
                         <c:forEach begin="1" end="${reservationInfo.adultCount }">
-                        <li>성인 + ${guestRoom.adultPrice }</li>
+                        <li>성인 + <fmt:formatNumber value="${guestRoom.adultPrice }" pattern="#,###"/></li>
                         </c:forEach>
                         <c:forEach begin="1" end="${reservationInfo.childCount }">
-                        <li>어린이 + ${guestRoom.childPrice }</li>
+                        <li>어린이 + <fmt:formatNumber value="${guestRoom.childPrice }" pattern="#,###"/></li>
                         </c:forEach>
                     </ul>
-                    <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input name="memberGrade" readonly class="ipButtonType" type="text" value="${reservationInfo.memberGrade }"></span></h1>
-                        <li>없음</li>
+                    <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input name="memberGrade" readonly class="ipButtonType3" type="text" value="${reservationInfo.memberGrade }"></span></h1>
+                        <li>${reservationInfo.discount }</li>
                     </ul>
-                    <ul><h1>총 금액</h1>
-                        <li><input name="totalPrice" readonly class="ipButtonType2" type="text" value="${reservationInfo.totalPrice }"> 원</li>
+                    <ul><h1>총 금액</h1><input style="display: none;" name="totalPrice" type="text" value="${reservationInfo.totalPrice }" />
+                        <li><input readonly class="ipButtonType2" type="text" value="<fmt:formatNumber value="${reservationInfo.totalPrice }" pattern="#,###"/>"> 원</li>
+                        
                     </ul>
                     </form>
                 </div>

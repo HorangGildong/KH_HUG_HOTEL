@@ -212,6 +212,11 @@
             font-weight: 300;
             font-size: 20px;
         }
+        .searchRoomDetailInfo .ipButtonType3 {
+            color: #72a5d3;
+            width: 250px;
+            font-weight: bold;
+        }
         .guestRoomNumberTable {
         }
         .guestRoomNumberTable .jypSizeUp {

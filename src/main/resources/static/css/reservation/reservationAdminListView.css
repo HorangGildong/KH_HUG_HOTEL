@@ -56,14 +56,16 @@
         }
         .hotelHugWrap .reservationInfo .buttonWrap {
             position: relative;
-            left: 935px;
-            padding: 53px;
+		left: 965px;
+    /* padding: 62px 31px 42px; */
+    padding: 61px;
+            
         }
         .hotelHugWrap .reservationInfo .buttonWrap a {
             text-decoration: none;
             color: #193f6e;
             border: 1px solid #193f6e;
-            padding: 51px;
+            padding: 59px;
         }
         .hotelHugWrap .reservationInfo .buttonWrap a:hover {
             color: white;
@@ -89,7 +91,7 @@
             text-align: center;
         }
         .hotelHugWrap .reservationInfo .lengthSort {
-            width: 125px;
+                width: 114px;
             text-align: center;
         }
         .hotelHugWrap .searchArea {

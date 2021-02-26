@@ -73,9 +73,9 @@
                     <td class="lengthSort">${list.guestRoomArea }m²</td>
                     <td class="lengthSort">${list.standardPersonnel }명</td>
                     <td class="lengthSort">${list.guestRoomBedType }</td>
-                    <td class="lengthSort">${list.adultPrice }원</td>
-                    <td class="lengthSort">${list.childPrice }원</td>
-                    <td class="lengthSort">${list.guestRoomPrice }원</td>
+                    <td class="lengthSort"><fmt:formatNumber value="${list.adultPrice }" pattern="#,###"/>원</td>
+                    <td class="lengthSort"><fmt:formatNumber value="${list.childPrice }" pattern="#,###"/>원</td>
+                    <td class="lengthSort"><fmt:formatNumber value="${list.guestRoomPrice }" pattern="#,###"/>원</td>
                 </tr>
             </table> 
         </div>

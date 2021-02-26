@@ -25,7 +25,7 @@ public interface ReservationMapper {
 	//예약 추가 처리
 	public void reservationInsertProcess(ReservationVO reservationVO)throws Exception;
 	//예약 관리 리스트
-	public List<ReservationVO> reservationAdminList()throws Exception;
+	public List<ReservationVO> reservationAdminList(int number1)throws Exception;
 	//예약 관리 삭제
 	public void reservationAdminDelete(String reservationNo)throws Exception;
 	//예약 관리 검색

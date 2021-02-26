@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.iei.hotel.guestroom.vo.GuestRoomVO;
+import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.reservation.service.ReservationService;
 import kr.iei.hotel.reservation.vo.ReservationVO;
 
@@ -32,10 +34,10 @@ public class ReservationController {
 	//-------------------------------------Admin--------------------------------------------
 	//관리자 예약 관리 뷰
 	@RequestMapping(value = "/reservationAdminListView", method = RequestMethod.GET)
-	public String reservationAdminList(Model model)throws Exception {
+	public String reservationAdminList(Model model, ReservationVO reservationVO)throws Exception {
 		
 		logger.info("관리자 리스트 뷰");
-		model.addAttribute("list", reservationService.reservationAdminList());
+		model.addAttribute("list", reservationService.reservationAdminList(reservationVO.getNumber1()));
 		return "/reservationAdmin/reservationAdminListView";
 				
 	}
@@ -72,7 +74,7 @@ public class ReservationController {
 	
 	//예약 뷰2
 	@RequestMapping(value = "/reservationView2", method = {RequestMethod.GET,RequestMethod.POST})
-	public String reservationView2(ReservationVO reservationVO, Model model, HttpServletResponse response)throws Exception {
+	public String reservationView2(ReservationVO reservationVO, Model model, HttpServletResponse response, @AuthenticationPrincipal PrincipalDetails memberDetail)throws Exception {
 		
 		logger.info("예약 뷰2");
 		response.setContentType("text/html; charset=UTF-8");
@@ -85,6 +87,9 @@ public class ReservationController {
 		}else {
 		//UUID 사용하여 고유키 셋팅
 		reservationVO.setReservationNo(UUID.randomUUID().toString());
+		//회원 이름 id 셋팅
+		reservationVO.setMemberName(memberDetail.getName());
+		reservationVO.setMemberNumber(memberDetail.getMemberDto().getMemberNumber());
 		model.addAttribute("reservationInfo", reservationVO);
 		}
 		return "reservation/reservationView2";
@@ -115,7 +120,7 @@ public class ReservationController {
 	
 	//예약 처리
 	@RequestMapping(value = "/reservationSearchProcess", method = {RequestMethod.POST,RequestMethod.GET})
-	public String reservationSearchProcess(ReservationVO reservationVO, Model model, HttpServletResponse response)throws Exception {
+	public String reservationSearchProcess(ReservationVO reservationVO, Model model, HttpServletResponse response,@AuthenticationPrincipal PrincipalDetails memberDetail)throws Exception {
 		
 		logger.info("예약 검색 처리");
 		response.setContentType("text/html; charset=UTF-8");
@@ -225,7 +230,24 @@ public class ReservationController {
 		for(int index = 0; index < reservationVO.getChildCount(); index++) {
 			reservationVO.setTotalPrice(reservationVO.getTotalPrice() + guestRoomVO.getChildPrice());
 		}
-		System.out.println(reservationVO.getTotalPrice());
+		
+		System.out.println("총금액 : " + reservationVO.getTotalPrice());
+		String discountTrue = "30% 할인";
+		String discountFalse = "없음";
+		String membership = "GRADE_MEMBERSHIP";
+		String general = "GRADE_GENERAL";
+		//회원등급에 의한 할인 처리
+		reservationVO.setMemberGrade(memberDetail.getGrade());
+		System.out.println("회원등급 : " + reservationVO.getMemberGrade());
+		if(reservationVO.getMemberGrade().equals(membership)) {
+			reservationVO.setTotalPrice(reservationVO.getTotalPrice()*30/100);
+			reservationVO.setDiscount(discountTrue);
+			System.out.println("할인 : " + reservationVO.getDiscount());
+			System.out.println("할인이 들어간 총 금액 : " + reservationVO.getTotalPrice());
+		} else if(reservationVO.getMemberGrade().equals(general)) {
+			reservationVO.setDiscount(discountFalse);
+			System.out.println("할인 : " + reservationVO.getDiscount());
+		}
 		model.addAttribute("reservationInfo", reservationVO);
 		
 		
