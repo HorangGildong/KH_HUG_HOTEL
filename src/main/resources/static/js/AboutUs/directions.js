@@ -68,35 +68,17 @@ function closeOverlay() {
     var b2 = $('#b2');
     var people = $('.people');
     var runner = $('#runner');
-	
-	/*var mediasize = 1920;
-	if($(window).width() == mediasize) {
-		people.css({
-	        top: b2.position().top + 1505,
-	        left: b2.position().left + 1050
-	    });
-	    elevator.css({
-	        top: b2.position().top + 1505,
-	        left: b2.position().left + 624
-	    });
-	} else {
-		 people.css({
-	        top: b2.position().top + 1505,
-	        left: b2.position().left + 650
-	    });
-	    elevator.css({
-	        top: b2.position().top + 1505,
-	        left: b2.position().left + 324
-	    });
-	}*/
+
    	people.css({
-        top: b2.position().top + 1505,
-        left: b2.position().left + 650
+        top: b2.position().top + 1520,
+        left: b2.position().left + 840
     });
     elevator.css({
-        top: b2.position().top + 1505,
-        left: b2.position().left + 289
+        top: b2.position().top + 1520,
+        left: b2.position().left + 481
     });
+
+
     elevator.hover(function() {
         $(this).addClass('yellowgreen');
     }, function() {
@@ -130,14 +112,14 @@ function closeOverlay() {
                 return;
             };
             elevator.delay(500).animate({
-                top: pos.top + 1505
+                top: pos.top + 1520
             }, 1000);
             runner.animate({
                 left: '-=150px'
             }, 500);
             runner.animate({
-                top: pos.top + 1505,
-                left: pos.left + 405
+                top: pos.top + 1520,
+                left: pos.left + 570
             }, 1000);
             runner.animate({
                 left: '+=300px'

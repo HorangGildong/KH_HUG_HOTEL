@@ -1,3 +1,6 @@
+.header,.footer {
+	font-family: 'Playfair Display', serif;
+}
 .directions-section {
     width: 1245px;
 	margin: 0 auto;

@@ -4,39 +4,35 @@
 <html lang="en">
 
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
-<link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrapcss/kfonts2.css">
-
-
-<!--글씨체 링크 한글-->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
-	rel="stylesheet">
-
-<!--글씨체 링크 영어-->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
-	rel="stylesheet">
-
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/AboutUs/directions.css">
-
-<link rel="stylesheet"
-	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<link rel="shortcut icon"
-	href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
-<title>H.U.G HOTEL 제주</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrapcss/nomalize.css">
+	<link rel="stylesheet" href="css/bootstrapcss/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrapcss/kfonts2.css">
+	
+	
+	<!--글씨체 링크 한글-->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+		rel="stylesheet">
+	
+	<!--글씨체 링크 영어-->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+		rel="stylesheet">
+	
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/AboutUs/directions.css">
+	
+	<link rel="shortcut icon"
+		href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
+	<title>H.U.G HOTEL 제주</title>
 </head>
 
 <body>
@@ -209,17 +205,13 @@
 		crossorigin="anonymous"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  
-	<script src="js/bootstrapjs/bootstrap.min.js"></script>
-	<script src="js/header.js"></script>
-
+		
 	<!-- 카카오맵 api -->
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c9936c0ec903e4bde055c51cf5309f5e"></script>
 
+	<script src="js/bootstrapjs/bootstrap.min.js"></script>
+	<script src="js/header.js"></script>
 	<script src="js/AboutUs/directions.js"></script>
 </body>
 
