@@ -115,6 +115,7 @@
     right: 0px;
     top:0px;    
 }
+/*
 #faqmain .panel-heading #span4{
     display: block;
     position: absolute;
@@ -125,6 +126,7 @@
 #faqmain .panel-heading #span4>img{
     display: none;
 }
+*/
 
 /*--------------------- 답안 부분 ---------------------*/
 #faqmain #faqAnswer{
