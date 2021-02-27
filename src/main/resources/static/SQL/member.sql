@@ -6,12 +6,12 @@ DROP TABLE GRADE;
 CREATE TABLE MEMBER (
 	memberNumber        NUMBER	                                            CONSTRAINT PK_MEMBER_MEMBERNUMBER PRIMARY KEY,
     memberId            VARCHAR(100)                            NOT NULL    CONSTRAINT UQ_MEMBER_MEMBERID UNIQUE,   
-	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL' NOT NULL,
+	memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL',
 	memberRegDate  	    DATE,
 	memberUnRegDate     DATE,
 	memberPwChangeDate  DATE,
     memberAgree	        VARCHAR(20),
-	memberRole	        VARCHAR(20)		DEFAULT 'ROLE_REGURAL'  NOT NULL,
+	memberRole	        VARCHAR(20)		DEFAULT 'ROLE_REGURAL',
 	memberEmail	        VARCHAR2(100),
 	memberName	        VARCHAR2(100),
 	memberNick          VARCHAR2(100)                                       CONSTRAINT UQ_MEMBER_MEMBERNICK UNIQUE,
@@ -24,7 +24,7 @@ CREATE TABLE MEMBER (
 
 CREATE TABLE GRADE (
 	memberGrade         VARCHAR(20)     DEFAULT 'ROLE_REGURAL'              CONSTRAINT PK_GRADE_MEMBERGRADE PRIMARY KEY,
-	discountRate        NUMBER          DEFAULT 0	            NOT NULL
+	discountRate        NUMBER          DEFAULT 0
 );
 
 ALTER TABLE MEMBER
@@ -41,6 +41,19 @@ BEGIN
         IF INSERTING AND :NEW.memberNumber IS NULL THEN
             SELECT MEMBER_SEQ.NEXTVAL INTO :NEW.memberNumber FROM SYS.DUAL;
         END IF;
+        IF INSERTING AND :NEW.memberGrade IS NULL THEN
+            SELECT ('GRADE_GENERAL') INTO :NEW.memberRole FROM SYS.DUAL;
+        END IF;
+        IF INSERTING AND :NEW.memberRegDate IS NULL THEN
+            SELECT SYSDATE INTO :NEW.memberRegDate FROM SYS.DUAL;
+        END IF;
+        IF INSERTING AND :NEW.memberPwChangeDate IS NULL THEN
+            SELECT SYSDATE INTO :NEW.memberPwChangeDate FROM SYS.DUAL;
+        END IF;
+        IF INSERTING AND :NEW.memberRole IS NULL THEN
+            SELECT ('ROLE_REGURAL') INTO :NEW.memberRole FROM SYS.DUAL;
+        END IF;
+
     END COLUMN_SEQUENCES;
 END;
 
@@ -128,7 +141,8 @@ DELETE FROM MEMBER;
 
 SELECT memberPwChangeDate, memberNumber, memberId, memberName, memberNick, memberPassword, memberPhone, memberEmail, memberRole, memberKey FROM MEMBER;
 SELECT memberId FROM MEMBER WHERE memberName = '한만월' AND memberPhone = '777-7777-7777;
-/
+SELECT * FROM MEMBER;
+
 UPDATE MEMBER SET 
     memberPwChangeDate = ADD_MONTHS(SYSDATE, -2)
 WHERE memberNumber = 33;
@@ -141,3 +155,4 @@ UPDATE MEMBER SET
     memberPassword = '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke'
 WHERE memberNumber = 9;
 COMMIT;
+

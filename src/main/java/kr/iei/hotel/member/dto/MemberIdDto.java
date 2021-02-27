@@ -7,9 +7,9 @@ public class MemberIdDto {
 	private String memberId;
 	private Date memberRegDate;
 	
-	public MemberIdDto() {}
+	MemberIdDto() {}
 
-	public MemberIdDto(String memberId, Date memberRegDate) {
+	MemberIdDto(String memberId, Date memberRegDate) {
 		super();
 		this.memberId = memberId;
 		this.memberRegDate = memberRegDate;

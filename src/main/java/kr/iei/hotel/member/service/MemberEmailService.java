@@ -1,9 +1,17 @@
 package kr.iei.hotel.member.service;
 
-import kr.iei.hotel.member.dto.MemberEmailDto;
+import javax.servlet.http.HttpSession;
 
 public interface MemberEmailService {
 
-	void sendEmail(MemberEmailDto memberEmailDto);
+	String createCode();
+	
+	String createPassword();
 
+	void setCodeSession(HttpSession codeSession);
+	
+	void sendCodeEmail(String memberEmail, HttpSession codeSession);
+	
+	void sendPasswordEmail(String memberEmail, String password);
+	
 }

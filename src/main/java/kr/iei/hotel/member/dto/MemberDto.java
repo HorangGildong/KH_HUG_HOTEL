@@ -1,39 +1,40 @@
 package kr.iei.hotel.member.dto;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.ParseException;
 
 public class MemberDto {
 
-	private Long memberNumber;
-	private String memberId;
-	private String memberGrade;
-	private Date memberRegDate;
-	private Date memberUnRegDate;
-	private Date memberPwChangeDate;
-	private String memberAgree;
-	private String memberRole;
-	private String memberEmail;
-	private String memberName;
-	private String memberNick;
-	private String memberPhone;
-	private String memberGender;
-	private String memberPassword;
-	private Date memberBirth;
-	private String memberKey;
+	protected Long memberNumber;
+	protected String memberId;
+	protected String memberGrade;
+	protected Date memberRegDate;
+	protected Date memberUnRegDate;
+	protected Date memberPwChangeDate;
+	protected String memberAgree;
+	protected String memberRole;
+	protected String memberEmail;
+	protected String memberName;
+	protected String memberNick;
+	protected String memberPhone;
+	protected String memberGender;
+	protected String memberPassword;
+	protected Date memberBirth;
+	protected String memberKey;
 	
 	public MemberDto() {}
 	
-	public MemberDto(String memberId, String memberRole, String memberEmail, String memberKey) {
+	public MemberDto(	String memberId,			String memberRole,		String memberEmail,		String memberKey) {
 		this.memberId = memberId;
 		this.memberRole = memberRole;
 		this.memberEmail = memberEmail;
 		this.memberKey = memberKey;
 	}
 
-	public MemberDto(Long memberNumber, String memberId, String memberGrade, Date memberRegDate, Date memberUnRegDate,
-			Date memberPwChangeDate, String memberAgree, String memberRole, String memberEmail, String memberName,
-			String memberNick, String memberPhone, String memberGender, String memberPassword, Date memberBirth,
-			String memberKey) {
+	public MemberDto(	Long memberNumber,			String memberId,		String memberGrade,		Date memberRegDate,
+						Date memberUnRegDate,		Date memberPwChangeDate,String memberAgree,		String memberRole,
+						String memberEmail,			String memberName,		String memberNick,		String memberPhone,
+						String memberGender,		String memberPassword,	Date memberBirth,		String memberKey) {
 		this.memberNumber = memberNumber;
 		this.memberId = memberId;
 		this.memberGrade = memberGrade;
@@ -52,131 +53,136 @@ public class MemberDto {
 		this.memberKey = memberKey;
 	}
 
-	public final Long getMemberNumber() {
+	public Long getMemberNumber() {
 		return memberNumber;
 	}
 
-	public final void setMemberNumber(Long memberNumber) {
+	public void setMemberNumber(Long memberNumber) {
 		this.memberNumber = memberNumber;
 	}
 
-	public final String getMemberId() {
+	public String getMemberId() {
 		return memberId;
 	}
 
-	public final void setMemberId(String memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 
-	public final String getMemberGrade() {
+	public String getMemberGrade() {
 		return memberGrade;
 	}
 
-	public final void setMemberGrade(String memberGrade) {
+	public void setMemberGrade(String memberGrade) {
 		this.memberGrade = memberGrade;
 	}
 
-	public final Date getMemberRegDate() {
+	public Date getMemberRegDate() {
 		return memberRegDate;
 	}
 
-	public final void setMemberRegDate(Date memberRegDate) {
+	public void setMemberRegDate(Date memberRegDate) {
 		this.memberRegDate = memberRegDate;
 	}
 
-	public final Date getMemberUnRegDate() {
+	public Date getMemberUnRegDate() {
 		return memberUnRegDate;
 	}
 
-	public final void setMemberUnRegDate(Date memberUnRegDate) {
+	public void setMemberUnRegDate(Date memberUnRegDate) {
 		this.memberUnRegDate = memberUnRegDate;
 	}
 
-	public final Date getMemberPwChangeDate() {
+	public Date getMemberPwChangeDate() {
 		return memberPwChangeDate;
 	}
 
-	public final void setMemberPwChangeDate(Date memberPwChangeDate) {
+	public void setMemberPwChangeDate(Date memberPwChangeDate) {
 		this.memberPwChangeDate = memberPwChangeDate;
 	}
 
-	public final String getMemberAgree() {
+	public String getMemberAgree() {
 		return memberAgree;
 	}
 
-	public final void setMemberAgree(String memberAgree) {
+	public void setMemberAgree(String memberAgree) {
 		this.memberAgree = memberAgree;
 	}
 
-	public final String getMemberRole() {
+	public String getMemberRole() {
 		return memberRole;
 	}
 
-	public final void setMemberRole(String memberRole) {
+	public void setMemberRole(String memberRole) {
 		this.memberRole = memberRole;
 	}
 
-	public final String getMemberEmail() {
+	public String getMemberEmail() {
 		return memberEmail;
 	}
 
-	public final void setMemberEmail(String memberEmail) {
+	public void setMemberEmail(String memberEmail) {
 		this.memberEmail = memberEmail;
 	}
 
-	public final String getMemberName() {
+	public String getMemberName() {
 		return memberName;
 	}
 
-	public final void setMemberName(String memberName) {
+	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
 
-	public final String getMemberNick() {
+	public String getMemberNick() {
 		return memberNick;
 	}
 
-	public final void setMemberNick(String memberNick) {
+	public void setMemberNick(String memberNick) {
 		this.memberNick = memberNick;
 	}
 
-	public final String getMemberPhone() {
+	public String getMemberPhone() {
 		return memberPhone;
 	}
 
-	public final void setMemberPhone(String memberPhone) {
+	public void setMemberPhone(String memberPhone) {
 		this.memberPhone = memberPhone;
 	}
 
-	public final String getMemberGender() {
+	public String getMemberGender() {
 		return memberGender;
 	}
 
-	public final void setMemberGender(String memberGender) {
+	public void setMemberGender(String memberGender) {
 		this.memberGender = memberGender;
 	}
 
-	public final String getMemberPassword() {
+	public String getMemberPassword() {
 		return memberPassword;
 	}
 
-	public final void setMemberPassword(String memberPassword) {
+	public void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
 	}
 
-	public final Date getMemberBirth() {
+	public Date getMemberBirth() {
 		return memberBirth;
 	}
 
-	public final void setMemberBirth(Date memberBirth) {
+	public void setMemberBirth(String memberBirth) throws ParseException {
+//		this.memberBirth = new SimpleDateFormat("yyyy-MM-dd").parse(memberBirth);	// import java.util.Date;
+		this.memberBirth = Date.valueOf(memberBirth);
+	}
+	
+	public void setMemberBirth(Date memberBirth) {
 		this.memberBirth = memberBirth;
 	}
 
-	public final String getMemberKey() {
+	public String getMemberKey() {
 		return memberKey;
 	}
 
-	public final void setMemberKey(String memberKey) {
+	public void setMemberKey(String memberKey) {
 		this.memberKey = memberKey;
 	}
 

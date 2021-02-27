@@ -8,13 +8,13 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import kr.iei.hotel.member.dto.MemberDto;
-import kr.iei.hotel.member.service.MemberService;
+import kr.iei.hotel.member.service.MemberGetDtoService;
 
 @Service
 public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 
 	@Autowired
-	private MemberService memberService;
+	private MemberGetDtoService memberGetDtoService;
 	
 	// 구글로부터 받은 userRequest 데이터를 후처리
 	@Override
@@ -23,7 +23,7 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 //		String memberProvider = userRequest.getClientRegistration().getClientId();
 		String memberEmail = oAuth2User.getAttribute("email");
 		String memberKey = oAuth2User.getAttribute("sub");
-		MemberDto memberDto = memberService.searchByKey(memberKey);
+		MemberDto memberDto = memberGetDtoService.getMemberDtoByKey(memberKey);
 		if (memberDto == null) {
 			memberDto = new MemberDto("user_" + memberKey, "ROLE_ASSOCIATE", memberEmail, memberKey);
 		}			

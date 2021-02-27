@@ -9,18 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
-import kr.iei.hotel.member.dto.MemberDto;
 
 @Controller
 public class Test {
 	
 	@GetMapping("/test")
 	@ResponseBody
-	public MemberDto test(
-			Authentication authentication,
-			@AuthenticationPrincipal PrincipalDetails userDetails,
-			@AuthenticationPrincipal OAuth2User oAuth2user) {
-		return userDetails.getMemberDto();
+	public Authentication test() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
+		principalDetails.getMemberDto();
+		return authentication;
 	}
 	
 	@GetMapping("/test0")

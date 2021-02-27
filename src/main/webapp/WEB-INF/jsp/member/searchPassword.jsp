@@ -70,10 +70,10 @@
 						</div>
 						
 						<div class="form-group" style="margin-bottom: 25px">
-							<label for="inputRandomNumber" class="col-xs-3 control-label">인증번호</label>
+							<label for="inputCode" class="col-xs-3 control-label">인증번호</label>
 							<div class="col-xs-4" >
 								<input type="text" class="form-control"
-									name="randomNumber" id="inputRandomNumber" disabled>
+									name="code" id="inputCode" disabled>
 							</div>
 							<div class="col-xs-5">
 								<input type="text" class="form-control" style="text-align: center;"
@@ -121,7 +121,7 @@
 		var btnAction = 0;
 		var id;
 		var email;
-		var randomNumber;
+		var code;
 		
 		$('#searchBtn').click(function() {
 			$('#baseModal').modal({ backdrop: 'static', keyboard: false });
@@ -140,7 +140,7 @@
 							$('#searchBtn').text('확인');
 							$('#inputId').attr('disabled', true);
 							$('#inputEmail').attr('disabled', true);
-							$('#inputRandomNumber').attr('disabled', false);
+							$('#inputCode').attr('disabled', false);
 							$('#searchBtn').attr('id', 'newSearchBtn');
 							$.fn.countdown();
 							btnAction = 1;
@@ -158,9 +158,9 @@
 				$('#searchBtn').attr('disabled', true);
 				id = $('#inputId').val();
 				email = $('#inputEmail').val();
-				randomNumber = $('#inputRandomNumber').val();
+				code = $('#inputCode').val();
 				$.ajax({
-					url : '${pageContext.request.contextPath}/searchPassword/compareRandomNumber?randomNumber=' + randomNumber
+					url : '${pageContext.request.contextPath}/searchPassword/compareCode?code=' + code
 							+ '&id=' + id + '&email=' + email,
 					type : 'get',
 					success : function(data2) {

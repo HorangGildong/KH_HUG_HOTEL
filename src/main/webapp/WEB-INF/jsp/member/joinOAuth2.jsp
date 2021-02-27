@@ -64,7 +64,7 @@
 									id="inputEmail" value="${email}" disabled>
 							</div>
 						</div>
-
+<input type="hidden" name="memberId" value="testID">
 						<div class="form-group">
 							<label for="inputName" class="col-xs-4 control-label">이름</label>
 							<div class="col-xs-8">

@@ -72,10 +72,10 @@
 	            	비밀번호 변경을 권장해드립니다.<br>
 	         </div>
 	         <div class="modal-footer" style="text-align: center;">
-	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px" onclick="location.href='/pwChange'">
+	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px" onclick="location.href='/changePw'">
 	            	비밀번호 변경하기
 	            </button>
-	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left: 15px" onclick="location.href='/noPwChange'" >
+	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left: 15px" onclick="location.href='/changePwLater'" >
 	            	1개월 후에 변경하기
 	            </button>
 	         </div>

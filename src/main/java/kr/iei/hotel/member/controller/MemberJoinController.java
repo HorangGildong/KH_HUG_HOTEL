@@ -1,11 +1,6 @@
 package kr.iei.hotel.member.controller;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,19 +11,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
-import kr.iei.hotel.member.service.MemberService;
+import kr.iei.hotel.member.service.MemberGetDtoService;
+import kr.iei.hotel.member.service.MemberJoinService;
+import kr.iei.hotel.member.service.MemberLoginService;
 
 @Controller
 public class MemberJoinController {
-	
-	@Autowired
-	private MemberService memberService;
 
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
-	
+	private MemberGetDtoService memberGetDtoService;
+
 	@Autowired
-	private MemberLoginController memberLoginController;
+	private MemberJoinService memberJoinService;
+
+	@Autowired
+	private MemberLoginService memberLoginService;
 	
 	// joinPage
 	@GetMapping("/join")
@@ -39,13 +36,9 @@ public class MemberJoinController {
 	// join
 	@PostMapping("/join")
 	public String join(MemberJoinFormDto memberJoinFormDto, Model model) {
-		String rawPassword = memberJoinFormDto.getMemberPassword();
-		memberJoinFormDto.setMemberPassword(passwordEncoder.encode(rawPassword));
-		memberService.join(memberJoinFormDto);
-		MemberDto memberDto = memberService.searchById(memberJoinFormDto.getMemberId());
-		Collection<GrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(() -> memberDto.getMemberRole());
-		memberLoginController.autoLogin(memberDto.getMemberId(), authorities);
+		memberJoinService.join(memberJoinFormDto);
+		MemberDto memberDto = memberGetDtoService.getMemberDtoById(memberJoinFormDto.getMemberId());
+		memberLoginService.autoLogin(memberDto);
 		model.addAttribute("isFirstLogin", true);
 		return "/index";
 	}
@@ -56,29 +49,26 @@ public class MemberJoinController {
 		model.addAttribute("key", key);
 		return "/member/joinOAuth2";
 	}
-	
+
 	@PostMapping("/Join/oAuth2")
 	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {
-		memberOAuth2JoinFormDto.setMemberId("user_" + memberOAuth2JoinFormDto.getMemberKey());
-		memberService.oAuth2Join(memberOAuth2JoinFormDto);
-		MemberDto memberDto = memberService.searchByKey(memberOAuth2JoinFormDto.getMemberKey());
-		Collection<GrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(() -> memberDto.getMemberRole());
-		memberLoginController.autoLogin(memberDto.getMemberId(), authorities);
+		memberJoinService.join(memberOAuth2JoinFormDto);
+		MemberDto memberDto = memberGetDtoService.getMemberDtoById(memberOAuth2JoinFormDto.getMemberId());
+		memberLoginService.autoLogin(memberDto);
 		model.addAttribute("isFirstLogin", true);
 		return "/index";
 	}
-		
+
 	@ResponseBody
 	@GetMapping("/join/idCheck")
 	public boolean isIdCheck(@RequestParam("id") String memberId) {
-		return !(memberService.checkId(memberId)==0);
+		return !(memberJoinService.checkId(memberId)==0);
 	}
 	
 	@ResponseBody
 	@GetMapping("/join/nickCheck")
 	public boolean isNickCheck(@RequestParam("nick") String memberNick) {
-		return !(memberService.checkNick(memberNick)==0);
+		return !(memberJoinService.checkNick(memberNick)==0);
 	}
 	
 }
