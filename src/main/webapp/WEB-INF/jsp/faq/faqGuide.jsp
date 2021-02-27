@@ -39,8 +39,8 @@
 		 			                    			
 		   		<div class="panel-heading" id='cover'>
 		       		<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${vo.id }" class='arrowControl' id='faqQuestion'>			       							       
-			            	<div onclick='faqClick(${vo.id })'>
+						<a onclick='faqClick(${vo.id })' data-toggle="collapse" data-parent="#accordion" href="#collapseOne${vo.id }" class='arrowControl' id='faqQuestion'>			       							       
+			            	
 				            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${vo.category }</span>
 								<span id='span2'>${vo.question }</span>
 						 	  	<input type='hidden' id='faqId' name='faqId' value="${vo.id }">
@@ -48,7 +48,7 @@
 									<span id='span3'><img name='before' id='before' src="img/kjh_img/allowTop.PNG"></span>
 									<%-- <span id='span4'><img name='after' src="img/kjh_img/allowBottom.PNG"></span> --%>
 								</span>
-							</div>
+							
 						</a>
 					</h4>
 				</div>			                     	 
@@ -71,11 +71,20 @@
 		        // $(beforeimg).css('display','none');
 		        // $(afterimg).css('display');        
 		        $(beforeimg).attr('src','img/kjh_img/allowBottom.PNG');		       
+		    	
 		        
 		    } else {		       
 		        $(beforeimg).attr('src','img/kjh_img/allowTop.PNG');
 		    }
+		    
+		    
 		}
+		
+		
+		
+		$('#faqQuestion').on('click', function(){
+			var imgAttr = $('#')
+		});
 	</script>
 
 	<%-- ─────────────────────────────────── 페이징 부분 ─────────────────────────────────── --%>
