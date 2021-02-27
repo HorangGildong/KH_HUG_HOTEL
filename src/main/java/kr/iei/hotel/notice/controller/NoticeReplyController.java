@@ -38,8 +38,8 @@ public class NoticeReplyController {
 	 @RequestMapping(value="/noticeDetail_Rinsert", method=RequestMethod.POST)
 	   public ModelAndView noticeRinsert_result(NoticeVo vo, Page page, NoticeReplyVo vo2) {
 			 
-			ModelAndView mv = new ModelAndView();
-						
+			ModelAndView mv = new ModelAndView();				
+			
 			if (vo2.getMemberNick() != null) {
 				vo2.setNick(vo2.getMemberNick());
 				
@@ -61,9 +61,15 @@ public class NoticeReplyController {
 			   @RequestParam(value="pwd", required=false, defaultValue="") String pwd) {
 		   ModelAndView mv = new ModelAndView();
 		   
+		   System.out.println("rNo:"+vo2.getrNo());
+		   
 		   vo2.setContent(Rcontent);
 		   vo2.setPassword(pwd);
-		  
+		   
+		   System.out.println("getrNo: "+vo2.getrNo());
+		   System.out.println("getContent: "+vo2.getContent());
+		   System.out.println("getPassword: "+vo2.getPassword());
+		   
 		   String msg = Rservice.Rupdate(vo2);		      
 		   	   
 		   return control.noticeDetail(vo, page, vo2);
