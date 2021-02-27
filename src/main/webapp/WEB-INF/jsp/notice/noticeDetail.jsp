@@ -58,8 +58,6 @@
 			var input7   = getID('input7');
 			var input4   = getID('input4');
 			var textarea = getID('textarea');
-			var Rcontent = getID('Rcontent'); <%--frm으로 안불러와짐ㅡㅡ --%>
-			var rNo 	 = getID('rNo');
     		    		
 			/*--------------------------- 목록 클릭 시  ---------------------------*/
 			if (btnBack != null) {
@@ -105,9 +103,7 @@
     		
     		var Rcontent = getID('Rcontent');
     		var Rupdate  = getID('Rupdate');
-    		
-    		var rno = num;    		
-    		alert("rno"+rno);
+    		var rno = num;
     		
 			var frm = document.frm_notice;
 			if (Rupdate.value == '수정') {
@@ -121,8 +117,7 @@
 				Rupdate.value = '수정';
 				frm.action = '/Rupdate';
 				frm.submit();						
-			}					
-			    		
+			}						    		
     		
     	}
 		
@@ -264,7 +259,7 @@
 	                                <c:forEach var='reply' items='${list }'>
 	                               	<c:if test="${vo.nNo == reply.nNo }">
 		                                <tr>
-		                                    <td colspan='2'><input id='input8' type="text" readonly value="${reply.memberNick },${reply.rNo}"></td>
+		                                    <td colspan='2'><input id='input8' type="text" readonly value="${reply.memberNick }"></td>
 		                                </tr>
 		                                <tr> 
 		                                    <td colspan="2"><textarea id='Rcontent' name='Rcontent' rows="2" cols="125" disabled style="resize: none; margin-left: 70px; margin-right: 70px;">${reply.content }</textarea></td>

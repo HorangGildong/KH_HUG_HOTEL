@@ -61,9 +61,6 @@
 	   		var input7   = getID('input7');
 	   		var input4   = getID('input4');
 	   		var textarea = getID('textarea');
-	   		var Rupdate  = getID('Rupdate');
-			var Rcontent = getID('Rcontent'); <%--frm으로 안불러와짐ㅡㅡ --%>
-			var rNo 	 = getID('rNo');
 	   		
 			/*--------------------------- 목록 클릭 시  ---------------------------*/
 	   		if (adminBtnBack != null) {
@@ -118,27 +115,32 @@
 					}
 				};
 			};			
-
-			/*--------------------------- 댓글 수정 클릭 시  ---------------------------*/
-			if (Rupdate != null) {
-				Rupdate.onclick = function(){
-					var frm = document.frm_notice;
-					if (Rupdate.value == '수정') {
-						Rcontent.disabled = false;
-						Rupdate.value = '저장';
-						
-					}else if (Rupdate.value == '저장') {
-						let pwd = Number(prompt("수정된 내용을 저장 하시려면 작성한 암호를 입력해주세요."));
-						frm.pwd.value = pwd;
-						Rupdate.value = '수정';
-						frm.action = '/admin_Rupdate';
-						frm.submit();						
-					}					
-				};
-			};
 			
 			
 	   	};
+	   	
+	   	/*--------------------------- 댓글 수정 클릭 시  ---------------------------*/
+    	RbtnUpdate = function(num){
+    		
+    		var Rcontent = getID('Rcontent');
+    		var Rupdate  = getID('Rupdate');
+    		var rno = num;
+    		
+			var frm = document.frm_notice;
+			if (Rupdate.value == '수정') {
+				Rcontent.disabled = false;
+				Rupdate.value = '저장';
+				
+			}else if (Rupdate.value == '저장') {
+				let pwd = Number(prompt("수정된 내용을 저장 하시려면 작성한 암호를 입력해주세요."));
+				frm.pwd.value = pwd;
+				frm.rNo.value = num;
+				Rupdate.value = '수정';
+				frm.action = '/admin_Rupdate';
+				frm.submit();						
+			}						    		
+    		
+    	}
 	   	
 	   	/*--------------------------- 댓글 삭제 클릭 시  ---------------------------*/
     	RbtnDelete = function(num){
@@ -240,7 +242,7 @@
 	                                    <td width='10px'><input type="text" id='input1' value='작성자' readonly class="form-control"></td>
 	                                    <td><input type="text" id='input2' value='${member.nick }' name='memberNick' readonly class="form-control"></td>
 	                                    <td><input id='input3' type="text" value="암호" readonly class="form-control"/></td>
-	                                    <td><input id='input4' type="password" maxlength='4' onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="4자리 숫자입력" class="form-control"/></td>
+	                                    <td><input id='input4' type="password" name='password' maxlength='4' onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="4자리 숫자입력" class="form-control"/></td>
 	                                    <td width="430px"></td>
 	                                    <td><input id='input5' type="text" value="작성일" readonly class="form-control"/></td>
 	                                    <td><input id='input6' type="text" name='regdate' value="${vo2.regdate }" readonly class="form-control"/></td>
@@ -249,18 +251,16 @@
 
 		                        <table id='detail_Middle2'>
 		                            <tr>
-		                                <td><textarea id='textarea' name='content' cols="128" rows="5" style="resize: none;" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea></td>                                                
+		                                <td><textarea id='textarea' name='content' cols="128" rows="5" style="resize: none;" placeholder="정책 위반 댓글은 삭제될 수 있습니다."></textarea>&nbsp;&nbsp;&nbsp;</td>                                                
 		                                <td width='100px'><div id='div1'><input id='input7' type="button" value='등록'></div></td>                                
 		                            </tr>
 		                            <tr>                        
-		                                <td colspan="2"><div><br><hr class='style-six'></div></td>
-		                            </tr>                    
+	                                    <td colspan="2"><div><br><hr class='style-six'></div></td>
+	                                </tr>                   
 		                            
 					<%-- ──────────────────── 댓글 등록시 반복 ──────────────────── --%> 
 		                            <c:forEach var='reply' items='${list }'>
-		                          	<c:if test="${vo.nNo == reply.nNo }">
-		                            	<input type='hidden' name='rNo' value='${reply.rNo }'>
-		                              	
+		                          	<c:if test="${vo.nNo == reply.nNo }">		                              	
 		                                <tr>
 		                                    <td colspan='2'><input id='input8' type="text" readonly value="${reply.memberNick }"></td>
 		                                </tr>
@@ -273,10 +273,12 @@
 		                                        <span id='btnupdel'>
 		                                        
 		                                            <span id='span2'>
-		                                            	<input type="button" id='Rdelete' onclick="RbtnDelete(${reply.rNo})" value='삭제'>
+		                                            	<input type="button" id='Rdelete' name='Rdelete' onclick="RbtnDelete(${reply.rNo})" value='삭제'>
 		                                            </span>
 		                                           	<c:if test="${reply.memberNick == member.nick }">
-		                                           		<input type="button" id='Rupdate' onclick="RbtnUpdate(${reply.rNo})" value='수정'>
+		                                           		<span id=''>
+		                                           			<input type="button" id='Rupdate' name='Rupdate' onclick="RbtnUpdate(${reply.rNo})" value='수정'>
+		                                           		</span>
 													</c:if>
 														
 		                                        </span>
