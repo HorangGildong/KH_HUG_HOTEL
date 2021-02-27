@@ -1,5 +1,6 @@
 package kr.iei.hotel.faq.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -94,6 +95,12 @@ public class FaqController {
 	@RequestMapping(value="/faqGuide", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqGuide(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.faqGuide(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -103,6 +110,7 @@ public class FaqController {
 		System.out.println("getMenu: "+page.getMenu());
 		System.out.println("getSelectBox: "+page.getSelectBox());
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqGuide");		
