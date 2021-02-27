@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>faqGuide Page</title>
 </head>
 <body>
 <div id='faqmain'>
@@ -34,58 +35,35 @@
 	
 	<%-- ──────────────────── 이용안내  ──────────────────── --%>				   				   		
 	<div class="panel-group" id="accordion" >                                                
-		<div class="panel panel-default">			
-		 	<c:forEach var='vo' items='${list }'>	               		
+		<div class="panel panel-default">		
+		<c:forEach var="index" begin="0" end="${fn:length(list)-1}">	 		               		
 		 			                    			
-		   		<div class="panel-heading" id='cover'>
-		       		<h4 class="panel-title">
-						<a onclick='faqClick(${vo.id })' data-toggle="collapse" data-parent="#accordion" href="#collapseOne${vo.id }" class='arrowControl' id='faqQuestion'>			       							       
-			            	
-				            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${vo.category }</span>
-								<span id='span2'>${vo.question }</span>
-						 	  	<input type='hidden' id='faqId' name='faqId' value="${vo.id }">
-								<span id='arrow'>
-									<span id='span3'><img name='before' id='before' src="img/kjh_img/allowTop.PNG"></span>
-									<%-- <span id='span4'><img name='after' src="img/kjh_img/allowBottom.PNG"></span> --%>
-								</span>
-							
-						</a>
-					</h4>
-				</div>			                     	 
-				<div id='collapseOne${vo.id }' class="panel-collapse collapse ">
-					<div class="panel-body" id='faqAnswer'>
-		           		${vo.answer }		           	
-					</div>
+	   		<div class="panel-heading" id='cover'>
+	       		<h4 class="panel-title">
+
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne${list[index].id }" class='arrowControl' id='faqQuestion'>			       							       
+		            	<div onclick='faqClick(${numberList[index]})'>
+			            	<span><img src="img/kjh_img/Q.PNG"></span><span id='span1'>${list[index].category }</span>
+							<span id='span2'>${list[index].question }</span>
+					 	  	<input type='hidden' id='faqId' name='faqId' value="${list[index].id }">
+
+							<span id='arrow'>
+								<span id='span3'><img class='before'  name='before' id='before' src="img/kjh_img/allowTop.PNG"></span>
+								<span id='span4'><img class='before2' style="display: none;" name='after' src="img/kjh_img/allowBottom.PNG"></span>
+							</span>
+						</div>
+					</a>
+				</h4>
+			</div>			                     	 
+			<div id='collapseOne${list[index].id }' class="panel-collapse collapse ">
+				<div class="panel-body" id='faqAnswer'>
+	           		${list[index].answer }		           	
 				</div>
-								
-			</c:forEach>					                       
+			</div>
+							
+		</c:forEach>					                       
 		</div>	
 	</div>
-	
-	<script>
-		var faqClick = function(id){
-		    var beforeimg = $('#span3 img');
-		   
-
-		    if(beforeimg.attr("src") == "img/kjh_img/allowTop.PNG" ) {
-		        // $(beforeimg).css('display','none');
-		        // $(afterimg).css('display');        
-		        $(beforeimg).attr('src','img/kjh_img/allowBottom.PNG');		       
-		    	
-		        
-		    } else {		       
-		        $(beforeimg).attr('src','img/kjh_img/allowTop.PNG');
-		    }
-		    
-		    
-		}
-		
-		
-		
-		$('#faqQuestion').on('click', function(){
-			var imgAttr = $('#')
-		});
-	</script>
 
 	<%-- ─────────────────────────────────── 페이징 부분 ─────────────────────────────────── --%>
 	<ul class="pagination" id="user_pagination">
@@ -99,6 +77,25 @@
     </ul>
 
 </div>
+
+<script>
+	var faqClick = function(id){
+	    var beforeimg = document.querySelectorAll(".before");
+	    var beforeimg2 = document.querySelectorAll(".before2");
+	   	if (beforeimg[id].src != beforeimg2[id].src) {
+	   		for (var i = 0; i < beforeimg.length; i++) {
+		    	beforeimg[i].src = "img/kjh_img/allowTop.PNG";
+			}
+		}
+						    
+	    if (beforeimg[id].src == beforeimg2[id].src) {
+		    beforeimg[id].src = "img/kjh_img/allowTop.PNG";
+		} else {
+			beforeimg[id].src = "img/kjh_img/allowBottom.PNG";
+		}
+	}
+	
+</script>
 
 <script>faq()</script>
 

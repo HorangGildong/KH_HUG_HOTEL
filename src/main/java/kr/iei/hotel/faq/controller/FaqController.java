@@ -1,5 +1,6 @@
 package kr.iei.hotel.faq.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,12 @@ public class FaqController {
 	@RequestMapping(value="/faqTotal", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqTotal(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -47,6 +54,7 @@ public class FaqController {
 		System.out.println("getMenu: "+page.getMenu());
 		System.out.println("getSelectBox: "+page.getSelectBox());
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqTotal");		
@@ -56,7 +64,13 @@ public class FaqController {
 	@RequestMapping(value="/faqTotalQt", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqTotalQt(Page page) {		
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
 		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
+				
 		Map<String, Object> map = service.total_question_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
@@ -65,6 +79,7 @@ public class FaqController {
 		System.out.println("getMenu: "+page.getMenu());
 		System.out.println("getSelectBox: "+page.getSelectBox());
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqTotal");		
@@ -74,6 +89,12 @@ public class FaqController {
 	@RequestMapping(value="/faqTotalAw", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqTotalAw(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.total_answer_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -83,6 +104,7 @@ public class FaqController {
 		System.out.println("getMenu: "+page.getMenu());
 		System.out.println("getSelectBox: "+page.getSelectBox());
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqTotal");		
@@ -94,6 +116,12 @@ public class FaqController {
 	@RequestMapping(value="/faqGuide", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqGuide(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.faqGuide(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -103,6 +131,7 @@ public class FaqController {
 		System.out.println("getMenu: "+page.getMenu());
 		System.out.println("getSelectBox: "+page.getSelectBox());
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqGuide");		
@@ -112,6 +141,12 @@ public class FaqController {
 	@RequestMapping(value="/faqGuideQt", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqGuideQt(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.guide_question_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -120,7 +155,8 @@ public class FaqController {
 		System.out.println("이용안내 메뉴 질문 검색 ");
 		System.out.println("getMenu: "+page.getMenu());
 		System.out.println("getSelectBox: "+page.getSelectBox());
-			
+		
+		mv.addObject("numberList", numberList);	
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqGuide");		
@@ -130,6 +166,12 @@ public class FaqController {
 	@RequestMapping(value="/faqGuideAw", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqGuideAw(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.guide_answer_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -139,6 +181,7 @@ public class FaqController {
 		System.out.println("getMenu: "+page.getMenu());
 		System.out.println("getSelectBox: "+page.getSelectBox());
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqGuide");		
@@ -151,7 +194,13 @@ public class FaqController {
 	@RequestMapping(value="/faqRoom", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqRoom(Page page) {
 		ModelAndView mv = new ModelAndView();
-
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
+		
 		Map<String, Object> map = service.faqRoom(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");
@@ -160,6 +209,7 @@ public class FaqController {
 		System.out.println("getMenu: "+page.getMenu());
 		System.out.println("getSelectBox: "+page.getSelectBox());
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqRoom");		
@@ -169,13 +219,20 @@ public class FaqController {
 	@RequestMapping(value="/faqRoomQt", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqRoomQt(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.room_question_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("객실 메뉴 질문 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqRoom");		
@@ -185,13 +242,20 @@ public class FaqController {
 	@RequestMapping(value="/faqRoomAw", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqRoomAw(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.room_answer_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("객실 메뉴 답글 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqRoom");		
@@ -203,6 +267,12 @@ public class FaqController {
 	@RequestMapping(value="/faqDining", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqDining(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.faqDining(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -210,6 +280,7 @@ public class FaqController {
 				
 		System.out.println("다이닝 메뉴 입니다");
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqDining");		
@@ -219,13 +290,20 @@ public class FaqController {
 	@RequestMapping(value="/faqDiningQt", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqDiningQt(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.dining_question_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("다이닝 메뉴 질문 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqDining");		
@@ -235,13 +313,20 @@ public class FaqController {
 	@RequestMapping(value="/faqDiningAw", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqDiningAw(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.dining_answer_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("다이닝 메뉴 답변 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqDining");		
@@ -253,6 +338,12 @@ public class FaqController {
 	@RequestMapping(value="/faqFacility", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqFacility(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.faqFacility(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -260,6 +351,7 @@ public class FaqController {
 				
 		System.out.println("부대시설 메뉴 입니다");
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqFacility");		
@@ -269,13 +361,20 @@ public class FaqController {
 	@RequestMapping(value="/faqFacilityQt", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqFacilityQt(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.facility_question_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("부대시설 메뉴 질문 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqFacility");		
@@ -285,13 +384,20 @@ public class FaqController {
 	@RequestMapping(value="/faqFacilityAw", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqFacilityAw(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.facility_answer_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("부대시설 메뉴 답변 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqFacility");		
@@ -303,6 +409,12 @@ public class FaqController {
 	@RequestMapping(value="/faqPayment", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqPayment(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.faqPayment(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -310,6 +422,7 @@ public class FaqController {
 				
 		System.out.println("결제 메뉴 입니다");
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqPayment");		
@@ -319,13 +432,20 @@ public class FaqController {
 	@RequestMapping(value="/faqPaymentQt", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqPaymentQt(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.payment_question_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("결제 메뉴 질문 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqPayment");		
@@ -335,13 +455,20 @@ public class FaqController {
 	@RequestMapping(value="/faqPaymentAw", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqPaymentAw(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.payment_answer_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("결제 메뉴 답변 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqPayment");		
@@ -353,6 +480,12 @@ public class FaqController {
 	@RequestMapping(value="/faqEtc", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqEtc(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.faqEtc(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
@@ -360,6 +493,7 @@ public class FaqController {
 				
 		System.out.println("기타 메뉴 입니다");
 		
+		mv.addObject("numberList", numberList);
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqEtc");		
@@ -369,13 +503,20 @@ public class FaqController {
 	@RequestMapping(value="/faqEtcQt", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqEtcQt(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.etc_question_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("기타 메뉴 질문 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqEtc");		
@@ -385,13 +526,20 @@ public class FaqController {
 	@RequestMapping(value="/faqEtcAw", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView faqEtcAw(Page page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> numberList = new ArrayList();
+		
+		for(int index = 0; index < 11; index++) {
+			numberList.add(index);
+			System.out.println("check = " + numberList.get(index));
+		}
 		
 		Map<String, Object> map = service.etc_answer_select(page);
 		List<FaqVo> list = (List<FaqVo>) map.get("list");
 		page = (Page) map.get("page");				
 	
 		System.out.println("기타 메뉴 답변 검색");
-				
+		
+		mv.addObject("numberList", numberList);		
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("faq/faqEtc");		
