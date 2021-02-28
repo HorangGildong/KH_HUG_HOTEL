@@ -1,5 +1,7 @@
 package kr.iei.hotel.member.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,8 +44,16 @@ public class MemberJoinController {
 		model.addAttribute("isFirstLogin", true);
 		return "/index";
 	}
-
-	@PostMapping("/Join/oAuth2")
+	
+	@GetMapping("/join/oAuth2")
+	public String oAuthJoinPage(HttpSession oAuth2Session, Model model) {
+		model.addAttribute("email", (String)oAuth2Session.getAttribute("email"));
+		model.addAttribute("key", (String)oAuth2Session.getAttribute("key"));
+		oAuth2Session.invalidate();
+		return "/member/joinOAuth2";
+	}
+	
+	@PostMapping("/join/oAuth2")
 	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {		
 		memberJoinService.join(memberOAuth2JoinFormDto);
 		MemberDto memberDto = memberGetDtoService.getMemberDtoById(memberOAuth2JoinFormDto.getMemberId());
@@ -51,12 +61,6 @@ public class MemberJoinController {
 		model.addAttribute("isFirstLogin", true);
 		return "/index";
 	}
-	
-//	@PostMapping("/firstLogin")
-//	public String firstLogin(Model model) {
-//		model.addAttribute("isFirstLogin", true);
-//		return "/index";
-//	}
 
 	@ResponseBody
 	@GetMapping("/join/idCheck")

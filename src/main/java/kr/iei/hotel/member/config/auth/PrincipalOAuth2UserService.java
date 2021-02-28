@@ -26,7 +26,7 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 		MemberDto memberDto = memberGetDtoService.getMemberDtoByKey(memberKey);
 		if (memberDto == null) {
 			memberDto = new MemberDto("user_" + memberKey, "ROLE_ASSOCIATE", memberEmail, memberKey);
-		}			
+		}
 		return new PrincipalDetails(memberDto, oAuth2User.getAttributes());
 	}
 

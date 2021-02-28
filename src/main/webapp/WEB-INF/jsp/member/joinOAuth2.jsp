@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<sec:authorize access="isAuthenticated()">
-	<sec:authentication property="principal" var="member"/>
-</sec:authorize>
 <!doctype html>
 <html lang="en">
 
@@ -55,8 +50,35 @@
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
 					
-					<form class="form-horizontal" action="/Join/oAuth2" method="post">
-					
+					<form class="form-horizontal" action="/join/oAuth2" method="post">
+
+						<div class="form-group">
+							<label for="inputId" class="col-xs-4 control-label">아이디</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control"
+									name="memberId"	id="inputId" placeholder="ID" required>
+								<div class="check_font" id="idCheck"></div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputPassword" class="col-xs-4 control-label">비밀번호</label>
+							<div class="col-xs-8">
+								<input type="password" class="form-control"
+									name="memberPassword" id="inputPassword" placeholder="Password"	required>
+								<div class="check_font" id="passwordCheck"></div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputPassword" class="col-xs-4 control-label">비밀번호 확인</label>
+							<div class="col-xs-8">
+								<input type="password" class="form-control"
+									id="inputPassword2"	placeholder="PasswordCheck" disabled required>
+								<div class="check_font" id="passwordCheck2"></div>
+							</div>
+						</div>				
+							
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
 							<div class="col-xs-8">
@@ -296,9 +318,42 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
+		var isId;
+		var isEmail = true;
+		var isNick;
+		var isPassword;
+		
+		$('#inputId').blur(function() {
+			var id = $('#inputId').val();
+			isId = false;
+			$.ajax({
+				url : '${pageContext.request.contextPath}/join/idCheck?id=' + id,
+				type : 'get',
+				success : function(data) {
+					if (data) {
+						$('#idCheck').text('사용중인 아이디입니다.');
+						$('#idCheck').css('color', 'red');
+					} else if((id.length > 0 && id.length < 8) || id.length > 20) {
+						$('#idCheck').text('8~20자리로 입력해주세요.');
+						$('#idCheck').css('color', 'red');
+					} else if(id.search(/\s/) != -1) {
+						$('#idCheck').text('공백 없이 입력해주세요.');
+						$('#idCheck').css('color', 'red');
+					} else if (id!='') {
+						isId = true;
+						$('#idCheck').text('사용가능한 아이디입니다.');
+						$('#idCheck').css('color', 'blue');
+					} else {
+						$('#idCheck').text('');
+					}			
+					$.fn.submitDisable();
+				}
+			});
+		});
+		
 		$('#inputNickname').blur(function() {
 			var nick = $('#inputNickname').val();
-			$('#submitBtn').attr('disabled', false);
+			isNick = false;
 			$.ajax({
 				url : '${pageContext.request.contextPath}/join/nickCheck?nick=' + nick,
 				type : 'get',
@@ -308,15 +363,79 @@
 					} else if (data) {
 						$('#nickCheck').text('사용중인 닉네임입니다.');
 						$('#nickCheck').css('color', 'red');
-						$('#submitBtn').attr('disabled', true);
 					} else {
 						$('#nickCheck').text('사용가능한 닉네임입니다.');
 						$('#nickCheck').css('color', 'blue');
 						isNick = true;
-					}	
+					}
+					$.fn.submitDisable();
 				}
 			});
 		});
+		
+		$('#inputPassword').keyup(function() {
+			var pw = $('#inputPassword').val();
+			var num = pw.search(/[0-9]/g);
+			var eng = pw.search(/[a-z]/ig);
+			var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩';:₩/?]/gi);
+			isPassword = false;
+			if(pw == '') {
+				$('#passwordCheck').text('');
+				$('#inputPassword2').attr('disabled', true);
+			} else if(pw.length < 8) {
+				$('#passwordCheck').text('8자리 이상으로 입력해주세요.');
+				$('#passwordCheck').css('color', 'red');
+				$('#inputPassword2').attr('disabled', true);
+			} else if(pw.search(/\s/) != -1) {
+				$('#passwordCheck').text('비밀번호는 공백 없이 입력해주세요.');
+				$('#passwordCheck').css('color', 'red');
+				$('#inputPassword2').attr('disabled', true);
+			} else if(num < 0 || eng < 0 || spe < 0 ) {
+				$('#passwordCheck').text('영문/숫자/특수문자를 혼합해주세요.');
+				$('#passwordCheck').css('color', 'red');
+				$('#inputPassword2').attr('disabled', true);
+			} else {
+				$('#passwordCheck').text('사용가능한 비밀번호입니다.');
+				$('#passwordCheck').css('color', 'blue');
+				$('#inputPassword2').attr('disabled', false);
+			}
+			$.fn.submitDisable();
+		});
+		
+		/* $('#inputPassword2').attr('disabled') == undefined */
+		
+		$('#inputPassword, #inputPassword2').blur(function() { 
+			var pw1=$('#inputPassword').val();
+			var pw2=$('#inputPassword2').val();
+			isPassword = false;
+			if($('#inputPassword2').attr('disabled') != undefined  || pw2 == '')
+			{
+				$('#passwordCheck2').text('');
+			} else if(pw1 == pw2) { 
+				$('#passwordCheck2').text('비밀번호가 일치합니다.');
+				$('#passwordCheck2').css('color', 'blue');
+				isPassword = true;
+			} else {
+				$('#passwordCheck2').text('비밀번호가 일치하지 않습니다.');
+				$('#passwordCheck2').css('color', 'red');
+			}
+			$.fn.submitDisable();
+		});
+		
+		$.fn.submitDisable = function() {
+			console.log(isId, isEmail, isNick, isPassword);
+			if(isId == true && isEmail == true && isNick == true && isPassword == true) {
+				$('#submitBtn').attr('disabled', false);
+			} else {
+				$('#submitBtn').attr('disabled', true);
+			}
+		}		
+		
+		$.fn.multiline = function(text) {
+		    this.text(text);
+		    this.html(this.html().replace(/\n/g,'<br/>'));
+		    return this;
+		}		
 		
 		$('body').css('overflow', 'auto');
 		
@@ -356,6 +475,8 @@
 			`);
 	
 	</script>
+
+</body>
 
 </body>
 
