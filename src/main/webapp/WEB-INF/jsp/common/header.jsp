@@ -83,7 +83,7 @@
                                     <li><a href="#">Q&A 관리</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">회원관리</a></li>
+                            <li><a href="/adminMemberList">회원관리</a></li>
                         </ul>
                     </li>
 					</sec:authorize>

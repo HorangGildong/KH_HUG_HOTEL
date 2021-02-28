@@ -56,7 +56,7 @@ public class MainController {
 	}
 	
 	// myPage
-	@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
+	//@RequestMapping(value="/myPage", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView myPage() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("myPage/updateMember");
