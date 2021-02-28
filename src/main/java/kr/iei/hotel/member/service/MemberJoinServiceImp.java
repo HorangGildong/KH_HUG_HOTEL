@@ -50,7 +50,7 @@ public class MemberJoinServiceImp implements MemberJoinService {
 	}
 	
 	@Override
-	public void changePassword(String password, String memberId) {
+	public void changePassword(String memberId, String password) {
 		String memberPassword = passwordEncode(password);
 		memberJoinDao.changePassword(memberPassword, memberId);
 	}

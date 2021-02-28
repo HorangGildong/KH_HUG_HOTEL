@@ -63,7 +63,7 @@ public class memberSearchController {
 			codeSession.invalidate();
 			String password = memberEmailService.createPassword();
 			memberEmailService.sendPasswordEmail(memberEmail, password);
-			memberJoinService.changePassword(password, memberId);
+			memberJoinService.changePassword(memberId, password);
 		}
 		return isCode;
 	}

@@ -12,6 +12,6 @@ public interface MemberJoinService {
 
 	String passwordEncode(String memberPassword);
 	
-	void changePassword(String Password, String memberId);
+	void changePassword(String memberId, String Password);
 	
 }
