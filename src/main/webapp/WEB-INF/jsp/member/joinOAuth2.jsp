@@ -64,7 +64,7 @@
 									id="inputEmail" value="${email}" disabled>
 							</div>
 						</div>
-<input type="hidden" name="memberId" value="testID">
+							<input type="hidden" name="memberId" value="testID">
 						<div class="form-group">
 							<label for="inputName" class="col-xs-4 control-label">이름</label>
 							<div class="col-xs-8">
@@ -201,7 +201,7 @@
 			
 			<!-- Modal -->
 			<div class="modal fade" id="modal" tabindex="-1" role="dialog" 
-			   aria-labelledby="modalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
+			   aria-labelledby="modalLabel" aria-hidden="true" style="overflow-y: auto; margin-top: 200px; text-align: center; font-size: 150%;">
 			   <div class="modal-dialog">
 			      <div class="modal-content">
 			         <div class="modal-header">
@@ -318,6 +318,7 @@
 			});
 		});
 		
+		$('body').css('overflow', 'auto');
 		
 	</script>
 

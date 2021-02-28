@@ -54,7 +54,7 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="modal" tabindex="-1" role="dialog" 
-	   aria-labelledby="modalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
+	   aria-labelledby="modalLabel" aria-hidden="true" style="overflow-y: auto; margin-top: 200px; text-align: center; font-size: 150%;">
 	   <div class="modal-dialog">
 	      <div class="modal-content">
 	         <div class="modal-header">
@@ -81,9 +81,9 @@
 	</div>
 	<!-- Modal -->
 	
-		<!-- Modal -->
+	<!-- Modal -->
 	<div class="modal fade" id="baseModal" tabindex="-1" role="dialog" 
-	   aria-labelledby="modalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
+	   aria-labelledby="modalLabel" aria-hidden="true" style="overflow-y: auto; margin-top: 200px; text-align: center; font-size: 150%;">
 	</div>
 	<!-- Modal -->
 
@@ -96,7 +96,9 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="/js/bootstrapjs/bootstrap.min.js"></script>
-
+	<script>
+		$('body').css('overflow', 'auto');
+	</script>
 </body>
 
 </html>

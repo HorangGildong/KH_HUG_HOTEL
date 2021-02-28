@@ -48,14 +48,14 @@
         <jsp:include page="common/header.jsp"/>
         <!--header end-->
         
-        <!--비밀번호 변경 권고(조건부)-->
-        <c:if test="${member.isPwChanged eq false}">
+        <!--모달(조건부)-->
+        <c:if test="${member.isPwChanged == false}">
         	<jsp:include page="member/modalChangePw.jsp"/>
         </c:if>
-        <c:if test="${isFirstLogin eq true}">
+   		<c:if test="${isFirstLogin == true}">
         	<jsp:include page="member/modalFirstLogin.jsp"/>
         </c:if>
-        <!--비밀번호 변경 권고(조건부)-->
+        <!--모달(조건부)-->
         
         <!--section start-->
         <section>

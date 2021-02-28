@@ -54,7 +54,7 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="modal" tabindex="-1" role="dialog" 
-	   aria-labelledby="modalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
+	   aria-labelledby="modalLabel" aria-hidden="true" style="overflow-y: auto; margin-top: 200px; text-align: center; font-size: 150%;">
 	   <div class="modal-dialog">
 	      <div class="modal-content">
 	         <div class="modal-header">
@@ -70,7 +70,7 @@
 	            	항상 최선을 다하는 HUG HOTEL이 되겠습니다. <br>
 	         </div>
 	         <div class="modal-footer" style="text-align: center;">
-	            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px">
+	            <button type="button" class="btn btn-default" data-dismiss="modal">
 	            	확인
 	            </button>
 	         </div>
@@ -90,7 +90,8 @@
 	<script src="/js/bootstrapjs/bootstrap.min.js"></script>
 
 	<script>
-		$('#modal').modal({backdrop: 'static', keyboard: false}); 
+		$('#modal').modal({backdrop: 'static', keyboard: false});
+		$('body').css('overflow', 'auto');
 	</script>
 
 </body>

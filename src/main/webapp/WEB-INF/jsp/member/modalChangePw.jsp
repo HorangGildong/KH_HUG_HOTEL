@@ -54,7 +54,7 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="modal" tabindex="-1" role="dialog" 
-	   aria-labelledby="modalLabel" aria-hidden="true" style="margin-top: 200px; text-align: center; font-size: 150%;">
+	   aria-labelledby="modalLabel" aria-hidden="true" style="overflow-y: auto; margin-top: 200px; text-align: center; font-size: 150%;">
 	   <div class="modal-dialog">
 	      <div class="modal-content">
 	         <div class="modal-header">
@@ -96,6 +96,7 @@
 
 	<script>
 		$('#modal').modal({backdrop: 'static', keyboard: false});
+		$('body').css('overflow', 'auto');
 	</script>
 
 </body>

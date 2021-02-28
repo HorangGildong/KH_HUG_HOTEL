@@ -32,7 +32,7 @@ public class MemberJoinController {
 	public String joinPage() {		
 		return "/member/join";
 	}
-	
+
 	// join
 	@PostMapping("/join")
 	public String join(MemberJoinFormDto memberJoinFormDto, Model model) {
@@ -43,21 +43,20 @@ public class MemberJoinController {
 		return "/index";
 	}
 
-	@GetMapping("/join/oAuth2")
-	public String oAuthJoinPage(@RequestParam("email") String email, @RequestParam("key") String key, Model model) {
-		model.addAttribute("email", email);
-		model.addAttribute("key", key);
-		return "/member/joinOAuth2";
-	}
-
 	@PostMapping("/Join/oAuth2")
-	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {
+	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {		
 		memberJoinService.join(memberOAuth2JoinFormDto);
 		MemberDto memberDto = memberGetDtoService.getMemberDtoById(memberOAuth2JoinFormDto.getMemberId());
 		memberLoginService.autoLogin(memberDto);
 		model.addAttribute("isFirstLogin", true);
 		return "/index";
 	}
+	
+//	@PostMapping("/firstLogin")
+//	public String firstLogin(Model model) {
+//		model.addAttribute("isFirstLogin", true);
+//		return "/index";
+//	}
 
 	@ResponseBody
 	@GetMapping("/join/idCheck")

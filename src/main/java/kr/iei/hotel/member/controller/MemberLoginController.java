@@ -54,15 +54,14 @@ public class MemberLoginController {
 	}
 	
 	@GetMapping("/login/oAuth2")
-	public String oauth2Login(RedirectAttributes redirect, @AuthenticationPrincipal PrincipalDetails userDetails) {
+	public String oauth2Login(@AuthenticationPrincipal PrincipalDetails userDetails, Model model) {
 		MemberDto memberDto = userDetails.getMemberDto();
 		if(memberDto.getMemberRole().equals("ROLE_ASSOCIATE")) {
-			redirect.addAttribute("email", memberDto.getMemberEmail());
-			redirect.addAttribute("key", memberDto.getMemberKey());
+			model.addAttribute("email", new String(memberDto.getMemberEmail()));
+			model.addAttribute("key", new String(memberDto.getMemberKey()));
 			SecurityContextHolder.clearContext();
-			return "redirect:/join/oAuth2";
+			return "/member/joinOAuth2";
 		}
 		return "redirect:/";
 	}
-
 }
