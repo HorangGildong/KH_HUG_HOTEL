@@ -60,6 +60,7 @@ public class memberSearchController {
 			@RequestParam("email") String memberEmail, HttpSession codeSession) {
 		boolean isCode = code.equals((String) codeSession.getAttribute("code"));
 		if(isCode) {
+			codeSession.invalidate();
 			String password = memberEmailService.createPassword();
 			memberEmailService.sendPasswordEmail(memberEmail, password);
 			memberJoinService.changePassword(password, memberId);
