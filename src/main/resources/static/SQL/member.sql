@@ -73,7 +73,7 @@ INSERT INTO MEMBER (
 VALUES (
     '홍길동',                SYSDATE,                SYSDATE,                
     '길동미디어',             '010-1234-5678',        'gildong@hwalbin.com',
-    'ROLE_REGURAL',         '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke' -- 'password : 123'
+    'ROLE_REGURAL',         '$2a$10$BKtqkvprIhG4.rka1IGTgeigBRvQiYMmD0GJD5KLoz6CIRv4X3Jzq' -- 'password : 델루나1!'
 );
 
 INSERT INTO MEMBER (
@@ -84,7 +84,7 @@ INSERT INTO MEMBER (
 VALUES (
     '한만월',                SYSDATE,                TO_DATE('2019-08-20','YYYY-MM-DD'),
     '관리자',                '010-7777-7777',        'tiger@hug.com',
-    'ROLE_ADMIN',           '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+    'ROLE_ADMIN',           '$2a$10$BKtqkvprIhG4.rka1IGTgeigBRvQiYMmD0GJD5KLoz6CIRv4X3Jzq' -- 'password : 델루나1!'
 );
 
 INSERT INTO MEMBER (
@@ -95,7 +95,7 @@ INSERT INTO MEMBER (
 VALUES (
     '아무개',                SYSDATE,                TO_DATE('2020-08-20','YYYY-MM-DD'),
     '늙은이',                '010-1111-1111',        'old@what.co.kr',
-    'ROLE_REGURAL',         '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+    'ROLE_REGURAL',         '$2a$10$BKtqkvprIhG4.rka1IGTgeigBRvQiYMmD0GJD5KLoz6CIRv4X3Jzq' -- 'password : 델루나1!'
 );
 
 INSERT INTO MEMBER (
@@ -106,7 +106,7 @@ INSERT INTO MEMBER (
 VALUES (
     '아무개',                SYSDATE,                SYSDATE,
     '난누군가또여긴어딘가',     '010-1111-1111',        'new@what.co.kr',
-    'ROLE_REGURAL',         '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+    'ROLE_REGURAL',         '$2a$10$BKtqkvprIhG4.rka1IGTgeigBRvQiYMmD0GJD5KLoz6CIRv4X3Jzq' -- 'password : 델루나1!'
 );
 
 INSERT INTO MEMBER (
@@ -117,7 +117,7 @@ INSERT INTO MEMBER (
 VALUES (
     '알부자',                SYSDATE,                SYSDATE,
     '돈많아',                '010-1111-1111',        'gold@gold.com',
-    'GRADE_MEMBERSHIP',     '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+    'GRADE_MEMBERSHIP',     '$2a$10$BKtqkvprIhG4.rka1IGTgeigBRvQiYMmD0GJD5KLoz6CIRv4X3Jzq' -- 'password : 델루나1!'
 );
 
 COMMIT;
