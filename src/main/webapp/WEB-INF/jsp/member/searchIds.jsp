@@ -83,7 +83,7 @@
 					</div>
 					
 					<form id="loginId" action="/login" method="post">
-						<input type="hidden" class="form-control" name="memberId" id="sInputId">
+						<input type="hidden" class="form-control" name="memberEmail" id="sInputId">
 					</form>
 
 				</div>
@@ -190,11 +190,11 @@
 							$('#search').append(objDiv.clone()
 								.attr('id', 'id-'+index));
 							$('#id-'+index+' #sId')
-								.text(value.memberId + '(가입일:' + value.memberRegDate + ')');
+								.text(value.memberEmail + '(가입일:' + value.memberRegDate + ')');
 							$('#id-'+index+' #sBtnId')
 								.attr('id', 'sBtnId-'+index)
 								.click(function() {
-									$('#sInputId').val(value.memberId);
+									$('#sInputId').val(value.memberEmail);
 								});
 						});
 					} else {
