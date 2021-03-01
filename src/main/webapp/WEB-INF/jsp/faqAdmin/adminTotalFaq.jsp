@@ -53,7 +53,7 @@
 	          	<input type='hidden' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
 	        	<input type='hidden' name='totalPage' value='${param.totalPage }'>
 				<input type='hidden' name='id' value="${param.id }">
-				<input type='text' name='selbox' id='selbox' value='${param.selbox }'>                 	
+				<input type='hidden' name='selbox' id='selbox' value='${param.selbox }'>                 	
 				
 				
 				<div id='fCover'>

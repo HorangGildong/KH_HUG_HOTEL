@@ -77,10 +77,10 @@
                     
                 <!-------------------------------------- 공지사항 부분 -------------------------------------->
                 <form name='frm_faqmain' method='post'>
-                	<input type='text' name='menu' value="${param.menu }">
+                	<input type='hidden' name='menu' value="${param.menu }">
 	          		<input type='hidden' name='nowPage' id='nowPage' value="${(param.nowPage == null)? 1 : param.nowPage}">
-	        		<input type='text' name='totalPage' value='${param.totalPage }'>			
-					<input type='text' name='id' value="${param.id }">	
+	        		<input type='hidden' name='totalPage' value='${param.totalPage }'>			
+					<input type='hidden' name='id' value="${param.id }">	
                 
 	                <table id='detail_Top'>        
 	                    <tr id='detail_3'>

@@ -41,7 +41,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -66,7 +66,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -91,7 +91,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -118,7 +118,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -143,7 +143,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -168,7 +168,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -196,7 +196,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -221,7 +221,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -244,7 +244,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -269,7 +269,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -292,7 +292,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -315,7 +315,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -340,7 +340,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -363,7 +363,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -386,7 +386,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -411,7 +411,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -434,7 +434,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -457,7 +457,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -482,7 +482,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -505,7 +505,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
@@ -528,7 +528,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> numberList = new ArrayList();
 		
-		for(int index = 0; index < 11; index++) {
+		for(int index = 0; index < 10; index++) {
 			numberList.add(index);
 			System.out.println("check = " + numberList.get(index));
 		}
