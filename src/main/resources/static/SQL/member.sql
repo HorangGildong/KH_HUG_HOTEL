@@ -5,17 +5,17 @@ DROP TABLE GRADE;
 
 CREATE TABLE MEMBER (
 	memberNumber        NUMBER	                                            CONSTRAINT PK_MEMBER_MEMBERNUMBER PRIMARY KEY,
-    memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL'             CONSTRAINT UQ_MEMBER_MEMBEREMAIL UNIQUE,
+    memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL',
+	memberEmail	        VARCHAR2(100)                                       CONSTRAINT UQ_MEMBER_MEMBEREMAIL UNIQUE,
+	memberPassword	    VARCHAR2(100),
+	memberName	        VARCHAR2(100),
+	memberNick          VARCHAR2(100)                                       CONSTRAINT UQ_MEMBER_MEMBERNICK UNIQUE,
+	memberPhone         VARCHAR2(100),
 	memberRegDate  	    DATE,
 	memberUnRegDate     DATE,
 	memberPwChangeDate  DATE,
     memberAgree	        VARCHAR(20),
 	memberRole	        VARCHAR(20)		DEFAULT 'ROLE_REGURAL',
-	memberEmail	        VARCHAR2(100),
-	memberName	        VARCHAR2(100),
-	memberNick          VARCHAR2(100)                                       CONSTRAINT UQ_MEMBER_MEMBERNICK UNIQUE,
-	memberPhone         VARCHAR2(100),
-	memberPassword	    VARCHAR2(100),
     memberKey           VARCHAR2(100)
 );
 
