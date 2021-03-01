@@ -153,10 +153,9 @@ public class MemberDto {
 	public String toString() {
 		return "MemberDto [memberNumber=" + memberNumber + ", memberEmail=" + memberEmail + ", memberPassword="
 				+ memberPassword + ", memberName=" + memberName + ", memberNick=" + memberNick + ", memberPhone="
-				+ memberPhone + ", memberGender=" + memberGender + ", memberBirth=" + memberBirth + ", memberRegDate="
-				+ memberRegDate + ", memberUnRegDate=" + memberUnRegDate + ", memberPwChangeDate=" + memberPwChangeDate
-				+ ", memberAgree=" + memberAgree + ", memberGrade=" + memberGrade + ", memberRole=" + memberRole
-				+ ", memberKey=" + memberKey + "]";
+				+ memberPhone + ", memberRegDate=" + memberRegDate + ", memberUnRegDate=" + memberUnRegDate
+				+ ", memberPwChangeDate=" + memberPwChangeDate + ", memberAgree=" + memberAgree + ", memberGrade="
+				+ memberGrade + ", memberRole=" + memberRole + ", memberKey=" + memberKey + "]";
 	}
 
 }
