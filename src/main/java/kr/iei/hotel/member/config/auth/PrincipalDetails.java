@@ -64,7 +64,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	// 아이디
 	@Override
 	public String getUsername() {
-		return memberDto.getMemberId();
+		return memberDto.getMemberEmail();
 	}
 
 	// 이름
@@ -84,11 +84,6 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 		return memberDto.getMemberPassword();
 	}
 
-	// 이메일
-	public String getEmail() {
-		return memberDto.getMemberEmail();
-	}
-	
 	// 등급
 	public String getGrade() {
 		return memberDto.getMemberGrade();

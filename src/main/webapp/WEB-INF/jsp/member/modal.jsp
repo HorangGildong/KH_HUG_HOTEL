@@ -62,28 +62,20 @@
 	               aria-hidden="true">×
 	            </button>
 	            <h4 class="modal-title" id="modalLabel">
-	              	 비밀번호 찾기
+	              	 회원가입 성공
 	            </h4>
 	         </div>
 	         <div class="modal-body">
-	            	텍스트
+	            	${member.nick}님의 회원가입을 축하드립니다. <br>
+	            	항상 최선을 다하는 HUG HOTEL이 되겠습니다. <br>
 	         </div>
 	         <div class="modal-footer" style="text-align: center;">
-	            <button id="okBtn" type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px">
+	            <button type="button" class="btn btn-default" data-dismiss="modal">
 	            	확인
 	            </button>
-	            <button id="goLoginPage" type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 15px; display: none;">
-	            	확인
-	            </button>	            
 	         </div>
 	      </div>
 	   </div>
-	</div>
-	<!-- Modal -->
-	
-	<!-- Modal -->
-	<div class="modal fade" id="baseModal" tabindex="-1" role="dialog" 
-	   aria-labelledby="modalLabel" aria-hidden="true" style="overflow-y: auto; margin-top: 200px; text-align: center; font-size: 150%;">
 	</div>
 	<!-- Modal -->
 
@@ -96,9 +88,11 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="/js/bootstrapjs/bootstrap.min.js"></script>
+
 	<script>
 		$('body').css('overflow', 'auto');
 	</script>
+
 </body>
 
 </html>

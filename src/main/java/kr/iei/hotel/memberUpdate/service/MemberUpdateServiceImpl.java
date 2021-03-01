@@ -14,8 +14,8 @@ public class MemberUpdateServiceImpl implements MemberUpdateService {
 	private MemberUpdateMapper memberUpdateMapper;
 	
 	@Override
-	public MemberUpdateDto getMemberInfo(String memberid) {		
-		return memberUpdateMapper.getMemberInfo(memberid);
+	public MemberUpdateDto getMemberInfo(String memberEmail) {		
+		return memberUpdateMapper.getMemberInfo(memberEmail);
 	}
 
 	@Override

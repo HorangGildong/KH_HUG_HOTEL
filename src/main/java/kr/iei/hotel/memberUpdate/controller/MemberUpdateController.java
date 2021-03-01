@@ -90,7 +90,7 @@ public class MemberUpdateController {
     	/**세션에 저장된 아이디값 가져오기 */
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     	PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
-    	memberDto.setMemberId(principalDetails.getUsername());
+    	memberDto.setMemberEmail(principalDetails.getUsername());
     	
     	
     	/** 1)비밀번호 입력여부 확인 - 비밀번호가 입력되었을시 다음을 처리 */
@@ -155,7 +155,7 @@ public class MemberUpdateController {
         } else {
         	
         	//스프링 시큐리티 PrincipalDetails 세션값 아이디 가져오기
-        	memberDto.setMemberId(userDetails.getUsername());
+        	memberDto.setMemberEmail(userDetails.getUsername());
         	int deleteState=memberUpdateService.memberDelete(memberDto);
         	/** 정상적으로 삭제 처리 되었다면 1 을 반환 */
         	if(deleteState == 0) {

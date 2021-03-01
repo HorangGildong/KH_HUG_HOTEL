@@ -6,14 +6,14 @@ public class MemberJoinFormDto extends MemberDto {
 
 	public MemberJoinFormDto() {}
 	
-	public MemberJoinFormDto(	Long memberNumber,			String memberId,		String memberGrade,		Date memberRegDate,
-								Date memberUnRegDate,		Date memberPwChangeDate,String memberAgree,		String memberRole,
-								String memberEmail,			String memberName,		String memberNick,		String memberPhone,
-								String memberGender,		String memberPassword,	Date memberBirth,		String memberKey) {
-		super(					null,						null,					null,					null,
-								null,						null,					null,					null,
-								null,						null,					null,					null,
-								null,						null,					null,					null);
+	public MemberJoinFormDto(			Long memberNumber,			String memberEmail,		String memberPassword,		
+										String memberName,			String memberNick,		String memberPhone,
+										Date memberRegDate,		Date memberUnRegDate,		Date memberPwChangeDate,
+										String memberAgree,			String memberGrade,		String memberRole,			String memberKey) {
+		super(							null,						null,					null,
+										null,						null,					null,
+										null,						null,					null,
+										null,						null,					null,					null);
 	}
 	
 	@Override

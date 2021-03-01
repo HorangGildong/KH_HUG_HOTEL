@@ -21,8 +21,8 @@ public class PrincipalDetailsService implements UserDetailsService {
 	// 로그인 요청 처리(username, password)
 	// password부분은 알아서 처리함(username이 DB에 있는지만 확인)
 	@Override
-	public UserDetails loadUserByUsername(String memberId) throws UsernameNotFoundException {
-		MemberDto memberDto = memberGetDtoService.getMemberDtoById(memberId);
+	public UserDetails loadUserByUsername(String memberEmail) throws UsernameNotFoundException {
+		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberEmail);
 		/*
 		MemberDto memberDto = memberDao.findByEmail(memberEmail)
 			.orElseThrow(() -> { return new UsernameNotFoundException("해당 사용자자를 찾을 수 없습니다. : " + memberEmail)

@@ -8,7 +8,7 @@ public interface MemberLoginDao {
 	
 	@Update("UPDATE MEMBER SET"
 			+ " memberPwChangeDate = ADD_MONTHS(SYSDATE, -2)"
-			+ " WHERE memberId = '${memberId}'")
-	void updatePwChangeDate(String memberId);
+			+ " WHERE memberEmail = '${memberEmail}'")
+	void updatePwChangeDate(String memberEmail);
 	
 }

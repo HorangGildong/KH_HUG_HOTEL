@@ -53,16 +53,16 @@
 					<form class="form-horizontal" action="/join" method="post">
 
 						<div class="form-group">
-							<label for="inputId" class="col-xs-4 control-label">아이디</label>
+							<label for="inputEmail" class="col-xs-4 control-label">*이메일</label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control"
-									name="memberId"	id="inputId" placeholder="ID" required>
-								<div class="check_font" id="idCheck"></div>
+								<input type="email" class="form-control"
+									name="memberEmail" id="inputEmail" placeholder="E-mail" required>
+								<div class="check_font" id="emailCheck"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">비밀번호</label>
+							<label for="inputPassword" class="col-xs-4 control-label">*비밀번호</label>
 							<div class="col-xs-8">
 								<input type="password" class="form-control"
 									name="memberPassword" id="inputPassword" placeholder="Password"	required>
@@ -71,7 +71,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">비밀번호 확인</label>
+							<label for="inputPassword" class="col-xs-4 control-label">*비밀번호 확인</label>
 							<div class="col-xs-8">
 								<input type="password" class="form-control"
 									id="inputPassword2"	placeholder="PasswordCheck" disabled required>
@@ -83,12 +83,12 @@
 							<label for="inputName" class="col-xs-4 control-label">이름</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control"
-									name="memberName" id="inputName" placeholder="Name" required>
+									name="memberName" id="inputName" placeholder="Name">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="inputNick" class="col-xs-4 control-label">닉네임</label>
+							<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control"
 									name="memberNick" id="inputNickname" placeholder="Nickname" required>
@@ -97,38 +97,11 @@
 						</div>
 
 						<div class="form-group">
-							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
-							<div class="col-xs-8">
-								<input type="email" class="form-control"
-									name="memberEmail" id="inputEmail" placeholder="E-mail" required>
-								<div class="check_font" id="emailCheck"></div>
-							</div>
-						</div>
-
-						<div class="form-group">
 							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" maxlength="13"
-									name="memberPhone" id="inputPhone" placeholder="PhoneNumber" required>
+									name="memberPhone" id="inputPhone" placeholder="PhoneNumber">
 							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="inputBirth" class="col-xs-4 control-label">생년월일</label>
-							<div class="col-xs-8">
-								<input type="date" class="form-control"
-									name="memberBirth" id="inputBirth" required>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-xs-4 control-label">성별</label>
-							<label class="radio-inline col-xs-offset-1 col-xs-2">
-								<input type="radio" name="memberGender" id="inputGenderMale" value="MALE" checked> 남
-							</label>
-							<label class="radio-inline col-xs-offset-1 col-xs-2">
-								<input type="radio" name="memberGender" id="inputGenderFemale" value="FEMALE"> 여
-							</label>
 						</div>
 
 						<br>
@@ -286,54 +259,34 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
-		var isId;
 		var isEmail;
 		var isNick;
 		var isPassword;
-		
-		$('#inputId').blur(function() {
-			var id = $('#inputId').val();
-			isId = false;
-			$.ajax({
-				url : '${pageContext.request.contextPath}/join/idCheck?id=' + id,
-				type : 'get',
-				success : function(data) {
-					if (data) {
-						$('#idCheck').text('사용중인 아이디입니다.');
-						$('#idCheck').css('color', 'red');
-					} else if((id.length > 0 && id.length < 8) || id.length > 20) {
-						$('#idCheck').text('8~20자리로 입력해주세요.');
-						$('#idCheck').css('color', 'red');
-					} else if(id.search(/\s/) != -1) {
-						$('#idCheck').text('공백 없이 입력해주세요.');
-						$('#idCheck').css('color', 'red');
-					} else if (id!='') {
-						isId = true;
-						$('#idCheck').text('사용가능한 아이디입니다.');
-						$('#idCheck').css('color', 'blue');
-					} else {
-						$('#idCheck').text('');
-					}			
-					$.fn.submitDisable();
-				}
-			});
-		});
 		
 		$('#inputEmail').blur(function() {
 			var email = $('#inputEmail').val();
 			var str = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 			isEmail = false;
-			if (!str.test(email) && email!='') {
-				$('#emailCheck').text('이메일 형식이 바르지 않습니다.');
-				$('#emailCheck').css('color', 'red');
-			} else if (email!='') {
-				isEmail = true;
-				$('#emailCheck').text('사용가능한 이메일입니다.');
-				$('#emailCheck').css('color', 'blue');
-			} else {
-				$('#emailCheck').text('');
-			}			
-			$.fn.submitDisable();
+			$.ajax({
+				url : '${pageContext.request.contextPath}/join/emailCheck?email=' + email,
+				type : 'get',
+				success : function(data) {
+					if (email == '') {
+						$('#nickCheck').text('');
+					} else if (!str.test(email)) {
+						$('#emailCheck').text('이메일 형식이 바르지 않습니다.');
+						$('#emailCheck').css('color', 'red');
+					} else if (data) {
+						$('#emailCheck').text('사용중인 이메일입니다.');
+						$('#emailCheck').css('color', 'red');
+					} else {
+						$('#emailCheck').text('사용가능한 이메일입니다.');
+						$('#emailCheck').css('color', 'blue');
+						isEmail = true;
+					}
+					$.fn.submitDisable();
+				}
+			});
 		});
 		
 		$('#inputNickname').blur(function() {
@@ -408,8 +361,7 @@
 		});
 		
 		$.fn.submitDisable = function() {
-			console.log(isId, isEmail, isNick, isPassword);
-			if(isId == true && isEmail == true && isNick == true && isPassword == true) {
+			if(isEmail == true && isNick == true && isPassword == true) {
 				$('#submitBtn').attr('disabled', false);
 			} else {
 				$('#submitBtn').attr('disabled', true);

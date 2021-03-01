@@ -15,18 +15,13 @@ public class MemberGetDtoServiceImp implements MemberGetDtoService {
 	private MemberGetDtoDao memberGetDtoDao;
 	
 	@Override
-	public MemberDto getMemberDtoById(String memberId) {
-		return memberGetDtoDao.getMemberDtoById(memberId);
+	public MemberDto getMemberDtoByEmail(String memberEmail) {
+		return memberGetDtoDao.getMemberDtoByEmail(memberEmail);
 	}
 	
 	@Override
 	public MemberDto getMemberDtoByKey(String memberKey) {
 		return memberGetDtoDao.getMemberDtoByKey(memberKey);
-	}
-	
-	@Override
-	public MemberDto getMemberDtoByIdAndEmail(String memberId, String memberEmail) {
-		return memberGetDtoDao.getMemberDtoByIdAndEmail(memberId, memberEmail);
 	}
 	
 	@Override

@@ -49,12 +49,10 @@
         <!--header end-->
         
         <!--모달(조건부)-->
-        <c:if test="${member.isPwChanged == false}">
+        <c:if test="${member.isPwChanged eq false}">
         	<jsp:include page="member/modalChangePw.jsp"/>
         </c:if>
-   		<c:if test="${isFirstLogin == true}">
-        	<jsp:include page="member/modalFirstLogin.jsp"/>
-        </c:if>
+        <jsp:include page="member/modal.jsp"/>
         <!--모달(조건부)-->
         
         <!--section start-->
@@ -263,6 +261,29 @@
 <script src="js/bootstrapjs/bootstrap.min.js"></script>
 <script src="js/header.js"></script>
 <script src="js/index.js"></script>
+
+<!--모달(조건부)-->
+<script>
+	var isFirstLogin = ${isFirstLogin};
+	$.fn.multiline = function(text) {
+	    this.text(text);
+	    this.html(this.html().replace(/\n/g,'<br/>'));
+	    return this;
+	};
+	if(isFirstLogin = "isFirstLogin") {
+		$('.modal-title').text('회원가입 성공');
+		$('.modal-body').multiline(`${member.nick} 님의 회원가입을 축하드립니다. \n 항상 최선을 다하는 HUG HOTEL이 되겠습니다.`);
+		$(function() {
+			$('#modal').modal({
+				backdrop: 'static',
+				keyboard: false
+			});
+		})
+	}
+</script>
+<!--모달(조건부)-->
+
+
 
 </body>
 

@@ -45,8 +45,8 @@ public class memberSearchController {
 	
 	@ResponseBody
 	@GetMapping("/searchPassword/searchId")
-	public boolean searchId(@RequestParam("id") String memberId, @RequestParam("email") String memberEmail, HttpSession codeSession) {
-		boolean isId = (memberGetDtoService.getMemberDtoByIdAndEmail(memberId, memberEmail) != null);
+	public boolean searchId(@RequestParam("email") String memberEmail, HttpSession codeSession) {
+		boolean isId = (memberGetDtoService.getMemberDtoByEmail(memberEmail) != null);
 		if(isId) {
 			memberEmailService.setCodeSession(codeSession);
 			memberEmailService.sendCodeEmail(memberEmail, codeSession);
@@ -56,14 +56,13 @@ public class memberSearchController {
 
 	@ResponseBody
 	@GetMapping("/searchPassword/compareCode")
-	public boolean compareRandomNumber(@RequestParam("code") String code, @RequestParam("id") String memberId,
-			@RequestParam("email") String memberEmail, HttpSession codeSession) {
+	public boolean compareCode(@RequestParam("code") String code, @RequestParam("email") String memberEmail, HttpSession codeSession) {
 		boolean isCode = code.equals((String) codeSession.getAttribute("code"));
 		if(isCode) {
 			codeSession.invalidate();
 			String password = memberEmailService.createPassword();
 			memberEmailService.sendPasswordEmail(memberEmail, password);
-			memberJoinService.changePassword(memberId, password);
+			memberJoinService.changePassword(memberEmail, password);
 		}
 		return isCode;
 	}

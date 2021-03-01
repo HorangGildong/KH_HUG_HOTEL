@@ -5,12 +5,10 @@ import java.util.List;
 import kr.iei.hotel.member.dto.MemberDto;
 
 public interface MemberGetDtoService {
-
-	MemberDto getMemberDtoById(String memberId);
+	
+	MemberDto getMemberDtoByEmail(String memberEmail);
 
 	MemberDto getMemberDtoByKey(String memberKey);
-	
-	MemberDto getMemberDtoByIdAndEmail(String memberId, String memberEmail);
 	
 	List<MemberDto> getMemberDtoListByNameAndPhone(String memberName, String memberPhone);
 	

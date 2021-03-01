@@ -84,7 +84,7 @@
                     <form id="myinfo" onsubmit="handleSubmit(this)">
                         <div class="form-group">
                             <label for="persanl_name">아이디(이메일) :</label>
-                            <input type="text" class="form-control" id="persanl_name"  value="${member.memberId} (${member.memberEmail})" readonly>
+                            <input type="text" class="form-control" id="persanl_name"  value="${member.memberEmail}" readonly>
                             <br>
                             
                             <label for="persnal_password">비밀번호:</label>
@@ -99,25 +99,15 @@
 							</div>
 							
         					
-                            <label for="persnal_name">* Name :</label>
-                            <input type="text" class="form-control" id="persnal_name" name="memberName" value="${member.memberName}" readonly><br>
+                            <label for="persnal_name">이름 :</label>
+                            <input type="text" class="form-control" id="persnal_name" name="memberName" value="${member.memberName}"><br>
                             
-                            <label for="user_nick"> &nbsp; 닉네임</label>
+                            <label for="user_nick"> &nbsp; *닉네임</label>
                             <input type="text" class="form-control" id="user_nick" name="memberNick" value="${member.memberNick}"><br>
                             
-                            <label for="persnal_birth">생년월일</label>
-                            <input type="text" class="form-control" id="persnal_birth" name="" value="<fmt:formatDate value="${member.memberBirth}" pattern="yyyy-MM-dd"/>" readonly><br>
-        
                             <label for="persnal_phone"> &nbsp; Phone :</label>
                             <input type="tel" class="form-control" id="inputPhone"  name="memberPhone" value="${member.memberPhone}"><br>
                                                         
-                            <label for=""> &nbsp; Gender : </label> &nbsp;&nbsp;
-                            <input type="radio" name="memberGender" id="Male" value="MALE" ${member.memberGender eq 'MALE' ? 'checked':''}  >
-                            <label for="Male">남자</label> &nbsp;&nbsp;
-                            <input type="radio" name="memberGender" id="Female" value="FEMALE" ${member.memberGender eq 'FEMALE' ? 'checked':''}>
-                            <label for="Female">여자</label><br>
-                            
-                           
                         </div>
                         <br>
                         <div class="btns" align="center">

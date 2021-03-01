@@ -99,6 +99,9 @@
                     <sec:authorize access="isAnonymous()">
                     <li><a href='/login' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
                     </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li><a href='/reservationAdminListView' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
+                    </sec:authorize>
                 </ul>
             </nav>
         </header>
