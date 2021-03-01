@@ -5,7 +5,7 @@ DROP TABLE GRADE;
 
 CREATE TABLE MEMBER (
 	memberNumber        NUMBER	                                            CONSTRAINT PK_MEMBER_MEMBERNUMBER PRIMARY KEY,
-    memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL',
+    memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL'             CONSTRAINT UQ_MEMBER_MEMBEREMAIL UNIQUE,
 	memberRegDate  	    DATE,
 	memberUnRegDate     DATE,
 	memberPwChangeDate  DATE,
@@ -105,7 +105,7 @@ INSERT INTO MEMBER (
 )
 VALUES (
     '아무개',                SYSDATE,                SYSDATE,
-    '난누군가또여긴어딘가',     '010-1111-1111',        'old@what.co.kr',
+    '난누군가또여긴어딘가',     '010-1111-1111',        'new@what.co.kr',
     'ROLE_REGURAL',         '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
 );
 
