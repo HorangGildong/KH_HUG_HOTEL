@@ -96,13 +96,13 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 
 	// 변경 권장 기간 내 비밀번호 변경 여부
 	public boolean getIsPwChanged() {
-		boolean result = false;
+		boolean result = true;
 		if (memberDto.getMemberPwChangeDate() != null) {
 			Date pwChangeDate = memberDto.getMemberPwChangeDate();
 			Calendar baseDate = Calendar.getInstance();
 			baseDate.setTime(new Date());
 			baseDate.add(Calendar.DATE, -90);
-			result =  pwChangeDate.before(baseDate.getTime());
+			result =  pwChangeDate.after(baseDate.getTime());
 		}
 		return result;	// true : 변경 불필요, false : 변경 필요
 	}

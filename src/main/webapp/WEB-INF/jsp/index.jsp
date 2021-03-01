@@ -49,6 +49,9 @@
         <!--header end-->
         
         <!--모달(조건부)-->
+        <c:if test="${member.isPwChanged eq false}">
+        	<jsp:include page="member/modalChangePw.jsp"/>
+        </c:if>
         <jsp:include page="member/modal.jsp"/>
         <!--모달(조건부)-->
         
@@ -260,8 +263,7 @@
 <script src="js/index.js"></script>
 
 <!--모달(조건부)-->
-<!-- <script>
-	var isPwChanged = ${member.isPwChanged};
+<script>
 	var isFirstLogin = ${isFirstLogin};
 	$.fn.multiline = function(text) {
 	    this.text(text);
@@ -277,17 +279,8 @@
 				keyboard: false
 			});
 		})
-	} else if(isPwChanged) {
-		$('.modal-title').text('비밀번호 변경');
-		$('.modal-body').multiline(`${member.nick} 님의 개인정보를 안전하게 보호하고, \n 개인정보 도용으로 인한 피해를 예방하기 위해 \n 90일 이상 비밀번호를 변경하지 않은 경우 \n 비밀번호 변경을 권장해드립니다.`);
-		$(function() {
-			$('#modal').modal({
-				backdrop: 'static',
-				keyboard: false
-			});
-		})
 	}
-</script> -->
+</script>
 <!--모달(조건부)-->
 
 
