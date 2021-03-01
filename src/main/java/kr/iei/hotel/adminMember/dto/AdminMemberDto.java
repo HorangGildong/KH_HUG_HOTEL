@@ -6,7 +6,6 @@ public class AdminMemberDto {
 
 	private int no;
 	private Long memberNumber;
-	private String memberId;
 	private String memberGrade;
 	private Date memberRegDate;
 	private Date memberUnRegDate;
@@ -17,26 +16,21 @@ public class AdminMemberDto {
 	private String memberName;
 	private String memberNick;
 	private String memberPhone;
-	private String memberGender;
 	private String memberPassword;
-	private Date memberBirth;
 	private String memberKey;
 	
 	public AdminMemberDto() {}
 	
-	public AdminMemberDto(String memberId, String memberRole, String memberEmail, String memberKey) {
-		this.memberId = memberId;
+	public AdminMemberDto(String memberRole, String memberEmail, String memberKey) {
 		this.memberRole = memberRole;
 		this.memberEmail = memberEmail;
 		this.memberKey = memberKey;
 	}
 
-	public AdminMemberDto(Long memberNumber, String memberId, String memberGrade, Date memberRegDate, Date memberUnRegDate,
+	public AdminMemberDto(Long memberNumber, String memberGrade, Date memberRegDate, Date memberUnRegDate,
 			Date memberPwChangeDate, String memberAgree, String memberRole, String memberEmail, String memberName,
-			String memberNick, String memberPhone, String memberGender, String memberPassword, Date memberBirth,
-			String memberKey) {
+			String memberNick, String memberPhone, String memberPassword, String memberKey) {
 		this.memberNumber = memberNumber;
-		this.memberId = memberId;
 		this.memberGrade = memberGrade;
 		this.memberRegDate = memberRegDate;
 		this.memberUnRegDate = memberUnRegDate;
@@ -47,9 +41,7 @@ public class AdminMemberDto {
 		this.memberName = memberName;
 		this.memberNick = memberNick;
 		this.memberPhone = memberPhone;
-		this.memberGender = memberGender;
 		this.memberPassword = memberPassword;
-		this.memberBirth = memberBirth;
 		this.memberKey = memberKey;
 	}
 
@@ -69,14 +61,6 @@ public class AdminMemberDto {
 
 	public final void setMemberNumber(Long memberNumber) {
 		this.memberNumber = memberNumber;
-	}
-
-	public final String getMemberId() {
-		return memberId;
-	}
-
-	public final void setMemberId(String memberId) {
-		this.memberId = memberId;
 	}
 
 	public final String getMemberGrade() {
@@ -159,28 +143,12 @@ public class AdminMemberDto {
 		this.memberPhone = memberPhone;
 	}
 
-	public final String getMemberGender() {
-		return memberGender;
-	}
-
-	public final void setMemberGender(String memberGender) {
-		this.memberGender = memberGender;
-	}
-
 	public final String getMemberPassword() {
 		return memberPassword;
 	}
 
 	public final void setMemberPassword(String memberPassword) {
 		this.memberPassword = memberPassword;
-	}
-
-	public final Date getMemberBirth() {
-		return memberBirth;
-	}
-
-	public final void setMemberBirth(Date memberBirth) {
-		this.memberBirth = memberBirth;
 	}
 
 	public final String getMemberKey() {
@@ -193,12 +161,11 @@ public class AdminMemberDto {
 
 	@Override
 	public String toString() {
-		return "MemberDto [memberNumber=" + memberNumber + ", memberId=" + memberId + ", memberGrade=" + memberGrade
+		return "AdminMemberDto [no=" + no + ", memberNumber=" + memberNumber + ", memberGrade=" + memberGrade
 				+ ", memberRegDate=" + memberRegDate + ", memberUnRegDate=" + memberUnRegDate + ", memberPwChangeDate="
 				+ memberPwChangeDate + ", memberAgree=" + memberAgree + ", memberRole=" + memberRole + ", memberEmail="
 				+ memberEmail + ", memberName=" + memberName + ", memberNick=" + memberNick + ", memberPhone="
-				+ memberPhone + ", memberGender=" + memberGender + ", memberPassword=" + memberPassword
-				+ ", memberBirth=" + memberBirth + ", memberKey=" + memberKey + "]";
+				+ memberPhone + ", memberPassword=" + memberPassword + ", memberKey=" + memberKey + "]";
 	}
 
 }

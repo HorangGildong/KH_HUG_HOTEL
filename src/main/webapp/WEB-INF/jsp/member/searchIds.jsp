@@ -43,9 +43,11 @@
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
+		<jsp:include page="modal.jsp" />
+
 		<!--section start-->
-		<section>
-			<jsp:include page="modalSearch.jsp" />
+		<section>		
+			
 			<div style="margin: 100px 0px 0px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 

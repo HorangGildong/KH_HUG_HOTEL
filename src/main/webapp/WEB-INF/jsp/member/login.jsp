@@ -56,12 +56,11 @@
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
-		<c:if test="${loginFailure == true}">
-		<jsp:include page="modalLoginFailure.jsp" />
-		</c:if>
+		<jsp:include page="modal.jsp" />
 
 		<!--section start-->
 		<section>
+		
 			<div style="margin: 100px 0px 100px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 				
@@ -74,8 +73,8 @@
 								<span class="input-group-addon">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-								<input type="text" class="form-control input-lg"
-									name="username" id="inputId" placeholder="ID" value="${memberId}">
+								<input type="email" class="form-control input-lg"
+									name="memberEmail" id="inputEmail" placeholder="Email" value="${memberEmail}">
 							</div>
 						</div>
 						
@@ -141,6 +140,30 @@
 	<script src="/js/bootstrapjs/bootstrap.min.js"></script>
 	<script src="/js/header.js"></script>
 	<script src="/js/index.js"></script>
+
+	<script>
+	
+	$.fn.multiline = function(text) {
+	    this.text(text);
+	    this.html(this.html().replace(/\n/g,'<br/>'));
+	    return this;
+	}
+	
+	$('.modal-title').text('로그인 실패');
+	$('.modal-body').multiline('입력하신 아이디 또는 비밀번호가 바르지 않습니다. \n 다시 시도해주시기 바랍니다.');
+	
+	
+	if(${loginFailure}) {
+		console.log("ok");
+		$(function() {
+			$('#modal').modal({
+				backdrop: 'static',
+				keyboard: false
+			});
+		})
+	}
+	
+	</script>
 
 </body>
 

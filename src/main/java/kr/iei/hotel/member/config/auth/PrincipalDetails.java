@@ -64,7 +64,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	// 아이디
 	@Override
 	public String getUsername() {
-		return memberDto.getMemberId();
+		return memberDto.getMemberEmail();
 	}
 
 	// 이름
@@ -84,11 +84,6 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 		return memberDto.getMemberPassword();
 	}
 
-	// 이메일
-	public String getEmail() {
-		return memberDto.getMemberEmail();
-	}
-	
 	// 등급
 	public String getGrade() {
 		return memberDto.getMemberGrade();
@@ -101,13 +96,13 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 
 	// 변경 권장 기간 내 비밀번호 변경 여부
 	public boolean getIsPwChanged() {
-		boolean result = true;
+		boolean result = false;
 		if (memberDto.getMemberPwChangeDate() != null) {
 			Date pwChangeDate = memberDto.getMemberPwChangeDate();
 			Calendar baseDate = Calendar.getInstance();
 			baseDate.setTime(new Date());
 			baseDate.add(Calendar.DATE, -90);
-			result =  pwChangeDate.after(baseDate.getTime());
+			result =  pwChangeDate.before(baseDate.getTime());
 		}
 		return result;	// true : 변경 불필요, false : 변경 필요
 	}

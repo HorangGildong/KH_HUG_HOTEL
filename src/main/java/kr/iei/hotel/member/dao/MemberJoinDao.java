@@ -1,5 +1,7 @@
 package kr.iei.hotel.member.dao;
 
+import java.sql.Date;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -11,26 +13,31 @@ import kr.iei.hotel.member.dto.MemberJoinFormDto;
 public interface MemberJoinDao {
 
 	@Insert("INSERT INTO MEMBER ("
-			+ " memberNumber,		memberId,			memberGrade,		memberRegDate,		memberUnRegDate,	memberPwChangeDate,"
-			+ " memberAgree,		memberRole,			memberEmail,		memberName,			memberNick,"
-			+ " memberPhone,		memberGender,		memberPassword, 	memberBirth, 		memberKey"
+			+ " memberNumber,		memberEmail,		memberPassword, 	memberName,"
+			+ " memberNick,			memberPhone,		memberRegDate,		memberUnRegDate,	memberPwChangeDate,"
+			+ " memberAgree,		memberGrade,		memberRole,			memberKey"
 			+ " )"
 			+ " VALUES"
 			+ " ("
-			+ " '${memberNumber}',	'${memberId}',		'GRADE_GENERAL',	SYSDATE,			'${memberUnRegDate}',	SYSDATE,"
-			+ " '${memberAgree}',	'ROLE_REGURAL',		'${memberEmail}',	'${memberName}',	'${memberNick}',"
-			+ " '${memberPhone}',	'${memberGender}',	'${memberPassword}','${memberBirth}',	'${memberKey}'"
+			+ " '${memberNumber}',	'${memberEmail}',	'${memberPassword}','${memberName}',"
+			+ " '${memberNick}',	'${memberPhone}',	SYSDATE,			'${memberUnRegDate}',SYSDATE,"
+			+ " '${memberAgree}',	'GRADE_GENERAL',	'ROLE_REGURAL',		'${memberKey}'"
 			+ " )")
 	void join(MemberJoinFormDto memberJoinFormDto);
 
-	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberId = '${memberId}'")
-	int checkId(String memberId);
+	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberEmail = '${memberEmail}'")
+	int checkEmail(String memberEmail);
 
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberNick = '${memberNick}'")
 	int checkNick(String memberNick);
 	
 	@Update("UPDATE MEMBER SET"
 			+ " memberPassword = '${password}'"
-			+ " WHERE memberId = '${memberId}'")
-	void changePassword(String password, String memberId);
+			+ " WHERE memberEmail = '${memberEmail}'")
+	void changePassword(String password, String memberEmail);
+
+	@Update("UPDATE MEMBER SET"
+			+ " memberKey = '${memberKey}'"
+			+ " WHERE memberEmail = '${memberEmail}'")
+	void addKey(String memberEmail, String memberKey);
 }

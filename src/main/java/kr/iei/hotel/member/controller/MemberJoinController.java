@@ -39,9 +39,9 @@ public class MemberJoinController {
 	@PostMapping("/join")
 	public String join(MemberJoinFormDto memberJoinFormDto, Model model) {
 		memberJoinService.join(memberJoinFormDto);
-		MemberDto memberDto = memberGetDtoService.getMemberDtoById(memberJoinFormDto.getMemberId());
+		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberJoinFormDto.getMemberEmail());
 		memberLoginService.autoLogin(memberDto);
-		model.addAttribute("isFirstLogin", true);
+		model.addAttribute("isFirstLogin", "isFirstLogin");
 		return "/index";
 	}
 	
@@ -56,16 +56,16 @@ public class MemberJoinController {
 	@PostMapping("/join/oAuth2")
 	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {		
 		memberJoinService.join(memberOAuth2JoinFormDto);
-		MemberDto memberDto = memberGetDtoService.getMemberDtoById(memberOAuth2JoinFormDto.getMemberId());
+		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberOAuth2JoinFormDto.getMemberEmail());
 		memberLoginService.autoLogin(memberDto);
-		model.addAttribute("isFirstLogin", true);
+		model.addAttribute("isFirstLogin", "isFirstLogin");
 		return "/index";
 	}
 
 	@ResponseBody
-	@GetMapping("/join/idCheck")
-	public boolean isIdCheck(@RequestParam("id") String memberId) {
-		return !(memberJoinService.checkId(memberId)==0);
+	@GetMapping("/join/emailCheck")
+	public boolean isEmailCheck(@RequestParam("email") String memberEmail) {
+		return !(memberJoinService.checkEmail(memberEmail)==0);
 	}
 	
 	@ResponseBody

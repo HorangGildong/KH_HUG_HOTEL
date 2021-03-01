@@ -6,12 +6,14 @@ public interface MemberJoinService {
 
 	void join(MemberJoinFormDto memberJoinFormDto);
 
-	int checkId(String memberId);
+	int checkEmail(String memberEmail);
 
 	int checkNick(String memberNick);
 
 	String passwordEncode(String memberPassword);
 	
-	void changePassword(String memberId, String Password);
+	void changePassword(String memberEmail, String Password);
+
+	void addKey(String memberEmail, String memberKey);
 	
 }

@@ -5,7 +5,7 @@ import kr.iei.hotel.memberUpdate.dto.MemberUpdateDto;
 
 public interface MemberUpdateService {
 
-	public MemberUpdateDto getMemberInfo(String memberid);
+	public MemberUpdateDto getMemberInfo(String memberEmail);
 
 	public int memberUpdate(MemberDto memberDto);
 

@@ -17,7 +17,7 @@
         <header>
             <div class="header text-center">
                 <h2><a href="/"><strong>H.U.G HOTEL</strong></a></h2>
-                <h5><strong>JEJU ${member}</strong></h5>
+                <h5><strong>JEJU</strong></h5>
             </div>
             <nav id='cssmenu'>
                 <div id="head-mobile"></div>
@@ -98,6 +98,9 @@
                     </sec:authorize>
                     <sec:authorize access="isAnonymous()">
                     <li><a href='/login' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li><a href='/reservationAdminListView' style="background-color: #193f6e;" onmouseover="this.innerHTML='Reservation'" onmouseout="this.innerHTML='예약'">예약</a></li>
                     </sec:authorize>
                 </ul>
             </nav>

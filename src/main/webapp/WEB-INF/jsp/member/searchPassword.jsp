@@ -45,21 +45,15 @@
 
 		<!--section start-->
 		<section>
-		<jsp:include page="modalSearch.jsp" />
+		
+		<jsp:include page="modal.jsp" />
+		
 			<div style="margin: 100px 0px 0px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 찾기</h1>
 
 					<form id="searchPassword" class="form-horizontal">
-
-						<div class="form-group">
-							<label for="inputId" class="col-xs-3 control-label">아이디</label>
-							<div class="col-xs-9">
-								<input type="text" class="form-control"
-									name="memberId" id="inputId" placeholder="ID" required>
-							</div>
-						</div>
 
 						<div class="form-group">
 							<label for="inputEmail" class="col-xs-3 control-label">이메일</label>
@@ -119,7 +113,6 @@
 	<script>
 
 		var btnAction = 0;
-		var id;
 		var email;
 		var code;
 		
@@ -128,13 +121,13 @@
 			$('#searchBtn').attr('disabled', true);
 			if(btnAction == 0) {
 				btnAction = 2;
-				id = $('#inputId').val();
 				email = $('#inputEmail').val();
 				$.ajax({
-					url : '${pageContext.request.contextPath}/searchPassword/searchId?id=' + id + '&email=' + email,
+					url : '${pageContext.request.contextPath}/searchPassword/searchId?&email=' + email,
 					type : 'get',
 					success : function(data1) {
 						if(data1) {
+							$('.modal-title').text('비밀번호 찾기');
 							$('.modal-body').multiline('입력하신 이메일로 인증번호를 전송하였습니다. \n 전송받은 인증번호를 3분 이내에 입력해주세요.');
 							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							$('#searchBtn').text('확인');
@@ -146,6 +139,7 @@
 							btnAction = 1;
 							$('#baseModal').modal("hide");
 						} else {
+							$('.modal-title').text('비밀번호 찾기');
 							$('.modal-body').multiline('입력하신 아이디 또는 이메일이 바르지 않습니다. \n 다시 입력해주세요.');
 							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							btnAction = 0;
@@ -156,21 +150,21 @@
 			} else if(btnAction == 1) {
 				btnAction = 2;
 				$('#searchBtn').attr('disabled', true);
-				id = $('#inputId').val();
 				email = $('#inputEmail').val();
 				code = $('#inputCode').val();
 				$.ajax({
-					url : '${pageContext.request.contextPath}/searchPassword/compareCode?code=' + code
-							+ '&id=' + id + '&email=' + email,
+					url : '${pageContext.request.contextPath}/searchPassword/compareCode?code=' + code + '&email=' + email,
 					type : 'get',
 					success : function(data2) {
 						if(data2) {
 							$('#okBtn').attr('style', 'display: none;');
 							$('#goLoginPage').attr('style', 'display: inline;');
+							$('.modal-title').text('비밀번호 찾기');
 							$('.modal-body').multiline('입력하신 이메일로 임시비밀번호를 전송하였습니다. \n 임시 비밀번호는 꼭 변경 후 사용하시기 바랍니다.');
 							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							$('#baseModal').modal("hide");
 						} else {
+							$('.modal-title').text('비밀번호 찾기');
 							$('.modal-body').multiline('인증번호가 일치하지 않습니다. \n 다시 입력해주세요.');
 							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							btnAction = 1;

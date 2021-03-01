@@ -30,7 +30,7 @@ public class MemberJoinServiceImp implements MemberJoinService {
 			memberJoinFormDto.setMemberPassword(password);
 		}
 		memberJoinDao.join(memberJoinFormDto);
-		MemberDto memberDto = memberGetDtoService.getMemberDtoById(memberJoinFormDto.getMemberId());
+		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberJoinFormDto.getMemberEmail());
 		memberLoginService.autoLogin(memberDto);
 	}
 	
@@ -40,8 +40,8 @@ public class MemberJoinServiceImp implements MemberJoinService {
 	}
 	
 	@Override
-	public int checkId(String memberId) {
-		return memberJoinDao.checkId(memberId);
+	public int checkEmail(String memberEmail) {
+		return memberJoinDao.checkEmail(memberEmail);
 	}
 	
 	@Override
@@ -50,8 +50,14 @@ public class MemberJoinServiceImp implements MemberJoinService {
 	}
 	
 	@Override
-	public void changePassword(String memberId, String password) {
+	public void changePassword(String memberEmail, String password) {
 		String memberPassword = passwordEncode(password);
-		memberJoinDao.changePassword(memberPassword, memberId);
+		memberJoinDao.changePassword(memberPassword, memberEmail);
+	}
+	
+	@Override
+	public void addKey(String memberEmail, String memberKey) {
+		memberJoinDao.addKey(memberEmail, memberKey);
+		
 	}
 }

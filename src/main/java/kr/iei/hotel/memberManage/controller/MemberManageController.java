@@ -26,7 +26,7 @@ public class MemberManageController {
         if(!verify(memberDto, userDetails)) {
             return new ResponseEntity<>(false, HttpStatus.UNAUTHORIZED);
         } else {
-            memberDto.setMemberId(userDetails.getUsername());
+            memberDto.setMemberEmail(userDetails.getUsername());
             int update = memberManageService.updateInfo(memberDto);
             if(update == 0) {
                 return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -40,7 +40,7 @@ public class MemberManageController {
         if(!verify(memberDto, userDetails)) {
             return new ResponseEntity<>(false, HttpStatus.UNAUTHORIZED);
         } else {
-            memberDto.setMemberId(userDetails.getUsername());
+            memberDto.setMemberEmail(userDetails.getUsername());
             int delete = memberManageService.deleteInfo(memberDto);
             if(delete == 0) {
                 return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);

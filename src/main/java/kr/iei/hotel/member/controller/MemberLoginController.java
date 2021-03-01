@@ -1,6 +1,5 @@
 package kr.iei.hotel.member.controller;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberDto;
@@ -34,8 +32,8 @@ public class MemberLoginController {
 	}
 
 	@PostMapping("/login")
-	public String idLoginPage(String memberId, Model model) {
-		model.addAttribute("memberId", memberId);
+	public String emailLoginPage(String memberEmail, Model model) {
+		model.addAttribute("memberEmail", memberEmail);
 		return "/member/login";
 	}
 	

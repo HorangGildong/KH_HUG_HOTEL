@@ -12,10 +12,10 @@ public interface MemberManageDao {
 	// @Update("UPDATE MEMBER SET memberNick= '${memberNick}', memberPhone =
 	// '${memberPhone}', memberGender = '${memberGender}' WHERE memberId =
 	// '${memberId}' AND memberPassword = '${memberPassword}'")
-	@Update("UPDATE MEMBER SET memberNick= '${memberNick}', memberPhone = '${memberPhone}', memberGender = '${memberGender}' WHERE memberId = '${memberId}'")
+	@Update("UPDATE MEMBER SET memberNick= '${memberNick}', memberPhone = '${memberPhone}' WHERE memberEmail = '${memberEmail}'")
 	int updateInfo(MemberDto memberDto);
 
-	@Delete("DELETE FROM MEMBER WHERE memberId = '${memberId}'")
+	@Delete("DELETE FROM MEMBER WHERE memberEmail = '${memberEmail}'")
 	int deleteInfo(MemberDto memberDto);
 	
 }

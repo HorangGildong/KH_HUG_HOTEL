@@ -30,7 +30,7 @@ public class MemberLoginServiceImp implements MemberLoginService {
 	
 	@Override
 	public void autoLogin(MemberDto memberDto) {
-		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberDto.getMemberId());
+		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberDto.getMemberEmail());
 		Collection<GrantedAuthority> authorities = getAuthorities(memberDto.getMemberRole());
 		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, authorities);
 		SecurityContextHolder.getContext().setAuthentication(newAuthentication);		
@@ -53,8 +53,8 @@ public class MemberLoginServiceImp implements MemberLoginService {
 	@Override
 	public void updatePwChangeDate() {
 		MemberDto memberDto = getSessionMemberDto();
-		memberLoginDao.updatePwChangeDate(memberDto.getMemberId());
-		memberDto = memberGetDtoService.getMemberDtoById(memberDto.getMemberId());
+		memberLoginDao.updatePwChangeDate(memberDto.getMemberEmail());
+		memberDto = memberGetDtoService.getMemberDtoByEmail(memberDto.getMemberEmail());
 		autoLogin(memberDto);
 	}
 }

@@ -63,10 +63,9 @@
                     <div>
                         <select class="form-control" name='selectBox' id='selectBox' >
 							<option value="total" ${ (empty param.selectBox) or ( param.selectBox eq  'total')  ? 'selected':'' }> 전체</option>
-				            <option value="memberId" ${param.selectBox eq  'memberId' ? 'selected':'' }> 아이디</option>
+				            <option value="memberEmail" ${param.selectBox eq  'memberEmail' ? 'selected':'' }>아이디(이메일)</option>
 				            <option value="memberName" ${param.selectBox eq  'memberName' ? 'selected':'' }>이름</option>
 				            <option value="memberNick" ${param.selectBox eq  'memberNick' ? 'selected':'' }>닉네임</option>
-				            <option value="memberEmail" ${param.selectBox eq  'memberEmail' ? 'selected':'' }>이메일</option>
 				            <option value="memberPhone" ${param.selectBox eq  'memberPhone' ? 'selected':'' } >전화번호</option>
                         </select>                             
                         <input type="text" id='text'class="form-control" name='findStr' value="${param.findStr }">            
@@ -81,13 +80,10 @@
               <thead>
                <tr>
                  <th class="text-center">No.</th>
-                 <th class="text-center">아이디</th>
+                 <th class="text-center">아이디(이메일)</th>
                  <th class="text-center">이름</th>
                  <th class="text-center">닉네임</th>
-                 <th class="text-center">이메일</th>
                  <th class="text-center">전화번호</th>
-                 <th class="text-center">생년월일</th>
-                 <th class="text-center">성별</th>
                  <!-- <th class="text-center">마케팅 수신동의</th> -->
                  <!-- <th class="text-center">비밀번호변경일</th>    -->
                  <th class="text-center">회원가입일</th>    
@@ -100,30 +96,28 @@
                			<tr class="text-center" onclick="getMemberInfo(this)"
                			data-no='${page.totListSize-(row.no-1)}'
                			data-memberNumber='${row.memberNumber}'
-               			data-memberId='${row.memberId}'
+               			data-memberEmail='${row.memberEmail}'
                			data-memberGrade="${row.memberGrade eq 'GRADE_GENERAL' ? '일반':'VIP' }"
                			data-memberRegDate='<fmt:formatDate value="${row.memberRegDate}" pattern="yyyy-MM-dd"/>'
                			data-memberUnRegDate='<fmt:formatDate value="${row.memberUnRegDate}" pattern="yyyy-MM-dd"/>'
                			data-memberPwChangeDate='<fmt:formatDate value="${row.memberPwChangeDate}" pattern="yyyy-MM-dd"/>'
                			data-memberAgree="${row.memberAgree eq 'chk'? '동의':'동의 안함'}"
                			data-memberRole="${row.memberRole eq 'ROLE_ADMIN' ? '관리지(ROLE_ADMIN)':'일반(ROLE_REGURAL)'}"
-               			data-memberEmail='${row.memberEmail}'
                			data-memberName='${row.memberName}'
                			data-memberNick='${row.memberNick}'
                			data-memberPhone='${row.memberPhone}'
-               			data-memberGender="${row.memberGender eq 'MALE' ? '남성':'여성'}"
-               			data-memberBirth='<fmt:formatDate value="${row.memberBirth}" pattern="yyyy-MM-dd"/>'
+
+
                			data-memberKey='${row.memberKey}'               			
                			style="cursor: pointer;">
                			 
 	   						 <td>${page.totListSize-(row.no-1)}</td>
-	   						 <td>${row.memberId}</td>
+			                 <td>${row.memberEmail}</td>
 			                 <td>${row.memberName}</td>
 			                 <td>${row.memberNick}</td>
-			                 <td>${row.memberEmail}</td>
 			                 <td>${row.memberPhone}</td>			               
-			                 <td><fmt:formatDate value="${row.memberBirth}" pattern="yyyy-MM-dd"/></td>
-			                 <td>${row.memberGender eq 'MALE' ? '남성':'여성'}</td>
+
+
 			                 <%-- <td>${row.memberAgree eq 'chk'? '동의':''}</td>	 --%>
 			                 <%-- <td><fmt:formatDate value="${row.memberPwChangeDate}" pattern="yyyy-MM-dd"/></td> --%>
 			                 <td><fmt:formatDate value="${row.memberRegDate}" pattern="yyyy-MM-dd"/></td>
@@ -180,7 +174,7 @@
            <tbody class="text-center ">
            		<tr><td class="modal-th">no</td> 				<td id="modal-no" class="text-center"></td></tr> 
 				<tr><td class="modal-th">회원번호</td> <td id="modal-memberNumber"></td></tr> 
-				<tr><td class="modal-th">회원아이디</td> 			<td id="modal-memberId"></td></tr> 
+				<tr><td class="modal-th">회원아이디(이메일)</td> 			<td id="modal-memberEmail"></td></tr> 
 				<tr><td class="modal-th">회원등급상태</td>		
 				<td id="modal-memberGrade">
 					<select class="form-control text-center" style="text-align-last:center" onchange="memberGradeUpdate(this)">
@@ -197,12 +191,11 @@
 				<tr><td class="modal-th">비밀번호변경일</td>		<td id="modal-memberPwChangeDate"></td></tr> 
 				<tr><td class="modal-th">마케팅 수신동의</td>		<td id="modal-memberAgree"></td></tr> 
 				<tr><td class="modal-th">회원권한</td>			<td id="modal-memberRole"></td></tr> 
-				<tr><td class="modal-th">이메일</td>		<td id="modal-memberEmail"></td></tr> 
 				<tr><td class="modal-th">이름</td>			<td id="modal-memberName"></td></tr> 
 				<tr><td class="modal-th">닉네임</td>			<td id="modal-memberNick"></td></tr> 
 				<tr><td class="modal-th">전화번호</td>		<td id="modal-memberPhone"></td></tr> 
-				<tr><td class="modal-th">성별</td>		<td id="modal-memberGender"></td></tr> 			
-				<tr><td class="modal-th">생일</td>		<td id="modal-memberBirth"></td></tr> 
+ 			
+ 
 				<!-- <tr><td class="modal-th">키(memberKey)</td>			<td id="modal-memberKey"></td></tr> --> 					         		        		           		           		           		           		           			
            </tbody>
           </table>
@@ -241,7 +234,7 @@ function movePage(page){
 function memberGradeUpdate(e){
 	
 	var memberNumber=$.trim($("#modal-memberNumber").text());
-	var memberId=$.trim($("#modal-memberId").text());
+	var memberEmail=$.trim($("#modal-memberEmail").text());
 	var memberGrade=$(e).val();
 	var memberGradeText=$(e).children("option:selected").text();
 	
@@ -249,7 +242,7 @@ function memberGradeUpdate(e){
         url: '/memberGradeUpdate',
         method: 'POST',
         data: {
-        	'memberId':memberId,
+        	'memberEmail':memberEmail,
         	'memberGrade':memberGrade,        	
         },
         success: function(result) {
@@ -272,7 +265,7 @@ function getMemberInfo(e){
 
 	$("#modal-no").text($(e).attr("data-no"));	
 	$("#modal-memberNumber").text($(e).attr("data-memberNumber"));	
-	$("#modal-memberId").text($(e).attr("data-memberId"));	
+	$("#modal-memberEmail").text($(e).attr("data-memberEmail"));	
 
 	
 	var memberGrade=$(e).attr("data-memberGrade");
@@ -291,9 +284,9 @@ function getMemberInfo(e){
 	$("#modal-memberName").text($(e).attr("data-memberName"));	
 	$("#modal-memberNick").text($(e).attr("data-memberNick"));	
 	$("#modal-memberPhone").text($(e).attr("data-memberPhone"));	
-	$("#modal-memberGender").text($(e).attr("data-memberGender"));	
+	
 
-	$("#modal-memberBirth").text($(e).attr("data-memberBirth"));	
+	
 	$("#modal-memberKey").text($(e).attr("data-memberKey"));
 	//bootstrap modal 에서 영역 밖을 선택시 backdrop옵션에 "static" 값을 같이 넘겨주면, 모달이 닫히는 것을 막아 준다.
 	$("#getMemberInfoModal").modal({backdrop: 'static'});

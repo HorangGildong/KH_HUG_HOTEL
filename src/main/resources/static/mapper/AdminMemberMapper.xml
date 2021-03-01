@@ -32,8 +32,8 @@
 	
 	<sql id="search">
 	    <if test="selectBox !=null">
-	            <if test="selectBox == 'memberId'.toString()">
-	                AND memberId like '%' || #{findStr} || '%'
+	            <if test="selectBox == 'memberEmail'.toString()">
+	                AND memberEmail like '%' || #{findStr} || '%'
 	            </if>
 	     
 	            <if test="selectBox == 'memberName'.toString()">
@@ -43,10 +43,6 @@
 	            <if test="selectBox == 'memberNick'.toString()">
 	                AND memberNick like '%' || #{findStr} || '%'
 	            </if>
-
-	            <if test="selectBox == 'memberEmail'.toString()">
-	                AND memberEmail like '%' || #{findStr} || '%'
-	            </if>
 	     
 	            <if test="selectBox == 'memberPhone'.toString()">
 	                AND memberPhone like  '%' || #{findStr} || '%'
@@ -55,10 +51,9 @@
 	            <if test="selectBox == 'total'.toString()">
 	                AND 
 	                ( 	                  	
-	                   memberId like '%' || #{findStr} || '%'	  	OR               
+	                   memberEmail like '%' || #{findStr} || '%'	  	OR               
 	                   memberName like '%' || #{findStr} || '%'		OR
 	                   memberNick like '%' || #{findStr} || '%'		OR
-	                   memberEmail like '%' || #{findStr} || '%'	OR
 	                   memberPhone like '%' || #{findStr} || '%'	
 	                )
 	            </if>
@@ -70,7 +65,7 @@
 	  <update id="memberGradeUpdate">
 		UPDATE member SET 	
 			  memberGrade= #{memberGrade}		 
-		 WHERE memberId = #{memberId}
+		 WHERE memberEmail = #{memberEmail}
 	  </update>
 
 

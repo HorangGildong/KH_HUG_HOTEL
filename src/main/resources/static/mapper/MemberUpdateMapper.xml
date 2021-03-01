@@ -7,26 +7,26 @@
 	
 	
 	<select id="getMemberInfo" resultType='kr.iei.hotel.memberUpdate.dto.MemberUpdateDto' >
-		SELECT * FROM member  WHERE memberid=#{memberid}
+		SELECT * FROM member  WHERE memberEmail=#{memberEmail}
 	</select>
 	
 	<update id="memberUpdate"  >
 		UPDATE member SET 	
-			  memberNick= #{memberNick}
-			 ,memberPhone = #{memberPhone} 
-			 ,memberGender = #{memberGender} 
+			  memberNick = #{memberNick}
+			 ,memberName = #{memberName}
+			 ,memberPhone = #{memberPhone}
 			 
 			 <if test="memberPassword !=null and !memberPassword.equals('') ">			 	
 			 	,memberPassword=#{memberPassword}			 	
 			 	,memberPwChangeDate=SYSDATE			 	
 			 </if>
 			 			 			 
-	   WHERE memberId = #{memberId}
+	   WHERE memberEmail = #{memberEmail}
 	</update>
 	
 	
 	<delete id="memberDelete">
-		DELETE FROM member WHERE memberId = #{memberId}
+		DELETE FROM member WHERE memberEmail = #{memberEmail}
 	</delete>
 	
 </mapper>
