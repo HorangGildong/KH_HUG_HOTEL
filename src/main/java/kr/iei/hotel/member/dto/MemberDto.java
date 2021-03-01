@@ -10,8 +10,6 @@ public class MemberDto {
 	protected String memberName;
 	protected String memberNick;
 	protected String memberPhone;
-	protected String memberGender;
-	protected Date memberBirth;
 	protected Date memberRegDate;
 	protected Date memberUnRegDate;
 	protected Date memberPwChangeDate;
