@@ -109,6 +109,17 @@ VALUES (
     'ROLE_REGURAL',         '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
 );
 
+INSERT INTO MEMBER (
+    memberName,             memberRegDate,          memberPwChangeDate,
+    memberNick,             memberPhone,            memberEmail,
+    memberGrade,             memberPassword
+)
+VALUES (
+    '알부자',                SYSDATE,                SYSDATE,
+    '돈많아',                '010-1111-1111',        'gold@gold.com',
+    'GRADE_MEMBERSHIP',     '$2a$10$/UAjqxED7Eiy8hLJ0UAIdOpKmVp0jCBc.dfazAY2EPKax3lHIkWMW' -- 'password : 777'
+);
+
 COMMIT;
 
 
