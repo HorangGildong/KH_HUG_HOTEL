@@ -49,7 +49,7 @@
         </h1>
         <a href="/guestRoomAddView">추가</a>
 		<c:if test="${empty list}">
-		<h3>테이블이 비어있어요... 추가해주세요... 예? ㅡㅡ</h3>
+		<h3>테이블이 비어있어요 추가해주세요</h3>
 		</c:if>
 		<c:if test="${!empty list}">
 		<c:forEach var="list" items="#{list }" begin="0" varStatus="status">

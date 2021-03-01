@@ -20,6 +20,12 @@
 		,memberName
 		,memberGrade
 	</sql>
+	<!-- 회원등급조회 -->
+	<select id="selectMemberGrade" resultType="double" parameterType="String">
+	SELECT discountRate
+	FROM grade
+	WHERE memberGrade = #{memberGrade}
+	</select>
 	<!-- 예약 insert 처리 -->
 	<insert id="reservationInsertProcess" parameterType="kr.iei.hotel.reservation.vo.ReservationVO">
 		INSERT INTO

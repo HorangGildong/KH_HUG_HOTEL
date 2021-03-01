@@ -56,7 +56,7 @@
         </div>
         </form>
         <c:if test="${empty list}">
-		<h3>현재 예약 되어있는 테이블이 없습니다......... 수....고...</h3>
+		<h3>현재 예약 되어있는 테이블이 없습니다.</h3>
 		</c:if>
 		<c:if test="${!empty list}">  
         <c:forEach var="list" items="${list }">

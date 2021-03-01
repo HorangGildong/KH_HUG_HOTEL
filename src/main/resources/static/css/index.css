@@ -13,7 +13,10 @@ section .control {
 	height: 100%;
 	width: 100%;
 }
-
+.carousel .left .control,
+.carousel .right .control {
+	margin: 118% 0;
+}
 .item {
     position: relative;
 }

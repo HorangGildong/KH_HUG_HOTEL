@@ -30,6 +30,8 @@ public interface ReservationMapper {
 	public void reservationAdminDelete(String reservationNo)throws Exception;
 	//예약 관리 검색
 	public List<ReservationVO> reservationAdminSearch(String reservationNo)throws Exception;
+	//회원등급조회
+	public double selectMemberGrade(String memberGrade)throws Exception;
 	
 	//-------------------------------------수입통계--------------------------------------------
 

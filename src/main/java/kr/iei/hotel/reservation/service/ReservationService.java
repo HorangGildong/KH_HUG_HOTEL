@@ -50,6 +50,10 @@ public class ReservationService {
 	public List<ReservationVO> reservationAdminSearch(String reservationNo)throws Exception {
 		return reservationMapper.reservationAdminSearch(reservationNo);
 	}
+	//회원등급조회
+	public double selectMemberGrade(String memberGrade)throws Exception {
+		return reservationMapper.selectMemberGrade(memberGrade);
+	}
 	
 	
 	//-------------------------------------수입통계--------------------------------------------

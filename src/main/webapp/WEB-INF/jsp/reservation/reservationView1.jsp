@@ -65,12 +65,12 @@
 
                     <!-- <p >날짜선택</p> -->
                     <div class="choiceType">
-                    <select class="choiceType2" name="guestRoomName" id="guestRoomName">
+                    <select class="choiceType2" name="guestRoomName" id="guestRoomName"> 
                         <option class="choiceFirst">객실선택</option>
-                        <option value="스탠다드">스탠다드</option>
-                        <option value="슈페리어">슈페리어</option>
-                        <option value="디럭스">디럭스</option>
-                        <option value="로얄">로얄</option>
+                        <c:forEach var="grList" items="${grList }">
+                        <option value="${grList.guestRoomName }">${grList.guestRoomName }</option>
+                        </c:forEach>
+                  
                     </select>
                     <select class="choiceType2" name="adult" id="adult">
                         <option class="choiceFirst" value="0">인원선택(성인)</option>
@@ -165,6 +165,9 @@
                     </ul>
                     <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input name="memberGrade" readonly class="ipButtonType3" type="text" value="${reservationInfo.memberGrade }"></span></h1>
                         <li>${reservationInfo.discount }</li>
+                        <c:if test="${!empty beforeTotalPrice}">
+                        <li>할인전 금액 : ${beforeTotalPrice }</li>
+                        </c:if>
                     </ul>
                     <ul><h1>총 금액</h1><input style="display: none;" name="totalPrice" type="text" value="${reservationInfo.totalPrice }" />
                         <li><input readonly class="ipButtonType2" type="text" value="<fmt:formatNumber value="${reservationInfo.totalPrice }" pattern="#,###"/>"> 원</li>

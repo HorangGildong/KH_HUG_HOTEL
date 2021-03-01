@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.iei.hotel.guestroom.service.GuestRoomService;
 import kr.iei.hotel.guestroom.vo.GuestRoomVO;
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.reservation.service.ReservationService;
@@ -29,6 +30,8 @@ public class ReservationController {
 	
 	@Autowired
 	ReservationService reservationService;
+	@Autowired
+	GuestRoomService guestRoomService;
 	
 	
 	//-------------------------------------Admin--------------------------------------------
@@ -67,6 +70,13 @@ public class ReservationController {
 	public String reservationView1(Model model, ReservationVO reservationVO, HttpServletResponse response)throws Exception {
 	
 		logger.info("예약 뷰1");
+		final int standardNumber = 1;
+		List<GuestRoomVO> guestRoomList = new ArrayList<GuestRoomVO>();
+		guestRoomList = guestRoomService.guestRoomList(standardNumber);
+		for(int index = 0; index < guestRoomList.size(); index++) {
+		System.out.println(guestRoomList.get(index).getGuestRoomName());
+		}
+		model.addAttribute("grList", guestRoomList);
 		return "reservation/reservationView1";
 		
 	}
@@ -80,8 +90,9 @@ public class ReservationController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		//
+		
 		if(reservationVO.getGuestRoomNo() == 0){
-			out.println("<script>alert('밑에 보면 객실 호수 체크 하는거 있거든요? 좀 확인 좀.'); location.href='/reservationView1';</script>");
+			out.println("<script>alert('밑에 보면 객실 호수 체크 하는거 있습니다.'); location.href='/reservationView1';</script>");
 			out.flush();
 
 		}else {
@@ -161,6 +172,9 @@ public class ReservationController {
 		
 		//예약기간이 30일 이상이면 예약 못하게 처리
 		if(reservationVO.getLodgmentPeriod() >= 30) {
+			System.out.println(reservationVO.getCheckIn());
+			System.out.println(reservationVO.getCheckOut());
+			System.out.println(reservationVO.getLodgmentPeriod());
 			out.println("<script>alert('예약기간은 한달 이상 불가합니다.'); location.href='/reservationView1';</script>");
 	        out.flush();
 
@@ -240,7 +254,14 @@ public class ReservationController {
 		reservationVO.setMemberGrade(memberDetail.getGrade());
 		System.out.println("회원등급 : " + reservationVO.getMemberGrade());
 		if(reservationVO.getMemberGrade().equals(membership)) {
-			reservationVO.setTotalPrice(reservationVO.getTotalPrice()*30/100);
+			int beforeTotalPrice = reservationVO.getTotalPrice();
+			model.addAttribute("beforeTotalPrice", beforeTotalPrice);
+			double discount = reservationService.selectMemberGrade(reservationVO.getMemberGrade());
+			System.out.println("가져온할인율 : " + discount);
+			double totalPrice = reservationVO.getTotalPrice() - reservationVO.getTotalPrice()*discount;
+			int totalPrice2 = (int)totalPrice;
+			
+			reservationVO.setTotalPrice(totalPrice2);
 			reservationVO.setDiscount(discountTrue);
 			System.out.println("할인 : " + reservationVO.getDiscount());
 			System.out.println("할인이 들어간 총 금액 : " + reservationVO.getTotalPrice());
