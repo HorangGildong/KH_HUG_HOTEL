@@ -91,8 +91,8 @@
 							</div>
 						</div>
 
-						<div class="panel panel-warning" style="margin-bottom: 10px;">
-							<div class="panel-heading">
+						<div class="panel panel-warning" style="margin-bottom: 10px; border-color: #72a5d3;">
+							<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
 								<h4 class="panel-title">
 									<a data-toggle="collapse" data-parent="#accordion"
 										href="#terms1"> 이용약관 (자세히 보기) </a>
@@ -127,8 +127,8 @@
 							</div>
 						</div>
 
-						<div class="panel panel-warning">
-							<div class="panel-heading">
+						<div class="panel panel-warning" style="border-color: #72a5d3;">
+							<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
 								<h4 class="panel-title">
 									<a data-toggle="collapse" data-parent="#accordion"
 										href="#terms2"> 마케팅 수신 동의 (자세히 보기) </a>
