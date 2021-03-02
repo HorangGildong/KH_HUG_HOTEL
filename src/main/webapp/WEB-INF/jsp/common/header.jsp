@@ -16,8 +16,8 @@
 		<!--header-->
         <header>
             <div class="header text-center">
-                <h2><a href="/"><strong>H.U.G HOTEL</strong></a></h2>
-                <h5><strong>JEJU</strong></h5>
+                <h2 style="font-family: 'Playfair Display', serif"><a href="/"><strong>H.U.G HOTEL</strong></a></h2>
+                <h5 style="font-family: 'Playfair Display', serif"><strong>JEJU</strong></h5>
             </div>
             <nav id='cssmenu'>
                 <div id="head-mobile"></div>

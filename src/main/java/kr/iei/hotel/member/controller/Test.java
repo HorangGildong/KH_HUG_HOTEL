@@ -13,6 +13,11 @@ import kr.iei.hotel.member.config.auth.PrincipalDetails;
 @Controller
 public class Test {
 	
+	@GetMapping("/t")
+	public String t() {
+		return "/member/test";
+	}
+	
 	@GetMapping("/test")
 	@ResponseBody
 	public Authentication test() {
