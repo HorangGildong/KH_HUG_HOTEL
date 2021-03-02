@@ -21,10 +21,10 @@ drop table guestRoom;
 CREATE TABLE MEMBER (
 	memberNumber        NUMBER	                                            CONSTRAINT PK_MEMBER_MEMBERNUMBER PRIMARY KEY,
     memberGrade         VARCHAR(20)     DEFAULT 'GRADE_GENERAL',
-	memberEmail	        VARCHAR2(100)   NOT NULL                            CONSTRAINT UQ_MEMBER_MEMBEREMAIL UNIQUE,
+	memberEmail	        VARCHAR2(100)                                       CONSTRAINT UQ_MEMBER_MEMBEREMAIL UNIQUE,
 	memberPassword	    VARCHAR2(100),
 	memberName	        VARCHAR2(100),
-	memberNick          VARCHAR2(100)   NOT NULL                            CONSTRAINT UQ_MEMBER_MEMBERNICK UNIQUE,
+	memberNick          VARCHAR2(100)                                       CONSTRAINT UQ_MEMBER_MEMBERNICK UNIQUE,
 	memberPhone         VARCHAR2(100),
 	memberRegDate  	    DATE,
 	memberUnRegDate     DATE,
