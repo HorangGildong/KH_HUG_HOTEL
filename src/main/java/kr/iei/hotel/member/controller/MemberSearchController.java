@@ -16,7 +16,7 @@ import kr.iei.hotel.member.service.MemberGetDtoService;
 import kr.iei.hotel.member.service.MemberJoinService;
 
 @Controller
-public class memberSearchController {
+public class MemberSearchController {
 	
 	@Autowired
 	private MemberEmailService memberEmailService;

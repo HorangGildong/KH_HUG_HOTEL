@@ -29,8 +29,7 @@ public class Test {
 	
 	@GetMapping("/test0")
 	@ResponseBody
-	public String test0(
-			Authentication authentication,
+	public String test0(Authentication authentication,
 			@AuthenticationPrincipal PrincipalDetails userDetails,
 			@AuthenticationPrincipal OAuth2User oAuth2user) {
 		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
@@ -49,8 +48,7 @@ public class Test {
 	
 	@GetMapping("/test1")
 	@ResponseBody
-	public String test1(
-			Authentication authentication,
+	public String test1(Authentication authentication,
 			@AuthenticationPrincipal PrincipalDetails userDetails) {
 		System.out.println("/test 1===================");
 		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
@@ -61,8 +59,7 @@ public class Test {
 	
 	@GetMapping("/test2")
 	@ResponseBody
-	public String test2(
-			Authentication authentication,
+	public String test2(Authentication authentication,
 			@AuthenticationPrincipal OAuth2User oAuth2user) {
 		System.out.println("/test 2===================");
 		OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
@@ -73,3 +70,5 @@ public class Test {
 
 	
 }
+
+// hughotel@gmail.com

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.config.auth.PrincipalDetailsService;
-import kr.iei.hotel.member.dao.MemberLoginDao;
+import kr.iei.hotel.member.dao.MemberUpdateDao;
 import kr.iei.hotel.member.dto.MemberDto;
 
 @Service
@@ -23,7 +23,7 @@ public class MemberLoginServiceImp implements MemberLoginService {
 	private PrincipalDetailsService principalDetailsService;
 	
 	@Autowired
-	private MemberLoginDao memberLoginDao;
+	private MemberUpdateDao memberLoginDao;
 	
 	@Autowired
 	private MemberGetDtoService memberGetDtoService;

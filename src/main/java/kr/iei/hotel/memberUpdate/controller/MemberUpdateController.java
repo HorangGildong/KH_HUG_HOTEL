@@ -6,11 +6,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberDto;
+import kr.iei.hotel.member.service.MemberGetDtoService;
+import kr.iei.hotel.member.service.MemberLoginService;
+import kr.iei.hotel.member.service.MemberUnRegisterService;
 import kr.iei.hotel.memberUpdate.dto.MemberUpdateDto;
 import kr.iei.hotel.memberUpdate.service.MemberUpdateService;
 
@@ -34,7 +35,15 @@ public class MemberUpdateController {
 	@Autowired
 	MemberUpdateService memberUpdateService;
 	
-
+	@Autowired
+	MemberUnRegisterService memberUnRegisterService;
+	
+	@Autowired
+	MemberGetDtoService memberGetDtoService;
+	
+	@Autowired
+	MemberLoginService memberLoginService;
+	
     @Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
@@ -115,8 +124,8 @@ public class MemberUpdateController {
     		/** 업데이트  오류 */
     		return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
     	}
-    	
-    			
+    	memberDto = memberGetDtoService.getMemberDtoByEmail(userDetails.getUsername());
+    	memberLoginService.autoLogin(memberDto);		
     	return new ResponseEntity<>(true, HttpStatus.OK);
     }
 	
@@ -140,6 +149,7 @@ public class MemberUpdateController {
     	return new ResponseEntity<>(true, HttpStatus.OK);  
     }
 	
+	
 	/**
 	 * 회원 탈퇴 처리
 	 * @param memberDto
@@ -149,14 +159,15 @@ public class MemberUpdateController {
 	@ResponseBody
     @PostMapping("/memberDelete")
     public ResponseEntity<Boolean> memberDelete(MemberDto memberDto, String memberPasswordDelete,  @AuthenticationPrincipal PrincipalDetails userDetails) {
-		System.out.println("회원 탈퇴 메서드 : memberDelete  : 입력한 비밀번호 - "+memberPasswordDelete);
+		System.out.println("회원 탈퇴 메서드 : memberUnRegisterService  : 입력한 비밀번호 - "+memberPasswordDelete);
 		if(!verify(memberPasswordDelete, userDetails)) {
             return new ResponseEntity<>(false, HttpStatus.UNAUTHORIZED);
         } else {
-        	
         	//스프링 시큐리티 PrincipalDetails 세션값 아이디 가져오기
-        	memberDto.setMemberEmail(userDetails.getUsername());
-        	int deleteState=memberUpdateService.memberDelete(memberDto);
+        	memberDto = memberGetDtoService.getMemberDtoByEmail(userDetails.getUsername());
+        	memberUnRegisterService.deleteReply(memberDto);
+        	int deleteState = memberUnRegisterService.unRegister(memberDto);
+//        	int deleteState = memberUpdateService.memberDelete(memberDto);
         	/** 정상적으로 삭제 처리 되었다면 1 을 반환 */
         	if(deleteState == 0) {
         			/** 삭제  오류 */

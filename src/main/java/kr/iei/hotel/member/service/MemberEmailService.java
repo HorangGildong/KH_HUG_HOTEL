@@ -3,7 +3,7 @@ package kr.iei.hotel.member.service;
 import javax.servlet.http.HttpSession;
 
 public interface MemberEmailService {
-
+	
 	String createCode();
 	
 	String createPassword();
