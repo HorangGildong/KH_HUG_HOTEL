@@ -25,12 +25,6 @@ public class MemberLoginController {
 	@Autowired
 	private MemberLoginService memberLoginService;
 	
-//	// loginPage
-//	@GetMapping("/main")
-//	public String goMain() {
-//		return "redirect:/";	
-//	}
-	
 	// loginPage
 	@GetMapping("/login")
 	public String loginPage() {
