@@ -49,7 +49,6 @@ public class MemberSearchController {
 		boolean isId = (memberGetDtoService.getMemberDtoByEmail(memberEmail) != null);
 		if(isId) {
 			memberEmailService.setCodeSession(codeSession);
-			System.out.println(codeSession.getAttribute("code"));
 			memberEmailService.sendCodeEmail(memberEmail, codeSession);
 		}
 		return isId;
