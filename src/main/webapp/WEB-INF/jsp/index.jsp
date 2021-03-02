@@ -162,7 +162,7 @@
                         <h5>POOL / SAUNA / PITNESS / SPA / PARK / KIDS</h5>
                         <button type="button" class="facility-button" onclick="location.href='/facilityView';">▶</button>
                     </div>
-					<div class="container">
+					<div class="facility-container">
 						<div class="box">
 							<img src="img/hah_img/main/pool02.jpg"> <span>POOL</span>
 						</div>
