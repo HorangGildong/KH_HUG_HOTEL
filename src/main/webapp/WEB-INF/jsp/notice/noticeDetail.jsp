@@ -34,7 +34,11 @@
     <!--글씨체 링크 영어-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-	
+	<style>
+		.header a {
+			text-decoration: none;
+		}
+	</style>
 	<style>
 		@font-face{
 		  font-family:'NanumBarunGothic';

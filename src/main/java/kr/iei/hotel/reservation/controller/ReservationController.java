@@ -92,7 +92,7 @@ public class ReservationController {
 		//
 		
 		if(reservationVO.getGuestRoomNo() == 0){
-			out.println("<script>alert('밑에 보면 객실 호수 체크 하는거 있습니다.'); location.href='/reservationView1';</script>");
+			out.println("<script>alert('아래에 객실을 선택해주세요.'); location.href='/reservationView1';</script>");
 			out.flush();
 
 		}else {

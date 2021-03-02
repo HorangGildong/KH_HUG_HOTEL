@@ -32,6 +32,7 @@
 	
 	<link rel="shortcut icon"
 		href="https://hotel.cloud/wp-content/uploads/2019/10/favicon.png">
+		
 	<title>H.U.G HOTEL 제주</title>
 </head>
 

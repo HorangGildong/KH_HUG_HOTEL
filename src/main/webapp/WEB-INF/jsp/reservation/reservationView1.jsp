@@ -166,7 +166,7 @@
                     <ul><h1>회원등급에 의한 할인<span> 회원등급 : <input name="memberGrade" readonly class="ipButtonType3" type="text" value="${reservationInfo.memberGrade }"></span></h1>
                         <li>${reservationInfo.discount }</li>
                         <c:if test="${!empty beforeTotalPrice}">
-                        <li>할인전 금액 : ${beforeTotalPrice }</li>
+                        <li>할인전 금액 : <fmt:formatNumber value="${beforeTotalPrice }" pattern="#,###"/></li>
                         </c:if>
                     </ul>
                     <ul><h1>총 금액</h1><input style="display: none;" name="totalPrice" type="text" value="${reservationInfo.totalPrice }" />
