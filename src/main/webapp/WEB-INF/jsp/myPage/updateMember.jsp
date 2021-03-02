@@ -108,7 +108,7 @@
                             <label for="persnal_phone"> &nbsp; Phone :</label>
                             <input type="tel" class="form-control" id="persnal_phone"  name="memberPhone" value="${member.memberPhone}"><br>
                             
-                            <label for="selectBox"> &nbsp; 마케팅 수신 동의 ${member.memberAgree}</label>
+                            <label for="selectBox"> &nbsp; 마케팅 수신 동의 </label>
                             <select class="form-control" name='memberAgree' id='selectBox' >
                             <%-- ${(param.category == "title") ? "selected" : "" --%>
 				            	<option ${(member.memberAgree == 'chk') ? 'selected' : ''} value="chk">수신 동의</option>
