@@ -50,7 +50,7 @@ public class MemberSearchController {
 		if(isId) {
 			memberEmailService.setCodeSession(codeSession);
 			System.out.println(codeSession.getAttribute("code"));
-//			memberEmailService.sendCodeEmail(memberEmail, codeSession);
+			memberEmailService.sendCodeEmail(memberEmail, codeSession);
 		}
 		return isId;
 	}
