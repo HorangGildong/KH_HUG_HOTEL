@@ -15,7 +15,8 @@
 			  memberNick = #{memberNick}
 			 ,memberName = #{memberName}
 			 ,memberPhone = #{memberPhone}
-			 
+			 ,memberAgree = #{memberAgree}
+
 			 <if test="memberPassword !=null and !memberPassword.equals('') ">			 	
 			 	,memberPassword=#{memberPassword}			 	
 			 	,memberPwChangeDate=SYSDATE			 	
