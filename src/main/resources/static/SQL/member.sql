@@ -154,4 +154,5 @@ WHERE memberNumber = 46;
 UPDATE MEMBER SET 
     memberPassword = '$2a$10$kEbtQaS.O/gPhgeVF/Ci2efNDSKJmp03MfTiuGDrr4ONSHZ9jWOke'
 WHERE memberNumber = 9;
+
 COMMIT;
