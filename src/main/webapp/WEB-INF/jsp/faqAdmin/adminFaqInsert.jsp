@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 		
-	<style>
+	<style>		
 		@font-face{
 		  font-family:'NanumBarunGothic';
 		  src:url("../fonts/NanumBarunGothic.eot");
@@ -40,14 +40,18 @@
 		
 		section {font-family: "맑은 고딕","Malgun Gothic",  sans-serif; }				
 	</style>
-		
+	
     <!-- 썸머노트 에디터 -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-	
+	<style>
+		.header a {
+			text-decoration: none;
+		}
+	</style>
     <title>FAQ 등록</title>
     
 </head>

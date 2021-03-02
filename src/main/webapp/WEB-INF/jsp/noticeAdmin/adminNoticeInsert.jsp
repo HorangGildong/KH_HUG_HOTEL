@@ -81,7 +81,11 @@
 		}
 	   	
     </script>
-    
+  	<style>
+		.header a {
+			text-decoration: none;
+		}
+	</style> 
 </head>
 <body>
     <div class="wrap">

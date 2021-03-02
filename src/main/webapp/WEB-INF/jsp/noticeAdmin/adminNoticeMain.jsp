@@ -33,6 +33,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 	
 	<style>
+		.header a {
+			text-decoration: none;
+		}
+	</style>
+	<style>
 		@font-face{
 		  font-family:'NanumBarunGothic';
 		  src:url("../fonts/NanumBarunGothic.eot");

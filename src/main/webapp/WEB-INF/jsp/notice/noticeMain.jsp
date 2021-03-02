@@ -30,6 +30,11 @@
     <!-- Bootstrap -->
     <link href="css/bootstrapcss/bootstrap.min.css" rel="stylesheet">    
     <link href="css/bootstrapcss/custom2.css" rel="stylesheet">	
+	<style>
+		.header a {
+			text-decoration: none;
+		}
+	</style>
 		
 	<style>
 		@font-face{
