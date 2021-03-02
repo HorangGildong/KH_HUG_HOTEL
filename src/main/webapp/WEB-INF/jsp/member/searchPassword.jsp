@@ -91,6 +91,15 @@
 		</section>
 		<!--section end-->
 
+		<!-- BaseModal -->
+		<div class="modal fade" id="baseModal" tabindex="-1" role="dialog" 
+		   aria-labelledby="modalLabel" aria-hidden="true" style="overflow-y: auto; margin-top: 200px; text-align: center; font-size: 150%;">
+		   <div class="modal-dialog">
+		   </div>
+		</div>
+		<!-- BaseModal -->
+
+
 		<!--footer start-->
 		<jsp:include page="../common/footer.jsp" />
 		<!--footer end-->
@@ -158,6 +167,7 @@
 					success : function(data2) {
 						if(data2) {
 							$('#okBtn').attr('style', 'display: none;');
+							$('#xBtn').attr('style', 'display: none;');
 							$('#goLoginPage').attr('style', 'display: inline;');
 							$('.modal-title').text('비밀번호 찾기');
 							$('.modal-body').multiline('입력하신 이메일로 임시비밀번호를 전송하였습니다. \n 임시 비밀번호는 꼭 변경 후 사용하시기 바랍니다.');
@@ -217,8 +227,8 @@
 				.attr('action', '/login');
 			var field = $('<input></input>');
 			field.attr('type', 'hidden')
-				.attr('name', 'memberId')
-				.attr("value", id);
+				.attr('name', 'memberEmail')
+				.attr("value", email);
 			form.append(field);
 			$(document.body).append(form);
 			form.submit();

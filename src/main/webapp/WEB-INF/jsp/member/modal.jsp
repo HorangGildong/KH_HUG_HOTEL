@@ -58,8 +58,7 @@
 	   <div class="modal-dialog">
 	      <div class="modal-content">
 	         <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" 
-	               aria-hidden="true">×
+	            <button type="button" class="close" id ="xBtn" data-dismiss="modal" aria-hidden="true">×
 	            </button>
 	            <h4 class="modal-title" id="modalLabel">
 	              	 회원가입 성공
@@ -70,7 +69,10 @@
 	            	항상 최선을 다하는 HUG HOTEL이 되겠습니다. <br>
 	         </div>
 	         <div class="modal-footer" style="text-align: center;">
-	            <button type="button" class="btn btn-default" data-dismiss="modal">
+	            <button type="button" class="btn btn-default" id="okBtn" data-dismiss="modal" style="margin-right: 15px">
+	            	확인
+	            </button>
+	            <button type="button" class="btn btn-default" id="goLoginPage" data-dismiss="modal" style="margin-right: 15px; display: none;">
 	            	확인
 	            </button>
 	         </div>
