@@ -94,8 +94,6 @@
 		<!-- BaseModal -->
 		<div class="modal fade" id="baseModal" tabindex="-1" role="dialog" 
 		   aria-labelledby="modalLabel" aria-hidden="true" style="overflow-y: auto; margin-top: 200px; text-align: center; font-size: 150%;">
-		   <div class="modal-dialog">
-		   </div>
 		</div>
 		<!-- BaseModal -->
 
