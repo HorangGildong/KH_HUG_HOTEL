@@ -1,8 +1,5 @@
 package kr.iei.hotel.member.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -42,7 +39,7 @@ public class MemberLoginController {
 	@GetMapping("/loginFailure")
 	public String loginFailure(Model model) {
 		model.addAttribute("loginFailure", true);
-		return "/member/login";		
+		return "/member/login";
 	}
 	
 	@GetMapping("/changePw")

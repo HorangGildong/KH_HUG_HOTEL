@@ -1,9 +1,5 @@
 package kr.iei.hotel.member.controller;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
@@ -49,10 +44,7 @@ public class MemberJoinController {
 	}
 	
 	@GetMapping("/join/oAuth2")
-	public String oAuthJoinPage(HttpServletRequest request, Model model) {
-		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
-		System.out.println((String)flashMap.get("email"));
-		System.out.println((String)flashMap.get("key"));
+	public String oAuthJoinPage() {
 		return "/member/joinOAuth2";
 	}
 	
