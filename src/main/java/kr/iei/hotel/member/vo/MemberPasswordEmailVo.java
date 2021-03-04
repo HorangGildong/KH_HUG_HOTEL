@@ -3,6 +3,7 @@ package kr.iei.hotel.member.vo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 
+@SuppressWarnings("serial")
 public class MemberPasswordEmailVo extends SimpleMailMessage{
 
 	@Value("${spring.mail.username}")
