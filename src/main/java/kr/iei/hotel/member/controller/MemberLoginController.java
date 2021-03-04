@@ -61,7 +61,6 @@ public class MemberLoginController {
 	public String oAuth2Login(@AuthenticationPrincipal PrincipalDetails userDetails, RedirectAttributes redirectAttributes) {
 		MemberDto memberDto = userDetails.getMemberDto();
 		if(memberDto.getMemberRole().equals("ROLE_ASSOCIATE")) {
-//			Map<String, String>
 			redirectAttributes.addFlashAttribute("email", new String(memberDto.getMemberEmail()));
 			redirectAttributes.addFlashAttribute("key", new String(memberDto.getMemberKey()));
 			SecurityContextHolder.clearContext();
