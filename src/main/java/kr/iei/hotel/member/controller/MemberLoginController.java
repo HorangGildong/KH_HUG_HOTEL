@@ -1,6 +1,7 @@
 package kr.iei.hotel.member.controller;
 
-import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberDto;
@@ -56,11 +58,12 @@ public class MemberLoginController {
 	
 	
 	@GetMapping("/login/oAuth2")
-	public String oAuth2Login(@AuthenticationPrincipal PrincipalDetails userDetails, HttpSession oAuth2Session) {
+	public String oAuth2Login(@AuthenticationPrincipal PrincipalDetails userDetails, RedirectAttributes redirectAttributes) {
 		MemberDto memberDto = userDetails.getMemberDto();
 		if(memberDto.getMemberRole().equals("ROLE_ASSOCIATE")) {
-			oAuth2Session.setAttribute("email", new String(memberDto.getMemberEmail()));
-			oAuth2Session.setAttribute("key", new String(memberDto.getMemberKey()));
+//			Map<String, String>
+			redirectAttributes.addFlashAttribute("email", new String(memberDto.getMemberEmail()));
+			redirectAttributes.addFlashAttribute("key", new String(memberDto.getMemberKey()));
 			SecurityContextHolder.clearContext();
 			return "redirect:/join/oAuth2";
 		} else {
