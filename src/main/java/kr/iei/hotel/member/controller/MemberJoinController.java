@@ -11,21 +11,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.dto.MemberJoinFormDto;
 import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
-import kr.iei.hotel.member.service.MemberGetDtoService;
-import kr.iei.hotel.member.service.MemberJoinService;
-import kr.iei.hotel.member.service.MemberLoginService;
+import kr.iei.hotel.member.service.MemberGetService;
+import kr.iei.hotel.member.service.MemberService;
+import kr.iei.hotel.member.service.MemberUpdateService;
 
 @Controller
 public class MemberJoinController {
 
 	@Autowired
-	private MemberGetDtoService memberGetDtoService;
+	private MemberGetService memberGetDtoService;
 
 	@Autowired
-	private MemberJoinService memberJoinService;
+	private MemberService memberService;
 
 	@Autowired
-	private MemberLoginService memberLoginService;
+	private MemberGetService memberGetService;
+	
+	@Autowired
+	private MemberUpdateService memberUpdateService;
 	
 	// joinPage
 	@GetMapping("/join")
@@ -36,10 +39,10 @@ public class MemberJoinController {
 	// join
 	@PostMapping("/join")
 	public String join(MemberJoinFormDto memberJoinFormDto, Model model) {
-		memberJoinService.join(memberJoinFormDto);
+		memberUpdateService.join(memberJoinFormDto);
 		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberJoinFormDto.getMemberEmail());
-		memberLoginService.autoLogin(memberDto);
-		model.addAttribute("isFirstLogin", "isFirstLogin");
+		memberService.autoLogin(memberDto);
+		model.addAttribute("isFirstLogin", true);
 		return "/index";
 	}
 	
@@ -50,23 +53,21 @@ public class MemberJoinController {
 	
 	@PostMapping("/join/oAuth2")
 	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {		
-		memberJoinService.join(memberOAuth2JoinFormDto);
-		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberOAuth2JoinFormDto.getMemberEmail());
-		memberLoginService.autoLogin(memberDto);
-		model.addAttribute("isFirstLogin", "isFirstLogin");
+		memberUpdateService.join(memberOAuth2JoinFormDto);
+		model.addAttribute("isFirstLogin", true);
 		return "/index";
 	}
 
 	@ResponseBody
 	@GetMapping("/join/emailCheck")
 	public boolean isEmailCheck(@RequestParam("email") String memberEmail) {
-		return !(memberJoinService.checkEmail(memberEmail)==0);
+		return (memberGetService.checkEmail(memberEmail) != 0);
 	}
 	
 	@ResponseBody
 	@GetMapping("/join/nickCheck")
 	public boolean isNickCheck(@RequestParam("nick") String memberNick) {
-		return !(memberJoinService.checkNick(memberNick)==0);
+		return (memberGetService.checkNick(memberNick) != 0);
 	}
 	
 }

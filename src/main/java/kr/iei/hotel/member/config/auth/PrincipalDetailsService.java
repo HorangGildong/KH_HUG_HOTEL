@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import kr.iei.hotel.member.dto.MemberDto;
-import kr.iei.hotel.member.service.MemberGetDtoService;
+import kr.iei.hotel.member.service.MemberGetService;
 
 // 시큐리티 설정에서 loginProcessingUrl("/loginProc") 요청이 들어오면 여기서 진행됨
 // "/loginProc"요청이 오면 자동으로 UserDetailsService 타입으로 IoC(@Service)되어 있는 loadUserByUsername 함수가 실행
@@ -15,7 +15,7 @@ import kr.iei.hotel.member.service.MemberGetDtoService;
 public class PrincipalDetailsService implements UserDetailsService {
 
 	@Autowired
-	private MemberGetDtoService memberGetDtoService;
+	private MemberGetService memberGetDtoService;
 	
 	// MamberDetails로 리턴됨 (Authentication 타입 객체)
 	// 로그인 요청 처리(username, password)

@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.iei.hotel.member.dto.MemberDto;
-import kr.iei.hotel.member.service.MemberEmailService;
-import kr.iei.hotel.member.service.MemberGetDtoService;
-import kr.iei.hotel.member.service.MemberJoinService;
+import kr.iei.hotel.member.service.MemberGetService;
+import kr.iei.hotel.member.service.MemberService;
+import kr.iei.hotel.member.service.MemberUpdateService;
 
 @Controller
 public class MemberSearchController {
 	
 	@Autowired
-	private MemberEmailService memberEmailService;
+	private MemberService memberEmailService;
 
 	@Autowired
-	private MemberGetDtoService memberGetDtoService;
+	private MemberGetService memberGetService;
 	
 	@Autowired
-	private MemberJoinService memberJoinService;
+	private MemberUpdateService memberUpdateService;
 	
 	@GetMapping("/searchIds")
 	public String searchId() {
@@ -40,13 +40,13 @@ public class MemberSearchController {
 	@ResponseBody
 	@GetMapping("/searchIds/searchIds")
 	public List<MemberDto> searchIds(@RequestParam("name") String memberName, @RequestParam("phone") String memberPhone) {
-		return memberGetDtoService.getMemberDtoListByNameAndPhone(memberName, memberPhone);
+		return memberGetService.getMemberDtoListByNameAndPhone(memberName, memberPhone);
 	}
 	
 	@ResponseBody
 	@GetMapping("/searchPassword/searchId")
 	public boolean searchId(@RequestParam("email") String memberEmail, HttpSession codeSession) {
-		boolean isId = (memberGetDtoService.getMemberDtoByEmail(memberEmail) != null);
+		boolean isId = (memberGetService.getMemberDtoByEmail(memberEmail) != null);
 		if(isId) {
 			memberEmailService.setCodeSession(codeSession);
 			memberEmailService.sendCodeEmail(memberEmail, codeSession);
@@ -62,7 +62,7 @@ public class MemberSearchController {
 			codeSession.invalidate();
 			String password = memberEmailService.createPassword();
 			memberEmailService.sendPasswordEmail(memberEmail, password);
-			memberJoinService.changePassword(memberEmail, password);
+			memberUpdateService.changePassword(memberEmail, password);
 		}
 		return isCode;
 	}

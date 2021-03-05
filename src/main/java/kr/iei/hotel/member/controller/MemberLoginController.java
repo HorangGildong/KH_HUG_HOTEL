@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberDto;
-import kr.iei.hotel.member.service.MemberLoginService;
+import kr.iei.hotel.member.service.MemberUpdateService;
 
 @Controller
 public class MemberLoginController {
@@ -22,7 +22,7 @@ public class MemberLoginController {
 	 */
 	
 	@Autowired
-	private MemberLoginService memberLoginService;
+	private MemberUpdateService memberUpdateService;
 	
 	// loginPage
 	@GetMapping("/login")
@@ -49,10 +49,9 @@ public class MemberLoginController {
 	
 	@GetMapping("/changePwLater")
 	public String changePwLater() {
-		memberLoginService.updatePwChangeDate();
+		memberUpdateService.updatePwChangeDate();
 		return "redirect:/";
 	}
-	
 	
 	@GetMapping("/login/oAuth2")
 	public String oAuth2Login(@AuthenticationPrincipal PrincipalDetails userDetails, RedirectAttributes redirectAttributes) {
@@ -66,4 +65,5 @@ public class MemberLoginController {
 			return "redirect:/";
 		}
 	}
+	
 }

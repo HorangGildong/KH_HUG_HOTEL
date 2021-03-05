@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import kr.iei.hotel.member.dto.MemberDto;
 
 @Mapper
-public interface MemberGetDtoDao {
+public interface MemberGetDao {
 	
 	@Select("SELECT * FROM MEMBER WHERE memberEmail = '${memberEmail}'")
 	MemberDto getMemberDtoByEmail(String memberEmail);
@@ -18,5 +18,11 @@ public interface MemberGetDtoDao {
 	
 	@Select("SELECT * FROM MEMBER WHERE memberName = '${memberName}' AND memberPhone = '${memberPhone}'")
 	List<MemberDto> getMemberDtoListByNameAndPhone(String memberName, String memberPhone);
+	
+	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberEmail = '${memberEmail}'")
+	int checkEmail(String memberEmail);
+
+	@Select("SELECT COUNT(*) FROM MEMBER WHERE memberNick = '${memberNick}'")
+	int checkNick(String memberNick);
 	
 }

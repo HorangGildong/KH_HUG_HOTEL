@@ -58,8 +58,6 @@
 	   <div class="modal-dialog">
 	      <div class="modal-content">
 	         <div class="modal-header">
-	            <button type="button" class="close" id ="xBtn" data-dismiss="modal" aria-hidden="true">×
-	            </button>
 	            <h4 class="modal-title" id="modalLabel">
 	              	 회원가입 성공
 	            </h4>

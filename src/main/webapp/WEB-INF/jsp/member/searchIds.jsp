@@ -63,7 +63,7 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="margin-bottom: 25px">
+						<div class="form-group" style="margin-bottom: 30px">
 							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" maxlength="13"
@@ -190,7 +190,7 @@
 							$('#search').append(objDiv.clone()
 								.attr('id', 'id-'+index));
 							$('#id-'+index+' #sId')
-								.text(value.memberEmail + '(가입일:' + value.memberRegDate + ')');
+								.text(value.memberEmail + '(' + value.memberRegDate + ')');
 							$('#id-'+index+' #sBtnId')
 								.attr('id', 'sBtnId-'+index)
 								.click(function() {

@@ -153,8 +153,7 @@
 	$('.modal-body').multiline('입력하신 아이디 또는 비밀번호가 바르지 않습니다. \n 다시 시도해주시기 바랍니다.');
 	
 	
-	if(${loginFailure}) {
-		console.log("ok");
+	if(${loginFailure == true}) {
 		$(function() {
 			$('#modal').modal({
 				backdrop: 'static',

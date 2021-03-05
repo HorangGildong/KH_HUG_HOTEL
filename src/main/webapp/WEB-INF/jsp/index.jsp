@@ -49,9 +49,9 @@
         <!--header end-->
         
         <!--모달(조건부)-->
-        <c:if test="${member.isPwChanged eq false}">
+        <%-- <c:if test="${member.isPwChanged eq false}">
         	<jsp:include page="member/modalChangePw.jsp"/>
-        </c:if>
+        </c:if> --%>
         <jsp:include page="member/modal.jsp"/>
         <!--모달(조건부)-->
         
@@ -264,15 +264,28 @@
 
 <!--모달(조건부)-->
 <script>
-	var isFirstLogin = ${isFirstLogin};
+
 	$.fn.multiline = function(text) {
 	    this.text(text);
 	    this.html(this.html().replace(/\n/g,'<br/>'));
 	    return this;
-	};
-	if(isFirstLogin = "isFirstLogin") {
-		$('.modal-title').text('회원가입 성공');
-		$('.modal-body').multiline(`${member.nick} 님의 회원가입을 축하드립니다. \n 항상 최선을 다하는 HUG HOTEL이 되겠습니다.`);
+	}
+
+	if(${member.isPwChanged == false}) {
+		$('.modal-title').text('비밀번호 변경');
+		$('.modal-body').multiline(`${member.nick} 님의 개인정보를 안전하게 보호하고, \n 개인정보 도용으로 인한 피해를 예방하기 위해 \n
+				90일 이상 비밀번호를 변경하지 않은 경우 \n	비밀번호 변경을 권장해드립니다.`);
+		$('.btn-default').attr('onclick', "location.href='/myPage'")
+				.text('비밀번호 변경하기');
+		$('.modal-footer').append(
+				$('.btn-default').clone()
+				.text('한달 후에 변경하기')
+				/* .removeAttr('onclick') */
+				.attr('onclick', "location.href='/changePwLater'")
+				.css('margin-right', '0px')
+				.css('margin-left', '15px')
+		);
+		
 		$(function() {
 			$('#modal').modal({
 				backdrop: 'static',
@@ -280,6 +293,23 @@
 			});
 		})
 	}
+	
+	$.fn.showModal = function() {
+		$('#modal').modal({	backdrop: 'static',	keyboard: false	});
+	}
+	
+	if(${isFirstLogin == true}) {
+		$('.modal-title').text('회원가입 성공');
+		$('.modal-body').multiline(`${member.nick} 님의 회원가입을 축하드립니다. \n 항상 최선을 다하는 HUG HOTEL이 되겠습니다.`);
+		$('.btn-default').attr('onclick', "location.href='/'");
+		$(function() {
+			$('#modal').modal({
+				backdrop: 'static',
+				keyboard: false
+			});
+		})
+	}
+
 </script>
 <!--모달(조건부)-->
 

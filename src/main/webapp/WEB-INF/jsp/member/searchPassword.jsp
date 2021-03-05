@@ -165,7 +165,6 @@
 					success : function(data2) {
 						if(data2) {
 							$('#okBtn').attr('style', 'display: none;');
-							$('#xBtn').attr('style', 'display: none;');
 							$('#goLoginPage').attr('style', 'display: inline;');
 							$('.modal-title').text('비밀번호 찾기');
 							$('.modal-body').multiline('입력하신 이메일로 임시비밀번호를 전송하였습니다. \n 임시 비밀번호는 꼭 변경 후 사용하시기 바랍니다.');
