@@ -61,7 +61,7 @@
 		<!--section start-->
 		<section>
 		
-			<div style="margin: 100px 0px 100px 0px">
+			<div style="margin-top: 100px">
 				<div class="container" style="width: 400px; text-align: center;">
 				
 					<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
