@@ -45,48 +45,49 @@
 
 		<jsp:include page="modal.jsp" />
 
-        <!--section start-->
-        <section>     
-        
-            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 150px 0px;">
+		<!--section start-->
+		<section>		
+			
+			<div style="margin: 100px 0px 0px 0px">
+				<div class="container" style="width: 400px; text-align: center;">
 
-				<h1 style="font-weight: 900; margin-bottom: 50px">아이디 찾기</h1>
+					<h1 style="font-weight: 900; margin-bottom: 50px">아이디 찾기</h1>
 
-				<form class="form-horizontal">
+					<form class="form-horizontal">
+
+						<div class="form-group">
+							<label for="inputName" class="col-xs-4 control-label">이름</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control"
+									name="memberName" id="inputName" placeholder="Name" required>
+							</div>
+						</div>
+
+						<div class="form-group" style="margin-bottom: 25px">
+							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control" maxlength="13"
+									name="memberPhone" id="inputPhone" placeholder="PhoneNumber" required>
+							</div>
+						</div>
+						
+					</form>
+
+					<div id="search"></div>
 
 					<div class="form-group">
-						<label for="inputName" class="col-xs-4 control-label">이름</label>
-						<div class="col-xs-8">
-							<input type="text" class="form-control"
-								name="memberName" id="inputName" placeholder="Name" required>
-						</div>
-					</div>
-
-					<div class="form-group" style="margin-bottom: 30px">
-						<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
-						<div class="col-xs-8">
-							<input type="text" class="form-control" maxlength="13"
-								name="memberPhone" id="inputPhone" placeholder="PhoneNumber" required>
-						</div>
+						<button class="btn btn-primary btn-lg btn-block"
+							id="searchBtn" style="font-weight: bold">
+							아이디 찾기
+						</button>
 					</div>
 					
-				</form>
+					<form id="loginId" action="/login" method="post">
+						<input type="hidden" class="form-control" name="memberEmail" id="sInputId">
+					</form>
 
-				<div id="search"></div>
-
-				<div class="form-group">
-					<button class="btn btn-primary btn-lg btn-block"
-						id="searchBtn" style="font-weight: bold">
-						아이디 찾기
-					</button>
 				</div>
-				
-				<form id="loginId" action="/login" method="post">
-					<input type="hidden" class="form-control" name="memberEmail" id="sInputId">
-				</form>
-
 			</div>
-			
 		</section>
 		<!--section end-->
 
@@ -189,7 +190,7 @@
 							$('#search').append(objDiv.clone()
 								.attr('id', 'id-'+index));
 							$('#id-'+index+' #sId')
-								.text(value.memberEmail + '(' + value.memberRegDate + ')');
+								.text(value.memberEmail + '(가입일:' + value.memberRegDate + ')');
 							$('#id-'+index+' #sBtnId')
 								.attr('id', 'sBtnId-'+index)
 								.click(function() {

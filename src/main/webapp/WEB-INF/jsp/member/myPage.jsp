@@ -47,93 +47,95 @@
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
-		<jsp:include page="modal.jsp" />
+		<!--section start-->
+		<section>
+		
+			<jsp:include page="modal.jsp" />
+			
+			<div style="margin: 50px 0px 50px 0px">
+				<div class="container" style="width: 400px; text-align: center;">
 
-        <!--section start-->
-        <section>     
-        
-            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 200px 0px;">
+					<h1 style="font-weight: 900; margin-bottom: 50px">회원정보 수정</h1>
 
-				<h1 style="font-weight: 900; margin-bottom: 50px">회원정보 수정</h1>
+					<form class="form-horizontal" action="/update" method="post">
 
-				<form class="form-horizontal" action="/update" method="post">
-
-					<div class="form-group">
-						<label for="inputEmail" class="col-xs-4 control-label">이메일(아이디)</label>
-						<div class="col-xs-8">
-							<input type="email" class="form-control" value="${memberDto.memberEmail}"
-								name="email" id="inputEmail" placeholder="E-mail" disabled>
-							<div class="check_font" id="emailCheck"></div>
-							<input type="hidden" value="${memberDto.memberEmail}" name="memberEmail">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputName" class="col-xs-4 control-label">이름</label>
-						<div class="col-xs-8">
-							<input type="text" class="form-control" value="${memberDto.memberName}"
-								name="memberName" id="inputName" placeholder="Name">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
-						<div class="col-xs-8">
-							<input type="text" class="form-control" value="${memberDto.memberNick}"
-								name="memberNick" id="inputNickname" placeholder="Nickname" required>
-							<div class="check_font" id="nickCheck"></div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
-						<div class="col-xs-8">
-							<input type="text" class="form-control" maxlength="13" value="${memberDto.memberPhone}"
-								name="memberPhone" id="inputPhone" placeholder="PhoneNumber">
-						</div>
-					</div>
-
-					<div class="form-group" style="margin-bottom: 20px;">
-						<label for="selectBox" class="col-xs-4 control-label"> 마케팅 수신동의</label>
-						<div class="col-xs-8">
-                            <select class="form-control" name="memberAgree" id="selectBox">
-				            	<option ${(memberDto.memberAgree == 'chk') ? 'selected' : ''} value="chk">동의함</option>
-				            	<option ${(memberDto.memberAgree == 'chk') ? '' : 'selected'}>동의하지 않음</option>
-                        	</select>
-                       	</div>  
-					</div>
-					
-					<br>
-
-					<div class="col-xs-6">
-						<div class="form-group">		
-							<button type="button" class="btn btn-primary btn-block" onclick="location.href='/changePassword'" 
-								id="changePassword" style="font-weight: bold;">
-								비밀번호 변경
-							</button>
-						</div>
-					</div>
-					
-					<div class="col-xs-offset-1 col-xs-5" style="margin-bottom: 10px;">
 						<div class="form-group">
-							<button type="button" class="btn btn-primary btn-block" onclick="location.href='/unRegister'" 
-								id="unRegister" style="font-weight: bold;">
-								회원탈퇴
-							</button>
+							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
+							<div class="col-xs-8">
+								<input type="email" class="form-control" value="${memberDto.memberEmail}"
+									name="email" id="inputEmail" placeholder="E-mail" disabled>
+								<div class="check_font" id="emailCheck"></div>
+								<input type="hidden" value="${memberDto.memberEmail}" name="memberEmail">
+							</div>
 						</div>
-					</div>
-					
-					<div class="col-xs-12">
+
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-lg btn-block"
-								id="submitBtn" style="font-weight: bold;">
-								확 인
-							</button>
+							<label for="inputName" class="col-xs-4 control-label">이름</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control" value="${memberDto.memberName}"
+									name="memberName" id="inputName" placeholder="Name">
+							</div>
 						</div>
-					</div>
 
-				</form>
+						<div class="form-group">
+							<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control" value="${memberDto.memberNick}"
+									name="memberNick" id="inputNickname" placeholder="Nickname" required>
+								<div class="check_font" id="nickCheck"></div>
+							</div>
+						</div>
 
+						<div class="form-group">
+							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control" maxlength="13" value="${memberDto.memberPhone}"
+									name="memberPhone" id="inputPhone" placeholder="PhoneNumber">
+							</div>
+						</div>
+
+						<div class="form-group" style="margin-bottom: 20px;">
+							<label for="selectBox" class="col-xs-4 control-label"> 마케팅 수신동의</label>
+							<div class="col-xs-8">
+	                            <select class="form-control" name="memberAgree" id="selectBox">
+					            	<option ${(memberDto.memberAgree == 'chk') ? 'selected' : ''} value="chk">동의함</option>
+					            	<option ${(memberDto.memberAgree == 'chk') ? '' : 'selected'}>동의하지 않음</option>
+	                        	</select>
+                        	</div>  
+						</div>
+						
+						<br>
+
+						<div class="col-xs-5">
+							<div class="form-group">		
+								<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='/changePassword'" 
+									id="changePassword" style="font-weight: bold;">
+									비밀번호 변경
+								</button>
+							</div>
+						</div>
+						
+						<div class="col-xs-offset-2 col-xs-5" style="margin-bottom: 10px;">
+							<div class="form-group">
+								<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='/unRegister'" 
+									id="unRegister" style="font-weight: bold;">
+									회원탈퇴
+								</button>
+							</div>
+						</div>
+						
+						<div class="col-xs-12">
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-lg btn-block"
+									id="submitBtn" style="font-weight: bold;">
+									확 인
+								</button>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
 			</div>
 		</section>
 		<!--section end-->

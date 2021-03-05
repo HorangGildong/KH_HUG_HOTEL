@@ -19,6 +19,9 @@ import kr.iei.hotel.member.service.MemberUpdateService;
 public class MemberJoinController {
 
 	@Autowired
+	private MemberGetService memberGetDtoService;
+
+	@Autowired
 	private MemberService memberService;
 
 	@Autowired
@@ -37,7 +40,7 @@ public class MemberJoinController {
 	@PostMapping("/join")
 	public String join(MemberJoinFormDto memberJoinFormDto, Model model) {
 		memberUpdateService.join(memberJoinFormDto);
-		MemberDto memberDto = memberGetService.getMemberDtoByEmail(memberJoinFormDto.getMemberEmail());
+		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberJoinFormDto.getMemberEmail());
 		memberService.autoLogin(memberDto);
 		model.addAttribute("isFirstLogin", true);
 		return "/index";

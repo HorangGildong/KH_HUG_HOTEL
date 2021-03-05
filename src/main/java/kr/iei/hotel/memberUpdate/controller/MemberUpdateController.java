@@ -18,31 +18,29 @@
 //
 //import kr.iei.hotel.member.config.auth.PrincipalDetails;
 //import kr.iei.hotel.member.dto.MemberDto;
-//import kr.iei.hotel.member.service.MemberGetDtoService;
-//import kr.iei.hotel.member.service.MemberLoginService;
-//import kr.iei.hotel.member.service.MemberUnRegisterService;
-//import kr.iei.hotel.memberUpdate.dto.MemberUpdateDto;
-//import kr.iei.hotel.memberUpdate.service.MemberUpdateService;
+//import kr.iei.hotel.member.service.MemberGetService;
+//import kr.iei.hotel.member.service.MemberService;
+//import kr.iei.hotel.member.service.MemberUpdateService;
 //
 ///**
 // * 
 // * 회원정보수정 및 삭제
 // *
 // */
-//@Controller
+////@Controller
 //public class MemberUpdateController {
 //	
 //	@Autowired
-//	MemberUpdateService memberUpdateService;
+//	private MemberUpdateService memberUpdateService;
 //	
 //	@Autowired
-//	MemberUnRegisterService memberUnRegisterService;
+//	private MemberUpdateService memberUnRegisterService;
 //	
 //	@Autowired
-//	MemberGetDtoService memberGetDtoService;
+//	private MemberGetService memberGetService;
 //	
 //	@Autowired
-//	MemberLoginService memberLoginService;
+//	private MemberService memberService;
 //	
 //    @Autowired
 //	private BCryptPasswordEncoder passwordEncoder;
@@ -52,7 +50,7 @@
 //     * @param model
 //     * @return
 //     */
-//	@RequestMapping(value="/myPage")
+//	@RequestMapping(value="/myPage_")
 //	public String myPage(Model model) {
 //		try {
 //			System.out.println("회원정보수정  메서드 : myPage ");			 
@@ -70,7 +68,7 @@
 //			System.out.println("1.세션 데이터 getMemberDto 정보 :" +principalDetails.getMemberDto());
 //			System.out.println("2.세션 데이터 getUsername 정보 :  " +principalDetails.getUsername());
 //			
-//			MemberUpdateDto member=memberUpdateService.getMemberInfo(principalDetails.getUsername());
+//			MemberDto member=memberService.getSessionMemberDto();
 //			System.out.println("3. 데이터베이스 가져온 회원 정보   :  " +member.toString());
 //
 //			model.addAttribute("member", member);
@@ -116,16 +114,16 @@
 //    		System.out.println("비밀번호 암호화 처리 : "+ encPassword);    		
 //    	}
 //    	
-//    	/** 데이터베이스 회원 정보 업데이트 처리 */
-//    	int updateState=memberUpdateService.memberUpdate(memberDto);
-//    	
-//    	/** 정상적으로 업데이트 되었다면 1 을 반환 */
-//    	if(updateState == 0) {
-//    		/** 업데이트  오류 */
-//    		return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
-//    	}
-//    	memberDto = memberGetDtoService.getMemberDtoByEmail(userDetails.getUsername());
-//    	memberLoginService.autoLogin(memberDto);		
+////    	/** 데이터베이스 회원 정보 업데이트 처리 */
+////    	int updateState=memberUpdateService.memberUpdate(memberDto);
+////    	
+////    	/** 정상적으로 업데이트 되었다면 1 을 반환 */
+////    	if(updateState == 0) {
+////    		/** 업데이트  오류 */
+////    		return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
+////    	}
+//    	memberDto = memberGetService.getMemberDtoByEmail(userDetails.getUsername());
+//    	memberService.autoLogin(memberDto);		
 //    	return new ResponseEntity<>(true, HttpStatus.OK);
 //    }
 //	
@@ -164,15 +162,14 @@
 //            return new ResponseEntity<>(false, HttpStatus.UNAUTHORIZED);
 //        } else {
 //        	//스프링 시큐리티 PrincipalDetails 세션값 아이디 가져오기
-//        	memberDto = memberGetDtoService.getMemberDtoByEmail(userDetails.getUsername());
+//        	memberDto = memberGetService.getMemberDtoByEmail(userDetails.getUsername());
 //        	memberUnRegisterService.deleteReply(memberDto);
-//        	int deleteState = memberUnRegisterService.unRegister(memberDto);
-////        	int deleteState = memberUpdateService.memberDelete(memberDto);
-//        	/** 정상적으로 삭제 처리 되었다면 1 을 반환 */
-//        	if(deleteState == 0) {
-//        			/** 삭제  오류 */
-//	               return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
-//	        }
+////        	int deleteState = memberService.unRegister(memberDto);
+////        	/** 정상적으로 삭제 처리 되었다면 1 을 반환 */
+////        	if(deleteState == 0) {
+////        			/** 삭제  오류 */
+////	               return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
+////	        }
 //        }
 //        return new ResponseEntity<>(true, HttpStatus.OK);
 //    }
@@ -189,7 +186,7 @@
 //	    System.out.println("\n---------------------------------- ");
 //	    System.out.println("--- 패스워드 검증 --- ");
 //	    //데이터베이스에서 회원정보 가져오기
-//	    MemberUpdateDto member=memberUpdateService.getMemberInfo(userDetails.getUsername());	    
+//	    MemberDto member=memberService.getSessionMemberDto();	    
 //	    System.out.println("member.getMemberPassword() :  " +member.getMemberPassword());
 //	    	    
 //	    //비밀번호와 일치 확인	 

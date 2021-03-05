@@ -43,123 +43,156 @@
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
-		<%-- <jsp:include page="modal.jsp" /> --%>
+		<!--section start-->
+		<section>
+			<div style="margin: 50px 0px 50px 0px">
+				<div class="container" style="width: 400px; text-align: center;">
 
-        <!--section start-->
-        <section>     
-        
-            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 150px 0px;">
+					<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
 
-				<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
+					<form class="form-horizontal" action="/join" method="post">
 
-				<form class="form-horizontal" action="/join" method="post">
-
-					<div class="form-group">
-						<label for="inputEmail" class="col-xs-4 control-label">*이메일(아이디)</label>
-						<div class="col-xs-8">
-							<input type="email" class="form-control"
-								name="memberEmail" id="inputEmail" placeholder="E-mail" required>
-							<div class="check_font" id="emailCheck"></div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputPassword" class="col-xs-4 control-label">*비밀번호</label>
-						<div class="col-xs-8">
-							<input type="password" class="form-control"
-								name="memberPassword" id="inputPassword" placeholder="Password"	required>
-							<div class="check_font" id="passwordCheck"></div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputPassword" class="col-xs-4 control-label">*비밀번호 확인</label>
-						<div class="col-xs-8">
-							<input type="password" class="form-control"
-								id="inputPassword2"	placeholder="PasswordCheck" disabled required>
-							<div class="check_font" id="passwordCheck2"></div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputName" class="col-xs-4 control-label">이름</label>
-						<div class="col-xs-8">
-							<input type="text" class="form-control"
-								name="memberName" id="inputName" placeholder="Name">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
-						<div class="col-xs-8">
-							<input type="text" class="form-control"
-								name="memberNick" id="inputNickname" placeholder="Nickname" required>
-							<div class="check_font" id="nickCheck"></div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
-						<div class="col-xs-8">
-							<input type="text" class="form-control" maxlength="13"
-								name="memberPhone" id="inputPhone" placeholder="PhoneNumber">
-						</div>
-					</div>
-
-					<br>
-
-					<div class="form-group" style="margin-bottom: 10px;">
-						<div class="checkbox">
-							<label class="checkbox-inline col-xs-5"> 
-								<input type="checkbox" id="chk-terms1" value="chk" required>
-								(필수) 동의합니다.
-							</label>
-						</div>
-					</div>
-
-					<div class="panel panel-warning" style="margin-bottom: 10px; border-color: #72a5d3;">
-						<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#terms1"> 이용약관 (자세히 보기) </a>
-							</h4>
-						</div>
-						<div id="terms1" class="panel-collapse collapse">
-							<div id="text1" class="panel-body" style="text-align: left;">
+						<div class="form-group">
+							<label for="inputEmail" class="col-xs-4 control-label">*이메일</label>
+							<div class="col-xs-8">
+								<input type="email" class="form-control"
+									name="memberEmail" id="inputEmail" placeholder="E-mail" required>
+								<div class="check_font" id="emailCheck"></div>
 							</div>
 						</div>
-					</div>
 
-					<div class="form-group" style="margin-bottom: 10px;">
-						<div class="checkbox">
-							<label class="checkbox-inline col-xs-5">
-								<input type="checkbox" name="memberAgree" id="chk-terms2" value="chk">
-								(선택) 동의합니다.
-							</label>
-						</div>
-					</div>
-					
-					<div class="panel panel-warning" style="border-color: #72a5d3;">
-						<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#terms2"  > 마케팅 수신 동의 (자세히 보기) </a>
-							</h4>
-						</div>
-						<div id="terms2" class="panel-collapse collapse">
-							<div id="text2" class="panel-body" style="text-align: left;"></div>
-						</div>
-					</div>
-				
-					<br>
-					
-					<div class="col-xs-12">
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-lg btn-block"
-								id="submitBtn" style="font-weight: bold;" disabled> 회원가입 </button>
+							<label for="inputPassword" class="col-xs-4 control-label">*비밀번호</label>
+							<div class="col-xs-8">
+								<input type="password" class="form-control"
+									name="memberPassword" id="inputPassword" placeholder="Password"	required>
+								<div class="check_font" id="passwordCheck"></div>
+							</div>
 						</div>
-					</div>
 
-				</form>
+						<div class="form-group">
+							<label for="inputPassword" class="col-xs-4 control-label">*비밀번호 확인</label>
+							<div class="col-xs-8">
+								<input type="password" class="form-control"
+									id="inputPassword2"	placeholder="PasswordCheck" disabled required>
+								<div class="check_font" id="passwordCheck2"></div>
+							</div>
+						</div>
 
+						<div class="form-group">
+							<label for="inputName" class="col-xs-4 control-label">이름</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control"
+									name="memberName" id="inputName" placeholder="Name">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control"
+									name="memberNick" id="inputNickname" placeholder="Nickname" required>
+								<div class="check_font" id="nickCheck"></div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control" maxlength="13"
+									name="memberPhone" id="inputPhone" placeholder="PhoneNumber">
+							</div>
+						</div>
+
+						<br>
+
+						<div class="form-group" style="margin-bottom: 10px;">
+							<div class="checkbox">
+								<label class="checkbox-inline col-xs-5"> 
+									<input type="checkbox" id="chk-terms1" value="chk" required>
+									(필수) 동의합니다.
+								</label>
+							</div>
+						</div>
+
+						<div class="panel panel-warning" style="margin-bottom: 10px; border-color: #72a5d3;">
+							<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#terms1"> 이용약관 (자세히 보기) </a>
+								</h4>
+							</div>
+							<div id="terms1" class="panel-collapse collapse">
+								<div id="text1" class="panel-body" style="text-align: left;">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+									suscipit velit sit amet tristique tincidunt. Fusce dapibus
+									tortor ut est ornare porttitor. Aliquam auctor bibendum
+									posuere. Fusce laoreet tincidunt lacinia. Aliquam posuere
+									pharetra auctor. Pellentesque et eleifend nibh, a bibendum
+									lacus. Pellentesque sit amet dignissim mauris. Suspendisse a
+									erat congue nunc auctor malesuada. Mauris ultricies magna quis
+									neque egestas, eu vehicula sapien luctus. Aenean id condimentum
+									mauris. Integer urna enim, vehicula non nunc non, feugiat
+									imperdiet eros. Morbi vitae est at erat tristique facilisis.
+									Mauris pulvinar vel arcu vel ultrices. Mauris a nisi sit amet
+									urna elementum semper. Etiam dignissim pharetra mauris. Donec
+									rhoncus nisl sem, ut ultrices odio porttitor sed. Donec
+									consequat facilisis velit. Cras feugiat tincidunt fermentum.
+									Duis interdum nec quam id eleifend.
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group" style="margin-bottom: 10px;">
+							<div class="checkbox">
+								<label class="checkbox-inline col-xs-5">
+									<input type="checkbox" name="memberAgree" id="chk-terms2" value="chk">
+									(선택) 동의합니다.
+								</label>
+							</div>
+						</div>
+
+						<div class="panel panel-warning" style="border-color: #72a5d3;">
+							<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion"
+										href="#terms2"  > 마케팅 수신 동의 (자세히 보기) </a>
+								</h4>
+							</div>
+							<div id="terms2" class="panel-collapse collapse">
+								<div id="text2" class="panel-body" style="text-align: left;">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+									suscipit velit sit amet tristique tincidunt. Fusce dapibus
+									tortor ut est ornare porttitor. Aliquam auctor bibendum
+									posuere. Fusce laoreet tincidunt lacinia. Aliquam posuere
+									pharetra auctor. Pellentesque et eleifend nibh, a bibendum
+									lacus. Pellentesque sit amet dignissim mauris. Suspendisse a
+									erat congue nunc auctor malesuada. Mauris ultricies magna quis
+									neque egestas, eu vehicula sapien luctus. Aenean id condimentum
+									mauris. Integer urna enim, vehicula non nunc non, feugiat
+									imperdiet eros. Morbi vitae est at erat tristique facilisis.
+									Mauris pulvinar vel arcu vel ultrices. Mauris a nisi sit amet
+									urna elementum semper. Etiam dignissim pharetra mauris. Donec
+									rhoncus nisl sem, ut ultrices odio porttitor sed. Donec
+									consequat facilisis velit. Cras feugiat tincidunt fermentum.
+									Duis interdum nec quam id eleifend.
+								</div>
+							</div>
+						</div>
+
+						<br>
+
+						<div class="col-xs-12">
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-lg btn-block"
+									id="submitBtn" style="font-weight: bold;" disabled>
+									회원가입
+								</button>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
 			</div>
 		</section>
 		<!--section end-->
@@ -194,7 +227,6 @@
 				toggle : false
 			})
 		});
-		
 		var autoHypenPhone = function(str) {
 			str = str.replace(/[^0-9]/g, '');
 			var tmp = '';
@@ -308,6 +340,8 @@
 			$.fn.submitDisable();
 		});
 		
+		/* $('#inputPassword2').attr('disabled') == undefined */
+		
 		$('#inputPassword, #inputPassword2').blur(function() { 
 			var pw1=$('#inputPassword').val();
 			var pw2=$('#inputPassword2').val();
@@ -345,7 +379,7 @@
 			본 약관은 HUG HOTEL(이하 '당 사이트')가 제공하는 모든 서비스(이하 '서비스')의 이용조건 및 절차, 이용자와 당 사이트의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.
 			
 			제 2조 (약관의 명시와 개정)
-			당 사이트는 이 약관의 내용과 관리자의 성명, 개인정보 보호책임자의 성명, 연락처(전화, 전자우편 주소 등) 등을 이용자가 알 수 있도록 당 사이트의 초기 서비스화면(전면)에 게시합니다.
+			당 사이트는 이 약관의 내용과 주소지, 관리자의 성명, 개인정보 보호책임자의 성명, 연락처(전화, 팩스, 전자우편 주소 등) 등을 이용자가 알 수 있도록 당 사이트의 초기 서비스화면(전면)에 게시합니다.
 			당 사이트는 약관의 규제에 관한 법률, 전자거래기본법, 전자서명법, 개인정보보호법 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.
 			당 사이트가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 당 사이트의 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다.
 			당 사이트는 이용자가 본 약관 내용에 동의하는 것을 조건으로 이용자에게 서비스를 제공할 것이며, 이용자가 본 약관의 내용에 동의하는 경우, 당 사이트의 서비스 제공 행위 및 이용자의 서비스 사용 행위에는 본 약관이 우선적으로 적용될 것입니다.
