@@ -67,7 +67,7 @@
 							<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호</label>
 							<div class="col-xs-8">
 								<input type="password" class="form-control"
-									name="newPassword" id="newPassword" placeholder="Password" required>
+									name="newPassword" id="newPassword" placeholder="New Password" required>
 								<div class="check_font" id="passwordCheck"></div>
 							</div>
 						</div>

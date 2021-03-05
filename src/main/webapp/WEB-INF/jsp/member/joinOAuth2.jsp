@@ -59,7 +59,7 @@
 					<form class="form-horizontal" action="/join" method="post">
 					
 						<div class="form-group">
-							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
+							<label for="inputEmail" class="col-xs-4 control-label">이메일(아이디)</label>
 							<div class="col-xs-8">
 								<input type="email" class="form-control" name="email"
 									id="inputEmail" value="${email}" disabled>
@@ -69,7 +69,7 @@
 						<input type="hidden" name="memberId" value="testID">
 							
 						<div class="form-group">
-							<label for="inputNick" class="col-xs-4 control-label">닉네임</label>
+							<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" name="memberNick"
 									id="inputNickname" placeholder="Nickname" required>

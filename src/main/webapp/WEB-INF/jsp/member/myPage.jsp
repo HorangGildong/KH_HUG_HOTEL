@@ -60,7 +60,7 @@
 					<form class="form-horizontal" action="/update" method="post">
 
 						<div class="form-group">
-							<label for="inputEmail" class="col-xs-4 control-label">이메일</label>
+							<label for="inputEmail" class="col-xs-4 control-label">이메일(아이디)</label>
 							<div class="col-xs-8">
 								<input type="email" class="form-control" value="${memberDto.memberEmail}"
 									name="email" id="inputEmail" placeholder="E-mail" disabled>
