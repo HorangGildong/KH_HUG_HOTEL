@@ -47,93 +47,93 @@
 		<!--header-->
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
-		
-		<!--section start-->
-		<section>
-			
-			<div style="margin: 50px 0px 100px 0px">
-				<div class="container" style="width: 400px; text-align: center;">
 
-					<h1 style="font-weight: 900; margin-bottom: 50px">Google 계정  등록</h1>
+		<%-- <jsp:include page="modal.jsp" /> --%>
+
+        <!--section start-->
+        <section>     
+        
+            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 150px 0px;">
+
+				<h1 style="font-weight: 900; margin-bottom: 50px">Google 계정  등록</h1>
+				
+				<form class="form-horizontal" action="/join" method="post">
+				
+					<div class="form-group">
+						<label for="inputEmail" class="col-xs-4 control-label">이메일(아이디)</label>
+						<div class="col-xs-8">
+							<input type="email" class="form-control" name="email"
+								id="inputEmail" value="${email}" disabled>
+						</div>
+					</div>
 					
-					<form class="form-horizontal" action="/join" method="post">
+					<input type="hidden" name="memberId" value="testID">
+						
+					<div class="form-group">
+						<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" name="memberNick"
+								id="inputNickname" placeholder="Nickname" required>
+							<div class="check_font" id="nickCheck"></div>
+						</div>
+					</div>
+
+					<br>
+
+					<div class="form-group" style="margin-bottom: 10px;">
+						<div class="checkbox">
+							<label class="checkbox-inline col-xs-5"> 
+								<input type="checkbox" id="chk-terms1" value="chk" required>
+								(필수) 동의합니다.
+							</label>
+						</div>
+					</div>
+
+					<div class="panel panel-warning" style="margin-bottom: 10px; border-color: #72a5d3;">
+						<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#terms1"> 이용약관 (자세히 보기) </a>
+							</h4>
+						</div>
+						<div id="terms1" class="panel-collapse collapse">
+							<div id="text1" class="panel-body" style="text-align: left;"></div>
+						</div>
+					</div>
+
+					<div class="form-group" style="margin-bottom: 10px;">
+						<div class="checkbox">
+							<label class="checkbox-inline col-xs-5">
+								<input type="checkbox" name="memberAgree" id="chk-terms2" value="chk">
+								(선택) 동의합니다.
+							</label>
+						</div>
+					</div>
+
+					<div class="panel panel-warning" style="border-color: #72a5d3;">
+						<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#terms2"  > 마케팅 수신 동의 (자세히 보기) </a>
+							</h4>
+						</div>
+						<div id="terms2" class="panel-collapse collapse">
+							<div id="text2" class="panel-body" style="text-align: left;"></div>
+						</div>
+					</div>
+
+					<br>
+
+					<div class="col-xs-12">
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn" 
+								style="font-weight: bold;">확 인</button>
+						</div>
+					</div>
 					
-						<div class="form-group">
-							<label for="inputEmail" class="col-xs-4 control-label">이메일(아이디)</label>
-							<div class="col-xs-8">
-								<input type="email" class="form-control" name="email"
-									id="inputEmail" value="${email}" disabled>
-							</div>
-						</div>
-						
-						<input type="hidden" name="memberId" value="testID">
-							
-						<div class="form-group">
-							<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
-							<div class="col-xs-8">
-								<input type="text" class="form-control" name="memberNick"
-									id="inputNickname" placeholder="Nickname" required>
-								<div class="check_font" id="nickCheck"></div>
-							</div>
-						</div>
+					<input type="hidden" name="memberEmail" value="${email}">
+					<input type="hidden" name="memberKey" value="${key}">
 
-						<br>
+				</form>
 
-						<div class="form-group" style="margin-bottom: 10px;">
-							<div class="checkbox">
-								<label class="checkbox-inline col-xs-5"> 
-									<input type="checkbox" id="chk-terms1" value="chk" required>
-									(필수) 동의합니다.
-								</label>
-							</div>
-						</div>
-
-						<div class="panel panel-warning" style="margin-bottom: 10px; border-color: #72a5d3;">
-							<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#terms1"> 이용약관 (자세히 보기) </a>
-								</h4>
-							</div>
-							<div id="terms1" class="panel-collapse collapse">
-								<div id="text1" class="panel-body" style="text-align: left;"></div>
-							</div>
-						</div>
-
-						<div class="form-group" style="margin-bottom: 10px;">
-							<div class="checkbox">
-								<label class="checkbox-inline col-xs-5">
-									<input type="checkbox" name="memberAgree" id="chk-terms2" value="chk">
-									(선택) 동의합니다.
-								</label>
-							</div>
-						</div>
-
-						<div class="panel panel-warning" style="border-color: #72a5d3;">
-							<div class="panel-heading" style="background-color: #bedae8; border-color: #72a5d3">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#terms2"  > 마케팅 수신 동의 (자세히 보기) </a>
-								</h4>
-							</div>
-							<div id="terms2" class="panel-collapse collapse">
-								<div id="text2" class="panel-body" style="text-align: left;"></div>
-							</div>
-						</div>
-
-						<br>
-
-						<div class="col-xs-12">
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn" 
-									style="font-weight: bold;">확 인</button>
-							</div>
-						</div>
-						
-						<input type="hidden" name="memberEmail" value="${email}">
-						<input type="hidden" name="memberKey" value="${key}">
-
-					</form>
-
-				</div>
 			</div>
 
 		</section>

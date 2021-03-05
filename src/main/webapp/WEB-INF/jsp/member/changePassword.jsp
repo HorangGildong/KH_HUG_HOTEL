@@ -38,64 +38,60 @@
 </head>
 
 <body>
-	<div class="wrap" style="max-height: 100%; min-height: 0">
+	<div class="wrap">
 		<!--header-->
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
 		<jsp:include page="modal.jsp" />
 
-		<!--section start-->
-		<section>
-		
-			<div style="margin: 150px 0px 200px 0px">
-				<div class="container" style="width: 400px; text-align: center;">
+        <!--section start-->
+        <section>     
+        
+            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 150px 0px;">
 
-					<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 변경</h1>
+				<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 변경</h1>
 
-					<form class="form-horizontal" action="/changePassword" method="post">
+				<form class="form-horizontal" action="/changePassword" method="post">
 
-						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">현재 비밀번호</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control"
-									name="memberPassword" id="inputPassword" placeholder="Password"	required>
-							</div>
+					<div class="form-group">
+						<label for="inputPassword" class="col-xs-4 control-label">현재 비밀번호</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control"
+								name="memberPassword" id="inputPassword" placeholder="Password"	required>
 						</div>
+					</div>
 
-						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control"
-									name="newPassword" id="newPassword" placeholder="New Password" required>
-								<div class="check_font" id="passwordCheck"></div>
-							</div>
+					<div class="form-group">
+						<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control"
+								name="newPassword" id="newPassword" placeholder="New Password" required>
+							<div class="check_font" id="passwordCheck"></div>
 						</div>
-
-						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호 확인</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control"
-									id="newPassword2"	placeholder="PasswordCheck" disabled required>
-								<div class="check_font" id="passwordCheck2"></div>
-							</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호 확인</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control"
+								id="newPassword2"	placeholder="PasswordCheck" disabled required>
+							<div class="check_font" id="passwordCheck2"></div>
 						</div>
+					</div>
+					
+					<br>
 						
-						<br>
-						
-						<div class="col-xs-12">
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-lg btn-block"
-									id="submitBtn" style="font-weight: bold;" disabled>
-									확 인
-								</button>
-							</div>
+					<div class="col-xs-12">
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-lg btn-block"
+								id="submitBtn" style="font-weight: bold;" disabled>
+								확 인
+							</button>
 						</div>
-
+					</div>
 					</form>
 
 				</div>
-			</div>
 		</section>
 		<!--section end-->
 
