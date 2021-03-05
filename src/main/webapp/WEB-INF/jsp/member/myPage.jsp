@@ -42,17 +42,17 @@
 </head>
 
 <body>
-	<div class="wrap">
+	<div class="wrap" style="height: 100%; min-height: 0">
 		<!--header-->
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
+		<jsp:include page="modal.jsp" />
+
 		<!--section start-->
 		<section>
 		
-			<jsp:include page="modal.jsp" />
-			
-			<div style="margin-top: 100px">
+			<div style="margin: 100px 0px 100px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">회원정보 수정</h1>

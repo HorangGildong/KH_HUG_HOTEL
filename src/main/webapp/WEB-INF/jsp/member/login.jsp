@@ -51,7 +51,7 @@
 </head>
 
 <body>
-	<div class="wrap">
+	<div class="wrap" style="max-height: 100%; min-height: 0">
 		<!--header-->
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
@@ -61,8 +61,8 @@
 		<!--section start-->
 		<section>
 		
-			<div style="margin-top: 100px">
-				<div class="container" style="width: 400px; text-align: center;">
+			<div style="margin: 100px 0px 150px 0px">
+				<div class="container" style=" width: 400px; text-align: center;">
 				
 					<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
 					
