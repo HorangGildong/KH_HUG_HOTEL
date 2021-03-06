@@ -275,7 +275,7 @@
 		$('.modal-title').text('비밀번호 변경');
 		$('.modal-body').multiline(`${member.nick} 님의 개인정보를 안전하게 보호하고, \n 개인정보 도용으로 인한 피해를 예방하기 위해 \n
 				90일 이상 비밀번호를 변경하지 않은 경우 \n	비밀번호 변경을 권장해드립니다.`);
-		$('.btn-default').attr('onclick', "location.href='/myPage'")
+		$('.btn-default').attr('onclick', "location.href='/changePassword'")
 				.text('비밀번호 변경하기');
 		$('.modal-footer').append(
 				$('.btn-default').clone()
