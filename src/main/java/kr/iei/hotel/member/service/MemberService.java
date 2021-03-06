@@ -10,6 +10,8 @@ public interface MemberService {
 		
 	String passwordEncode(String memberPassword);
 	
+	MemberDto passwordEncode(MemberDto memberDto);
+	
 	String createCode();
 	
 	String createPassword();
@@ -22,8 +24,6 @@ public interface MemberService {
 	
 	void autoLogin(MemberDto memberDto);
 	
-	void autoLogin(String memberEmail);
-	
-	boolean isPasswordConfirm(String enteredPassword, String savedPassword);
+	boolean isMatchingPassword(String enteredPassword, String savedPassword);
 	
 }

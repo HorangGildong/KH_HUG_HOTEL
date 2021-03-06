@@ -1,6 +1,7 @@
 package kr.iei.hotel.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.iei.hotel.member.config.auth.PrincipalDetails;
 import kr.iei.hotel.member.dto.MemberDto;
+import kr.iei.hotel.member.service.MemberService;
 import kr.iei.hotel.member.service.MemberUpdateService;
 
 @Controller
@@ -23,6 +25,9 @@ public class MemberLoginController {
 	
 	@Autowired
 	private MemberUpdateService memberUpdateService;
+	
+	@Autowired
+	private MemberService memberService;
 	
 	// loginPage
 	@GetMapping("/login")
@@ -42,14 +47,16 @@ public class MemberLoginController {
 		return "/member/login";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/changePw")
 	public String changePw() {
 		return "/myPage/updateMember";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/changePwLater")
 	public String changePwLater() {
-		memberUpdateService.updatePwChangeDate();
+		memberUpdateService.updatePwChangeDate(memberService.getSessionMemberDto());
 		return "redirect:/";
 	}
 	

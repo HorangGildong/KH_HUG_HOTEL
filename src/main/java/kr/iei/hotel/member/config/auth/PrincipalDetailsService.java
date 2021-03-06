@@ -15,14 +15,14 @@ import kr.iei.hotel.member.service.MemberGetService;
 public class PrincipalDetailsService implements UserDetailsService {
 
 	@Autowired
-	private MemberGetService memberGetDtoService;
+	private MemberGetService memberGetService;
 	
 	// MamberDetails로 리턴됨 (Authentication 타입 객체)
 	// 로그인 요청 처리(username, password)
 	// password부분은 알아서 처리함(username이 DB에 있는지만 확인)
 	@Override
 	public UserDetails loadUserByUsername(String memberEmail) throws UsernameNotFoundException {
-		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberEmail);
+		MemberDto memberDto = memberGetService.getMemberDtoByEmail(memberEmail);
 		/*
 		MemberDto memberDto = memberDao.findByEmail(memberEmail)
 			.orElseThrow(() -> { return new UsernameNotFoundException("해당 사용자자를 찾을 수 없습니다. : " + memberEmail)

@@ -9,13 +9,17 @@ import org.springframework.stereotype.Service;
 
 import kr.iei.hotel.member.dto.MemberDto;
 import kr.iei.hotel.member.service.MemberGetService;
+import kr.iei.hotel.member.service.MemberService;
 import kr.iei.hotel.member.service.MemberUpdateService;
 
 @Service
 public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 
 	@Autowired
-	private MemberGetService memberGetDtoService;
+	private MemberGetService memberGetService;
+	
+	@Autowired
+	private MemberService memberService;
 	
 	@Autowired
 	private MemberUpdateService memberUpdateService;
@@ -27,11 +31,12 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 //		String memberProvider = userRequest.getClientRegistration().getClientId();
 		String memberEmail = oAuth2User.getAttribute("email");
 		String memberKey = oAuth2User.getAttribute("sub");
-		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberEmail);
+		MemberDto memberDto = memberGetService.getMemberDtoByEmail(memberEmail);
 		if (memberDto == null) {
 			memberDto = new MemberDto(memberEmail, "ROLE_ASSOCIATE", memberKey);
 		} else {
-			memberUpdateService.addKey(memberEmail, memberKey);
+			memberUpdateService.addKey(memberDto);
+			memberService.autoLogin(memberDto);
 		}
 		return new PrincipalDetails(memberDto, oAuth2User.getAttributes());
 	}

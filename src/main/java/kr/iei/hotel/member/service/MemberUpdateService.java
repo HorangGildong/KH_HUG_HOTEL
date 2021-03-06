@@ -1,21 +1,22 @@
 package kr.iei.hotel.member.service;
 
 import kr.iei.hotel.member.dto.MemberDto;
-import kr.iei.hotel.member.dto.MemberJoinFormDto;
 
 public interface MemberUpdateService {
 
-	int join(MemberJoinFormDto memberJoinFormDto);
+	int join(MemberDto memberDto);
+	
+	int joinOAuth2(MemberDto memberDto);
 
-	int changePassword(String memberEmail, String Password);
+	int changePassword(String memberEmail, String newEncodedPassword);
 	
 	int deleteReply(MemberDto memberDto);
 	
 	int unRegister(MemberDto memberDto);
 	
-	int updatePwChangeDate();
+	int updatePwChangeDate(MemberDto memberDto);
 	
-	int addKey(String memberEmail, String memberKey);
+	int addKey(MemberDto memberDto);
 	
 	int update(MemberDto memberDto);
 	

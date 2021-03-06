@@ -38,13 +38,38 @@ public class MemberServiceImp implements MemberService {
 	
 	@Autowired
 	private PrincipalDetailsService principalDetailsService;
-	
+
 	@Autowired
 	private MemberGetService memberGetService;
 	
 	@Override
+	public MemberDto getSessionMemberDto() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
+		return principalDetails.getMemberDto();
+	}
+	
+	@Override
+	public MemberDto passwordEncode(MemberDto memberDto) {
+		if(memberDto.getMemberPassword() != null && memberDto.getMemberKey() == null) {			
+			String password = passwordEncoder.encode(memberDto.getMemberPassword());
+			memberDto.setMemberPassword(password);
+		}
+		return memberDto;
+	}
+	
+	@Override
+	public String passwordEncode(String memberPassword) {
+		if(memberPassword != null) {
+			return passwordEncoder.encode(memberPassword);
+		}
+		return null;
+	}
+	
+	@Override
 	public String createCode() {
 		String code = RandomStringUtils.random(6, 33, 125, false, true);
+		
 		return code;
 	}
 	
@@ -73,19 +98,8 @@ public class MemberServiceImp implements MemberService {
 	}
 	
 	@Override
-	public String passwordEncode(String memberPassword) {
-		return passwordEncoder.encode(memberPassword);
-	}
-	
-	@Override
-	public MemberDto getSessionMemberDto() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
-		return principalDetails.getMemberDto();
-	}
-	
-	@Override
 	public void autoLogin(MemberDto memberDto) {
+		memberDto = memberGetService.getMemberDtoByEmail(memberDto);
 		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberDto.getMemberEmail());
 		Collection<GrantedAuthority> authorities = getAuthorities(memberDto.getMemberRole());
 		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, authorities);
@@ -93,16 +107,7 @@ public class MemberServiceImp implements MemberService {
 	}
 	
 	@Override
-	public void autoLogin(String memberEmail) {
-		UserDetails userDetails = principalDetailsService.loadUserByUsername(memberEmail);
-		String memberRole = memberGetService.getMemberDtoByEmail(memberEmail).getMemberRole();
-		Collection<GrantedAuthority> authorities = getAuthorities(memberRole);
-		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, authorities);
-		SecurityContextHolder.getContext().setAuthentication(newAuthentication);
-	}
-	
-	@Override
-	public boolean isPasswordConfirm(String enteredPassword, String savedPassword) {
+	public boolean isMatchingPassword(String enteredPassword, String savedPassword) {
 		return passwordEncoder.matches(enteredPassword, savedPassword);
 	}
 	

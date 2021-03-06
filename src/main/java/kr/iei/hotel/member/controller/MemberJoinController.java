@@ -9,17 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.iei.hotel.member.dto.MemberDto;
-import kr.iei.hotel.member.dto.MemberJoinFormDto;
-import kr.iei.hotel.member.dto.MemberOAuth2JoinFormDto;
 import kr.iei.hotel.member.service.MemberGetService;
 import kr.iei.hotel.member.service.MemberService;
 import kr.iei.hotel.member.service.MemberUpdateService;
 
 @Controller
 public class MemberJoinController {
-
-	@Autowired
-	private MemberGetService memberGetDtoService;
 
 	@Autowired
 	private MemberService memberService;
@@ -38,23 +33,24 @@ public class MemberJoinController {
 
 	// join
 	@PostMapping("/join")
-	public String join(MemberJoinFormDto memberJoinFormDto, Model model) {
-		memberUpdateService.join(memberJoinFormDto);
-		MemberDto memberDto = memberGetDtoService.getMemberDtoByEmail(memberJoinFormDto.getMemberEmail());
+	public String join(MemberDto memberDto, Model model) {
+		memberDto = memberService.passwordEncode(memberDto);
+		int count = memberUpdateService.join(memberDto);
 		memberService.autoLogin(memberDto);
-		model.addAttribute("isFirstLogin", true);
+		model.addAttribute("isFirstLogin", count > 0);
 		return "/index";
 	}
 	
 	@GetMapping("/join/oAuth2")
-	public String oAuthJoinPage() {
+	public String oAuth2JoinPage() {
 		return "/member/joinOAuth2";
 	}
 	
 	@PostMapping("/join/oAuth2")
-	public String oAuth2Join(MemberOAuth2JoinFormDto memberOAuth2JoinFormDto, Model model) {		
-		memberUpdateService.join(memberOAuth2JoinFormDto);
-		model.addAttribute("isFirstLogin", true);
+	public String oAuth2Join(MemberDto memberDto, Model model) {
+		int count = memberUpdateService.joinOAuth2(memberDto);
+		memberService.autoLogin(memberDto);
+		model.addAttribute("isFirstLogin", count > 0);
 		return "/index";
 	}
 

@@ -6,33 +6,58 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
 import kr.iei.hotel.member.dto.MemberDto;
-import kr.iei.hotel.member.dto.MemberJoinFormDto;
 
 @Mapper
 public interface MemberUpdateDao {
 	
+//	@Insert("INSERT INTO MEMBER ("
+//			+ " memberNumber,		memberEmail,		memberPassword, 	memberName,"
+//			+ " memberNick,			memberPhone,		memberRegDate,		memberUnRegDate,	memberPwChangeDate,"
+//			+ " memberAgree,		memberGrade,		memberRole,			memberKey"
+//			+ " )"
+//			+ " VALUES"
+//			+ " ("
+//			+ " '${memberNumber}',	'${memberEmail}',	'${memberPassword}','${memberName}',"
+//			+ " '${memberNick}',	'${memberPhone}',	SYSDATE,			'${memberUnRegDate}',SYSDATE,"
+//			+ " '${memberAgree}',	'GRADE_GENERAL',	'ROLE_REGURAL',		'${memberKey}'"
+//			+ " )")
+//	int join(MemberJoinFormDto memberJoinFormDto);
+	
 	@Insert("INSERT INTO MEMBER ("
-			+ " memberNumber,		memberEmail,		memberPassword, 	memberName,"
-			+ " memberNick,			memberPhone,		memberRegDate,		memberUnRegDate,	memberPwChangeDate,"
-			+ " memberAgree,		memberGrade,		memberRole,			memberKey"
+			+ " memberEmail,		memberPassword, 	memberName,			memberPhone,"
+			+ " memberNick,			memberRegDate,		memberUnRegDate,	memberPwChangeDate,"
+			+ " memberAgree,		memberGrade,		memberRole"
 			+ " )"
 			+ " VALUES"
 			+ " ("
-			+ " '${memberNumber}',	'${memberEmail}',	'${memberPassword}','${memberName}',"
-			+ " '${memberNick}',	'${memberPhone}',	SYSDATE,			'${memberUnRegDate}',SYSDATE,"
-			+ " '${memberAgree}',	'GRADE_GENERAL',	'ROLE_REGURAL',		'${memberKey}'"
+			+ " '${memberEmail}',	'${memberPassword}','${memberName}',	'${memberPhone}',"
+			+ " '${memberNick}',	SYSDATE,			'${memberUnRegDate}',SYSDATE,"
+			+ " '${memberAgree}',	'GRADE_GENERAL',	'ROLE_REGURAL'"
 			+ " )")
-	int join(MemberJoinFormDto memberJoinFormDto);
+	int join(MemberDto memberDto);
+	
+	@Insert("INSERT INTO MEMBER ("
+			+ " memberEmail,"
+			+ " memberNick,			memberRegDate,		memberUnRegDate,	memberPwChangeDate,"
+			+ " memberAgree,		memberGrade,		memberRole"
+			+ " )"
+			+ " VALUES"
+			+ " ("
+			+ " '${memberEmail}',"
+			+ " '${memberNick}',	SYSDATE,			'${memberUnRegDate}',SYSDATE,"
+			+ " '${memberAgree}',	'GRADE_GENERAL',	'ROLE_REGURAL'"
+			+ " )")
+	int joinOAuth2(MemberDto memberDto);
 	
 	@Update("UPDATE MEMBER SET"
 			+ " memberPassword = '${password}'"
 			+ " WHERE memberEmail = '${memberEmail}'")
-	int changePassword(String password, String memberEmail);
+	int changePassword(String memberEmail, String password);
 
 	@Update("UPDATE MEMBER SET"
 			+ " memberKey = '${memberKey}'"
 			+ " WHERE memberEmail = '${memberEmail}'")
-	int addKey(String memberEmail, String memberKey);
+	int addKey(MemberDto memberDto);
 	
 	@Update("UPDATE MEMBER SET"
 			+ "	memberName = '${memberName}', memberNick = '${memberNick}',"
@@ -43,7 +68,7 @@ public interface MemberUpdateDao {
 	@Update("UPDATE MEMBER SET"
 			+ " memberPwChangeDate = ADD_MONTHS(SYSDATE, -2)"
 			+ " WHERE memberEmail = '${memberEmail}'")
-	int updatePwChangeDate(String memberEmail);
+	int updatePwChangeDate(MemberDto memberDto);
 	
 	@Update("UPDATE MEMBER SET"
 			+ "	memberEmail = NULL, memberPassword = NULL, memberName = NULL, memberNick = NULL,"

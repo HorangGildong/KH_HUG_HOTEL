@@ -1,6 +1,7 @@
 package kr.iei.hotel.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ public class MemberUpdateController {
 	@Autowired
 	private MemberService memberService;
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/myPage")
 	public String myPage(Model model) {
 		MemberDto memberDto = memberService.getSessionMemberDto();
@@ -27,47 +29,53 @@ public class MemberUpdateController {
 		return "/member/myPage";
 	}	
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/update")
 	public String update(MemberDto memberDto, Model model) {
-		System.out.println(memberDto);
 		int count = memberUpdateService.update(memberDto);
-		System.out.println(count);
 		model.addAttribute("isUpdated", count>0);
+		memberService.autoLogin(memberDto);
 		return "/member/myPage";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/changePassword")
-	public String changePassword() {
+	public String changePasswordPage() {
 		return "/member/changePassword";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/changePassword")
-	public String change(String memberPassword, String newPassword, Model model) {
+	public String changePassword(String memberPassword, String newPassword, Model model) {
 		MemberDto memberDto = memberService.getSessionMemberDto();
-		boolean isPasswordConfirm = memberService.isPasswordConfirm(memberPassword, memberDto.getMemberPassword());
-		if (isPasswordConfirm) {
-			memberUpdateService.changePassword(memberDto.getMemberEmail(), newPassword);
+		boolean isMatchingPassword = memberService.isMatchingPassword(memberPassword, memberDto.getMemberPassword());
+		if (isMatchingPassword) {
+			String newEncodedPassword = memberService.passwordEncode(newPassword);
+			memberUpdateService.changePassword(memberDto.getMemberEmail(), newEncodedPassword);
 		}
-		model.addAttribute("isPasswordConfirm", isPasswordConfirm);
+		memberService.autoLogin(memberDto);
+		model.addAttribute("isMatchingPassword", isMatchingPassword);
 		return "/member/changePassword";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/unRegister")
-	public String unRegister() {
+	public String unRegisterPage() {
 		return "/member/unRegister";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/unRegister")
-	public String unReg(String memberPassword, Model model) {
+	public String unRegister(String memberPassword, Model model) {
 		MemberDto memberDto = memberService.getSessionMemberDto();
-		boolean isPasswordConfirm = memberService.isPasswordConfirm(memberPassword, memberDto.getMemberPassword());
-		if (isPasswordConfirm) {
+		boolean isMatchingPassword = memberService.isMatchingPassword(memberPassword, memberDto.getMemberPassword());
+		System.out.println(isMatchingPassword);
+		if (isMatchingPassword) {
 			memberUpdateService.deleteReply(memberDto);
 			memberUpdateService.unRegister(memberDto);
 			SecurityContextHolder.clearContext();
 		}
-		model.addAttribute("isPasswordConfirm", isPasswordConfirm);
-		System.out.println(isPasswordConfirm);
+		model.addAttribute("isMatchingPassword", isMatchingPassword);
 		return "/member/unRegister";
 	}
 	

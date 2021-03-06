@@ -25,15 +25,18 @@ public class MemberSearchController {
 	private MemberGetService memberGetService;
 	
 	@Autowired
+	private MemberService memberService;
+	
+	@Autowired
 	private MemberUpdateService memberUpdateService;
 	
 	@GetMapping("/searchIds")
-	public String searchId() {
+	public String searchIdsPage() {
 		return "/member/searchIds";
 	}
 	
 	@GetMapping("/searchPassword")
-	public String searchPassword() {
+	public String searchPasswordPage() {
 		return "/member/searchPassword";
 	}
 	
@@ -45,26 +48,27 @@ public class MemberSearchController {
 	
 	@ResponseBody
 	@GetMapping("/searchPassword/searchId")
-	public boolean searchId(@RequestParam("email") String memberEmail, HttpSession codeSession) {
-		boolean isId = (memberGetService.getMemberDtoByEmail(memberEmail) != null);
-		if(isId) {
+	public boolean isExistingId(@RequestParam("email") String memberEmail, HttpSession codeSession) {
+		boolean isExistingId = (memberGetService.getMemberDtoByEmail(memberEmail) != null);
+		if(isExistingId) {
 			memberEmailService.setCodeSession(codeSession);
 			memberEmailService.sendCodeEmail(memberEmail, codeSession);
 		}
-		return isId;
+		return isExistingId;
 	}
 
 	@ResponseBody
 	@GetMapping("/searchPassword/compareCode")
-	public boolean compareCode(@RequestParam("code") String code, @RequestParam("email") String memberEmail, HttpSession codeSession) {
-		boolean isCode = code.equals((String) codeSession.getAttribute("code"));
-		if(isCode) {
+	public boolean isMatchingCode(@RequestParam("code") String code, @RequestParam("email") String memberEmail, HttpSession codeSession) {
+		boolean isMatchingCode = code.equals((String) codeSession.getAttribute("code"));
+		if(isMatchingCode) {
 			codeSession.invalidate();
 			String password = memberEmailService.createPassword();
 			memberEmailService.sendPasswordEmail(memberEmail, password);
+			password = memberService.passwordEncode(password);
 			memberUpdateService.changePassword(memberEmail, password);
 		}
-		return isCode;
+		return isMatchingCode;
 	}
 
 }
