@@ -58,72 +58,74 @@
 
 		<jsp:include page="modal.jsp" />
 
-		<!--section start-->
-		<section>
-		
-			<div style="margin: 100px 0px 100px 0px">
-				<div class="container" style="width: 400px; text-align: center;">
+        <!--section start-->
+        <section>     
+        
+            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 100px 0px;">
+               
+				<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
 				
-					<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
+				<button class="btn btn-primary btn-lg btn-block"
+					style="background-color: #4285F4; border: #4285F4; padding: 0; height: 45px;" onclick = "location.href = '/oauth2/authorization/google' ">
+					<div style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 20px;">
+						G
+					</div>
+					<div style="display: inline-block; width: 350px; font-weight: bold; font-size: 18px;">
+						구글 아이디로 로그인
+					</div>
+				</button>
+				
+				<div style="display: inline-block; margin: 15px 0px 50px 0px; border-bottom: 5px groove #4285F4; width: 100%; text-align: center;">
+					<div style="display: inline-block; text-align: center; height: 30px; width: 40px; font-size: 22px; color: #4285F4;
+						transform: translateY(calc(50% - 1px)); background-color: white; font-weight: bold;"><i>or</i></div>
+				</div>
 					
-					<form class="col-md-12 form-horizontal" action="/loginProc"	method="post">
+				<form class="col-md-12 form-horizontal" action="/loginProc"	method="post" >
 					
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-								</span>
-								<input type="email" class="form-control input-lg"
-									name="memberEmail" id="inputEmail" placeholder="Email" value="${memberEmail}">
-							</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+							</span>
+							<input type="email" class="form-control input-lg"
+								name="memberEmail" id="inputEmail" placeholder="Email" value="${memberEmail}">
 						</div>
-						
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon">
-								<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-								</span>
-								<input type="password" class="form-control input-lg"
-									name="password" id="inputPassword" placeholder="Password">
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-lg btn-block"
-								style="font-weight: bold;">로그인</button>
-						</div>
-						
-					</form>
-					
-					
-					<div class="text-center">
-						<a href="/join">회원가입</a> | <a href="/searchIds">아이디 찾기</a> | <a href="searchPassword">비밀번호 찾기</a>
 					</div>
 					
-					<br>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+							</span>
+							<input type="password" class="form-control input-lg"
+								name="password" id="inputPassword" placeholder="Password">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-lg btn-block" style="font-weight: bold;">
+							로 그 인
+						</button>
+					</div>
 					
-					<!-- <button class="btn btn-primary btn-lg btn-block"
-						style="background-color: #1EC800; border: #1EC800; padding: 0; height: 45px;">
-						<div
-							style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 20px;" onclick = "location.href = '/oauth2/authorization/naver'">N</div>
-						<div
-							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
-							네이버 아이디로 로그인</div>
-					</button> -->
-					
-					<button class="btn btn-primary btn-lg btn-block"
-						style="background-color: #4285F4; border: #4285F4; padding: 0; height: 45px; margin-top: 10px" onclick = "location.href = '/oauth2/authorization/google' ">
-						<div
-							style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 20px;">G</div>
-						<div
-							style="display: inline-block; width: 300px; font-weight: bold; font-size: 18px;">
-							구글 아이디로 로그인</div>
-					</button>
-					
-				</div>
+				</form>
+				
+				<div style="text-align: center; width: 100%; display: inline-block; font-size: 16px;">
+					<!-- <div style="display: inline-block;">
+						<label class="checkbox" style="margin: 0; padding: 20px, 5px, 0px, 0px;">
+		          			<input type="checkbox" id="inlineCheckbox"> 아이디 저장
+		        		</label>
+		        	</div> -->
+		        	<div class="col-xs-12" style="margin: 10px 0px 0px 0px;">
+						<a href="/searchIds">아이디 찾기</a> &nbsp; &nbsp; | &nbsp; &nbsp; 
+						<a href="searchPassword">비밀번호 찾기</a> &nbsp; &nbsp; | &nbsp; &nbsp;
+						<a href="/join">회원가입</a>
+					</div>
+        		</div>
+				
 			</div>
-		</section>
-		<!--section end-->
+        </section>
+        <!--section end-->
 
 		<!--footer start-->
 		<jsp:include page="../common/footer.jsp" />
@@ -153,8 +155,7 @@
 	$('.modal-body').multiline('입력하신 아이디 또는 비밀번호가 바르지 않습니다. \n 다시 시도해주시기 바랍니다.');
 	
 	
-	if(${loginFailure}) {
-		console.log("ok");
+	if(${loginFailure == true}) {
 		$(function() {
 			$('#modal').modal({
 				backdrop: 'static',

@@ -43,59 +43,55 @@
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
-		<!--section start-->
-		<section>
-		
-			<jsp:include page="modal.jsp" />
-			
-			<div style="margin: 50px 0px 50px 0px">
-				<div class="container" style="width: 400px; text-align: center;">
+		<jsp:include page="modal.jsp" />
 
-					<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 변경</h1>
+        <!--section start-->
+        <section>     
+        
+            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 150px 0px;">
 
-					<form class="form-horizontal" action="/changePassword" method="post">
+				<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 변경</h1>
 
-						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">현재 비밀번호</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control"
-									name="memberPassword" id="inputPassword" placeholder="Password"	required>
-							</div>
+				<form class="form-horizontal" action="/changePassword" method="post">
+
+					<div class="form-group">
+						<label for="inputPassword" class="col-xs-4 control-label">현재 비밀번호</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control"
+								name="memberPassword" id="inputPassword" placeholder="Password"	required>
 						</div>
+					</div>
 
-						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control"
-									name="newPassword" id="newPassword" placeholder="Password" required>
-								<div class="check_font" id="passwordCheck"></div>
-							</div>
+					<div class="form-group">
+						<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control"
+								name="newPassword" id="newPassword" placeholder="New Password" required>
+							<div class="check_font" id="passwordCheck"></div>
 						</div>
-
-						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호 확인</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control"
-									id="newPassword2"	placeholder="PasswordCheck" disabled required>
-								<div class="check_font" id="passwordCheck2"></div>
-							</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호 확인</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control"
+								id="newPassword2"	placeholder="Confirm Password" disabled required>
+							<div class="check_font" id="passwordCheck2"></div>
 						</div>
+					</div>
+					
+					<br>
 						
-						<br>
-						
-						<div class="col-xs-12">
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-lg btn-block"
-									id="submitBtn" style="font-weight: bold;" disabled>
-									확 인
-								</button>
-							</div>
+					<div class="col-xs-12">
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-lg btn-block"
+								id="submitBtn" style="font-weight: bold;" disabled>
+								확 인
+							</button>
 						</div>
-
+					</div>
 					</form>
 
 				</div>
-			</div>
 		</section>
 		<!--section end-->
 
@@ -126,7 +122,7 @@
 		    return this;
 		}
 
-		if(${isPasswordConfirm == false}) {
+		if(${isMatchingPassword == false}) {
 			$('.modal-title').text('비밀번호 불일치');
 			$('.modal-body').multiline(`기존 비밀번호가 일치하지 않습니다. \n 다시 입력해 주세요.`);
 			$(function() {
@@ -135,7 +131,7 @@
 					keyboard: false
 				});
 			})
-		} else if(${isPasswordConfirm == true}){
+		} else if(${isMatchingPassword == true}){
 			$('.modal-title').text('비밀번호 변경');
 			$('.modal-body').text('비밀번호가 성공적으로 변경되었습니다.');
 			$('.btn-default').attr('onclick', "location.href='/'")
@@ -184,7 +180,7 @@
 		
 		/* $('#inputPassword2').attr('disabled') == undefined */
 		
-		$('#newPassword, #newPassword2').blur(function() { 
+		$('#newPassword, #newPassword2').keyup(function() { 
 			var pw1=$('#newPassword').val();
 			var pw2=$('#newPassword2').val();
 			isPassword = false;

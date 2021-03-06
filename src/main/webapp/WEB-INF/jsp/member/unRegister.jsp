@@ -38,17 +38,17 @@
 </head>
 
 <body>
-	<div class="wrap">
+	<div class="wrap" style="max-height: 100%; min-height: 0">
 		<!--header-->
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
+		<jsp:include page="modal.jsp" />
+
 		<!--section start-->
 		<section>
 		
-			<jsp:include page="modal.jsp" />
-			
-			<div style="margin: 50px 0px 50px 0px">
+			<div style="margin: 150px 0px 200px 0px">
 				<div class="container" style="width: 400px; text-align: center;">
 
 					<h1 style="font-weight: 900; margin-bottom: 50px">회원탈퇴</h1>
@@ -124,7 +124,7 @@
 			})
 		})
 		
-		if (${isPasswordConfirm == false}) {
+		if (${isMatchingPassword == false}) {
 			$('.modal-title').text('비밀번호 불일치');
 			$('.modal-body').multiline(`비밀번호가 일치하지 않습니다. \n 다시 입력해 주세요.`);
 			$(function() {
@@ -133,7 +133,7 @@
 					keyboard: false
 				});
 			})
-		} else if(${isPasswordConfirm == true}){
+		} else if(${isMatchingPassword == true}){
 			$('.modal-title').text('회원탈퇴');
 			$('.modal-body').text('그동안 HUG HOTEL을 이용해주셔서 감사합니다.');
 			$('.btn-default').attr('onclick', "location.href='/'");

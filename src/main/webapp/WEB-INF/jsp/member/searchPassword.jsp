@@ -43,51 +43,50 @@
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
-		<!--section start-->
-		<section>
-		
 		<jsp:include page="modal.jsp" />
-		
-			<div style="margin: 100px 0px 0px 0px">
-				<div class="container" style="width: 400px; text-align: center;">
 
-					<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 찾기</h1>
+        <!--section start-->
+        <section>     
+        
+            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 150px 0px;">
 
-					<form id="searchPassword" class="form-horizontal">
+				<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 찾기</h1>
 
-						<div class="form-group">
-							<label for="inputEmail" class="col-xs-3 control-label">이메일</label>
-							<div class="col-xs-9">
-								<input type="email" class="form-control"
-									name="memberEmail" id="inputEmail" placeholder="E-mail" required>
-							</div>
+				<form id="searchPassword" class="form-horizontal">
+
+					<div class="form-group">
+						<label for="inputEmail" class="col-xs-3 control-label">이메일</label>
+						<div class="col-xs-9">
+							<input type="email" class="form-control"
+								name="memberEmail" id="inputEmail" placeholder="E-mail" required>
 						</div>
+					</div>
+					
+					<div class="form-group" style="margin-bottom: 25px">
+						<label for="inputCode" class="col-xs-3 control-label">인증번호</label>
+						<div class="col-xs-4" >
+							<input type="text" class="form-control"
+								name="code" id="inputCode" disabled>
+						</div>
+						<div class="col-xs-5">
+							<input type="text" class="form-control" style="text-align: center;"
+								name="time" id="time" disabled>
+						</div>
+					</div>
+				</form>
 						
-						<div class="form-group" style="margin-bottom: 25px">
-							<label for="inputCode" class="col-xs-3 control-label">인증번호</label>
-							<div class="col-xs-4" >
-								<input type="text" class="form-control"
-									name="code" id="inputCode" disabled>
-							</div>
-							<div class="col-xs-5">
-								<input type="text" class="form-control" style="text-align: center;"
-									name="time" id="time" disabled>
-							</div>
-						</div>
-					</form>
-							
-					<br>
+				<br>
 
-					<button class="btn btn-primary btn-lg btn-block" id="searchBtn" style="font-weight: bold;">
-						인증번호 받기
-					</button>
+				<button class="btn btn-primary btn-lg btn-block" id="searchBtn" style="font-weight: bold;">
+					인증번호 받기
+				</button>
 
-					<form id="loginId" action="/login" method="post">
-						<input type="hidden" class="form-control" name="memberId" id="sInputId">
-					</form>
+				<form id="loginId" action="/login" method="post">
+					<input type="hidden" class="form-control" name="memberId" id="sInputId">
+				</form>
 
-				</div>
 			</div>
+			
 		</section>
 		<!--section end-->
 
@@ -137,7 +136,7 @@
 							$('.modal-title').text('비밀번호 찾기');
 							$('.modal-body').multiline('입력하신 이메일로 인증번호를 전송하였습니다. \n 전송받은 인증번호를 3분 이내에 입력해주세요.');
 							$('#modal').modal({ backdrop: 'static', keyboard: false });
-							$('#searchBtn').text('확인');
+							$('#searchBtn').text('확 인');
 							$('#inputId').attr('disabled', true);
 							$('#inputEmail').attr('disabled', true);
 							$('#inputCode').attr('disabled', false);
