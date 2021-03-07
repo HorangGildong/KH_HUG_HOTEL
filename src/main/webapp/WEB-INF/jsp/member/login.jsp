@@ -87,24 +87,29 @@
 				
 
 				
-				<button class="btn btn-primary btn-lg btn-block"
-					style="background-color: #4285F4; border: #4285F4; padding: 0; height: 45px;" onclick = "location.href = '/oauth2/authorization/google' ">
-					<div style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 20px;">
-						G
+				<button class="btn btn-primary btn-lg"
+					style="background-color: #4285F4; border: #4285F4; padding: 0; height: 55px; margin-bottom: 20px; position: relative;"
+					onclick = "location.href = '/oauth2/authorization/google' ">
+					<div style="position: absolute; display: inline-block; width: 55px; height: 55; border-right: 1px solid white; font-weight: 900; font-size: 20px;
+						border-radius: 6px 0px 0px 6px; border: 3px solid #4285F4; background-color: white; top: 0%;">
+						<img src="/img/googleLoginBtn.png" style="height: 37px; margin: 6px">
 					</div>
-					<div style="display: inline-block; width: 350px; font-weight: bold; font-size: 18px;">
+					<div style="display: inline-block; width: 400px; font-weight: bold; font-size: 18px; padding-left: 40px;">
 						구글계정으로 로그인
 					</div>
 				</button>
 				
 				<br>
 				
-				<button class="btn btn-primary btn-lg btn-block"
-					style="background-color: orange; border: #4285F4; padding: 0; height: 45px;" onclick = "location.href = '/emailLogin' ">
-					<div style="display: inline-block; width: 50px; border-right: 1px solid white; font-weight: 900; font-size: 20px;">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+				<button class="btn btn-primary btn-lg"
+					style="background-color: orange; border: #4285F4; padding: 0; height: 55px; position: relative;"
+					onclick = "location.href = '/emailLogin' ">
+					<div style="position: absolute; display: inline-block; width: 55px; height: 55; border-right: 1px solid white; font-weight: 900;
+						border-radius: 6px 0px 0px 6px; border: 3px solid orange; background-color: white; color: orange; top: 0%;">
+						<div class="glyphicon glyphicon-envelope" aria-hidden="true" style="height: 39px; margin: 5px; padding-top: 6px; font-size: 28px;">
+						</div>
 					</div>
-					<div style="display: inline-block; width: 350px; font-weight: bold; font-size: 18px;">
+					<div style="display: inline-block; width: 400px; font-weight: bold; font-size: 18px; padding-left: 40px;">
 						이메일로 로그인
 					</div>
 				</button>
