@@ -46,6 +46,26 @@
 	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 	rel="stylesheet">
 
+<link rel="stylesheet" href="/css/member/inputbox.css">
+
+<style>
+
+	.underline {
+		background-color: dodgerblue !important;
+		display: inline-block !important;
+		height: 2px !important;
+		position: absolute !important;
+		top: 100% !important;
+		left: 4% !important;
+		margin-top: -2px !important;
+		-webkit-transform: scale(0, 1) !important;
+		transform: scale(0, 1) !important;
+		-webkit-transition: all 0.2s linear !important;
+		transition: all 0.2s linear !important;
+		width: 92% !important;
+	}
+	
+</style>
 
 <title>H.U.G HOTEL 제주</title>
 </head>

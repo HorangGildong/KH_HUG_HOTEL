@@ -38,6 +38,7 @@
 	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 	rel="stylesheet">
 
+<link rel="stylesheet" href="/css/member/inputbox.css">
 
 <title>H.U.G HOTEL 제주</title>
 </head>
@@ -72,10 +73,11 @@
 					<div class="form-group">
 						<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control" name="memberNick"
+							<input type="text" class="form-control input" name="memberNick" autocomplete="off"
 								id="inputNickname" placeholder="Nickname" required>
-							<div class="check_font" id="nickCheck"></div>
+							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="nickCheck"></div>
 					</div>
 
 					<br>

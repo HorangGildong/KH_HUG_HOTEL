@@ -33,6 +33,7 @@
 	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 	rel="stylesheet">
 
+<link rel="stylesheet" href="/css/member/inputbox.css">
 
 <title>H.U.G HOTEL 제주</title>
 </head>
@@ -57,52 +58,58 @@
 					<div class="form-group">
 						<label for="inputEmail" class="col-xs-4 control-label">*이메일(아이디)</label>
 						<div class="col-xs-8">
-							<input type="email" class="form-control"
+							<input type="email" class="form-control memberInput"
 								name="memberEmail" id="inputEmail" placeholder="Email" required>
-							<div class="check_font" id="emailCheck"></div>
+							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="emailCheck"></div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputPassword" class="col-xs-4 control-label">*비밀번호</label>
 						<div class="col-xs-8">
-							<input type="password" class="form-control"
+							<input type="password" class="form-control memberInput"
 								name="memberPassword" id="inputPassword" placeholder="Password"	required>
-							<div class="check_font" id="passwordCheck"></div>
+							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="passwordCheck"></div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputPassword" class="col-xs-4 control-label">*비밀번호 확인</label>
 						<div class="col-xs-8">
-							<input type="password" class="form-control"
+							<input type="password" class="form-control memberInput"
 								id="inputPassword2"	placeholder="Confirm Password" disabled required>
-							<div class="check_font" id="passwordCheck2"></div>
+							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="passwordCheck2"></div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputName" class="col-xs-4 control-label">이름</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control"
+							<input type="text" class="form-control memberInput" autocomplete="off"
 								name="memberName" id="inputName" placeholder="Name">
+							<span class="underline"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control"
+							<input type="text" class="form-control memberInput" autocomplete="off"
 								name="memberNick" id="inputNickname" placeholder="Nickname" required>
-							<div class="check_font" id="nickCheck"></div>
+							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="nickCheck"></div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control" maxlength="13"
+							<input type="text" class="form-control memberInput" maxlength="13" autocomplete="off"
 								name="memberPhone" id="inputPhone" placeholder="PhoneNumber">
+							<span class="underline"></span>
 						</div>
 					</div>
 

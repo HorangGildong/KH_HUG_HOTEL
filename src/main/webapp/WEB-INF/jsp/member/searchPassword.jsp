@@ -33,6 +33,7 @@
 	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 	rel="stylesheet">
 
+<link rel="stylesheet" href="/css/member/inputbox.css">
 
 <title>H.U.G HOTEL 제주</title>
 </head>
@@ -57,19 +58,21 @@
 					<div class="form-group">
 						<label for="inputEmail" class="col-xs-3 control-label">이메일</label>
 						<div class="col-xs-9">
-							<input type="email" class="form-control"
-								name="memberEmail" id="inputEmail" placeholder="E-mail" required>
+							<input type="email" class="form-control memberInput"
+								name="memberEmail" id="inputEmail" placeholder="Email" required>
+							<span class="underline"></span>
 						</div>
 					</div>
 					
 					<div class="form-group" style="margin-bottom: 25px">
 						<label for="inputCode" class="col-xs-3 control-label">인증번호</label>
 						<div class="col-xs-4" >
-							<input type="text" class="form-control"
-								name="code" id="inputCode" disabled>
+							<input type="text" class="form-control memberInput" autocomplete="off"
+								name="code" id="inputCode" placeholder="Code" disabled>
+							<span class="underline"></span>
 						</div>
 						<div class="col-xs-5">
-							<input type="text" class="form-control" style="text-align: center;"
+							<input type="text" class="form-control" style="text-align: center; background-color: lavender;"
 								name="time" id="time" disabled>
 						</div>
 					</div>

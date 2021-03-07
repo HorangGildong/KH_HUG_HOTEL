@@ -33,6 +33,7 @@
 	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 	rel="stylesheet">
 
+<link rel="stylesheet" href="/css/member/inputbox.css">
 
 <title>H.U.G HOTEL 제주</title>
 </head>
@@ -57,26 +58,29 @@
 					<div class="form-group">
 						<label for="inputPassword" class="col-xs-4 control-label">현재 비밀번호</label>
 						<div class="col-xs-8">
-							<input type="password" class="form-control"
+							<input type="password" class="form-control memberInput"
 								name="memberPassword" id="inputPassword" placeholder="Password"	required>
+							<span class="underline"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호</label>
 						<div class="col-xs-8">
-							<input type="password" class="form-control"
+							<input type="password" class="form-control memberInput"
 								name="newPassword" id="newPassword" placeholder="New Password" required>
-							<div class="check_font" id="passwordCheck"></div>
+							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="passwordCheck"></div>
 					</div>
 					<div class="form-group">
 						<label for="inputPassword" class="col-xs-4 control-label">새 비밀번호 확인</label>
 						<div class="col-xs-8">
-							<input type="password" class="form-control"
+							<input type="password" class="form-control memberInput"
 								id="newPassword2"	placeholder="Confirm Password" disabled required>
-							<div class="check_font" id="passwordCheck2"></div>
+							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="passwordCheck2"></div>
 					</div>
 					
 					<br>

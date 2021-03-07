@@ -33,53 +33,54 @@
 	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 	rel="stylesheet">
 
+<link rel="stylesheet" href="/css/member/inputbox.css">
 
 <title>H.U.G HOTEL 제주</title>
 </head>
 
 <body>
-	<div class="wrap" style="max-height: 100%; min-height: 0">
+	<div class="wrap">
 		<!--header-->
 		<jsp:include page="../common/header.jsp" />
 		<!--header end-->
 
 		<jsp:include page="modal.jsp" />
 
-		<!--section start-->
-		<section>
-		
-			<div style="margin: 150px 0px 200px 0px">
-				<div class="container" style="width: 400px; text-align: center;">
+        <!--section start-->
+        <section>     
+        
+            <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 150px 0px;">
 
-					<h1 style="font-weight: 900; margin-bottom: 50px">회원탈퇴</h1>
+				<h1 style="font-weight: 900; margin-bottom: 50px">회원탈퇴</h1>
 
-					<form class="form-horizontal" id="form" action="/unRegister" method="post">
+				<form class="form-horizontal" id="form" action="/unRegister" method="post">
 
+					<div class="form-group">
+						<label for="inputPassword" class="col-xs-4 control-label">비밀번호</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control memberInput"
+								name="memberPassword" id="inputPassword" placeholder="Password"	required>
+							<span class="underline"></span>
+							<input type="text" style="display:none;">
+							<!-- input 태그가 하나만 있으면 엔터키 누를 때 submit됨 -->
+						</div>
+					</div>
+					
+					<br>
+					
+					<div class="col-xs-12">
 						<div class="form-group">
-							<label for="inputPassword" class="col-xs-4 control-label">비밀번호</label>
-							<div class="col-xs-8">
-								<input type="password" class="form-control"
-									name="memberPassword" id="inputPassword" placeholder="Password"	required>
-								<input type="text" style="display:none;">
-								<!-- input 태그가 하나만 있으면 엔터키 누를 때 submit됨 -->
-							</div>
+							<button type="button" class="btn btn-primary btn-lg btn-block"
+								id="okButton" style="font-weight: bold;">
+								확 인
+							</button>
 						</div>
-						
-						<br>
-						
-						<div class="col-xs-12">
-							<div class="form-group">
-								<button type="button" class="btn btn-primary btn-lg btn-block"
-									id="okButton" style="font-weight: bold;">
-									확 인
-								</button>
-							</div>
-						</div>
+					</div>
 
-					</form>
+				</form>
 
-				</div>
 			</div>
+
 		</section>
 		<!--section end-->
 

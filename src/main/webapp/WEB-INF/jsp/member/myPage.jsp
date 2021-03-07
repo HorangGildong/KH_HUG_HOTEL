@@ -36,7 +36,8 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 	rel="stylesheet">
-
+	
+<link rel="stylesheet" href="/css/member/inputbox.css">
 
 <title>H.U.G HOTEL 제주</title>
 </head>
@@ -61,7 +62,7 @@
 					<div class="form-group">
 						<label for="inputEmail" class="col-xs-4 control-label">이메일(아이디)</label>
 						<div class="col-xs-8">
-							<input type="email" class="form-control" value="${memberDto.memberEmail}"
+							<input type="email" class="form-control memberInput" value="${memberDto.memberEmail}"
 								name="email" id="inputEmail" placeholder="Email" disabled>
 							<div class="check_font" id="emailCheck"></div>
 							<input type="hidden" value="${memberDto.memberEmail}" name="memberEmail">
@@ -71,39 +72,46 @@
 					<div class="form-group">
 						<label for="inputName" class="col-xs-4 control-label">이름</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control" value="${memberDto.memberName}"
+							<input type="text" class="form-control memberInput" value="${memberDto.memberName}" autocomplete="off"
 								name="memberName" id="inputName" placeholder="Name">
+							<span class="underline"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control" value="${memberDto.memberNick}"
+							<input type="text" class="form-control memberInput" value="${memberDto.memberNick}" autocomplete="off"
 								name="memberNick" id="inputNickname" placeholder="Nickname" required>
-							<div class="check_font" id="nickCheck"></div>
+							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="nickCheck"></div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control" maxlength="13" value="${memberDto.memberPhone}"
-								name="memberPhone" id="inputPhone" placeholder="PhoneNumber">
+							<input type="text" class="form-control memberInput" maxlength="13" value="${memberDto.memberPhone}"
+								name="memberPhone" id="inputPhone" placeholder="PhoneNumber" autocomplete="off">
+							<span class="underline"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="selectBox" class="col-xs-4 control-label"> 마케팅 수신동의</label>
 						<div class="col-xs-8">
-                            <select class="form-control" name="memberAgree" id="selectBox">
-				            	<option ${(memberDto.memberAgree == 'chk') ? 'selected' : ''} value="chk">동의함</option>
-				            	<option ${(memberDto.memberAgree == 'chk') ? '' : 'selected'}>동의하지 않음</option>
-                        	</select>
+				            <label class="radio-inline">
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="chk"
+								${(memberDto.memberAgree == 'chk') ? 'checked' : ''}> 동의함 &nbsp; &nbsp; &nbsp; 
+				            </label> 
+				            <label class="radio-inline">
+				               <input type="radio" name="optionsRadios" id="optionsRadios1"
+								${(memberDto.memberAgree == 'chk') ? '' : 'checked'}> 동의하지 않음 &nbsp; &nbsp; &nbsp;
+				            </label> 
                        	</div>  
 					</div>
 					
-					<div class="col-xs-12" style="margin-bottom: 10px;">
+					<div class="col-xs-12" style="margin: 20px 10px 0px 0px;">
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-lg btn-block"
 								id="submitBtn" style="font-weight: bold;">

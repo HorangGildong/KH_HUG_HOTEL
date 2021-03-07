@@ -33,6 +33,7 @@
 	href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 	rel="stylesheet">
 
+<link rel="stylesheet" href="/css/member/inputbox.css">
 
 <title>H.U.G HOTEL 제주</title>
 </head>
@@ -57,16 +58,18 @@
 					<div class="form-group">
 						<label for="inputName" class="col-xs-4 control-label">이름</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control"
+							<input type="text" class="form-control memberInput" autocomplete="off"
 								name="memberName" id="inputName" placeholder="Name" required>
+							<span class="underline"></span>
 						</div>
 					</div>
 
 					<div class="form-group" style="margin-bottom: 30px">
 						<label for="inputPhone" class="col-xs-4 control-label">전화번호</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control" maxlength="13"
+							<input type="text" class="form-control memberInput" maxlength="13" autocomplete="off"
 								name="memberPhone" id="inputPhone" placeholder="PhoneNumber" required>
+							<span class="underline"></span>
 						</div>
 					</div>
 					

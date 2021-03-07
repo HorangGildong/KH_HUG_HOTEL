@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+.memberInput {
+	background-color: transparent !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	border: none !important;
+	border-bottom: 2px dotted #CCC !important;
+	color: #555 !important;
+	box-sizing: border-box !important;
+	padding: 10px 5px !important;
+}
+.memberInput:focus {
+	box-shadow: none !important;
+}
+.memberInput::-webkit-input-placeholder {
+	color: #AAA !important;
+}
+.memberInput:focus::-webkit-input-placeholder {
+	color: dodgerblue !important;
+}
+.memberInput:focus+.underline {
+	transform: scale(1) !important;
+}
+.underline {
+	background-color: dodgerblue !important;
+	display: inline-block !important;
+	height: 2px !important;
+	position: absolute !important;
+	top: 100% !important;
+	left: 5% !important;
+	margin-top: -2px !important;
+	-webkit-transform: scale(0, 1) !important;
+	transform: scale(0, 1) !important;
+	-webkit-transition: all 0.2s linear !important;
+	transition: all 0.2s linear !important;
+	width: 90% !important;
+}
+.memberInput:disabled {
+	background-color: lightcyan !important;
+	border-radius: 5px !important;
+	border: none !important;
+}
