@@ -49,24 +49,25 @@ public class MemberSearchController {
 	@ResponseBody
 	@GetMapping("/searchPassword/searchId")
 	public boolean isExistingId(@RequestParam("email") String memberEmail, HttpSession codeSession) {
-		boolean isExistingId = (memberGetService.getMemberDtoByEmail(memberEmail) != null);
-		if(isExistingId) {
-			memberEmailService.setCodeSession(codeSession);
-			memberEmailService.sendCodeEmail(memberEmail, codeSession);
-		}
-		return isExistingId;
+		memberEmailService.setCodeSession(codeSession);
+		memberEmailService.sendCodeEmail(memberEmail, codeSession);
+		System.out.println(codeSession.getAttribute("code"));
+		return true;
 	}
 
 	@ResponseBody
 	@GetMapping("/searchPassword/compareCode")
 	public boolean isMatchingCode(@RequestParam("code") String code, @RequestParam("email") String memberEmail, HttpSession codeSession) {
+		boolean isExistingId = (memberGetService.getMemberDtoByEmail(memberEmail) != null);
 		boolean isMatchingCode = code.equals((String) codeSession.getAttribute("code"));
 		if(isMatchingCode) {
 			codeSession.invalidate();
-			String password = memberEmailService.createPassword();
-			memberEmailService.sendPasswordEmail(memberEmail, password);
-			password = memberService.passwordEncode(password);
-			memberUpdateService.changePassword(memberEmail, password);
+			if(isExistingId) {
+				String password = memberEmailService.createPassword();
+				memberEmailService.sendPasswordEmail(memberEmail, password);
+				password = memberService.passwordEncode(password);
+				memberUpdateService.changePassword(memberEmail, password);
+			}
 		}
 		return isMatchingCode;
 	}

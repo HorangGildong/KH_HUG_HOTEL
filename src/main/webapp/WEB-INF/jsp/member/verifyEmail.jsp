@@ -51,7 +51,7 @@
         
             <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 150px 0px;">
 
-				<h1 style="font-weight: 900; margin-bottom: 50px">비밀번호 찾기</h1>
+				<h1 style="font-weight: 900; margin-bottom: 50px">이메일 인증</h1>
 
 				<form id="searchPassword" class="form-horizontal">
 
@@ -62,6 +62,7 @@
 								name="memberEmail" id="inputEmail" placeholder="Email" required>
 							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="emailCheck"></div>
 					</div>
 					
 					<div class="form-group" style="margin-bottom: 25px">
@@ -80,7 +81,7 @@
 						
 				<br>
 
-				<button class="btn btn-primary btn-lg btn-block" id="searchBtn" style="font-weight: bold;">
+				<button class="btn btn-primary btn-lg btn-block" id="searchBtn" style="font-weight: bold;" disabled>
 					인증번호 받기
 				</button>
 
@@ -121,6 +122,32 @@
 		var email;
 		var code;
 		
+		$('#inputEmail').blur(function() {
+			var email = $('#inputEmail').val();
+			var str = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+			isEmail = false;
+			$.ajax({
+				url : '${pageContext.request.contextPath}/join/emailCheck?email=' + email,
+				type : 'get',
+				success : function(data) {
+					if (email == '') {
+						$('#emailCheck').text('');
+					} else if (!str.test(email)) {
+						$('#emailCheck').text('이메일 형식이 바르지 않습니다.');
+						$('#emailCheck').css('color', 'red');
+					} else if (data) {
+						$('#emailCheck').text('사용중인 이메일입니다.');
+						$('#emailCheck').css('color', 'red');
+					} else {
+						$('#emailCheck').text('사용가능한 이메일입니다.');
+						$('#emailCheck').css('color', 'blue');
+						$('#searchBtn').attr('disabled', false);
+					}
+					$.fn.submitDisable();
+				}
+			});
+		});
+		
 		$('#searchBtn').click(function() {
 			$('#baseModal').modal({ backdrop: 'static', keyboard: false });
 			$('#searchBtn').attr('disabled', true);
@@ -132,7 +159,13 @@
 					type : 'get',
 					success : function(data1) {
 						if(data1) {
-							$('.modal-title').text('비밀번호 찾기');
+							$('.modal-title').text('이메일 본인인증');
+							$('.modal-body').multiline('이미 사용중인 이메일입니다.');
+							$('#modal').modal({ backdrop: 'static', keyboard: false });
+							btnAction = 0;
+							$('#baseModal').modal("hide");
+						} else {
+							$('.modal-title').text('이메일 본인인증');
 							$('.modal-body').multiline('입력하신 이메일로 인증번호를 전송하였습니다. \n 전송받은 인증번호를 3분 이내에 입력해주세요.');
 							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							$('#searchBtn').text('확 인');
@@ -142,12 +175,6 @@
 							$('#searchBtn').attr('id', 'newSearchBtn');
 							$.fn.countdown();
 							btnAction = 1;
-							$('#baseModal').modal("hide");
-						} else {
-							$('.modal-title').text('비밀번호 찾기');
-							$('.modal-body').multiline('입력하신 이메일(아이디)이 바르지 않습니다. \n 다시 입력해주세요.');
-							$('#modal').modal({ backdrop: 'static', keyboard: false });
-							btnAction = 0;
 							$('#baseModal').modal("hide");
 						}
 					}
@@ -164,12 +191,12 @@
 						if(data2) {
 							$('#okBtn').attr('style', 'display: none;');
 							$('#goLoginPage').attr('style', 'display: inline;');
-							$('.modal-title').text('비밀번호 찾기');
-							$('.modal-body').multiline('입력하신 이메일로 임시비밀번호를 전송하였습니다. \n 임시 비밀번호는 꼭 변경 후 사용하시기 바랍니다.');
+							$('.modal-title').text('이메일 본인인증');
+							$('.modal-body').multiline('인증되었습니다. \n 회원가입 절차를 진행합니다.');
 							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							$('#baseModal').modal("hide");
 						} else {
-							$('.modal-title').text('비밀번호 찾기');
+							$('.modal-title').text('이메일 본인인증');
 							$('.modal-body').multiline('인증번호가 일치하지 않습니다. \n 다시 입력해주세요.');
 							$('#modal').modal({ backdrop: 'static', keyboard: false });
 							btnAction = 1;
@@ -219,7 +246,7 @@
 		$.fn.post = function() {
 			var form = $('<form></form>');
 			form.attr('method', 'post')
-				.attr('action', '/emailLogin');
+				.attr('action', '/join');
 			var field = $('<input></input>');
 			field.attr('type', 'hidden')
 				.attr('name', 'memberEmail')

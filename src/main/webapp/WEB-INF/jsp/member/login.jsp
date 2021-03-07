@@ -84,7 +84,6 @@
             <div class="text-center" style="float:none; margin:0 auto; width:400px; padding: 100px 0px 100px 0px;">
                
 				<h1 style="font-weight: 900; margin-bottom: 50px">로그인</h1>
-				
 
 				
 				<button class="btn btn-primary btn-lg"
@@ -130,7 +129,7 @@
 		        	<div class="col-xs-12" style="margin: 10px 0px 0px 0px;">
 						<a href="/searchIds">아이디 찾기</a> &nbsp; | &nbsp; 
 						<a href="searchPassword">비밀번호 찾기</a> &nbsp; | &nbsp;
-						<a href="/join">회원가입</a>
+						<a href="/join/varifyEmail">회원가입</a>
 					</div>
         		</div>
 				

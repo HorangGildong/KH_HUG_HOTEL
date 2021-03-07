@@ -53,16 +53,15 @@
 
 				<h1 style="font-weight: 900; margin-bottom: 50px">회원가입</h1>
 
-				<form class="form-horizontal" action="/join" method="post">
+				<form class="form-horizontal" action="/joinProc" method="post">
 
 					<div class="form-group">
 						<label for="inputEmail" class="col-xs-4 control-label">*이메일(아이디)</label>
 						<div class="col-xs-8">
-							<input type="email" class="form-control memberInput"
-								name="memberEmail" id="inputEmail" placeholder="Email" required>
-							<span class="underline"></span>
+							<input type="email" class="form-control memberInput" value="${memberEmail}"
+								name="email" id="inputEmail" placeholder="Email" disabled>
+							<input type="hidden" name="memberEmail" value="${memberEmail}">
 						</div>
-						<div class="check_font col-xs-offset-4 col-xs-8" id="emailCheck"></div>
 					</div>
 
 					<div class="form-group">
@@ -234,35 +233,8 @@
 			this.value = autoHypenPhone(this.value);
 		}
 
-		var isEmail;
 		var isNick;
 		var isPassword;
-		
-		$('#inputEmail').blur(function() {
-			var email = $('#inputEmail').val();
-			var str = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-			isEmail = false;
-			$.ajax({
-				url : '${pageContext.request.contextPath}/join/emailCheck?email=' + email,
-				type : 'get',
-				success : function(data) {
-					if (email == '') {
-						$('#nickCheck').text('');
-					} else if (!str.test(email)) {
-						$('#emailCheck').text('이메일 형식이 바르지 않습니다.');
-						$('#emailCheck').css('color', 'red');
-					} else if (data) {
-						$('#emailCheck').text('사용중인 이메일입니다.');
-						$('#emailCheck').css('color', 'red');
-					} else {
-						$('#emailCheck').text('사용가능한 이메일입니다.');
-						$('#emailCheck').css('color', 'blue');
-						isEmail = true;
-					}
-					$.fn.submitDisable();
-				}
-			});
-		});
 		
 		$('#inputNickname').blur(function() {
 			var nick = $('#inputNickname').val();
@@ -334,7 +306,7 @@
 		});
 		
 		$.fn.submitDisable = function() {
-			if(isEmail == true && isNick == true && isPassword == true) {
+			if(isNick == true && isPassword == true) {
 				$('#submitBtn').attr('disabled', false);
 			} else {
 				$('#submitBtn').attr('disabled', true);

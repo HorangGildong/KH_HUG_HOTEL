@@ -49,7 +49,7 @@ public class MemberLoginController {
 	@GetMapping("/loginFailure")
 	public String loginFailure(Model model) {
 		model.addAttribute("loginFailure", true);
-		return "/member/login";
+		return "/member/emailLogin";
 	}
 	
 	@PreAuthorize("isAuthenticated()")

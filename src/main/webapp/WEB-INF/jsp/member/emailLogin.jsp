@@ -124,7 +124,7 @@
 		        	<div class="col-xs-12" style="margin: 20px 0px 0px 0px;">
 						<a href="/searchIds">아이디 찾기</a> &nbsp; | &nbsp;
 						<a href="searchPassword">비밀번호 찾기</a> &nbsp; | &nbsp;
-						<a href="/join">회원가입</a>
+						<a href="/join/varifyEmail">회원가입</a>
 					</div>
         		</div>
 				

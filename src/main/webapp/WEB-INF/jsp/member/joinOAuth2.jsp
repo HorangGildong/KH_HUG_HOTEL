@@ -58,7 +58,7 @@
 
 				<h1 style="font-weight: 900; margin-bottom: 50px">Google 계정  등록</h1>
 				
-				<form class="form-horizontal" action="/join" method="post">
+				<form class="form-horizontal" action="/joinProc" method="post">
 				
 					<div class="form-group">
 						<label for="inputEmail" class="col-xs-4 control-label">이메일(아이디)</label>
@@ -73,7 +73,7 @@
 					<div class="form-group">
 						<label for="inputNick" class="col-xs-4 control-label">*닉네임</label>
 						<div class="col-xs-8">
-							<input type="text" class="form-control input" name="memberNick" autocomplete="off"
+							<input type="text" class="form-control memberInput" name="memberNick" autocomplete="off"
 								id="inputNickname" placeholder="Nickname" required>
 							<span class="underline"></span>
 						</div>

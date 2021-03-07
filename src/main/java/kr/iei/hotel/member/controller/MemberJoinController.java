@@ -31,8 +31,19 @@ public class MemberJoinController {
 		return "/member/join";
 	}
 
-	// join
 	@PostMapping("/join")
+	public String joinPage(String memberEmail, Model model) {
+		model.addAttribute("memberEmail", memberEmail);
+		return "/member/join";
+	}
+	
+	@GetMapping("/join/varifyEmail")
+	public String varifyEmail() {
+		return "/member/verifyEmail";
+	}
+	
+	// join
+	@PostMapping("/joinProc")
 	public String join(MemberDto memberDto, Model model) {
 		memberDto = memberService.passwordEncode(memberDto);
 		int count = memberUpdateService.join(memberDto);
