@@ -35,10 +35,15 @@ public class MemberLoginController {
 		return "/member/login";
 	}
 
-	@PostMapping("/login")
+	@GetMapping("/emailLogin")
+	public String emailLoginPage() {
+		return "/member/emailLogin";
+	}
+	
+	@PostMapping("/emailLogin")
 	public String emailLoginPage(String memberEmail, Model model) {
 		model.addAttribute("memberEmail", memberEmail);
-		return "/member/login";
+		return "/member/emailLogin";
 	}
 	
 	@GetMapping("/loginFailure")

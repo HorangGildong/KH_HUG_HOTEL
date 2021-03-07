@@ -84,7 +84,7 @@
 					</button>
 				</div>
 				
-				<form id="loginId" action="/login" method="post">
+				<form id="loginId" action="/emailLogin" method="post">
 					<input type="hidden" class="form-control" name="memberEmail" id="sInputId">
 				</form>
 

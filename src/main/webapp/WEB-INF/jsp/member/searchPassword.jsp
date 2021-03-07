@@ -223,7 +223,7 @@
 		$.fn.post = function() {
 			var form = $('<form></form>');
 			form.attr('method', 'post')
-				.attr('action', '/login');
+				.attr('action', '/emailLogin');
 			var field = $('<input></input>');
 			field.attr('type', 'hidden')
 				.attr('name', 'memberEmail')

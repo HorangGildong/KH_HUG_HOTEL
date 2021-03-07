@@ -120,7 +120,7 @@
 						</div>
 					</div>
 					
-					<div class="text-center" style="font-size: 16px;">
+					<div class="text-center" style="font-size: 16px; font-weight: bold;">
 						<a href="/changePassword">비밀번호 변경</a>&nbsp; &nbsp;  |  &nbsp; &nbsp;<a href="/unRegister">회원탈퇴</a>
 					</div>
 
