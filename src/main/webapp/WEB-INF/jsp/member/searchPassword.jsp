@@ -62,6 +62,7 @@
 								name="memberEmail" id="inputEmail" placeholder="Email" required>
 							<span class="underline"></span>
 						</div>
+						<div class="check_font col-xs-offset-4 col-xs-8" id="emailCheck"></div>
 					</div>
 					
 					<div class="form-group" style="margin-bottom: 25px">
@@ -80,7 +81,7 @@
 						
 				<br>
 
-				<button class="btn btn-primary btn-lg btn-block" id="searchBtn" style="font-weight: bold;">
+				<button class="btn btn-primary btn-lg btn-block" id="searchBtn" style="font-weight: bold;" disabled>
 					인증번호 받기
 				</button>
 
@@ -120,6 +121,34 @@
 		var btnAction = 0;
 		var email;
 		var code;
+		
+		$('#inputEmail').blur(function() {
+			var email = $('#inputEmail').val();
+			var str = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+			isEmail = false;
+			$.ajax({
+				url : '${pageContext.request.contextPath}/join/emailCheck?email=' + email,
+				type : 'get',
+				success : function(data) {
+					if (email == '') {
+						$('#emailCheck').text('');
+					} else if (!str.test(email)) {
+						$('#emailCheck').text('이메일 형식이 바르지 않습니다.');
+						$('#emailCheck').css('color', 'red');
+						$('#searchBtn').attr('disabled', true);
+					} else if (data) {
+						$('#emailCheck').text('');
+						$('#emailCheck').css('color', 'blue');
+						$('#searchBtn').attr('disabled', false);
+					} else {
+						$('#emailCheck').text('존재하지 않는 이메일입니다.');
+						$('#emailCheck').css('color', 'red');
+						$('#searchBtn').attr('disabled', true);
+					}
+					$.fn.submitDisable();
+				}
+			});
+		});
 		
 		$('#searchBtn').click(function() {
 			$('#baseModal').modal({ backdrop: 'static', keyboard: false });

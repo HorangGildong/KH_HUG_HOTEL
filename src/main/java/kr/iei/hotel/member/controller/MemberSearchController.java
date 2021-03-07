@@ -2,6 +2,7 @@ package kr.iei.hotel.member.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,15 +50,15 @@ public class MemberSearchController {
 	@ResponseBody
 	@GetMapping("/searchPassword/searchId")
 	public boolean isExistingId(@RequestParam("email") String memberEmail, HttpSession codeSession) {
+		boolean isExistingId = (memberGetService.getMemberDtoByEmail(memberEmail) != null);
 		memberEmailService.setCodeSession(codeSession);
 		memberEmailService.sendCodeEmail(memberEmail, codeSession);
-		System.out.println(codeSession.getAttribute("code"));
-		return true;
+		return isExistingId;
 	}
 
 	@ResponseBody
 	@GetMapping("/searchPassword/compareCode")
-	public boolean isMatchingCode(@RequestParam("code") String code, @RequestParam("email") String memberEmail, HttpSession codeSession) {
+	public boolean isMatchingCode(@RequestParam("code") String code, @RequestParam("email") String memberEmail,	HttpSession codeSession) {
 		boolean isExistingId = (memberGetService.getMemberDtoByEmail(memberEmail) != null);
 		boolean isMatchingCode = code.equals((String) codeSession.getAttribute("code"));
 		if(isMatchingCode) {
