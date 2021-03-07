@@ -91,7 +91,7 @@
 					style="background-color: #4285F4; border: #4285F4; padding: 0; height: 55px; margin-bottom: 20px; position: relative;"
 					onclick = "location.href = '/oauth2/authorization/google' ">
 					<div style="position: absolute; display: inline-block; width: 55px; height: 55; border-right: 1px solid white; font-weight: 900; font-size: 20px;
-						border-radius: 6px 0px 0px 6px; border: 3px solid #4285F4; background-color: white; top: 0%;">
+						border-radius: 4px 0px 0px 4px; background-color: white; top: 3px; left: 3px;">
 						<img src="/img/googleLoginBtn.png" style="height: 37px; margin: 6px">
 					</div>
 					<div style="display: inline-block; width: 400px; font-weight: bold; font-size: 18px; padding-left: 40px;">
@@ -102,10 +102,10 @@
 				<br>
 				
 				<button class="btn btn-primary btn-lg"
-					style="background-color: orange; border: #4285F4; padding: 0; height: 55px; position: relative;"
+					style="background-color: deepskyblue; border: #4285F4; padding: 0; height: 55px; position: relative;"
 					onclick = "location.href = '/emailLogin' ">
 					<div style="position: absolute; display: inline-block; width: 55px; height: 55; border-right: 1px solid white; font-weight: 900;
-						border-radius: 6px 0px 0px 6px; border: 3px solid orange; background-color: white; color: orange; top: 0%;">
+						border-radius: 4px 0px 0px 4px; background-color: white; color: deepskyblue; top: 3px; left: 3px;">
 						<div class="glyphicon glyphicon-envelope" aria-hidden="true" style="height: 39px; margin: 5px; padding-top: 6px; font-size: 28px;">
 						</div>
 					</div>
@@ -128,8 +128,8 @@
 		        		</label>
 		        	</div> -->
 		        	<div class="col-xs-12" style="margin: 10px 0px 0px 0px;">
-						<a href="/searchIds">아이디 찾기</a> &nbsp; &nbsp; | &nbsp; &nbsp; 
-						<a href="searchPassword">비밀번호 찾기</a> &nbsp; &nbsp; | &nbsp; &nbsp;
+						<a href="/searchIds">아이디 찾기</a> &nbsp; | &nbsp; 
+						<a href="searchPassword">비밀번호 찾기</a> &nbsp; | &nbsp;
 						<a href="/join">회원가입</a>
 					</div>
         		</div>
