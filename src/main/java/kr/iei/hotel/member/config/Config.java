@@ -39,9 +39,9 @@ public class Config extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        	.csrf().disable()								// csrf 비활성화 
-//        	.cors().disable()								// cors 비활성화
-//        	.formLogin().disable()							// 
+//        	.csrf().disable()								// csrf 비활성화 -> (태그 같은거 심어서 사용자가 의도치 않은 행동을 하게 만듦...form 태그 전송시 post방식을 쓰면 좋음.)
+//        	.cors().disable()								// cors 비활성화 -> (http헤더에 담긴 정보를 보고 서비스하고 있지 않은 사이트에서 세션 요청하는걸 막는 것.)
+//        	.formLogin().disable()							// formLogin(default 로그인 폼 제공) 비활성화
         	.headers().frameOptions().disable()				// 
         	;
         http
