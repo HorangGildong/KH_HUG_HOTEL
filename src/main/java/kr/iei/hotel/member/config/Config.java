@@ -39,10 +39,10 @@ public class Config extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        	.csrf().disable()								// cors 비활성화 -> 몰라
-//        	.cors().disable()								// csrf 비활성화 -> 몰라
-//        	.formLogin().disable()							// 몰라
-        	.headers().frameOptions().disable()				// 몰라
+        	.csrf().disable()								// csrf 비활성화 
+//        	.cors().disable()								// cors 비활성화
+//        	.formLogin().disable()							// 
+        	.headers().frameOptions().disable()				// 
         	;
         http
         	.authorizeRequests()
